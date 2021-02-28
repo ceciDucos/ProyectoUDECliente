@@ -88,9 +88,14 @@
                 setConnected(true);
                 console.log('Connected: ' + frame);
                 //me subscribo al canal de datos
+
                 stompClient.subscribe('/topic/user', function (greeting) {
                     console.log('consoles de CECI', greeting);
                     showGreeting(greeting.body);
+                });
+                stompClient.subscribe('/topic/mover-avion', function (greeting) {
+                    showGreeting(greeting);
+                    console.log("me subscribi bien!");
                 });
                 //solicito la creacion de una nueva partida
                 stompClient.send("/app/nueva-partida", {}, JSON.stringify({
@@ -108,11 +113,15 @@
                 setConnected(true);
                 console.log('Connected: ' + frame);
                 //me subscribo al canal de datos
+                //solicito unirme a una partida
                 stompClient.subscribe('/topic/user', function (greeting) {
                     console.log('consoles de CECI', greeting);
                     showGreeting(greeting.body);
                 });
-                //solicito unirme a una partida
+                stompClient.subscribe('/topic/mover-avion', function (greeting) {
+                    // showGreeting(greeting.body);
+                    console.log(greeting);
+                });
                 stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                     'nombreJugador': $("#nombreJugadorUnirse").val(),
                 }));
@@ -122,12 +131,17 @@
 
         function moverAvion() {
             stompClient.send("/app/mover-avion", {}, JSON.stringify({
-                'nombrePartida': 'La mejor partida',
+                'nombrePartida': 'a',
                 'idJugador': idJugador,
-                'id': 1,
-                'ejeX': 80,
-                'ejeY': 50,
+                'idAvion': 1,
+                'ejeX': 200,
+                'ejeY': 400,
                 'angulo': 40,
+                'estado': 1,
+                'vida': 100,
+                'combustible': 100,
+                'tieneBomba': true,
+                'visible': true,
             }));
         }
 
