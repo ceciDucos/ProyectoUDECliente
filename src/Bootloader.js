@@ -34,14 +34,12 @@ class Bootloader extends Phaser.Scene {
         var self = this;
         stompClient = Stomp.over(socket);        
         stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
             //me subscribo al canal de datos
             stompClient.subscribe('/topic/user', function (greeting) {
-                console.log('consoles de CECI', greeting);
-                //showGreeting(greeting.body);
                 return;
             });            
-            stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 'nombrePartida': 'PartidaPrueba',
@@ -60,13 +58,11 @@ class Bootloader extends Phaser.Scene {
         var self = this;
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
             //me subscribo al canal de datos
             stompClient.subscribe('/topic/user', function (greeting) {
-                console.log('consoles de CECI', greeting);
-                //showGreeting(greeting.body);
             });
-            stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 'nombreJugador': 'Ceci',
@@ -80,7 +76,6 @@ class Bootloader extends Phaser.Scene {
     }
 
     moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {
-        console.log('team: ' + team + 'posicionX: ' + x + ', posicionY: ' + y + ', angulo: ' + angle, + ', planeNumber' + planeNumber);
         stompClient.send("/app/mover-avion", {}, JSON.stringify({
             'nombrePartida': 'PartidaPrueba',
             'idJugador': team,
@@ -95,7 +90,7 @@ class Bootloader extends Phaser.Scene {
             'visible': visible,
         }));
     }
-
+    /*
     setConnected(connected) {
         $("#connect").prop("disabled", connected);
         $("#disconnect").prop("disabled", !connected);
@@ -110,7 +105,7 @@ class Bootloader extends Phaser.Scene {
 
     showGreeting(message) {
         $("#userinfo").append("<tr><td>" + message + "</td></tr>");
-    }
+    }*/
     
 }
 export default Bootloader;

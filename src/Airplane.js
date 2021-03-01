@@ -64,40 +64,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
 
     update(time, delta, scene) {
         let animName;
-        if (this.team === 1) {
-            switch (this.planeNumber) {
-                case 1:
-                case 5: animName = 'equipo1avion1';
-                    break;
-                case 2:
-                case 6: animName = 'equipo1avion2';
-                    break;
-                case 3:
-                case 7: animName = 'equipo1avion3';
-                    break;
-                case 4:
-                case 8: animName = 'equipo1avion4';
-                    break;
-            }
-        }
-        else {
-            switch (this.planeNumber) {
-                case 1:
-                case 5: animName = 'equipo2avion1';
-                    break;
-                case 2:
-                case 6: animName = 'equipo2avion2';
-                    break;
-                case 3:
-                case 7: animName = 'equipo2avion3';
-                    break;
-                case 4:
-                case 8: animName = 'equipo2avion4';
-                    break;
-            }
-        }
+        animName = this.selectAnimation(this.team);        
         if (this.estado !== 0) {
-            console.log('llego a mover avion');
             this.scene.bootloaderScene.moverAvion(this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
         }
         if (this.estado === 1) {
@@ -170,6 +138,70 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         }
         else {
             this.body.setAngularVelocity(0);
+        }        
+    }
+
+    selectAnimation(team) {
+        let animName;
+        if (team === 1) {
+            switch (this.planeNumber) {
+                case 1:
+                case 5: animName = 'equipo1avion1';
+                    break;
+                case 2:
+                case 6: animName = 'equipo1avion2';
+                    break;
+                case 3:
+                case 7: animName = 'equipo1avion3';
+                    break;
+                case 4:
+                case 8: animName = 'equipo1avion4';
+                    break;
+            }
         }
+        else {
+            switch (this.planeNumber) {
+                case 1:
+                case 5: animName = 'equipo2avion1';
+                    break;
+                case 2:
+                case 6: animName = 'equipo2avion2';
+                    break;
+                case 3:
+                case 7: animName = 'equipo2avion3';
+                    break;
+                case 4:
+                case 8: animName = 'equipo2avion4';
+                    break;
+            }
+        }
+        return animName;
+    }
+
+    moveEnemyAirplane(data) {
+        let animName;    
+        this.x = data.ejeX;
+        this.y = data.ejeY;
+        if (this.angle > data.angulo) {
+            animName = this.selectAnimation(data.idJugador);
+            //this.anims.play(animName, true);
+        }
+        else if (this.angle < data.angulo) {
+
+        }
+        this.angle = data.angulo;
+        if (this.estado !== 0 && this.estado > data.estado) {
+            this.setScale(0.2);       
+            this.setDepth(1);
+        }
+        else if(this.estado < data.estado) {
+            this.setScale(0.3);
+            this.setDepth(2);
+        }   
+        this.estado = data.estado;
+        this.life = data.vida;
+        this.fuel = data.combustible;
+        this.hasBomb = data.tieneBomba;
+        this.visible = data.visible;
     }
 }

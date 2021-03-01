@@ -6,8 +6,6 @@ class Field extends Phaser.Scene {
     }
 
     init(data) {
-        console.log('Scene: Field');
-        console.log(data);
         this.team = data.team;
     }
 
@@ -26,7 +24,6 @@ class Field extends Phaser.Scene {
 
     create() {        
         this.bootloaderScene = this.scene.get('Bootloader');
-        console.log('team: ' + this.team);
         this.map = this.add.sprite(540, 360, 'map', 'mapa-1.png');
         this.frameNames = this.anims.generateFrameNames('map', {
             start: 1, end: 5, zeroPad: 1,
@@ -320,19 +317,9 @@ class Field extends Phaser.Scene {
     }
 
     moveEnemyAirplane(data) {
-        console.log(this.enemies[data.idAvion-3]);
-        console.log('id jugador: ' + data.idJugador);
-        if (data.idJugador === this.team) {
-            this.bootloaderScene.gameId = data.nombrePartida;    
-            this.enemies[data.idAvion-4].x = data.ejeX;
-            this.enemies[data.idAvion-4].y = data.ejeY;
-            this.enemies[data.idAvion-4].angle = data.angulo;
-            this.enemies[data.idAvion-4].estado = data.estado;
-            this.enemies[data.idAvion-4].life = data.vida;
-            this.enemies[data.idAvion-4].fuel = data.combustible;
-            this.enemies[data.idAvion-4].hasBomb = data.tieneBomba;
-            this.enemies[data.idAvion-4].visible = data.visible;
-            console.log('llego al moveEnemyAirplane');
+        //if (this.bootloaderScene.gameId ==== data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
+        if (data.idJugador !== this.team) {
+            this.enemies[data.idAvion-1].moveEnemyAirplane(data);
         }
     }
 }
