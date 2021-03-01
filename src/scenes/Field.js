@@ -348,6 +348,16 @@ class Field extends Phaser.Scene {
             this.enemies[data.idAvion-1].moveEnemyAirplane(data);
         }
     }
+
+    blowUpAirplanes(data) {
+        if (data.idJugador !== this.team) {
+            this.enemies[data.idAvion-1].blowUpAirplane(data);
+        }
+        else {
+            this.airplanes[data.idAvion-1].blowUpAirplane(data);
+        }
+        console.log('llego data de aviones estallados');
+    }
 }
 
 export default Field;

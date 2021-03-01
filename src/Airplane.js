@@ -66,7 +66,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     update(time, delta) {
         let animName;
         animName = this.selectAnimation(this.team);        
-        if (this.estado !== 0) {
+        if (this.estado !== 0 && this.estado !== 3) {
             this.scene.bootloaderScene.moverAvion(this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
         }
         if (this.estado === 1) {
@@ -218,5 +218,15 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 this.bomb.active = false;
             }
         });
+    }
+
+    blowUpAirplane(data) {
+        if (data.estado === 3) {
+            this.visible = false;
+            this.active = false;
+            this.life = 0;
+            this.fuel = 0;
+            this.estado = 3;
+        }
     }
 }
