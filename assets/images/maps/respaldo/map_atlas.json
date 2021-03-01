@@ -1,0 +1,146 @@
+{
+	"textures": [
+		{
+			"image": "map.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 3248,
+				"h": 1446
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "mapa_0.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 2,
+						"y": 2,
+						"w": 1080,
+						"h": 720
+					}
+				},
+				{
+					"filename": "mapa_1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 2,
+						"y": 724,
+						"w": 1080,
+						"h": 720
+					}
+				},
+				{
+					"filename": "mapa_2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 1084,
+						"y": 2,
+						"w": 1080,
+						"h": 720
+					}
+				},
+				{
+					"filename": "mapa_3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 1084,
+						"y": 724,
+						"w": 1080,
+						"h": 720
+					}
+				},
+				{
+					"filename": "mapa_4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 2166,
+						"y": 2,
+						"w": 1080,
+						"h": 720
+					}
+				},
+				{
+					"filename": "mapa_5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1080,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1080,
+						"h": 720
+					},
+					"frame": {
+						"x": 2166,
+						"y": 724,
+						"w": 1080,
+						"h": 720
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b7d3915ba0ba6d3240b735b085d9a0db:ee7d09dda6bf047050cf6b47654f53ca:68463c66230aaeb26021edb8ea8cd9b6$"
+	}
+}

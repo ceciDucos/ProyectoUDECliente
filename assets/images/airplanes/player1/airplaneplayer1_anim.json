@@ -1,0 +1,68 @@
+{
+    "anims": [
+        {
+            "key": "equipo1avion4",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 24,
+            "frames": [
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion4"
+                },
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion4-2"
+                }
+            ]
+        },
+        {
+            "key": "equipo1avion3",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 24,
+            "frames": [
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion3"
+                },
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion3-2"
+                }
+            ]
+        },
+        {
+            "key": "equipo1avion2",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 24,
+            "frames": [
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion2"
+                },
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion2-2"
+                }
+            ]
+        },
+        {
+            "key": "equipo1avion1",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 24,
+            "frames": [
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion1"
+                },
+                {
+                    "key": "airplaneplayer1",
+                    "frame": "equipo1avion1-2"
+                }
+            ]
+        }
+    ]
+}

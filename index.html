@@ -1,236 +1,143 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Bombs Away!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser-arcade-physics.min.js"></script>
-    <script>
-        var stompClient = null;
-        var idJugador = null;
-
-        function setConnected(connected) {
-            $("#connect").prop("disabled", connected);
-            $("#disconnect").prop("disabled", !connected);
-            if (connected) {
-                $("#conversation").show();
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bombs Away</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
             }
-            else {
-                $("#conversation").hide();
+            body {
+                background-color: #2c3e50;
             }
-            $("#userinfo").html("");
-        }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            var stompClient = null;
+            var idJugador = null;
 
-        // function waitToConnection() {
-        //     await new Promise(resolve => {
-        //         var socket = new SockJS('http://localhost:8091/bombs-away');
-        //         stompClient = Stomp.over(socket);
-        //         stompClient.connect({}, function (frame) {
-        //             setConnected(true);
-        //             console.log('Connected: ' + frame);
-        //             stompClient.subscribe('/topic/user', function (greeting) {
-        //                 console.log('consoles de CECI', greeting);
-        //                 showGreeting(greeting.body);
-        //             });
-        //         });
-        //     })
-        // }
-
-        // async function connect() {
-        //     var socket = new SockJS('http://localhost:8091/bombs-away');
-        //     stompClient = Stomp.over(socket);
-        //     stompClient.connect({}, async function (frame) {
-        //         setConnected(true);
-        //         console.log('Connected: ' + frame);
-        //         stompClient.subscribe('/topic/user', function (greeting) {
-        //             console.log('consoles de CECI', greeting);
-        //             showGreeting(greeting.body);
-        //         });
-        //         stompClient.send("/app/nueva-partida", {}, JSON.stringify({
-        //             'nombrePartida': $("#nombrePartida").val(),
-        //             'nombreJugador': $("#nombreJugador").val(),
-        //         }));
-        //     });
-        // }
-
-        async function connect(action) {
-            var socket = new SockJS('http://localhost:8091/bombs-away');
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, async function (frame) {
-                setConnected(true);
-                console.log('Connected: ' + frame);
-                stompClient.subscribe('/topic/user', function (greeting) {
-                    console.log('consoles de CECI', greeting);
-                    showGreeting(greeting.body);
-                });
-                action;
-            });
-        }
-
-        function disconnect() {
-            if (stompClient !== null) {
-                stompClient.disconnect();
+            function setConnected(connected) {
+                console.log('paso por el setConnected');
+                $("#connect").prop("disabled", connected);
+                $("#disconnect").prop("disabled", !connected);
+                if (connected) {
+                    $("#conversation").show();
+                }
+                else {
+                    $("#conversation").hide();
+                }
+                $("#userinfo").html("");
             }
-            setConnected(false);
-            console.log("Disconnected");
-        }
-
-        function crearPartidaEnEspera() {
-            //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
-            var socket = new SockJS('http://localhost:8091/bombs-away');
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, function (frame) {
-                setConnected(true);
-                console.log('Connected: ' + frame);
-                //me subscribo al canal de datos
-
-                stompClient.subscribe('/topic/user', function (greeting) {
-                    console.log('consoles de CECI', greeting);
-                    showGreeting(greeting.body);
+            async function connect(action) {
+                console.log('entro al connect!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+                var socket = new SockJS('http://localhost:8091/bombs-away');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, async function (frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    stompClient.subscribe('/topic/user', function (greeting) {
+                        /*console.log('consoles de CECI', greeting);
+                        showGreeting(greeting.body);*/
+                    });
+                    action;
                 });
-                stompClient.subscribe('/topic/mover-avion', function (greeting) {
-                    showGreeting(greeting);
-                    console.log("me subscribi bien!");
+            }
+
+            function disconnect() {
+                if (stompClient !== null) {
+                    stompClient.disconnect();
+                }
+                setConnected(false);
+                console.log("Disconnected");
+            }
+
+            function crearPartidaEnEspera() {
+                //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
+                var socket = new SockJS('http://localhost:8091/bombs-away');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function (frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    //me subscribo al canal de datos
+                    stompClient.subscribe('/topic/user', function (greeting) {
+                        console.log('consoles de CECI', greeting);
+                        showGreeting(greeting.body);
+                        return;
+                    });
+                    //solicito la creacion de una nueva partida
+                    stompClient.send("/app/nueva-partida", {}, JSON.stringify({
+                        'nombrePartida': 'PartidaPrueba',
+                        'nombreJugador': 'Fede',
+                    }));
+                    idJugador = 1;
                 });
-                //solicito la creacion de una nueva partida
-                stompClient.send("/app/nueva-partida", {}, JSON.stringify({
-                    'nombrePartida': $("#nombrePartida").val(),
-                    'nombreJugador': $("#nombreJugador").val(),
+            }
+
+            function unirseAPartida() {
+                var socket = new SockJS('http://localhost:8091/bombs-away');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function (frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    //me subscribo al canal de datos
+                    stompClient.subscribe('/topic/user', function (greeting) {
+                        console.log('consoles de CECI', greeting);
+                        showGreeting(greeting.body);
+                    });
+                    //solicito unirme a una partida
+                    stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
+                        'nombreJugador': $("#nombreJugadorUnirse").val(),
+                    }));
+                });
+                idJugador = 2;
+            }
+
+            function moverAvion(x,y,angle) {
+                stompClient.send("/app/mover-avion", {}, JSON.stringify({
+                    'nombrePartida': 'La mejor partida',
+                    'idJugador': idJugador,
+                    'id': 1,
+                    'ejeX': x,
+                    'ejeY': y,
+                    'angulo': angle,
                 }));
-                idJugador = 1;
-            });
-        }
+            }
 
-        function unirseAPartida() {
-            var socket = new SockJS('http://localhost:8091/bombs-away');
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, function (frame) {
-                setConnected(true);
-                console.log('Connected: ' + frame);
-                //me subscribo al canal de datos
-                //solicito unirme a una partida
-                stompClient.subscribe('/topic/user', function (greeting) {
-                    console.log('consoles de CECI', greeting);
-                    showGreeting(greeting.body);
+
+
+            function sendName() {
+                stompClient.send("/app/user", {}, JSON.stringify({ 'name': $("#name").val() }));
+            }
+
+            function showGreeting(message) {
+                $("#userinfo").append("<tr><td>" + message + "</td></tr>");
+            }
+
+            $(function () {
+                $("form").on('submit', function (e) {
+                    e.preventDefault();
                 });
-                stompClient.subscribe('/topic/mover-avion', function (greeting) {
-                    // showGreeting(greeting.body);
-                    console.log(greeting);
-                });
-                stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
-                    'nombreJugador': $("#nombreJugadorUnirse").val(),
-                }));
+                // $("#connect").click(function () { connect(); });
+                // $("#disconnect").click(function () { disconnect(); });
+                $("#send").click(function () { sendName(); });
+                $("#moverAvion").click(function () { moverAvion(); });
+                $("#crearPartida").click(function () { crearPartidaEnEspera(); });
+                $("#unirsePartida").click(function () { unirseAPartida(); });
             });
-            idJugador = 2;
-        }
-
-        function moverAvion() {
-            stompClient.send("/app/mover-avion", {}, JSON.stringify({
-                'nombrePartida': 'a',
-                'idJugador': idJugador,
-                'idAvion': 1,
-                'ejeX': 200,
-                'ejeY': 400,
-                'angulo': 40,
-                'estado': 1,
-                'vida': 100,
-                'combustible': 100,
-                'tieneBomba': true,
-                'visible': true,
-            }));
-        }
-
-        function sendName() {
-            stompClient.send("/app/user", {}, JSON.stringify({ 'name': $("#name").val() }));
-        }
-
-        function showGreeting(message) {
-            $("#userinfo").append("<tr><td>" + message + "</td></tr>");
-        }
-
-        $(function () {
-            $("form").on('submit', function (e) {
-                e.preventDefault();
-            });
-            // $("#connect").click(function () { connect(); });
-            // $("#disconnect").click(function () { disconnect(); });
-            $("#send").click(function () { sendName(); });
-            $("#moverAvion").click(function () { moverAvion(); });
-            $("#crearPartida").click(function () { crearPartidaEnEspera(); });
-            $("#unirsePartida").click(function () { unirseAPartida(); });
-        });
-    </script>
-</head>
-
-<body>
-    <noscript>
-        <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-            enabled. Please enable
-            Javascript and reload this page!</h2>
-    </noscript>
-    <div id="main-content" class="container">
-        <div class="row">
-            <!-- <div class="col-md-6">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="connect">WebSocket connection:</label>
-                        <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                        <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                        </button>
-                    </div>
-                </form>
-            </div> -->
-            <h3>Nueva partida</h3>
-            <div class="col-md-6">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="nombrePartida">Nombre de la partida</label>
-                        <input type="text" id="nombrePartida" class="form-control" placeholder="Ingresar partida...">
-                        <label for="nombreJugador">Nombre jugador</label>
-                        <input type="text" id="nombreJugador" class="form-control" placeholder="Ingresar nombre...">
-                    </div>
-                </form>
-                <button id="crearPartida" class="btn btn-default" type="submit">Nueva partida</button>
-                <!-- <button id="crearPartida" class="btn btn-default" type="submit">Crear partida</button> -->
-                <button id="moverAvion" class="btn btn-default" type="submit">Mover avion 1</button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <h3>Unirse</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <form class="form-inline">
-
-                    <div class="form-group">
-                        <label for="nombreJugadorUnirse">Nombre Jugador</label>
-                        <input type="text" id="nombreJugadorUnirse" class="form-control"
-                            placeholder="Ingresar nombre...">
-                    </div>
-                    <button id="unirsePartida" class="btn btn-default" type="submit">Unirse</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table id="conversation" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>StockInfo</th>
-                    </tr>
-                </thead>
-                <tbody id="userinfo">
-                </tbody>
-            </table>
-        </div>
-    </div>
-    </div>
-</body>
-
-</html>
+        </script>
+    </head>
+    <body>
+        <div id="phaser_container">
+            
+        </div>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script> 
+        <script src="./node_modules/phaser/dist/phaser.min.js"></script>
+        <script src="./src/main.js" type="module"></script>
+    </body>
+    </html>

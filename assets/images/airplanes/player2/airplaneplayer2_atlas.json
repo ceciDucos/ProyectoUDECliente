@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "equipo2avion1",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 1,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion1-2",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 125,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion2",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 1,
+                "y": 175
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion2-2",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 125,
+                "y": 175
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion3",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 249,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion3-2",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 249,
+                "y": 175
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion4",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 1,
+                "y": 349
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "equipo2avion4-2",
+            "frame": {
+                "w": 123,
+                "h": 173,
+                "x": 125,
+                "y": 349
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
