@@ -7,6 +7,12 @@ class Field extends Phaser.Scene {
 
     init(data) {
         this.team = data.team;
+        this.gameId = data.gameId;
+        this.enemyTeam = data.enemyTeam;
+        this.teamBaseX = data.teamBaseX;
+        this.teamBaseY = data.teamBaseY;
+        this.enemyBaseX = data.enemyBaseX;
+        this.enemyBaseY = data.enemyBaseY;
     }
 
     preload() {
@@ -22,7 +28,8 @@ class Field extends Phaser.Scene {
         Turret.preload(this);
     }
 
-    create() {        
+    create() {
+        this.physics.world.setFPS(30);        
         this.bootloaderScene = this.scene.get('Bootloader');
         this.map = this.add.sprite(540, 360, 'map', 'mapa-1.png');
         this.frameNames = this.anims.generateFrameNames('map', {
@@ -70,7 +77,7 @@ class Field extends Phaser.Scene {
         let BaseY;
         let enemyBaseX;
         let enemyBaseY;
-        if (this.team === 1) {
+        /*if (this.team === 1) {
             BaseX = 540;
             BaseY = 50;
             enemyBaseX = 540;
@@ -81,10 +88,20 @@ class Field extends Phaser.Scene {
             BaseY = 670;
             enemyBaseX = 540;
             enemyBaseY = 50;
-        }
+        }*/
         
         let frame;
         let frame2;
+        let texture;
+        let enemyTexture;
+        if (this.team === 1) {
+            texture = 'airplaneplayer1';
+            enemyTexture = 'airplaneplayer2';
+        }
+        else {            
+            texture = 'airplaneplayer2';
+            enemyTexture = 'airplaneplayer1';
+        }
         for (let i = 0; i < this.airplanesQuantity; i++) {
             if (i < 4) {
                 frame = 'equipo1avion' + (i + 1);
@@ -94,8 +111,14 @@ class Field extends Phaser.Scene {
                 frame = 'equipo1avion' + (i - 3);
                 frame2 = 'equipo2avion' + (i - 3);
             }
-            this.airplanes[i] = new Airplane({ scene: this, x: BaseX, y: BaseY, texture: 'airplaneplayer1', frame: frame, team: this.team, planeNumber: (i + 1) });
-            this.enemies[i] = new Airplane({ scene: this, x: enemyBaseX, y: enemyBaseY, texture: 'airplaneplayer2', frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) }); //Luego cambiar por la variable "team"
+            if (this.team === 1) {
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame, team: this.team, planeNumber: (i + 1) });
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) }); //Luego cambiar por la variable "team"
+            }
+            else {
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i + 1) });
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i + 1) }); //Luego cambiar por la variable "team"
+            }
         }
 
         /*for (i = 0; i < this.airplanesQuantity; i++) {
@@ -317,6 +340,9 @@ class Field extends Phaser.Scene {
     }
 
     moveEnemyAirplane(data) {
+        /*if ((data.idAvion-1) === 3) {
+            console.log('llego info del avion 4');
+        }*/
         //if (this.bootloaderScene.gameId ==== data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
         if (data.idJugador !== this.team) {
             this.enemies[data.idAvion-1].moveEnemyAirplane(data);

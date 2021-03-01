@@ -11,6 +11,11 @@ class Bootloader extends Phaser.Scene {
     create() {
         this.team;
         this.gameId;
+        this.enemyTeam;
+        this.teamBaseX;
+        this.teamBaseY;
+        this.enemyBaseX;
+        this.enemyBaseY;
         this.stompClient = null;
         this.createServer = this.add.text(10, 10, 'Crear partida', { fill: '#0f0' });
         this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });        
@@ -24,7 +29,8 @@ class Bootloader extends Phaser.Scene {
     }
 
     pasarEscena() {
-        this.scene.launch('Field', { team: this.team, gameId: this.gameId});        
+        this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+            enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
         this.fieldScene = this.scene.get('Field');
     }
 
@@ -51,6 +57,8 @@ class Bootloader extends Phaser.Scene {
         this.enemyTeam = 2;
         this.teamBaseX = 540;
         this.teamBaseY = 50;
+        this.enemyBaseX = 540;
+        this.enemyBaseY = 670;
     }
 
     unirseAPartida() {
@@ -73,9 +81,14 @@ class Bootloader extends Phaser.Scene {
         this.enemyTeam = 1;
         this.teamBaseX = 540;
         this.teamBaseY = 670;
+        this.enemyBaseX = 540;
+        this.enemyBaseY = 50;
     }
 
-    moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {
+    moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {        
+        if(planeNumber == 3) {
+            console.log('avion 4 llego al send');
+        }            
         stompClient.send("/app/mover-avion", {}, JSON.stringify({
             'nombrePartida': 'PartidaPrueba',
             'idJugador': team,
@@ -89,6 +102,9 @@ class Bootloader extends Phaser.Scene {
             'tieneBomba': tieneBomba,           
             'visible': visible,
         }));
+        if(planeNumber == 3) {
+            console.log('avion 4 mando el send');
+        }   
     }
     /*
     setConnected(connected) {

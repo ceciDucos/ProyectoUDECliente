@@ -6,6 +6,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);
         scene.physics.add.existing(this);
+        this.scene = scene;
         if (team === 1) {
             this.angle = 90;
         }
@@ -62,7 +63,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         scene.load.image('bomb', 'assets/images/bomba-sprite1.png');
     }
 
-    update(time, delta, scene) {
+    update(time, delta) {
         let animName;
         animName = this.selectAnimation(this.team);        
         if (this.estado !== 0) {
@@ -72,7 +73,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.setScale(0.2);
             this.setDepth(1); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
             this.anims.play(animName, true);
-            scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity);
+            this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity);
             this.fuel = this.fuel - 0.02
             //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
         }
@@ -80,7 +81,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.setScale(0.3);
             this.setDepth(2);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion
             this.anims.play(animName, true);
-            scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
+            this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
             this.fuel = this.fuel - 0.02;
             //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
         }
@@ -94,14 +95,14 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.visible = true;
                     }
                     this.estado++;
-                    this.lastEstadoChanged = time + 200;
+                    this.lastEstadoChanged = time + 180;
                     //this.hasBomb = true;
                 }
             }
             if (this.inputKeys.descend.isDown && time > this.lastEstadoChanged) {
                 if (this.estado > 1) {
                     this.estado--;
-                    this.lastEstadoChanged = time + 200;
+                    this.lastEstadoChanged = time + 180;
                 }
             }
             if (this.estado !== 0) {
@@ -116,23 +117,13 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 if (this.inputKeys.fire.isDown && time > this.lastFired) {
                     let bullet = this.bullets.get();
                     if (bullet) {
-                        bullet.fire(scene, this.x, this.y, this.angle);
+                        bullet.fire(this.scene, this.x, this.y, this.angle);
 
                         this.lastFired = time + 200;
                     }
                 }
                 if (this.inputKeys.dropBomb.isDown && this.hasBomb) {
-                    this.bomb.x = this.x;
-                    this.bomb.y = this.y;
-                    this.hasBomb = false;
-                    this.bomb.visible = true;
-                    scene.time.addEvent({
-                        delay: 1000,
-                        loop: false,
-                        callback: () => {
-                            this.bomb.visible = false;
-                        }
-                    });
+                    this.dropBomb();
                 }
             }
         }
@@ -182,26 +173,50 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         let animName;    
         this.x = data.ejeX;
         this.y = data.ejeY;
+        animName = this.selectAnimation(data.idJugador);
         if (this.angle > data.angulo) {
-            animName = this.selectAnimation(data.idJugador);
-            //this.anims.play(animName, true);
+            //this.anims.play(animName, true); animaciones para doblar
         }
         else if (this.angle < data.angulo) {
-
+            //animaciones
+        }
+        else {              
+            this.anims.play(animName, true);
         }
         this.angle = data.angulo;
-        if (this.estado !== 0 && this.estado > data.estado) {
+        if (this.estado > data.estado) {
             this.setScale(0.2);       
             this.setDepth(1);
+            this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }
-        else if(this.estado < data.estado) {
+        else if(this.estado !== 0 && this.estado < data.estado) {
             this.setScale(0.3);
             this.setDepth(2);
+            this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }   
         this.estado = data.estado;
         this.life = data.vida;
         this.fuel = data.combustible;
+        if (this.hasBomb !== data.tieneBomba) {
+            this.dropBomb();
+        }
         this.hasBomb = data.tieneBomba;
         this.visible = data.visible;
+    }
+
+    dropBomb() {
+        this.bomb.x = this.x;
+        this.bomb.y = this.y;
+        this.hasBomb = false;
+        this.bomb.active = true;
+        this.bomb.visible = true;
+        this.scene.time.addEvent({
+            delay: 1000,
+            loop: false,
+            callback: () => {
+                this.bomb.visible = false;
+                this.bomb.active = false;
+            }
+        });
     }
 }
