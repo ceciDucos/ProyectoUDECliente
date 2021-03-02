@@ -3,8 +3,7 @@ class Bootloader extends Phaser.Scene {
         super('Bootloader');
     }
 
-    preload() {
-        
+    preload() {        
 
     }
 
@@ -24,6 +23,7 @@ class Bootloader extends Phaser.Scene {
         this.joinServer.setInteractive().on('pointerdown', this.unirseAPartida, this);
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
     }
+    
     update(time, delta) {
         
     }
@@ -87,10 +87,7 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseY = 50;
     }
 
-    moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {        
-        if(planeNumber == 3) {
-            console.log('avion 4 llego al send');
-        }            
+    moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {       
         stompClient.send("/app/mover-avion", {}, JSON.stringify({
             'nombrePartida': 'PartidaPrueba',
             'idJugador': team,
@@ -103,27 +100,8 @@ class Bootloader extends Phaser.Scene {
             'combustible': combustible,           
             'tieneBomba': tieneBomba,           
             'visible': visible,
-        }));
-        if(planeNumber == 3) {
-            console.log('avion 4 mando el send');
-        }   
-    }
-    /*
-    setConnected(connected) {
-        $("#connect").prop("disabled", connected);
-        $("#disconnect").prop("disabled", !connected);
-        if (connected) {
-            $("#conversation").show();
-        }
-        else {
-            $("#conversation").hide();
-        }
-        $("#userinfo").html("");
-    }
-
-    showGreeting(message) {
-        $("#userinfo").append("<tr><td>" + message + "</td></tr>");
-    }*/
-    
+        })); 
+    }    
 }
+
 export default Bootloader;

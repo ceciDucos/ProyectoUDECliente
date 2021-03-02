@@ -1,0 +1,2 @@
+que las torretas solo disparen a aviones enemigos
+colocar torretas en tu propio campo y no siempre en el campo del jugador 1

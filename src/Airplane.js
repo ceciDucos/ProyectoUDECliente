@@ -24,8 +24,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.active = true; //inicializar en false para aparecer oculto en el hangar
         this.team = team;
         this.planeNumber = planeNumber;
-        this.selected = false;        
-        this.setInteractive(); //Para ser seleccionables con el click
+        this.selected = false;                
+        //this.setInteractive(); //Para ser seleccionables con el click
         //this.on('pointerdown', () => {scene.airplanes this.selected = true;}, this);
         this.life = 100;
         this.fuel = 100;
@@ -37,7 +37,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             runChildUpdate: true
         });
         this.lastFired = 0;
-        
+        //this.setInteractive().on('pointerdown', this.selectAirplaneByClick, this);        
     }
 
     static preload(scene) {
@@ -227,6 +227,18 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.life = 0;
             this.fuel = 0;
             this.estado = 3;
+        }
+    }
+
+    selectAirplaneByClick () {  
+        console.log('entro a la seleccion por click');
+        for (let i = 0; i < this.airplanesQuantity; i++) {
+            if (this.scene.airplanes[i].planeNumber !== this.planeNumber) {
+                this.selected = false;
+            }
+            else {
+                this.selected = true;
+            }
         }
     }
 }

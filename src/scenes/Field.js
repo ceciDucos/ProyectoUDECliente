@@ -18,12 +18,6 @@ class Field extends Phaser.Scene {
     preload() {
         this.load.multiatlas('map', 'assets/images/maps/map_atlas.json', 'assets/images/maps');
         this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');
-        /*
-        this.load.image('map', 'assets/images/maps/mapa.png');
-        scene.load.animation('equipo1avion1_anim', 'assets/images/maps/airplaneplayer1_anim.json');*/
-
-        //this.load.image('tiles', 'assets/images/maps/mapa.png');
-        //this.load.tilemapTiledJSON('map', 'assets/images/maps/mapa.json');
         Airplane.preload(this);
         Turret.preload(this);
     }
@@ -67,28 +61,14 @@ class Field extends Phaser.Scene {
         }*/
 
 
-        this.airplanesQuantity = 4; //limitar a 10 el parametro de entrada        
+        this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada        
         this.loadLateralPanel();
         this.airplanes = [];
         this.enemies = [];
-        //let team = 1; //tomar como parametro de la entrada de la partida
-        //let teamAux = 2; //se usa como auxiliar mientras
         let BaseX;
         let BaseY;
         let enemyBaseX;
         let enemyBaseY;
-        /*if (this.team === 1) {
-            BaseX = 540;
-            BaseY = 50;
-            enemyBaseX = 540;
-            enemyBaseY = 670;
-        }
-        else {
-            BaseX = 540;
-            BaseY = 670;
-            enemyBaseX = 540;
-            enemyBaseY = 50;
-        }*/
         
         let frame;
         let frame2;
@@ -113,19 +93,15 @@ class Field extends Phaser.Scene {
             }
             if (this.team === 1) {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame, team: this.team, planeNumber: (i + 1) });
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) }); //Luego cambiar por la variable "team"
+                this.airplanes[i].setInteractive();
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) });
             }
             else {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i + 1) });
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i + 1) }); //Luego cambiar por la variable "team"
+                this.airplanes[i].setInteractive();
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i + 1) });
             }
-        }
-
-        /*for (i = 0; i < this.airplanesQuantity; i++) {
-            this.enemies[i] = new Airplane({scene:this,x:team2BaseX,y:team2BaseY,texture:'airplaneplayer2',frame:frame2,team:teamAux,planeNumber:(i+1)}); //Luego cambiar por la variable "team"
-        }*/
-
-        
+        }        
         
         this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -139,7 +115,8 @@ class Field extends Phaser.Scene {
         this.selectAirplaneKeys();
         this.input.setTopOnly(true);
         this.input.on('gameobjectdown', function (pointer, gameObject) {
-            //let turretsChildren = this.scene.turrets.getChildren();
+            console.log('entro al seleccionar torreta');
+            let turretsChildren = this.scene.turrets.getChildren();
             for (let i = 0; i < turretsChildren.length; i++) {
                 turretsChildren[i].selected = false;                
             }
@@ -147,6 +124,7 @@ class Field extends Phaser.Scene {
                 this.scene.airplanes[i].selected = false;
             }
             gameObject.selected = true;
+            console.log(gameObject);
         });
     }
 
@@ -189,8 +167,6 @@ class Field extends Phaser.Scene {
             airplane6: Phaser.Input.Keyboard.KeyCodes.SIX,
             airplane7: Phaser.Input.Keyboard.KeyCodes.SEVEN,
             airplane8: Phaser.Input.Keyboard.KeyCodes.EIGHT,
-            //airplane9: Phaser.Input.Keyboard.KeyCodes.NINE,
-            //airplane10: Phaser.Input.Keyboard.KeyCodes.ZERO,
         })
     }
 
@@ -274,27 +250,7 @@ class Field extends Phaser.Scene {
                     this.airplanes[i].selected = false;
                 }
             }
-        }/*
-        if(this.inputKeys.airplane9.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
-                if (i === 8) {                    
-                    this.airplanes[i].selected = true;
-                }
-                else{                    
-                    this.airplanes[i].selected = false;
-                }
-            }
         }
-        if(this.inputKeys.airplane10.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
-                if (i === 9) {                    
-                    this.airplanes[i].selected = true;
-                }
-                else{                    
-                    this.airplanes[i].selected = false;
-                }
-            }
-        }*/
     }
 
     drawGrid1(graphics) {
@@ -340,10 +296,7 @@ class Field extends Phaser.Scene {
     }
 
     moveEnemyAirplane(data) {
-        /*if ((data.idAvion-1) === 3) {
-            console.log('llego info del avion 4');
-        }*/
-        //if (this.bootloaderScene.gameId ==== data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
+        //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
         if (data.idJugador !== this.team) {
             this.enemies[data.idAvion-1].moveEnemyAirplane(data);
         }
