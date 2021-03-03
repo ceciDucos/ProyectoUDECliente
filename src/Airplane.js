@@ -8,10 +8,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
         this.scene = scene;
         if (team === 1) {
-            this.angle = 90;
+            this.setAngle(90)
+            //this.angle = 90;
         }
         else {
-            this.angle = -90;
+            this.setAngle(-90);
+            //this.angle = -90;
         }
         this.bomb = scene.add.image(x, y, 'bomb');
         this.bomb.visible = false;
@@ -31,6 +33,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.fuel = 100;
         this.estado = 0;
         this.lastEstadoChanged = 0;
+        this.bulletQuantity = 0;
         this.bullets = scene.physics.add.group({
             classType: Bullet,
             maxSize: 30,
@@ -67,7 +70,21 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         let animName;
         animName = this.selectAnimation(this.team);        
         if (this.estado !== 0 && this.estado !== 3) {
-            this.scene.bootloaderScene.moverAvion(this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
+            let planeMatches = false;
+            let i = 0;
+            while (i < this.scene.airplanesQuantity && !planeMatches) {
+                if (this === this.scene.airplanes[i]) {
+                    console.log('ID avion que se mueve: ' + this.planeNumber);
+                    this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
+                    planeMatches = true;
+                }
+                i++;
+            }
+            /*for (let i = 0; i < this.scene.airplanesQuantity; i++) {  //cambiar por un while si anda              
+                if (this === this.scene.airplanes[i]) {
+                    this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
+                }
+            }*/           
         }
         if (this.estado === 1) {
             this.setScale(0.2);
@@ -116,7 +133,16 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 }
                 if (this.inputKeys.fire.isDown && time > this.lastFired) {
                     let bullet = this.bullets.get();
-                    if (bullet) {
+                    //console.log(bullet.idBullet);
+                    if (bullet) {                       
+                        if (bullet.idBullet == '') {
+                            bullet.idBullet = this.bulletQuantity + 1;
+                        }
+                        /*console.log('disparo');
+                        console.log('avion : ' + bullet.planeNumber + ', idBullet: ' + bullet.idBullet); */
+                        bullet.planeNumber = this.planeNumber;
+                        bullet.estadoAvion = this.estado;
+                        this.bulletQuantity++;
                         bullet.fire(this.scene, this.x, this.y, this.angle);
 
                         this.lastFired = time + 200;
@@ -187,12 +213,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         if (this.estado > data.estado) {
             this.setScale(0.2);       
             this.setDepth(1);
-            this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
+            //this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }
         else if(this.estado !== 0 && this.estado < data.estado) {
             this.setScale(0.3);
             this.setDepth(2);
-            this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
+            //this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }   
         this.estado = data.estado;
         this.life = data.vida;
@@ -230,8 +256,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
-    selectAirplaneByClick () {  
-        console.log('entro a la seleccion por click');
+    selectAirplaneByClick () {
         for (let i = 0; i < this.airplanesQuantity; i++) {
             if (this.scene.airplanes[i].planeNumber !== this.planeNumber) {
                 this.selected = false;

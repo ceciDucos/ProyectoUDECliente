@@ -13,17 +13,20 @@ class Field extends Phaser.Scene {
         this.teamBaseY = data.teamBaseY;
         this.enemyBaseX = data.enemyBaseX;
         this.enemyBaseY = data.enemyBaseY;
+        this.mapGrid = data.mapGrid;
     }
 
     preload() {
         this.load.multiatlas('map', 'assets/images/maps/map_atlas.json', 'assets/images/maps');
-        this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');
+        this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
+        //this.load.image('base', 'assets/images/baseEquipo1-1.png');
+        this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
         Airplane.preload(this);
         Turret.preload(this);
     }
 
     create() {
-        this.physics.world.setFPS(30);        
+        this.physics.world.setFPS(30);
         this.bootloaderScene = this.scene.get('Bootloader');
         this.map = this.add.sprite(540, 360, 'map', 'mapa-1.png');
         this.frameNames = this.anims.generateFrameNames('map', {
@@ -33,6 +36,12 @@ class Field extends Phaser.Scene {
         this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
         this.map.anims.play('move');
 
+        console.log('x: ' + this.teamBaseX + ', y: ' + this.teamBaseY)
+        this.base = this.add.image(this.teamBaseX, this.teamBaseY, 'base');
+        if (this.team === 2) {
+            this.base.setAngle(180);
+        }
+        //this.base.setScale(2);
 
         //const map = this.make.tile({key:'map'});
         //const tileset = map.addTilesetImage('mapa', 'tiles', 1080, 720,0,0);
@@ -44,15 +53,17 @@ class Field extends Phaser.Scene {
         //this.camera1 = this.cameras.add(0, 0, 200, 720);
 
 
-        this.map = new Array(360);
+        /*this.map = new Array(360);        /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
         for (let i = 0; i < this.map.length; i++) {
             this.map[i] = new Array(1280).fill(0); // Creating an array of size 4 and filled of 1
         }
         var graphics = this.add.graphics();
-        this.drawGrid1(graphics);
+        this.drawGrid1(graphics);*/
+
+
         //this.turrets = new Turrets({scene:this,x:team1BaseX,y:team1BaseY,texture:'equipo1avion1',frame:'kek-1',team:team});
 
-        this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
+        //this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         /*let turretsChildren = this.turrets.getChildren(); // trata de buscar los hijos pero aun no tiene las teclas asignadas entonces falla //ahora se puso en el constructor
         console.log('paso');
@@ -94,6 +105,16 @@ class Field extends Phaser.Scene {
             if (this.team === 1) {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame, team: this.team, planeNumber: (i + 1) });
                 this.airplanes[i].setInteractive();
+                
+                /*let bulletsAux = this.airplanes[i].bullets.getChildren();
+                console.log(this.airplanes);
+                console.log(this.airplanes.bullets.getChildren());
+                console.log('se obtuvo los childrens');
+                console.log(bulletsAux);
+                for(let i = 0; i < bulletsAux.length; i++) {
+                    console.log('entro al for de childrens');
+                    bulletsAux[i].idBullet = i;
+                 }*/
                 this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) });
             }
             else {
@@ -106,7 +127,7 @@ class Field extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //Place turret by clicking on the player´s side of the map
-        this.input.on('pointerdown', this.placeTurret, this);
+        //this.input.on('pointerdown', this.placeTurret, this);     /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         for (let i = 0; i < this.airplanesQuantity; i++) {
             this.assignAirplaneKeys(this.airplanes[i]);
@@ -115,16 +136,14 @@ class Field extends Phaser.Scene {
         this.selectAirplaneKeys();
         this.input.setTopOnly(true);
         this.input.on('gameobjectdown', function (pointer, gameObject) {
-            console.log('entro al seleccionar torreta');
-            let turretsChildren = this.scene.turrets.getChildren();
-            for (let i = 0; i < turretsChildren.length; i++) {
+            //let turretsChildren = this.scene.turrets.getChildren();
+            /*for (let i = 0; i < turretsChildren.length; i++) {
                 turretsChildren[i].selected = false;                
-            }
+            }*/
             for (let i = 0; i < this.scene.airplanesQuantity; i++) {
                 this.scene.airplanes[i].selected = false;
             }
             gameObject.selected = true;
-            console.log(gameObject);
         });
     }
 
@@ -255,13 +274,13 @@ class Field extends Phaser.Scene {
 
     drawGrid1(graphics) {
         graphics.lineStyle(1, 0x0000ff, 0.8);
-        for (let i = 0; i < 13; i++) {
+        for (let i = 0; i < 26; i++) {
             graphics.moveTo(0, i * 30);
             graphics.lineTo(1080, i * 30);
         }
         for (let j = 0; j < 28; j++) {
             graphics.moveTo(j * 40, 0);
-            graphics.lineTo(j * 40, 360);
+            graphics.lineTo(j * 40, 720);
         }
         graphics.strokePath();
     }
@@ -309,7 +328,6 @@ class Field extends Phaser.Scene {
         else {
             this.airplanes[data.idAvion-1].blowUpAirplane(data);
         }
-        console.log('llego data de aviones estallados');
     }
 }
 

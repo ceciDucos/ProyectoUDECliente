@@ -1,5 +1,7 @@
 import Field from './scenes/Field.js';
+import SetBase from './scenes/SetBase.js';
 import Bootloader from './Bootloader.js';
+import SetTurrets from './scenes/SetTurrets.js';
 
 const config = {
     title: "Bombs Away",
@@ -23,7 +25,7 @@ const config = {
             }
         }
     },
-    scene: [Bootloader, Field]
+    scene: [Bootloader, SetBase, SetTurrets, Field]
 };
 
 new Phaser.Game(config);

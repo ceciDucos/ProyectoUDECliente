@@ -29,9 +29,14 @@ class Bootloader extends Phaser.Scene {
     }
 
     pasarEscena() {
-        this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+        /*this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
-        this.fieldScene = this.scene.get('Field');
+        this.fieldScene = this.scene.get('Field');*/
+        this.createServer.removeInteractive();
+        this.joinServer.removeInteractive();
+        this.entrarjuego.removeInteractive();
+        this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+            enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
     }
 
     crearPartidaEnEspera() {
@@ -87,7 +92,7 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseY = 50;
     }
 
-    moverAvion(team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {       
+    moverAvion(gameId, team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {       
         stompClient.send("/app/mover-avion", {}, JSON.stringify({
             'nombrePartida': 'PartidaPrueba',
             'idJugador': team,
@@ -102,6 +107,20 @@ class Bootloader extends Phaser.Scene {
             'visible': visible,
         })); 
     }    
+
+    moverBala(gameId, team, planeNumber, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/mover-bala", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idAvion': planeNumber,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        })); 
+    }
 }
 
 export default Bootloader;
