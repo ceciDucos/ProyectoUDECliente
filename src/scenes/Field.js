@@ -13,7 +13,9 @@ class Field extends Phaser.Scene {
         this.teamBaseY = data.teamBaseY;
         this.enemyBaseX = data.enemyBaseX;
         this.enemyBaseY = data.enemyBaseY;
-        this.mapGrid = data.mapGrid;
+        //this.mapGrid = data.mapGrid;
+        this.turretsX = data.turretsX;
+        this.turretsY = data.turretsY;
     }
 
     preload() {
@@ -36,7 +38,6 @@ class Field extends Phaser.Scene {
         this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
         this.map.anims.play('move');
 
-        console.log('x: ' + this.teamBaseX + ', y: ' + this.teamBaseY)
         this.base = this.add.image(this.teamBaseX, this.teamBaseY, 'base');
         if (this.team === 2) {
             this.base.setAngle(180);
@@ -63,13 +64,24 @@ class Field extends Phaser.Scene {
 
         //this.turrets = new Turrets({scene:this,x:team1BaseX,y:team1BaseY,texture:'equipo1avion1',frame:'kek-1',team:team});
 
-        //this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
+        this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         /*let turretsChildren = this.turrets.getChildren(); // trata de buscar los hijos pero aun no tiene las teclas asignadas entonces falla //ahora se puso en el constructor
         console.log('paso');
         for (let i = 0; i < turretsChildren.length; i++) {
             this.assignTurretKeys(turretsChildren[i]);                
         }*/
+        for(let i = 0; i < 11; i++) {
+            let turret = this.turrets.get();
+            if (turret) {
+                turret.setActive(true);
+                turret.setVisible(true);
+                turret.x = this.turretsX[i];                
+                turret.y = this.turretsY[i];
+                turret.setScale(0.15);
+            }
+        }
+        
 
 
         this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada        
@@ -103,7 +115,7 @@ class Field extends Phaser.Scene {
                 frame2 = 'equipo2avion' + (i - 3);
             }
             if (this.team === 1) {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame, team: this.team, planeNumber: (i + 1) });
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX+35, y: this.teamBaseY-23, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
                 this.airplanes[i].setInteractive();
                 
                 /*let bulletsAux = this.airplanes[i].bullets.getChildren();
@@ -115,14 +127,16 @@ class Field extends Phaser.Scene {
                     console.log('entro al for de childrens');
                     bulletsAux[i].idBullet = i;
                  }*/
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i + 1) });
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
             else {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i + 1) });
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
                 this.airplanes[i].setInteractive();
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i + 1) });
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
         }        
+
+
         
         this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -133,18 +147,18 @@ class Field extends Phaser.Scene {
             this.assignAirplaneKeys(this.airplanes[i]);
         }
 
-        this.selectAirplaneKeys();
         this.input.setTopOnly(true);
         this.input.on('gameobjectdown', function (pointer, gameObject) {
-            //let turretsChildren = this.scene.turrets.getChildren();
-            /*for (let i = 0; i < turretsChildren.length; i++) {
+            let turretsChildren = this.scene.turrets.getChildren();
+            for (let i = 0; i < turretsChildren.length; i++) {
                 turretsChildren[i].selected = false;                
-            }*/
+            }
             for (let i = 0; i < this.scene.airplanesQuantity; i++) {
                 this.scene.airplanes[i].selected = false;
             }
             gameObject.selected = true;
         });
+        this.selectAirplaneKeys();
     }
 
     update(time, delta) {
@@ -189,86 +203,120 @@ class Field extends Phaser.Scene {
         })
     }
 
+    deselectTurrets() {
+        let turretsChildren = this.turrets.getChildren();
+        for (let i = 0; i < turretsChildren.length; i++) {
+            turretsChildren[i].selected = false;                
+        }
+    }
+
+    deselectAirplanes(selected) {
+        for (let i = 0; i < this.airplanesQuantity; i++) {
+            if (i === selected) {
+                this.airplanes[i].selected = true;
+            }
+            else {
+                this.airplanes[i].selected = false;
+            }
+        }
+    }
+
     selectAirplane() {
         if (this.inputKeys.airplane1.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(0);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 0) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane2.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(1);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 1) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane3.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(2);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 2) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane4.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(3);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 3) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane5.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(4);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 4) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane6.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(5);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 5) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane7.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(6);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 6) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
         if (this.inputKeys.airplane8.isDown) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
+            this.deselectTurrets();
+            this.deselectAirplanes(7);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 7) {
                     this.airplanes[i].selected = true;
                 }
                 else {
                     this.airplanes[i].selected = false;
                 }
-            }
+            }*/
         }
     }
 
@@ -285,23 +333,24 @@ class Field extends Phaser.Scene {
         graphics.strokePath();
     }
 
-    placeTurret(pointer) {
+    /*placeTurret(pointer) {
         if (pointer.y < 360) {
             let i = Math.floor(pointer.y / 30);
             let j = Math.floor(pointer.x / 40);
-            let canPlace = (this.map[i][j] === 0);
-            if (canPlace) {
-                let turret = this.turrets.get();
-                if (turret) {
-                    turret.setActive(true);
-                    turret.setVisible(true);
-                    turret.y = i * 30 + 30 / 2;
-                    turret.x = j * 40 + 40 / 2;
-                    this.map[i][j] = 1;
-                }
+            //let canPlace = (this.map[i][j] === 0);
+            //if (canPlace) {
+            let turret = this.turrets.get();
+            if (turret) {
+                turret.setActive(true);
+                turret.setVisible(true);
+                turret.y = i * 30 + 30 / 2;
+                turret.x = j * 40 + 40 / 2;
+                turret.setScale(0.5);
+                //this.map[i][j] = 1;
             }
+            //}
         }
-    }
+    }*/
 
     loadLateralPanel() {
         this.lateral = this.add.sprite(1180, 360, 'animacionLateralVolar', 'equipo1avion1LateralVolar-1.png');
@@ -317,16 +366,40 @@ class Field extends Phaser.Scene {
     moveEnemyAirplane(data) {
         //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
         if (data.idJugador !== this.team) {
-            this.enemies[data.idAvion-1].moveEnemyAirplane(data);
+            this.enemies[data.idAvion].moveEnemyAirplane(data);
         }
     }
 
     blowUpAirplanes(data) {
         if (data.idJugador !== this.team) {
-            this.enemies[data.idAvion-1].blowUpAirplane(data);
+            this.enemies[data.idAvion].blowUpAirplane(data);
         }
         else {
-            this.airplanes[data.idAvion-1].blowUpAirplane(data);
+            this.airplanes[data.idAvion].blowUpAirplane(data);
+        }
+    }
+
+    updateBullet(data) {
+        console.log('data: ');
+        console.log(data);
+        if (data.visble === true) {
+            console.log('entro al updatebullet true visible');
+            if (data.idJugador !== this.team) {
+                console.log('entro al distinto equipo');
+                let bullet = this.airplanes[data.idAvion].bullets.get();
+                if (bullet) {      
+                    console.log('entro al hay bullet');                 
+                    if (bullet.idBullet == '') {
+                        console.log('entro al index de bullet');
+                        bullet.idBullet = this.airplanes[data.idAvion].bulletQuantity + 1;
+                    }
+                    bullet.planeNumber = this.airplanes[data.idAvion].planeNumber;
+                    bullet.estadoAvion = this.airplanes[data.idAvion].estado;
+                    this.airplanes[data.idAvion].bulletQuantity++;
+                    bullet.fire(this, this.airplanes[data.idAvion].x, this.airplanes[data.idAvion].y, this.airplanes[data.idAvion].angle);
+                    this.lastFired = time + 200;
+                }
+            }
         }
     }
 }

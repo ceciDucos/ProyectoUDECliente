@@ -3,7 +3,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, 'bullet3');
         this.lifespan = 0;
         this.speed = 1000;
-        this.setScale(0.01);
+        this.setScale(0.015);
         this.setDepth(2);
         this.typeOfBullet = 0;
         this.idBullet = '';

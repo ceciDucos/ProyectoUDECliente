@@ -40,6 +40,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             runChildUpdate: true
         });
         this.lastFired = 0;
+        this.lastChargeFuel = 0;
         //this.setInteractive().on('pointerdown', this.selectAirplaneByClick, this);        
     }
 
@@ -68,13 +69,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
 
     update(time, delta) {
         let animName;
-        animName = this.selectAnimation(this.team);        
+        animName = this.selectAnimation(this.team);    //Mejorar para que no entre todas las veces del update    
         if (this.estado !== 0 && this.estado !== 3) {
             let planeMatches = false;
             let i = 0;
             while (i < this.scene.airplanesQuantity && !planeMatches) {
                 if (this === this.scene.airplanes[i]) {
-                    console.log('ID avion que se mueve: ' + this.planeNumber);
                     this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
                     planeMatches = true;
                 }
@@ -117,9 +117,25 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 }
             }
             if (this.inputKeys.descend.isDown && time > this.lastEstadoChanged) {
-                if (this.estado > 1) {
+                if (this.estado === 2) {
                     this.estado--;
                     this.lastEstadoChanged = time + 180;
+                }
+                else if (this. estado === 1) {                    
+                    if (this.estado === 1 && this.airplaneInBaseRange()) {
+                        this.estado--;
+                        this.x = this.scene.teamBaseX + 35;
+                        this.y = this.scene.teamBaseY - 23;
+                        if (this.team === 1) {
+                            this.angle = 90;
+                        }
+                        else {
+                            this.angle = -90;
+                        }  
+                        this.fuel = 100;                      
+                        this.lastEstadoChanged = time + 180;
+                        this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);                      
+                    }
                 }
             }
             if (this.estado !== 0) {
@@ -151,6 +167,10 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 if (this.inputKeys.dropBomb.isDown && this.hasBomb) {
                     this.dropBomb();
                 }
+                if (this.airplaneInFuelRange() && time > this.lastChargeFuel) {
+                    this.fuel = 100;                        
+                    this.lastChargeFuel = time + 1000;
+                }
             }
         }
         else {
@@ -162,33 +182,33 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         let animName;
         if (team === 1) {
             switch (this.planeNumber) {
+                case 0:
+                case 4: animName = 'equipo1avion1';
+                    break;
                 case 1:
-                case 5: animName = 'equipo1avion1';
+                case 5: animName = 'equipo1avion2';
                     break;
                 case 2:
-                case 6: animName = 'equipo1avion2';
+                case 6: animName = 'equipo1avion3';
                     break;
                 case 3:
-                case 7: animName = 'equipo1avion3';
-                    break;
-                case 4:
-                case 8: animName = 'equipo1avion4';
+                case 7: animName = 'equipo1avion4';
                     break;
             }
         }
         else {
             switch (this.planeNumber) {
+                case 0:
+                case 4: animName = 'equipo2avion1';
+                    break;
                 case 1:
-                case 5: animName = 'equipo2avion1';
+                case 5: animName = 'equipo2avion2';
                     break;
                 case 2:
-                case 6: animName = 'equipo2avion2';
+                case 6: animName = 'equipo2avion3';
                     break;
                 case 3:
-                case 7: animName = 'equipo2avion3';
-                    break;
-                case 4:
-                case 8: animName = 'equipo2avion4';
+                case 7: animName = 'equipo2avion4';
                     break;
             }
         }
@@ -265,5 +285,21 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 this.selected = true;
             }
         }
+    }
+
+    airplaneInBaseRange() {
+        let granted = false;
+        if (this.x > this.scene.teamBaseX && (this.x < this.scene.teamBaseX + 70) && this.y < this.scene.teamBaseY && (this.y > this.scene.teamBaseY - 46)) {
+            granted = true;
+        }
+        return granted;
+    }
+
+    airplaneInFuelRange() {
+        let granted = false;
+        if (this.x < this.scene.teamBaseX && (this.x > this.scene.teamBaseX - 70) && this.y < this.scene.teamBaseY && (this.y > this.scene.teamBaseY - 46)) {
+            granted = true;
+        }
+        return granted;
     }
 }

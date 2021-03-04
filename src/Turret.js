@@ -4,15 +4,15 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
         super(scene, x, y, 'turret');
         this.nextTic = 0;
-        this.setScale(3);
-        this.selected = true;
+        this.selected = false;
         this.setInteractive(); //Para ser seleccionables con el click
         this.bullets = scene.physics.add.group({
             classType: Bullet,
             maxSize: 10,
             runChildUpdate: true
         });
-        this.scene.assignTurretKeys(this);
+        this.scene.assignTurretKeys(this);        
+        scene.physics.add.existing(this);
         //this.lastFired = 0;
     }
 
@@ -25,26 +25,32 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             this.fire(time);
             this.nextTic = time + 1000;
         }
-        /*if (this.selected) { //Descomentar y continuar los movimientos de las torretas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if (this.selected) { //Descomentar y continuar los movimientos de las torretas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (this.inputKeys.up.isDown && !this.enemiesInBase()) {
-                this.scene.physics.velocityFromAngle(this.angle, 15, this.body.velocity);
+                this.scene.physics.velocityFromAngle(this.angle, 10, this.body.velocity);
             }
             else {
-                console.log(this.angle);
                 this.setAcceleration(0);
                 this.setVelocity(0);
+                
+                //this.scene.physics.velocityFromAngle(this.angle, 0, this.body.velocity);
             }
             if (this.inputKeys.left.isDown && !this.enemiesInBase()) {
                 this.setAngularVelocity(-150);
             }
-            else if (this.inputKeys.left.isDown && !this.enemiesInBase()) {
+            else if (this.inputKeys.right.isDown && !this.enemiesInBase()) {
                 this.setAngularVelocity(150);
             }
             else
             {
                 this.setAngularVelocity(0);
             }
-        }*/
+        }
+        else {
+            this.setAcceleration(0);
+            this.setVelocity(0);
+            this.setAngularVelocity(0);
+        }
     }
 
     enemiesInBase() {
@@ -52,7 +58,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         let i = 0;
         if (this.scene.team === 1) {
             while (i < this.scene.airplanesQuantity && !areEnemiesInBase) {
-                if (this.scene.enemies[i].y <= (this.scene.sys.canvas.attributes[1].value/2)) {
+                if (this.scene.enemies[i].y <= (this.scene.sys.canvas.attributes[1].value/2) && this.scene.enemies[i].estado !== 3) {
                     areEnemiesInBase = true;
                 }
                 i++;
@@ -60,7 +66,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         }
         else {                
             while (i < this.scene.airplanesQuantity && !areEnemiesInBase) {
-                if (this.scene.enemies[i].y >= (this.scene.sys.canvas.attributes[1].value/2)) {
+                if (this.scene.enemies[i].y >= (this.scene.sys.canvas.attributes[1].value/2) && this.scene.enemies[i].estado !== 3) {
                     areEnemiesInBase = true;
                 }
                 i++;
@@ -70,7 +76,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
     }
 
     getEnemy(x, y, distance) {
-        var enemyUnits = this.scene.airplanes; //Cambiar despues por los aviones enemigos
+        var enemyUnits = this.scene.enemies; //Cambiar despues por los aviones enemigos
         //var enemyUnits = enemies.getChildren(); //Hay que ver como se puede conseguir los enemigos aca para arrancar a dispararles!!!!!!!!!!! (hice chanchada poniendo la scene dentro de la turret)
         for (var i = 0; i < enemyUnits.length; i++) {
             if (enemyUnits[i].active && Phaser.Math.Distance.Between(x, y, enemyUnits[i].x, enemyUnits[i].y) <= distance && enemyUnits[i].estado === 1)
@@ -87,7 +93,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             if (bullet) {
                 bullet.fireTurret(this.x, this.y, angle);
             }
-            this.angle = (angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
+            this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
         }
     }
 }

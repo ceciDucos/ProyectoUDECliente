@@ -52,6 +52,7 @@ class Bootloader extends Phaser.Scene {
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 'nombrePartida': 'PartidaPrueba',
@@ -78,6 +79,7 @@ class Bootloader extends Phaser.Scene {
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 'nombreJugador': 'Ceci',
@@ -109,7 +111,7 @@ class Bootloader extends Phaser.Scene {
     }    
 
     moverBala(gameId, team, planeNumber, idBullet, estadoAvion, x, y, angle, visible) {
-        stompClient.send("/app/mover-bala", {}, JSON.stringify({
+        stompClient.send("/app/disparo-bala", {}, JSON.stringify({
             'nombrePartida': gameId,
             'idJugador': team,
             'idAvion': planeNumber,
@@ -120,6 +122,7 @@ class Bootloader extends Phaser.Scene {
             'angulo': angle,
             'visible': visible,
         })); 
+        console.log('envio bala');
     }
 }
 

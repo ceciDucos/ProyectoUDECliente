@@ -50,15 +50,27 @@ class SetBase extends Phaser.Scene {
     }
 
     drawGrid1(graphics) {
-        graphics.lineStyle(1, 0x0000ff, 0.8);
-        for (let i = 0; i < 26; i++) {
-            graphics.moveTo(0, i * 30);
-            graphics.lineTo(1080, i * 30);
+        graphics.lineStyle(1, 0x004200, 0.8); //0x0000ff
+        if (this.data.team === 1) {
+            for (let i = 0; i < 13; i++) {
+                graphics.moveTo(0, i * 30);
+                graphics.lineTo(1080, i * 30);
+            }
+            for (let j = 0; j < 28; j++) {
+                graphics.moveTo(j * 40, 0);
+                graphics.lineTo(j * 40, 360);
+            }
         }
-        for (let j = 0; j < 28; j++) {
-            graphics.moveTo(j * 40, 0);
-            graphics.lineTo(j * 40, 720);
-        }
+        else {
+            for (let i = 12; i < 26; i++) {
+                graphics.moveTo(0, i * 30);
+                graphics.lineTo(1080, i * 30);
+            }
+            for (let j = 0; j < 28; j++) {
+                graphics.moveTo(j * 40, 360);
+                graphics.lineTo(j * 40, 720);
+            }
+        } 
         graphics.strokePath();
     }
 
@@ -84,13 +96,12 @@ class SetBase extends Phaser.Scene {
         if (this.canPlace(i, j)) { 
             this.data['teamBaseX'] = j * 40 + 40 / 2;
             this.data['teamBaseY'] = i * 30 + 30 / 2; 
-            for (let k = i - 1; k < i + 1; k++) {
-                for (let l = j - 1; l < j + 1; l++) {                        
-                    this.mapGrid[i][j] = 1;
+            for (let k = i - 1; k <= i + 1; k++) {
+                for (let l = j - 1; l <= j + 1; l++) {                        
+                    this.mapGrid[k][l] = 1;
                 }
             }
             this.data['mapGrid'] = this.mapGrid; 
-            console.log('x en setBase: ' + this.data['teamBaseX'] + 'y en setBase: ' + this.data['teamBaseY']);
             this.pasarEscena();
             /*this.base = this.add.image(this.data['teamBaseX'], this.data['teamBaseY'], 'base');
             this.base.setScale(2);
