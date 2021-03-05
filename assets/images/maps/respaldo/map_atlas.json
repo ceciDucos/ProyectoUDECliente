@@ -4,13 +4,13 @@
 			"image": "map.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 3248,
-				"h": 1446
+				"w": 3246,
+				"h": 1444
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "mapa_0.png",
+					"filename": "mapa-1.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -24,14 +24,14 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 2,
-						"y": 2,
+						"x": 1,
+						"y": 1,
 						"w": 1080,
 						"h": 720
 					}
 				},
 				{
-					"filename": "mapa_1.png",
+					"filename": "mapa-2.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -45,14 +45,14 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 2,
-						"y": 724,
+						"x": 1,
+						"y": 723,
 						"w": 1080,
 						"h": 720
 					}
 				},
 				{
-					"filename": "mapa_2.png",
+					"filename": "mapa-3.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -66,14 +66,14 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 1084,
-						"y": 2,
+						"x": 1083,
+						"y": 1,
 						"w": 1080,
 						"h": 720
 					}
 				},
 				{
-					"filename": "mapa_3.png",
+					"filename": "mapa-4.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -87,14 +87,14 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 1084,
-						"y": 724,
+						"x": 1083,
+						"y": 723,
 						"w": 1080,
 						"h": 720
 					}
 				},
 				{
-					"filename": "mapa_4.png",
+					"filename": "mapa-5.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -108,14 +108,14 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 2166,
-						"y": 2,
+						"x": 2165,
+						"y": 1,
 						"w": 1080,
 						"h": 720
 					}
 				},
 				{
-					"filename": "mapa_5.png",
+					"filename": "mapa-6.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -129,8 +129,8 @@
 						"h": 720
 					},
 					"frame": {
-						"x": 2166,
-						"y": 724,
+						"x": 2165,
+						"y": 723,
 						"w": 1080,
 						"h": 720
 					}
@@ -141,6 +141,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:b7d3915ba0ba6d3240b735b085d9a0db:ee7d09dda6bf047050cf6b47654f53ca:68463c66230aaeb26021edb8ea8cd9b6$"
+		"smartupdate": "$TexturePacker:SmartUpdate:741b8007b77540d7a2e67a275c1726e4:9120330981df12c94f5d9c98e43d9b94:68463c66230aaeb26021edb8ea8cd9b6$"
 	}
 }

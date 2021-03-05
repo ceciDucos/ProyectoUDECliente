@@ -19,7 +19,7 @@ class Field extends Phaser.Scene {
     }
 
     preload() {
-        this.load.multiatlas('map', 'assets/images/maps/map_atlas.json', 'assets/images/maps');
+        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
         this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/baseEquipo1-1.png');
         this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
@@ -38,7 +38,7 @@ class Field extends Phaser.Scene {
         this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
         this.map.anims.play('move');
 
-        this.base = this.add.image(this.teamBaseX, this.teamBaseY, 'base');
+        this.base = this.physics.add.image(this.teamBaseX, this.teamBaseY, 'base').setImmovable();
         if (this.team === 2) {
             this.base.setAngle(180);
         }
@@ -79,9 +79,35 @@ class Field extends Phaser.Scene {
                 turret.x = this.turretsX[i];                
                 turret.y = this.turretsY[i];
                 turret.setScale(0.15);
+                turret.body.setSize(120,100);
+                //turret.setCircle(70,10,13);
+                turret.setCollideWorldBounds(true);
+                let bounds;
+                if(this.team === 1) {    //Valores para limites de movimiento de torreta para team 1 y 2
+                    bounds = new Phaser.Geom.Rectangle(40, 30, 1000, 320);
+                }
+                else {
+                    bounds = new Phaser.Geom.Rectangle(40, 370, 1000, 320);
+                }        
+                turret.body.setBoundsRectangle(bounds);
+                turret.setPushable(false);
+                //turret.body.immovable = true;
+                //turret.body.setImmovable(true);
+                /*this.add.graphics()   //Sirve para mostrar en pantalla los limites
+                .lineStyle(5, 0x00ffff, 0.5)
+                .strokeRectShape(turret.body.customBoundsRectangle);*/
             }
         }
-        
+        this.physics.add.collider(this.turrets);
+        this.physics.add.collider(this.turrets, this.base);
+        //this.physics.add.collider(this.base);
+        /*if(scene.team === 1) {    //Valores para limites de movimiento de torreta para team 1 y 2
+            bounds = new Phaser.Geom.Rectangle(540, 180, 1000, 300);
+        }
+        else {
+            bounds = new Phaser.Geom.Rectangle(540, 540, 1000, 300);
+        }        
+        this.body.setBoundsRectangle(bounds)*/
 
 
         this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada        
@@ -118,6 +144,9 @@ class Field extends Phaser.Scene {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX+35, y: this.teamBaseY-23, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
                 this.airplanes[i].setInteractive();
                 
+                this.airplanes[i].anims.play('equipo1avion1Volar',true);
+                
+                        
                 /*let bulletsAux = this.airplanes[i].bullets.getChildren();
                 console.log(this.airplanes);
                 console.log(this.airplanes.bullets.getChildren());
@@ -382,23 +411,23 @@ class Field extends Phaser.Scene {
     updateBullet(data) {
         console.log('data: ');
         console.log(data);
-        if (data.visble === true) {
-            console.log('entro al updatebullet true visible');
-            if (data.idJugador !== this.team) {
-                console.log('entro al distinto equipo');
-                let bullet = this.airplanes[data.idAvion].bullets.get();
-                if (bullet) {      
-                    console.log('entro al hay bullet');                 
-                    if (bullet.idBullet == '') {
-                        console.log('entro al index de bullet');
-                        bullet.idBullet = this.airplanes[data.idAvion].bulletQuantity + 1;
-                    }
-                    bullet.planeNumber = this.airplanes[data.idAvion].planeNumber;
-                    bullet.estadoAvion = this.airplanes[data.idAvion].estado;
-                    this.airplanes[data.idAvion].bulletQuantity++;
-                    bullet.fire(this, this.airplanes[data.idAvion].x, this.airplanes[data.idAvion].y, this.airplanes[data.idAvion].angle);
-                    this.lastFired = time + 200;
+        if (data.visible && data.idJugador !== this.team) {
+            console.log('entro al distinto equipo');
+            let bullet = this.enemies[data.idAvion].bullets.get();
+            if (bullet) {      
+                console.log('entro al hay bullet');                 
+                if (bullet.idBullet === '') {
+                    this.enemies[data.idAvion].bulletQuantity++;
                 }
+                else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
+                    this.enemies[data.idAvion].bulletQuantity = data.idBullet;
+                }
+                bullet.idBullet = data.idBullet;
+                bullet.planeNumber = data.planeNumber;
+                bullet.estadoAvion = data.estado;
+                bullet.enemyBullet = true;
+                console.log('disparo');
+                bullet.fire(this, this.enemies[data.idAvion].x, this.enemies[data.idAvion].y, this.enemies[data.idAvion].angle);
             }
         }
     }

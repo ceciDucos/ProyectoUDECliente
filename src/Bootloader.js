@@ -4,7 +4,6 @@ class Bootloader extends Phaser.Scene {
     }
 
     preload() {        
-
     }
 
     create() {

@@ -9,7 +9,7 @@ class SetTurrets extends Phaser.Scene {
     }
 
     preload() {        
-        this.load.multiatlas('map', 'assets/images/maps/map_atlas.json', 'assets/images/maps');        
+        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('turret', 'assets/images/bomba-sprite1.png');
         this.load.image('turret', 'assets/images/artilleriaMover-1.png');
         this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
@@ -21,8 +21,8 @@ class SetTurrets extends Phaser.Scene {
         this.data.turretsY = [];
         this.turretCount = 0;
         this.physics.world.setFPS(30); 
-        this.map = this.add.sprite(540, 360, 'map', 'mapa-1.png');
-        this.frameNames = this.anims.generateFrameNames('map', {
+        this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
+        this.frameNames = this.anims.generateFrameNames('mapa', {
             start: 1, end: 5, zeroPad: 1,
             prefix: 'mapa-', suffix: '.png'
         });

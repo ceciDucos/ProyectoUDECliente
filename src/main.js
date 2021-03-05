@@ -2,6 +2,7 @@ import Field from './scenes/Field.js';
 import SetBase from './scenes/SetBase.js';
 import Bootloader from './Bootloader.js';
 import SetTurrets from './scenes/SetTurrets.js';
+import Preloader from './scenes/Preloader.js';
 
 const config = {
     title: "Bombs Away",
@@ -19,13 +20,13 @@ const config = {
     physics: {
         default: "arcade",
         "arcade": {
-            debug: true,
+            debug: false,
             gravity: {
                 y: 0
             }
         }
     },
-    scene: [Bootloader, SetBase, SetTurrets, Field]
+    scene: [Preloader, Bootloader, SetBase, SetTurrets, Field]
 };
 
 new Phaser.Game(config);

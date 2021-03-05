@@ -1,0 +1,1448 @@
+{
+	"textures": [
+		{
+			"image": "base.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 251,
+				"h": 1208
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 157
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 161,
+						"h": 157
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleria/artilleriaMover-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 40,
+						"y": 5,
+						"w": 81,
+						"h": 140
+					},
+					"frame": {
+						"x": 164,
+						"y": 1,
+						"w": 81,
+						"h": 140
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 247,
+						"y": 1,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 40,
+						"y": 5,
+						"w": 81,
+						"h": 140
+					},
+					"frame": {
+						"x": 164,
+						"y": 143,
+						"w": 81,
+						"h": 140
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 1,
+						"w": 156,
+						"h": 156
+					},
+					"frame": {
+						"x": 1,
+						"y": 160,
+						"w": 156,
+						"h": 156
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 35,
+						"y": 5,
+						"w": 91,
+						"h": 140
+					},
+					"frame": {
+						"x": 159,
+						"y": 285,
+						"w": 91,
+						"h": 140
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 10,
+						"w": 155,
+						"h": 137
+					},
+					"frame": {
+						"x": 1,
+						"y": 318,
+						"w": 155,
+						"h": 137
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 55,
+						"h": 50
+					},
+					"frame": {
+						"x": 158,
+						"y": 427,
+						"w": 55,
+						"h": 50
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 8,
+						"w": 35,
+						"h": 43
+					},
+					"frame": {
+						"x": 215,
+						"y": 427,
+						"w": 35,
+						"h": 43
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 3,
+						"w": 35,
+						"h": 35
+					},
+					"frame": {
+						"x": 215,
+						"y": 472,
+						"w": 35,
+						"h": 35
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 2,
+						"w": 154,
+						"h": 155
+					},
+					"frame": {
+						"x": 1,
+						"y": 457,
+						"w": 154,
+						"h": 155
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 2,
+						"w": 54,
+						"h": 55
+					},
+					"frame": {
+						"x": 157,
+						"y": 479,
+						"w": 54,
+						"h": 55
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 2,
+						"w": 54,
+						"h": 55
+					},
+					"frame": {
+						"x": 157,
+						"y": 479,
+						"w": 54,
+						"h": 55
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 2,
+						"w": 37,
+						"h": 47
+					},
+					"frame": {
+						"x": 213,
+						"y": 509,
+						"w": 37,
+						"h": 47
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 2,
+						"w": 37,
+						"h": 47
+					},
+					"frame": {
+						"x": 213,
+						"y": 509,
+						"w": 37,
+						"h": 47
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 51,
+						"h": 49
+					},
+					"frame": {
+						"x": 157,
+						"y": 536,
+						"w": 51,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 51,
+						"h": 49
+					},
+					"frame": {
+						"x": 157,
+						"y": 536,
+						"w": 51,
+						"h": 49
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 5,
+						"w": 40,
+						"h": 35
+					},
+					"frame": {
+						"x": 210,
+						"y": 558,
+						"w": 40,
+						"h": 35
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 49,
+						"h": 48
+					},
+					"frame": {
+						"x": 157,
+						"y": 587,
+						"w": 49,
+						"h": 48
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 9,
+						"w": 42,
+						"h": 42
+					},
+					"frame": {
+						"x": 208,
+						"y": 595,
+						"w": 42,
+						"h": 42
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 0,
+						"w": 147,
+						"h": 157
+					},
+					"frame": {
+						"x": 1,
+						"y": 614,
+						"w": 147,
+						"h": 157
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 12,
+						"w": 99,
+						"h": 117
+					},
+					"frame": {
+						"x": 150,
+						"y": 639,
+						"w": 99,
+						"h": 117
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 51
+					},
+					"frame": {
+						"x": 150,
+						"y": 758,
+						"w": 48,
+						"h": 51
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 4,
+						"w": 47,
+						"h": 45
+					},
+					"frame": {
+						"x": 200,
+						"y": 758,
+						"w": 47,
+						"h": 45
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 46,
+						"h": 47
+					},
+					"frame": {
+						"x": 200,
+						"y": 805,
+						"w": 46,
+						"h": 47
+					}
+				},
+				{
+					"filename": "artilleria/animacionArtilleriaExplota/artilleriaEplotar-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 161,
+						"h": 157
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 5,
+						"w": 129,
+						"h": 140
+					},
+					"frame": {
+						"x": 1,
+						"y": 773,
+						"w": 129,
+						"h": 140
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 46,
+						"h": 47
+					},
+					"frame": {
+						"x": 132,
+						"y": 811,
+						"w": 46,
+						"h": 47
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 13,
+						"w": 45,
+						"h": 41
+					},
+					"frame": {
+						"x": 180,
+						"y": 854,
+						"w": 45,
+						"h": 41
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 5,
+						"w": 41,
+						"h": 42
+					},
+					"frame": {
+						"x": 132,
+						"y": 860,
+						"w": 41,
+						"h": 42
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 3,
+						"w": 41,
+						"h": 42
+					},
+					"frame": {
+						"x": 175,
+						"y": 897,
+						"w": 41,
+						"h": 42
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 8,
+						"w": 41,
+						"h": 42
+					},
+					"frame": {
+						"x": 132,
+						"y": 904,
+						"w": 41,
+						"h": 42
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 8,
+						"w": 41,
+						"h": 42
+					},
+					"frame": {
+						"x": 132,
+						"y": 904,
+						"w": 41,
+						"h": 42
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 7,
+						"w": 32,
+						"h": 43
+					},
+					"frame": {
+						"x": 218,
+						"y": 897,
+						"w": 32,
+						"h": 43
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 7,
+						"w": 32,
+						"h": 43
+					},
+					"frame": {
+						"x": 218,
+						"y": 897,
+						"w": 32,
+						"h": 43
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 5,
+						"w": 40,
+						"h": 35
+					},
+					"frame": {
+						"x": 175,
+						"y": 941,
+						"w": 40,
+						"h": 35
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 5,
+						"w": 33,
+						"h": 45
+					},
+					"frame": {
+						"x": 217,
+						"y": 942,
+						"w": 33,
+						"h": 45
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 5,
+						"w": 33,
+						"h": 45
+					},
+					"frame": {
+						"x": 217,
+						"y": 942,
+						"w": 33,
+						"h": 45
+					}
+				},
+				{
+					"filename": "terreno/equipo1/baseEquipo1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 120,
+						"h": 90
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 120,
+						"h": 90
+					},
+					"frame": {
+						"x": 1,
+						"y": 915,
+						"w": 120,
+						"h": 90
+					}
+				},
+				{
+					"filename": "terreno/equipo2/baseEquipo2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 120,
+						"h": 90
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 120,
+						"h": 90
+					},
+					"frame": {
+						"x": 123,
+						"y": 989,
+						"w": 120,
+						"h": 90
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 37,
+						"h": 39
+					},
+					"frame": {
+						"x": 123,
+						"y": 948,
+						"w": 37,
+						"h": 39
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 3,
+						"w": 40,
+						"h": 35
+					},
+					"frame": {
+						"x": 1,
+						"y": 1007,
+						"w": 40,
+						"h": 35
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 3,
+						"w": 40,
+						"h": 35
+					},
+					"frame": {
+						"x": 43,
+						"y": 1007,
+						"w": 40,
+						"h": 35
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 36,
+						"h": 35
+					},
+					"frame": {
+						"x": 85,
+						"y": 1007,
+						"w": 36,
+						"h": 35
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 4,
+						"w": 37,
+						"h": 46
+					},
+					"frame": {
+						"x": 1,
+						"y": 1081,
+						"w": 37,
+						"h": 46
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 4,
+						"w": 37,
+						"h": 46
+					},
+					"frame": {
+						"x": 1,
+						"y": 1081,
+						"w": 37,
+						"h": 46
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 36,
+						"h": 35
+					},
+					"frame": {
+						"x": 1,
+						"y": 1044,
+						"w": 36,
+						"h": 35
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 36,
+						"h": 35
+					},
+					"frame": {
+						"x": 39,
+						"y": 1044,
+						"w": 36,
+						"h": 35
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 15,
+						"w": 39,
+						"h": 36
+					},
+					"frame": {
+						"x": 77,
+						"y": 1044,
+						"w": 39,
+						"h": 36
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 4,
+						"w": 35,
+						"h": 34
+					},
+					"frame": {
+						"x": 40,
+						"y": 1081,
+						"w": 35,
+						"h": 34
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 6,
+						"w": 30,
+						"h": 43
+					},
+					"frame": {
+						"x": 1,
+						"y": 1129,
+						"w": 30,
+						"h": 43
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 18,
+						"w": 36,
+						"h": 33
+					},
+					"frame": {
+						"x": 1,
+						"y": 1174,
+						"w": 36,
+						"h": 33
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorre/animacionTorre-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 6,
+						"w": 27,
+						"h": 43
+					},
+					"frame": {
+						"x": 33,
+						"y": 1129,
+						"w": 27,
+						"h": 43
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangar/animacionHangar-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 35,
+						"h": 33
+					},
+					"frame": {
+						"x": 39,
+						"y": 1174,
+						"w": 35,
+						"h": 33
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 7,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 62,
+						"y": 1117,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 7,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 62,
+						"y": 1117,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 35,
+						"h": 33
+					},
+					"frame": {
+						"x": 77,
+						"y": 1082,
+						"w": 35,
+						"h": 33
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 7,
+						"w": 30,
+						"h": 42
+					},
+					"frame": {
+						"x": 76,
+						"y": 1161,
+						"w": 30,
+						"h": 42
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorre/animacionTorre-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 7,
+						"w": 28,
+						"h": 42
+					},
+					"frame": {
+						"x": 96,
+						"y": 1117,
+						"w": 28,
+						"h": 42
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangarExplota/animacionHangarExplota-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 6,
+						"w": 37,
+						"h": 34
+					},
+					"frame": {
+						"x": 118,
+						"y": 1081,
+						"w": 37,
+						"h": 34
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 3,
+						"w": 37,
+						"h": 39
+					},
+					"frame": {
+						"x": 108,
+						"y": 1161,
+						"w": 37,
+						"h": 39
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 12,
+						"w": 34,
+						"h": 39
+					},
+					"frame": {
+						"x": 126,
+						"y": 1117,
+						"w": 34,
+						"h": 39
+					}
+				},
+				{
+					"filename": "hangar/equipo1/animacionHangar/animacionHangar-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 10,
+						"w": 36,
+						"h": 34
+					},
+					"frame": {
+						"x": 157,
+						"y": 1081,
+						"w": 36,
+						"h": 34
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 17,
+						"w": 37,
+						"h": 37
+					},
+					"frame": {
+						"x": 147,
+						"y": 1158,
+						"w": 37,
+						"h": 37
+					}
+				},
+				{
+					"filename": "hangar/equipo2/animacionHangarExplota/animacionHangarExplota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 49,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 3,
+						"w": 36,
+						"h": 35
+					},
+					"frame": {
+						"x": 162,
+						"y": 1117,
+						"w": 36,
+						"h": 35
+					}
+				},
+				{
+					"filename": "torre/equipo1/animacionTorreExplota/animacionTorreExplota-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 29,
+						"h": 29
+					},
+					"frame": {
+						"x": 195,
+						"y": 1081,
+						"w": 29,
+						"h": 29
+					}
+				},
+				{
+					"filename": "torre/equipo2/animacionTorreExplota/animacionTorreExplota-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 55,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 29,
+						"h": 29
+					},
+					"frame": {
+						"x": 195,
+						"y": 1081,
+						"w": 29,
+						"h": 29
+					}
+				},
+				{
+					"filename": "tanque/amnimacionTanque/animacionTanque-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 23,
+						"w": 32,
+						"h": 28
+					},
+					"frame": {
+						"x": 200,
+						"y": 1112,
+						"w": 32,
+						"h": 28
+					}
+				},
+				{
+					"filename": "tanque/animacionTanqueExplota/animacionTanqueExplota-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 27,
+						"w": 30,
+						"h": 24
+					},
+					"frame": {
+						"x": 200,
+						"y": 1142,
+						"w": 30,
+						"h": 24
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:5667b59a225877498d2b1295d7f11afc:c20027c73d04daffee78848228492bb3:7232e5c4564c48ce7821741e80f218b0$"
+	}
+}
