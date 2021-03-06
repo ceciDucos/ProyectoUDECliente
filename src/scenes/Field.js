@@ -111,7 +111,10 @@ class Field extends Phaser.Scene {
 
 
         this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada        
-        this.loadLateralPanel();
+        //this.loadLateralPanel();        
+        this.lateral = this.add.sprite(1181, 195, 'vistaLateral');
+        this.lateral.setDepth(3);
+
         this.airplanes = [];
         this.enemies = [];
         let BaseX;
@@ -143,8 +146,7 @@ class Field extends Phaser.Scene {
             if (this.team === 1) {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX+35, y: this.teamBaseY-23, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
                 this.airplanes[i].setInteractive();
-                
-                this.airplanes[i].anims.play('equipo1avion1Volar',true);
+                //this.airplanes[i].anims.play('equipo1avion1Volar',true);
                 
                         
                 /*let bulletsAux = this.airplanes[i].bullets.getChildren();
@@ -254,6 +256,10 @@ class Field extends Phaser.Scene {
         if (this.inputKeys.airplane1.isDown) {
             this.deselectTurrets();
             this.deselectAirplanes(0);
+            this.lateral.anims.play('equipo1avion1EnHangar', true);
+            /*this.lateral.on("animationcomplete", ()=>{ 
+                this.lateral.anims.play('equipo1avion1EnHangar');
+            });*/
             /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 if (i === 0) {
                     this.airplanes[i].selected = true;

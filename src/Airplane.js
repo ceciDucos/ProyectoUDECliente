@@ -88,8 +88,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             console.log('animacion dentro de avion');
             this.on("animationcomplete", ()=>{ 
                 this.anims.play('equipo1avion1Volar', true);
-            });
-            //this.anims.play('equipo1avion1Volar',true);
+            });      
+            if (this.selected && this.estado !== 3) {                
+                this.scene.lateral.on("animationcomplete", ()=>{  
+                    this.scene.lateral.anims.play('equipo1avion1VolarBajoLateralVolar');
+                });
+            }
             //this.anims.play(animName, true);
             this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity);
             this.fuel = this.fuel - 0.02
@@ -103,11 +107,16 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.on("animationcomplete", ()=>{ 
                 this.anims.play('equipo1avion1Volar', true);
             });
+            if (this.selected && this.estado !== 3) { 
+                this.scene.lateral.on("animationcomplete", ()=>{  
+                    this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralVolar');
+                });
+            }
             this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
             this.fuel = this.fuel - 0.02;
             //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
         }
-        else {
+        else {           
             this.setVelocity(0, 0);
         }       
         if (this.selected) {
@@ -119,6 +128,9 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.on("animationcomplete", ()=>{ 
                             this.anims.play('equipo1avion1Volar');
                         });
+                        if (this.estado !== 3) {
+                            this.scene.lateral.anims.play('equipo1avion1LateralDespegar', true);
+                        }
                         this.setScale(0.2);
                         this.setDepth(1); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
                         //this.anims.delayedPlay(1000,'equipo1avion1Volar');
@@ -127,7 +139,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         
                     }
                     else{
-                        this.setScale(0.3);
+                        //this.setScale(0.3);
+                        this.scene.lateral.anims.play('equipo1avion1AumentarAltura', true);
                         this.setDepth(2);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
                         //this.anims.play('equipo1avion1Volar');
                         //this.anims.play(animName, true);
@@ -144,6 +157,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 if (this.estado === 2) {
                     this.estado--;
                     this.lastEstadoChanged = time + 180;
+                    this.scene.lateral.anims.play('equipo1avion1DisminuirAltura', true);                    
                 }
                 else if (this. estado === 1) {                    
                     if (this.estado === 1 && this.airplaneInBaseRange()) {
@@ -158,6 +172,13 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }  
                         this.fuel = 100;                      
                         this.lastEstadoChanged = time + 180;
+                        this.scene.lateral.anims.play('equipo1avion1LateralAterrizar', true);
+                        this.scene.lateral.on("animationcomplete", ()=>{
+                            if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VolarBajoLateralVolar') {
+                                this.scene.lateral.anims.pause();
+                            }
+                            this.scene.lateral.anims.play('equipo1avion1EnHangar', true);
+                        });                        
                         this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);                      
                     }
                 }
@@ -172,7 +193,28 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         else {
                             this.anims.play('equipo1avion1DoblarIzquierda');
                         }
-                    });                   
+                    });
+                    if (this.estado === 1) {
+                        if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VolarBajoLateralVolar') {                        
+                            this.scene.lateral.anims.play('equipo1avion1VueloBajoLateralDoblarIzquierda', true);
+                        }
+                        else {
+                            this.scene.lateral.on("animationcomplete", ()=>{  
+                                this.scene.lateral.anims.play('equipo1avion1VueloBajoLateralDoblarIzquierda', true);
+                            });
+                        }
+                    }
+                    else {                        
+                        if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VueloAltoLateralVolar') {                        
+                            this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralDoblarIzquierda', true);
+                        }
+                        else {
+                            this.scene.lateral.on("animationcomplete", ()=>{  
+                                this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralDoblarIzquierda', true);
+                            });
+                        }
+                    }
+                                  
                 } else if (this.inputKeys.right.isDown) {
                     this.body.setAngularVelocity(40);
                     this.on("animationcomplete", ()=>{                         
@@ -182,7 +224,27 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         else {
                             this.anims.play('equipo1avion1DoblarDerecha');
                         }
-                    });                     
+                    });
+                    if (this.estado === 1) {
+                        if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VolarBajoLateralVolar') {                        
+                            this.scene.lateral.anims.play('equipo1avion1VueloBajoLateralDoblarDerecha', true);
+                        }
+                        else {
+                            this.scene.lateral.on("animationcomplete", ()=>{  
+                                this.scene.lateral.anims.play('equipo1avion1VueloBajoLateralDoblarDerecha', true);
+                            });
+                        }
+                    }
+                    else {                        
+                        if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VueloAltoLateralVolar') {                        
+                            this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralDoblarDerecha', true);
+                        }
+                        else {
+                            this.scene.lateral.on("animationcomplete", ()=>{  
+                                this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralDoblarDerecha', true);
+                            });
+                        }
+                    }
                 }
                 else {
                     this.body.setAngularVelocity(0);
@@ -309,6 +371,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     blowUpAirplane(data) {
         if (data.estado === 3) {
             this.anims.play('equipo1avion1Explotar',true);
+            this.scene.lateral.on("animationcomplete", ()=>{
+                if (this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VolarBajoLateralVolar' || this.scene.lateral.anims.currentAnim.key === 'equipo1avion1VueloAltoLateralVolar') {
+                    this.scene.lateral.anims.pause();
+                }
+                this.scene.lateral.anims.play('equipo1avion1VueloBajoLateralExplotar', true);
+            });             
             this.life = 0;
             this.fuel = 0;
             this.estado = 3;

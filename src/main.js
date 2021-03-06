@@ -15,7 +15,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    backgroundColor: "#95afc0",
+    backgroundColor: "#484824",
     pixelArt: false,
     physics: {
         default: "arcade",
