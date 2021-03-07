@@ -1,2 +1,8 @@
-que las torretas solo disparen a aviones enemigos
-colocar torretas en tu propio campo y no siempre en el campo del jugador 1
+aparecen idbalas random como 38
+le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
+hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
+
+
+
+pronto---que las torretas solo disparen a aviones enemigos
+pronto---colocar torretas en tu propio campo y no siempre en el campo del jugador 1

@@ -1,5 +1,7 @@
 import Airplane from "../Airplane.js";
 import Turret from "../Turret.js"
+import HealthBar from "../HealthBar.js"
+
 class Field extends Phaser.Scene {
     constructor() {
         super({key: 'Field'});
@@ -126,6 +128,8 @@ class Field extends Phaser.Scene {
         let frame2;
         let texture;
         let enemyTexture;
+        let HealthBarX = 1100;
+        let HealthBarY = 450;
         if (this.team === 1) {
             texture = 'airplaneplayer1';
             enemyTexture = 'airplaneplayer2';
@@ -145,7 +149,7 @@ class Field extends Phaser.Scene {
             }
             if (this.team === 1) {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX+35, y: this.teamBaseY-23, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
-                this.airplanes[i].setInteractive();
+                //this.airplanes[i].setInteractive();
                 //this.airplanes[i].anims.play('equipo1avion1Volar',true);
                 
                         
@@ -162,9 +166,13 @@ class Field extends Phaser.Scene {
             }
             else {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
-                this.airplanes[i].setInteractive();
+                //this.airplanes[i].setInteractive();
                 this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
+            this.airplanes[i].setInteractive();
+            this.airplanes[i].hpBar = new HealthBar(this, HealthBarX, HealthBarY, 0);
+            this.airplanes[i].fuelBar = new HealthBar(this, HealthBarX, HealthBarY + 20, 1);
+            HealthBarY += 60;
         }        
 
 
@@ -256,7 +264,12 @@ class Field extends Phaser.Scene {
         if (this.inputKeys.airplane1.isDown) {
             this.deselectTurrets();
             this.deselectAirplanes(0);
-            this.lateral.anims.play('equipo1avion1EnHangar', true);
+            //this.lateral.anims.play('equipo1avion1EnHangar', true);
+
+
+            /*if (this.airplanes[0].estado === 0) {
+                this.lateral.anims.play('equipo1avion1EnHangar', true);
+            }*/            
             /*this.lateral.on("animationcomplete", ()=>{ 
                 this.lateral.anims.play('equipo1avion1EnHangar');
             });*/
@@ -387,7 +400,7 @@ class Field extends Phaser.Scene {
         }
     }*/
 
-    loadLateralPanel() {
+    /*loadLateralPanel() {
         this.lateral = this.add.sprite(1180, 360, 'animacionLateralVolar', 'equipo1avion1LateralVolar-1.png');
         this.lateral.setDepth(3);
         this.frameNamesLateral = this.anims.generateFrameNames('animacionLateralVolar', {
@@ -396,7 +409,7 @@ class Field extends Phaser.Scene {
         });
         this.anims.create({ key: 'moveLateral', frames: this.frameNamesLateral, frameRate: 24, repeat: -1 });
         this.lateral.anims.play('moveLateral');
-    }
+    }*/
 
     moveEnemyAirplane(data) {
         //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
@@ -414,28 +427,59 @@ class Field extends Phaser.Scene {
         }
     }
 
-    updateBullet(data) {
-        console.log('data: ');
-        console.log(data);
-        if (data.visible && data.idJugador !== this.team) {
-            console.log('entro al distinto equipo');
-            let bullet = this.enemies[data.idAvion].bullets.get();
-            if (bullet) {      
-                console.log('entro al hay bullet');                 
-                if (bullet.idBullet === '') {
-                    this.enemies[data.idAvion].bulletQuantity++;
+    updateBullet(data) {       
+        if (data.idJugador !== this.team) {
+            if (data.visible) {
+                let bullet = this.enemies[data.idAvion].bullets.get();
+                if (bullet) {
+                    console.log('bulletQuantity en undatebullet antes de cambiar: ' + this.enemies[data.idAvion].bulletQuantity);
+                    if (this.enemies[data.idAvion].bulletQuantity <= data.idBala) {
+                        this.enemies[data.idAvion].bulletQuantity = data.idBala + 1;
+                    }
+                    
+                    console.log('bulletQuantity en undatebullet despues de cambiar: ' + this.enemies[data.idAvion].bulletQuantity);
+                    
+                    /*if (bullet.idBullet === '') {
+                        this.enemies[data.idAvion].bulletQuantity++;
+                    }
+                    else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
+                        this.enemies[data.idAvion].bulletQuantity = data.idBullet;
+                    }*/
+                    bullet.idBullet = data.idBala;
+                    bullet.planeNumber = data.idAvion;
+                    bullet.estadoAvion = data.altitud;
+                    bullet.enemyBullet = true;
+                    bullet.fire(this, data.ejeX, data.ejeY, data.angulo);
                 }
-                else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
-                    this.enemies[data.idAvion].bulletQuantity = data.idBullet;
-                }
-                bullet.idBullet = data.idBullet;
-                bullet.planeNumber = data.planeNumber;
-                bullet.estadoAvion = data.estado;
-                bullet.enemyBullet = true;
-                console.log('disparo');
-                bullet.fire(this, this.enemies[data.idAvion].x, this.enemies[data.idAvion].y, this.enemies[data.idAvion].angle);
+            }
+            else {
+                // Indicar a que bala en especifico se necesita hacer desaparecer
+                let bullet = this.enemies[data.idAvion].bullets.getMatching('idBullet', data.idBala)[0];
+                bullet.setActive(false);
+                bullet.setVisible(false);
+                bullet.body.stop();
             }
         }
+        else if (!data.visible){
+            let bullet = this.airplanes[data.idAvion].bullets.getMatching('idBullet', data.idBala)[0];
+            bullet.setActive(false);
+            bullet.setVisible(false);
+            bullet.body.stop();
+        }
+    }
+
+    updateAirplaneLife(data) {
+        console.log('entro updateAirplaneLife');
+        console.log(data.idJugador);
+        console.log(this.team);
+        if (data.idJugador === this.team) {
+            console.log('entro como igual id');
+            this.airplanes[data.idAvion].updateLife(data);            
+        }
+        else {
+            console.log('entro como distinto id');
+            this.enemies[data.idAvion].updateLife(data);
+        }        
     }
 }
 

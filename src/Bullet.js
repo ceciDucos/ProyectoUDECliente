@@ -9,11 +9,12 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.idBullet = '';
         this.enemyBullet = false;
         this.lastUpdated = 0;
+        this.planeNumber = '';
+        this.estadoAvion = '';
         //console.log('velocidad' + Phaser.Math.GetSpeed(600, 1));
     }
 
     fire(scene, x, y, angle) {
-        console.log('disparo fire');
         this.typeOfBullet = 0;
         this.lifespan = 700;
         this.setActive(true);
@@ -26,6 +27,9 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
         this.body.velocity.x *= 10;
         this.body.velocity.y *= 10;
+        if (!this.enemyBullet) {
+            this.scene.bootloaderScene.dispararBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+        }        
     }
 
     fireTurret(x, y, angle) {
@@ -44,10 +48,9 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(time, delta) {
-        if (!this.enemyBullet && time > this.lastUpdated) {
-            console.log('envio bala del enemigo, ' + this.enemyBullet);
+        if (!this.enemyBullet && time > this.lastUpdated && this.typeOfBullet === 0) {
             this.scene.bootloaderScene.moverBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
-            this.lastUpdated = time + 50; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+            this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
         }        
         if (this.typeOfBullet === 0) {
             //console.log('update de bala');
@@ -57,7 +60,9 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
             if (this.lifespan <= 0) {
                 this.setActive(false);
                 this.setVisible(false);
-                this.scene.bootloaderScene.moverBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+                if (!this.enemyBullet) {
+                    this.scene.bootloaderScene.moverBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+                }
                 this.body.stop();
             }
         }

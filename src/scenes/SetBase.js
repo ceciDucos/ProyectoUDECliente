@@ -10,9 +10,11 @@ class SetBase extends Phaser.Scene {
     preload() {        
         this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/bomba-sprite1.png');
+        this.load.image('baseexample', 'assets/images/baseEquipo1-1sinborde.png');
     }
 
-    create() {
+    create() {        
+        this.bootloaderScene = this.scene.get('Bootloader');
         this.physics.world.setFPS(30); 
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
         this.frameNames = this.anims.generateFrameNames('mapa', {
@@ -34,6 +36,8 @@ class SetBase extends Phaser.Scene {
         
         
         this.input.on('pointerdown', this.placeBase, this);
+        
+        //this.input.on('pointerdown', (pointer) => {console.log('x: ' + pointer.x + ', y: ' + pointer.y)});
 
     }
 
@@ -101,8 +105,21 @@ class SetBase extends Phaser.Scene {
                     this.mapGrid[k][l] = 1;
                 }
             }
-            this.data['mapGrid'] = this.mapGrid; 
-            this.pasarEscena();
+            this.data['mapGrid'] = this.mapGrid;
+            this.data['teamControlTowerX'] = this.data['teamBaseX'] - 37;
+            this.data['teamControlTowerY'] = this.data['teamBaseY'] + 21;
+            this.data['teamFuelX'] = this.data['teamBaseX'] - 30;
+            this.data['teamFuelY'] = this.data['teamBaseY'] - 18;
+            this.data['teamHangarX'] = this.data['teamBaseX'] + 35;
+            this.data['teamHangarY'] = this.data['teamBaseY'] - 18;
+            //this.add.sprite(this.data['teamBaseX'],  this.data['teamBaseY'], 'baseexample');
+
+
+            //this.bootloaderScene.colocarBase(this.data.gameId, this.data.team, this.data['teamBaseX'], this.data['teamBaseY'], this.data['teamControlTowerX'], this.data['teamControlTowerY'], this.data['teamFuelX'], this.data['teamFuelY'], this.data['teamHangarX'], this.data['teamHangarY']);
+
+
+            this.pasarEscena(); //moverlo a la escucha del websocket
+            
             /*this.base = this.add.image(this.data['teamBaseX'], this.data['teamBaseY'], 'base');
             this.base.setScale(2);
             console.log(this.mapGrid);

@@ -52,6 +52,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 'nombrePartida': 'PartidaPrueba',
@@ -79,6 +80,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 'nombreJugador': 'Ceci',
@@ -120,8 +122,36 @@ class Bootloader extends Phaser.Scene {
             'ejeY': y,
             'angulo': angle,
             'visible': visible,
-        })); 
-        console.log('envio bala');
+        }));
+    }
+
+    dispararBala(gameId, team, planeNumber, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/disparo-bala2", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idAvion': planeNumber,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        }));
+    }
+
+    colocarBase(gameId, team, baseX, BaseY, controlTowerX, controlTowerY, fuelX, fuelY, hangarX, hangarY) { //cambiar los names del json
+        stompClient.send("/app/colocar-base", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idAvion': baseX,
+            'idBala': BaseY,
+            'altitud': controlTowerX,
+            'ejeX': controlTowerY,
+            'ejeY': fuelX,
+            'angulo': fuelY,
+            'visible': hangarX,
+            'visible': hangarY,
+        }));
     }
 }
 

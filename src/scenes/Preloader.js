@@ -132,6 +132,12 @@ export default class Preloader extends Phaser.Scene
         });
         this.anims.create({ key: 'equipo1avion1VueloAltoLateraExplotar', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
+        this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+            start: 17, end: 17, zeroPad: 1,
+            prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo1avion1VueloBajoLateralExplotar-', suffix: '.png'
+        });
+        this.anims.create({ key: 'equipo1avion1VueloBajoLateralExplotado', frames: this.frameNames, frameRate: 24, repeat: -1 });
+
 
         
 
