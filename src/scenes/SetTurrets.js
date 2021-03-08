@@ -9,7 +9,7 @@ class SetTurrets extends Phaser.Scene {
     }
 
     preload() {        
-        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
+        //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('turret', 'assets/images/bomba-sprite1.png');
         this.load.image('turret', 'assets/images/artilleriaMover-1.png');
         this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
@@ -17,22 +17,21 @@ class SetTurrets extends Phaser.Scene {
     }
 
     create() {
-        this.data.turretsX = [];
-        this.data.turretsY = [];
+        this.bootloaderScene = this.scene.get('Bootloader');
+        console.log('arranca setTurret');
+        console.log(this.data);
+        this.turretsX = [];
+        this.turretsY = [];
         this.turretCount = 0;
         this.physics.world.setFPS(30); 
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
-        this.frameNames = this.anims.generateFrameNames('mapa', {
-            start: 1, end: 5, zeroPad: 1,
-            prefix: 'mapa-', suffix: '.png'
-        });
-        this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
         this.map.anims.play('move');
         var graphics = this.add.graphics();
         this.drawGrid1(graphics);
 
         
         this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
+        this.enemyBase = this.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base');
 
         this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
         this.input.on('pointerdown', this.placeTurret, this);   //Hay que ver como hacer el loop de las 11 torretas con el evento del puntero para luego pasar a la escena Field. No hacerlo en el placeTurret porque es un solo evento de click
@@ -40,17 +39,21 @@ class SetTurrets extends Phaser.Scene {
     }
 
     update(time, delta) {
-        if (this.turretCount === 11) {
+        /*if (this.turretCount === 11) {
             this.pasarEscena();
-        }
+        }*/
     }
 
-    pasarEscena() {
-        this.bootloaderScene = this.scene.get('Bootloader');
-        this.scene.start('Field', { team: this.data.team, gameId: this.data.gameId, enemyTeam: this.data.enemyTeam, 
-            teamBaseX: this.data.teamBaseX, teamBaseY: this.data.teamBaseY, enemyBaseX: this.data.enemyBaseX, enemyBaseY: this.data.enemyBaseY, 
-            turretsX: this.data.turretsX, turretsY: this.data.turretsY});
-        //console.log(this.data);
+    pasarEscena(data) {
+        if (this.data.team === data[0][0].idJugador) {
+            this.data.teamTurrets = data[0];
+            this.data.enemyTurrets = data[1];
+        }
+        else {
+            this.data.teamTurrets = data[1];
+            this.data.enemyTurrets = data[0];
+        }
+        this.scene.start('Field', this.data);
         this.bootloaderScene.fieldScene = this.scene.get('Field');
         
         //this.scene.boo.fieldScene = this.scene.get('SetBase');
@@ -126,12 +129,14 @@ class SetTurrets extends Phaser.Scene {
         if (this.canPlace(i, j)) { 
             //turretX = 'turretX' + m;
             //turretY = ;
-            this.data.turretsX[this.turretCount] =  j * 40 + 40 / 2;
-            this.data.turretsY[this.turretCount] = i * 30 + 30 / 2;                        
+            this.turretsX[this.turretCount] =  j * 40 + 40 / 2;
+            this.turretsY[this.turretCount] = i * 30 + 30 / 2;  
             this.data.mapGrid[i][j] = 1;
             //console.log('x en setBase: ' + this.data['teamBaseX'] + 'y en setBase: ' + this.data['teamBaseY']);
-            this.turret = this.add.image(this.data.turretsX[this.turretCount], this.data.turretsY[this.turretCount], 'turret');
+            this.turret = this.add.image(this.turretsX[this.turretCount], this.turretsY[this.turretCount], 'turret');
             this.turret.setScale(0.15);
+            this.bootloaderScene.colocarTorreta(this.data.gameId, this.data.team, this.turretCount, 
+                this.turretsX[this.turretCount], this.turretsY[this.turretCount], 0, false);
             this.turretCount++;
             //this.pasarEscena();
 

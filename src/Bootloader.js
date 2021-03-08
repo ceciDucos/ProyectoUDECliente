@@ -34,8 +34,10 @@ class Bootloader extends Phaser.Scene {
         this.createServer.removeInteractive();
         this.joinServer.removeInteractive();
         this.entrarjuego.removeInteractive();
-        this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
-            enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
+        /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+            enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
+        this.scene.launch('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
+        this.setBaseScene = this.scene.get('SetBase');
     }
 
     crearPartidaEnEspera() {
@@ -53,6 +55,9 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.dropEnemyBomb(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 'nombrePartida': 'PartidaPrueba',
@@ -62,10 +67,10 @@ class Bootloader extends Phaser.Scene {
         this.team = 1;
         this.gameId = 'PartidaPrueba';
         this.enemyTeam = 2;
-        this.teamBaseX = 540;
-        this.teamBaseY = 50;
-        this.enemyBaseX = 540;
-        this.enemyBaseY = 670;
+        //this.teamBaseX = 540;
+        //this.teamBaseY = 50;
+        //this.enemyBaseX = 540;
+        //this.enemyBaseY = 670;
     }
 
     unirseAPartida() {
@@ -81,6 +86,9 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.dropEnemyBomb(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 'nombreJugador': 'Ceci',
@@ -89,10 +97,10 @@ class Bootloader extends Phaser.Scene {
         this.team = 2;
         this.gameId = 'PartidaPrueba';
         this.enemyTeam = 1;
-        this.teamBaseX = 540;
+        /*this.teamBaseX = 540;
         this.teamBaseY = 670;
         this.enemyBaseX = 540;
-        this.enemyBaseY = 50;
+        this.enemyBaseY = 50;*/
     }
 
     moverAvion(gameId, team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {       
@@ -143,16 +151,40 @@ class Bootloader extends Phaser.Scene {
         stompClient.send("/app/colocar-base", {}, JSON.stringify({
             'nombrePartida': gameId,
             'idJugador': team,
-            'idAvion': baseX,
-            'idBala': BaseY,
-            'altitud': controlTowerX,
-            'ejeX': controlTowerY,
-            'ejeY': fuelX,
-            'angulo': fuelY,
-            'visible': hangarX,
-            'visible': hangarY,
+            'baseEjeX': baseX,
+            'baseEjeY': BaseY,
+            'torretaEjeX': controlTowerX,
+            'torretaEjeY': controlTowerY,
+            'tanqueCombustibleEjeX': fuelX,
+            'tanqueCombustibleEjeY': fuelY,
+            'hangarEjeX': hangarX,
+            'hangarEjeY': hangarY,
         }));
     }
+
+    tirarBomba(gameId, team, planeNumber, x, y) {
+        stompClient.send("/app/tirar-bomba", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'avionId': planeNumber,
+            'ejeX': x,
+            'ejeY': y,
+        }));
+    }
+
+    colocarTorreta(gameId, team, idTurret, x, y, angulo, destroy) {
+        stompClient.send("/app/colocar-artilleria", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idArtilleria': idTurret,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angulo,
+            'destruida': destroy,
+        }));
+    }
+
+    
 }
 
 export default Bootloader;

@@ -6,16 +6,23 @@ export default class Preloader extends Phaser.Scene
     }
 
     preload ()
-    {
+    {        
+        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
         this.load.multiatlas('equipo1avion1', 'assets/images/airplanes/player1/equipo1avion1.json', 'assets/images/airplanes/player1');
         this.load.multiatlas('equipo1avion2', 'assets/images/airplanes/player1/equipo1avion2.json', 'assets/images/airplanes/player1');
         this.load.multiatlas('equipo1avion3', 'assets/images/airplanes/player1/equipo1avion3.json', 'assets/images/airplanes/player1');
         this.load.multiatlas('equipo1avion4', 'assets/images/airplanes/player1/equipo1avion4.json', 'assets/images/airplanes/player1');        
-        this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');
+        this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');        
     }
 
     create ()
     {
+        this.frameNames = this.anims.generateFrameNames('mapa', {
+            start: 1, end: 5, zeroPad: 1,
+            prefix: 'mapa-', suffix: '.png'
+        });
+        this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
+
         this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
             start: 1, end: 2, zeroPad: 1,
             prefix: 'animacionVolar/equipo1avion1Volar-', suffix: '.png'
@@ -45,6 +52,15 @@ export default class Preloader extends Phaser.Scene
             prefix: 'animacionDoblarDerecha/equipo1avion1DoblarDerecha-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo1avion1DoblarDerecha', frames: this.frameNames, frameRate: 24, repeat: 0 });
+        
+        this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+            start: 1, end: 14, zeroPad: 1,
+            prefix: 'animacionAterrizar/equipo1avion1Aterriza-', suffix: '.png'
+        });
+        this.anims.create({ key: 'equipo1avion1Aterriza', frames: this.frameNames, frameRate: 24, repeat: 0 });
+
+
+        //Animaciones laterales equipo1avion1
         
         this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
             start: 1, end: 1, zeroPad: 1,
@@ -137,7 +153,18 @@ export default class Preloader extends Phaser.Scene
             prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo1avion1VueloBajoLateralExplotar-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo1avion1VueloBajoLateralExplotado', frames: this.frameNames, frameRate: 24, repeat: -1 });
-
+               
+        this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+            start: 1, end: 10, zeroPad: 1,
+            prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo1avion1VueloBajoLateralLanzarBomba-', suffix: '.png'
+        });
+        this.anims.create({ key: 'equipo1avion1VueloBajoLateralLanzarBomba', frames: this.frameNames, frameRate: 24, repeat: 0 });
+               
+        this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+            start: 1, end: 10, zeroPad: 1,
+            prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo1avion1VueloAltoLanzarBomba-', suffix: '.png'
+        });
+        this.anims.create({ key: 'equipo1avion1VueloAltoLanzarBomba', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
         
 

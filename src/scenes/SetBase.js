@@ -8,20 +8,15 @@ class SetBase extends Phaser.Scene {
     }
 
     preload() {        
-        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
+        //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/bomba-sprite1.png');
         this.load.image('baseexample', 'assets/images/baseEquipo1-1sinborde.png');
     }
 
-    create() {        
+    create() {      
         this.bootloaderScene = this.scene.get('Bootloader');
         this.physics.world.setFPS(30); 
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
-        this.frameNames = this.anims.generateFrameNames('mapa', {
-            start: 1, end: 5, zeroPad: 1,
-            prefix: 'mapa-', suffix: '.png'
-        });
-        this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
         this.map.anims.play('move');
         this.data.teamBaseX = 200;
         this.data.enemyBaseX = 200;
@@ -44,10 +39,23 @@ class SetBase extends Phaser.Scene {
     update(time, delta) {
     }
 
-    pasarEscena() {
+    pasarEscena(data) {
         //this.bootloaderScene = this.scene.get('Bootloader');
-        this.scene.start('SetTurrets', { team: this.data.team, gameId: this.data.gameId, enemyTeam: this.data.enemyTeam, 
-            teamBaseX: this.data.teamBaseX, teamBaseY: this.data.teamBaseY, enemyBaseX: this.data.enemyBaseX, enemyBaseY: this.data.enemyBaseY, mapGrid: this.mapGrid});
+        console.log('antes de pasar a setTurret');
+        console.log(data);
+        let i = this.data.enemyTeam - 1;      
+        this.data['enemyBaseX'] = data[i].baseEjeX
+        this.data['enemyBaseY'] = data[i].baseEjeY
+        this.data['enemyControlTowerX'] = data[i].torretaEjeX
+        this.data['enemyControlTowerY'] = data[i].torretaEjeY
+        this.data['enemyFuelX'] = data[i].tanqueCombustibleEjeX
+        this.data['enemyFuelY'] = data[i].tanqueCombustibleEjeY
+        this.data['enemyHangarX'] = data[i].hangarEjeX
+        this.data['enemyHangarY'] = data[i]. hangarEjeY
+        /*this.scene.start('SetTurrets', { team: this.data.team, gameId: this.data.gameId, enemyTeam: this.data.enemyTeam, 
+            teamBaseX: this.data.teamBaseX, teamBaseY: this.data.teamBaseY, enemyBaseX: this.data.enemyBaseX, enemyBaseY: this.data.enemyBaseY, mapGrid: this.mapGrid});*/
+        this.scene.start('SetTurrets', this.data);
+        this.bootloaderScene.setTurretsScene = this.scene.get('SetTurrets');
         //console.log(this.data);
         //this.bootloaderScene.fieldScene = this.scene.get('Field');
         //this.scene.boo.fieldScene = this.scene.get('SetBase');
@@ -106,19 +114,32 @@ class SetBase extends Phaser.Scene {
                 }
             }
             this.data['mapGrid'] = this.mapGrid;
-            this.data['teamControlTowerX'] = this.data['teamBaseX'] - 37;
-            this.data['teamControlTowerY'] = this.data['teamBaseY'] + 21;
-            this.data['teamFuelX'] = this.data['teamBaseX'] - 30;
-            this.data['teamFuelY'] = this.data['teamBaseY'] - 18;
-            this.data['teamHangarX'] = this.data['teamBaseX'] + 35;
-            this.data['teamHangarY'] = this.data['teamBaseY'] - 18;
+            if (this.data.team === 1) {
+                this.data['teamControlTowerX'] = this.data['teamBaseX'] - 37;
+                this.data['teamControlTowerY'] = this.data['teamBaseY'] + 21;
+                this.data['teamFuelX'] = this.data['teamBaseX'] - 30;
+                this.data['teamFuelY'] = this.data['teamBaseY'] - 18;
+                this.data['teamHangarX'] = this.data['teamBaseX'] + 35;
+                this.data['teamHangarY'] = this.data['teamBaseY'] - 18;
+            }
+            else {
+                this.data['teamControlTowerX'] = this.data['teamBaseX'] + 37;
+                this.data['teamControlTowerY'] = this.data['teamBaseY'] - 21;
+                this.data['teamFuelX'] = this.data['teamBaseX'] + 30;
+                this.data['teamFuelY'] = this.data['teamBaseY'] + 18;
+                this.data['teamHangarX'] = this.data['teamBaseX'] - 35;
+                this.data['teamHangarY'] = this.data['teamBaseY'] + 18;
+            }
+            
             //this.add.sprite(this.data['teamBaseX'],  this.data['teamBaseY'], 'baseexample');
 
 
-            //this.bootloaderScene.colocarBase(this.data.gameId, this.data.team, this.data['teamBaseX'], this.data['teamBaseY'], this.data['teamControlTowerX'], this.data['teamControlTowerY'], this.data['teamFuelX'], this.data['teamFuelY'], this.data['teamHangarX'], this.data['teamHangarY']);
+            this.bootloaderScene.colocarBase(this.data.gameId, this.data.team, this.data['teamBaseX'], this.data['teamBaseY'], 
+                this.data['teamControlTowerX'], this.data['teamControlTowerY'], this.data['teamFuelX'], this.data['teamFuelY'], 
+                this.data['teamHangarX'], this.data['teamHangarY']);
 
 
-            this.pasarEscena(); //moverlo a la escucha del websocket
+            //this.pasarEscena(); //moverlo a la escucha del websocket
             
             /*this.base = this.add.image(this.data['teamBaseX'], this.data['teamBaseY'], 'base');
             this.base.setScale(2);

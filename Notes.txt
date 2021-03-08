@@ -6,3 +6,22 @@ hay una falla que algunos de los aviones destruiodos reaparecen un rato despues 
 
 pronto---que las torretas solo disparen a aviones enemigos
 pronto---colocar torretas en tu propio campo y no siempre en el campo del jugador 1
+
+rango del hangar
++ 35x
+-23y
+
+cuadrado del tablero 2-2
+x 100
+y 70
+
+player 1
+hangar
+	x+35
+	y-18
+fuel
+	x-30
+	y-18
+controltower
+	x-37
+	y+21

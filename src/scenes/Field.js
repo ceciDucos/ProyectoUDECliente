@@ -8,9 +8,10 @@ class Field extends Phaser.Scene {
     }
 
     init(data) {
+        this.data = data;
         this.team = data.team;
         this.gameId = data.gameId;
-        this.enemyTeam = data.enemyTeam;
+        this.enemyTeam = data.enemyTeam;/*
         this.teamBaseX = data.teamBaseX;
         this.teamBaseY = data.teamBaseY;
         this.enemyBaseX = data.enemyBaseX;
@@ -18,11 +19,14 @@ class Field extends Phaser.Scene {
         //this.mapGrid = data.mapGrid;
         this.turretsX = data.turretsX;
         this.turretsY = data.turretsY;
+
+        this.teamTurrets = data.teamTurrets;
+        this.enemyTurrets = data.enemyTurrets;*/
     }
 
     preload() {
-        this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
-        this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
+        //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
+        //this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/baseEquipo1-1.png');
         this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
         Airplane.preload(this);
@@ -32,15 +36,10 @@ class Field extends Phaser.Scene {
     create() {
         this.physics.world.setFPS(30);
         this.bootloaderScene = this.scene.get('Bootloader');
-        this.map = this.add.sprite(540, 360, 'map', 'mapa-1.png');
-        this.frameNames = this.anims.generateFrameNames('map', {
-            start: 1, end: 5, zeroPad: 1,
-            prefix: 'mapa-', suffix: '.png'
-        });
-        this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
+        this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
         this.map.anims.play('move');
 
-        this.base = this.physics.add.image(this.teamBaseX, this.teamBaseY, 'base').setImmovable();
+        this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base').setImmovable();
         if (this.team === 2) {
             this.base.setAngle(180);
         }
@@ -78,8 +77,8 @@ class Field extends Phaser.Scene {
             if (turret) {
                 turret.setActive(true);
                 turret.setVisible(true);
-                turret.x = this.turretsX[i];                
-                turret.y = this.turretsY[i];
+                turret.x = this.data.teamTurrets[i].ejeX;
+                turret.y = this.data.teamTurrets[i].ejeY;
                 turret.setScale(0.15);
                 turret.body.setSize(120,100);
                 //turret.setCircle(70,10,13);
@@ -119,10 +118,6 @@ class Field extends Phaser.Scene {
 
         this.airplanes = [];
         this.enemies = [];
-        let BaseX;
-        let BaseY;
-        let enemyBaseX;
-        let enemyBaseY;
         
         let frame;
         let frame2;
@@ -148,26 +143,13 @@ class Field extends Phaser.Scene {
                 frame2 = 'equipo2avion' + (i - 3);
             }
             if (this.team === 1) {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX+35, y: this.teamBaseY-23, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
-                //this.airplanes[i].setInteractive();
-                //this.airplanes[i].anims.play('equipo1avion1Volar',true);
-                
-                        
-                /*let bulletsAux = this.airplanes[i].bullets.getChildren();
-                console.log(this.airplanes);
-                console.log(this.airplanes.bullets.getChildren());
-                console.log('se obtuvo los childrens');
-                console.log(bulletsAux);
-                for(let i = 0; i < bulletsAux.length; i++) {
-                    console.log('entro al for de childrens');
-                    bulletsAux[i].idBullet = i;
-                 }*/
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
+                this.airplanes[i] = new Airplane({ scene: this, x: this.data.teamHangarX, y: this.data.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
+                this.enemies[i] = new Airplane({ scene: this, x: this.data.enemyHangarX, y: this.data.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
             else {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamBaseX, y: this.teamBaseY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
+                this.airplanes[i] = new Airplane({ scene: this, x: this.data.teamHangarX, y: this.data.teamHangarY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
                 //this.airplanes[i].setInteractive();
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyBaseX, y: this.enemyBaseY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
+                this.enemies[i] = new Airplane({ scene: this, x: this.data.enemyHangarX, y: this.data.enemyHangarY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
             this.airplanes[i].setInteractive();
             this.airplanes[i].hpBar = new HealthBar(this, HealthBarX, HealthBarY, 0);
@@ -368,7 +350,7 @@ class Field extends Phaser.Scene {
         }
     }
 
-    drawGrid1(graphics) {
+    /*drawGrid1(graphics) {
         graphics.lineStyle(1, 0x0000ff, 0.8);
         for (let i = 0; i < 26; i++) {
             graphics.moveTo(0, i * 30);
@@ -379,7 +361,7 @@ class Field extends Phaser.Scene {
             graphics.lineTo(j * 40, 720);
         }
         graphics.strokePath();
-    }
+    }*/
 
     /*placeTurret(pointer) {
         if (pointer.y < 360) {
@@ -469,17 +451,20 @@ class Field extends Phaser.Scene {
     }
 
     updateAirplaneLife(data) {
-        console.log('entro updateAirplaneLife');
-        console.log(data.idJugador);
-        console.log(this.team);
         if (data.idJugador === this.team) {
-            console.log('entro como igual id');
             this.airplanes[data.idAvion].updateLife(data);            
         }
         else {
-            console.log('entro como distinto id');
             this.enemies[data.idAvion].updateLife(data);
         }        
+    }
+
+    dropEnemyBomb(data) {
+        console.log('llega bomba');
+        console.log(data);
+        if (data.idJugador !== this.team) {
+            //this.enemies[data.avionId].dropEnemyBomb(data);
+        }
     }
 }
 

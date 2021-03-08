@@ -11,6 +11,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             maxSize: 10,
             runChildUpdate: true
         });
+        this.destroy = false;
         this.scene.assignTurretKeys(this);        
         scene.physics.add.existing(this);
         //this.lastFired = 0;
