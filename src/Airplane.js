@@ -159,7 +159,9 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     this.lastEstadoChanged = time + 180;
                     this.scene.lateral.anims.play('equipo1avion1DisminuirAltura', true);                    
                 }
-                else if (this. estado === 1) {                    
+                else if (this. estado === 1) { 
+                    console.log('puede entrar a hangar');
+                    console.log(this.airplaneInHangarRange());
                     if (this.estado === 1 && this.airplaneInHangarRange()) {
                         /*this.on("animationcomplete", ()=>{ 
                             this.anims.play('equipo1avion1Aterriza', true);
@@ -168,13 +170,25 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.once("animationcomplete", ()=>{ 
                             //console.log('pausa y reset');
                             this.anims.pause();
-                            this.x = this.scene.teamBaseX + 35;
-                            this.y = this.scene.teamBaseY - 23;
-                            if (this.team === 1) {
-                                this.angle = 90;
+                            if (this.team === this.scene.data.team) {                                
+                                this.x = this.scene.data.teamHangarX;
+                                this.y = this.scene.data.teamHangarY;
+                                if (this.team === 1) {
+                                    this.angle = 90;
+                                }
+                                else {
+                                    this.angle = -90;
+                                }
                             }
                             else {
-                                this.angle = -90;
+                                this.x = this.scene.data.enemyHangarX;
+                                this.y = this.scene.data.enemyHangarY;
+                                if (this.team === 1) {
+                                    this.angle = 90;
+                                }
+                                else {
+                                    this.angle = -90;
+                                }
                             }
                             this.setVelocity(0, 0); 
                             this.body.setAngularVelocity(0);
@@ -415,6 +429,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         }
         this.hasBomb = data.tieneBomba;
         this.visible = data.visible;
+        this.active = true;
     }
 
     dropBomb() {
@@ -515,7 +530,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
 
     airplaneInHangarRange() {
         let granted = false;
-        if (this.x > this.scene.teamBaseX && (this.x < this.scene.teamBaseX + 70) && this.y < this.scene.teamBaseY && (this.y > this.scene.teamBaseY - 46)) {
+        if (this.x > this.scene.data.teamHangarX - 35 && (this.x < this.scene.data.teamHangarX + 35) && this.y < this.scene.data.teamHangarY + 26 && (this.y > this.scene.data.teamHangarY - 26)) {
             granted = true;
         }
         return granted;
@@ -523,7 +538,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
 
     airplaneInFuelRange() {
         let granted = false;
-        if (this.x < this.scene.teamBaseX && (this.x > this.scene.teamBaseX - 70) && this.y < this.scene.teamBaseY && (this.y > this.scene.teamBaseY - 46)) {
+        if (this.x < this.scene.data.teamFuelX + 35 && (this.x > this.scene.data.teamFuelX - 35) && this.y < this.scene.data.teamFuelY + 26 && (this.y > this.scene.data.teamFuelY - 26)) {
             granted = true;
         }
         return granted;

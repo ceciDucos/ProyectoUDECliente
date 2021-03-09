@@ -58,6 +58,9 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.dropEnemyBomb(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/destruir-artilleria', (greeting) => self.fieldScene.destroyTurret(JSON.parse(greeting["body"])));
+            //stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 'nombrePartida': 'PartidaPrueba',
@@ -89,6 +92,9 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.dropEnemyBomb(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/destruir-artilleria', (greeting) => self.fieldScene.destroyTurret(JSON.parse(greeting["body"])));
+            //stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));            
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 'nombreJugador': 'Ceci',
@@ -174,6 +180,19 @@ class Bootloader extends Phaser.Scene {
 
     colocarTorreta(gameId, team, idTurret, x, y, angulo, destroy) {
         stompClient.send("/app/colocar-artilleria", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idArtilleria': idTurret,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angulo,
+            'destruida': destroy,
+        }));
+    }
+
+    moverTorreta(gameId, team, idTurret, x, y, angulo, destroy) {
+        console.log(idTurret);
+        stompClient.send("/app/mover-artilleria", {}, JSON.stringify({
             'nombrePartida': gameId,
             'idJugador': team,
             'idArtilleria': idTurret,

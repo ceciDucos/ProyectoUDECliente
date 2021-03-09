@@ -31,7 +31,9 @@ class SetTurrets extends Phaser.Scene {
 
         
         this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
-        this.enemyBase = this.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base');
+        if (this.data.team === 2) {
+            this.base.setAngle(180);
+        }
 
         this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
         this.input.on('pointerdown', this.placeTurret, this);   //Hay que ver como hacer el loop de las 11 torretas con el evento del puntero para luego pasar a la escena Field. No hacerlo en el placeTurret porque es un solo evento de click
@@ -45,6 +47,7 @@ class SetTurrets extends Phaser.Scene {
     }
 
     pasarEscena(data) {
+        console.log(data);
         if (this.data.team === data[0][0].idJugador) {
             this.data.teamTurrets = data[0];
             this.data.enemyTurrets = data[1];
@@ -129,14 +132,15 @@ class SetTurrets extends Phaser.Scene {
         if (this.canPlace(i, j)) { 
             //turretX = 'turretX' + m;
             //turretY = ;
-            this.turretsX[this.turretCount] =  j * 40 + 40 / 2;
-            this.turretsY[this.turretCount] = i * 30 + 30 / 2;  
+            this.turretId = this.turretCount;
+            this.turretsX[this.turretId] =  j * 40 + 40 / 2;
+            this.turretsY[this.turretId] = i * 30 + 30 / 2;  
             this.data.mapGrid[i][j] = 1;
             //console.log('x en setBase: ' + this.data['teamBaseX'] + 'y en setBase: ' + this.data['teamBaseY']);
-            this.turret = this.add.image(this.turretsX[this.turretCount], this.turretsY[this.turretCount], 'turret');
+            this.turret = this.add.image(this.turretsX[this.turretId], this.turretsY[this.turretId], 'turret');
             this.turret.setScale(0.15);
-            this.bootloaderScene.colocarTorreta(this.data.gameId, this.data.team, this.turretCount, 
-                this.turretsX[this.turretCount], this.turretsY[this.turretCount], 0, false);
+            this.bootloaderScene.colocarTorreta(this.data.gameId, this.data.team, this.turretId, 
+                this.turretsX[this.turretId], this.turretsY[this.turretId], 0, false);
             this.turretCount++;
             //this.pasarEscena();
 

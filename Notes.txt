@@ -1,7 +1,7 @@
 aparecen idbalas random como 38
 le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
 hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
-
+averiguar si todos los llamados de websocket son async
 
 
 pronto---que las torretas solo disparen a aviones enemigos

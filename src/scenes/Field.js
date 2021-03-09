@@ -40,8 +40,12 @@ class Field extends Phaser.Scene {
         this.map.anims.play('move');
 
         this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base').setImmovable();
+        this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base').setImmovable();
         if (this.team === 2) {
             this.base.setAngle(180);
+        }
+        else {
+            this.enemyBase.setAngle(180);
         }
         //this.base.setScale(2);
 
@@ -66,13 +70,16 @@ class Field extends Phaser.Scene {
         //this.turrets = new Turrets({scene:this,x:team1BaseX,y:team1BaseY,texture:'equipo1avion1',frame:'kek-1',team:team});
 
         this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
+        this.enemyTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         /*let turretsChildren = this.turrets.getChildren(); // trata de buscar los hijos pero aun no tiene las teclas asignadas entonces falla //ahora se puso en el constructor
         console.log('paso');
         for (let i = 0; i < turretsChildren.length; i++) {
             this.assignTurretKeys(turretsChildren[i]);                
         }*/
-        for(let i = 0; i < 11; i++) {
+        this.placeTurrets(this.turrets, this.data.teamTurrets);
+        this.placeTurrets(this.enemyTurrets, this.data.enemyTurrets);
+        /*for(let i = 0; i < 11; i++) {
             let turret = this.turrets.get();
             if (turret) {
                 turret.setActive(true);
@@ -94,11 +101,11 @@ class Field extends Phaser.Scene {
                 turret.setPushable(false);
                 //turret.body.immovable = true;
                 //turret.body.setImmovable(true);
-                /*this.add.graphics()   //Sirve para mostrar en pantalla los limites
-                .lineStyle(5, 0x00ffff, 0.5)
-                .strokeRectShape(turret.body.customBoundsRectangle);*/
+                //this.add.graphics()   //Sirve para mostrar en pantalla los limites
+                //.lineStyle(5, 0x00ffff, 0.5)
+                //.strokeRectShape(turret.body.customBoundsRectangle);
             }
-        }
+        }*/
         this.physics.add.collider(this.turrets);
         this.physics.add.collider(this.turrets, this.base);
         //this.physics.add.collider(this.base);
@@ -393,6 +400,38 @@ class Field extends Phaser.Scene {
         this.lateral.anims.play('moveLateral');
     }*/
 
+    placeTurrets (turrets, turretsInfo) {
+        for(let i = 0; i < turretsInfo.length; i++) {
+            let turret = turrets.get();
+            if (turret) {
+                turret.setActive(true);
+                turret.setVisible(true);
+                turret.id = i;
+                turret.team = turretsInfo[i].idJugador;
+                turret.x = turretsInfo[i].ejeX;
+                turret.y = turretsInfo[i].ejeY;
+                turret.setScale(0.15);
+                turret.body.setSize(120,100);
+                //turret.setCircle(70,10,13);
+                turret.setCollideWorldBounds(true);
+                let bounds;
+                if(turret.team === 1) {    //Valores para limites de movimiento de torreta para team 1 y 2
+                    bounds = new Phaser.Geom.Rectangle(40, 30, 1000, 320);
+                }
+                else {
+                    bounds = new Phaser.Geom.Rectangle(40, 370, 1000, 320);
+                }        
+                turret.body.setBoundsRectangle(bounds);
+                turret.setPushable(false);
+                //turret.body.immovable = true;
+                //turret.body.setImmovable(true);
+                /*this.add.graphics()   //Sirve para mostrar en pantalla los limites
+                .lineStyle(5, 0x00ffff, 0.5)
+                .strokeRectShape(turret.body.customBoundsRectangle);*/
+            }
+        }
+    }
+
     moveEnemyAirplane(data) {
         //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
         if (data.idJugador !== this.team) {
@@ -464,6 +503,16 @@ class Field extends Phaser.Scene {
         console.log(data);
         if (data.idJugador !== this.team) {
             //this.enemies[data.avionId].dropEnemyBomb(data);
+        }
+    }    
+
+    moveTurret(data) {
+        if (data.idJugador !== this.team) {
+            console.log('mover artilleria');
+            console.log(data.idArtilleria);
+            console.log(this.enemyTurrets);
+            let turret = this.enemyTurrets.getMatching('id', data.idArtilleria)[0];
+            turret.moveTurret(data);
         }
     }
 }
