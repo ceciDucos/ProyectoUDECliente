@@ -12,14 +12,12 @@ class SetTurrets extends Phaser.Scene {
         //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('turret', 'assets/images/bomba-sprite1.png');
         this.load.image('turret', 'assets/images/artilleriaMover-1.png');
-        this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
+        //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
         //this.load.image('base', 'assets/images/baseExample.png');
     }
 
     create() {
         this.bootloaderScene = this.scene.get('Bootloader');
-        console.log('arranca setTurret');
-        console.log(this.data);
         this.turretsX = [];
         this.turretsY = [];
         this.turretCount = 0;
@@ -30,7 +28,8 @@ class SetTurrets extends Phaser.Scene {
         this.drawGrid1(graphics);
 
         
-        this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
+        this.base = this.add.sprite(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png');
+        //this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
         if (this.data.team === 2) {
             this.base.setAngle(180);
         }
@@ -47,7 +46,6 @@ class SetTurrets extends Phaser.Scene {
     }
 
     pasarEscena(data) {
-        console.log(data);
         if (this.data.team === data[0][0].idJugador) {
             this.data.teamTurrets = data[0];
             this.data.enemyTurrets = data[1];

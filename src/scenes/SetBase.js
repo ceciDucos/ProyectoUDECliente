@@ -10,10 +10,10 @@ class SetBase extends Phaser.Scene {
     preload() {        
         //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/bomba-sprite1.png');
-        this.load.image('baseexample', 'assets/images/baseEquipo1-1sinborde.png');
+        //this.load.image('baseexample', 'assets/images/baseEquipo1-1sinborde.png');
     }
 
-    create() {      
+    create() {
         this.bootloaderScene = this.scene.get('Bootloader');
         this.physics.world.setFPS(30); 
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
@@ -41,8 +41,6 @@ class SetBase extends Phaser.Scene {
 
     pasarEscena(data) {
         //this.bootloaderScene = this.scene.get('Bootloader');
-        console.log('antes de pasar a setTurret');
-        console.log(data);
         let i = this.data.enemyTeam - 1;      
         this.data['enemyBaseX'] = data[i].baseEjeX
         this.data['enemyBaseY'] = data[i].baseEjeY
@@ -134,7 +132,8 @@ class SetBase extends Phaser.Scene {
             if (this.base !== undefined) {
                 this.base.destroy();
             }
-            this.base = this.add.sprite(this.data['teamBaseX'],  this.data['teamBaseY'], 'baseexample');
+            //this.base = this.add.sprite(this.data['teamBaseX'],  this.data['teamBaseY'], 'baseexample');
+            this.base = this.add.sprite(this.data['teamBaseX'],  this.data['teamBaseY'], 'base', 'terreno/equipo1/baseEquipo1.png');
             
             if (this.data.team === 2) {
                 this.base.setAngle(180);
