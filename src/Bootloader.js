@@ -42,7 +42,7 @@ class Bootloader extends Phaser.Scene {
 
     crearPartidaEnEspera() {
         //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
-        var socket = new SockJS('http://localhost:8091/bombs-away');
+        var socket = new SockJS('http://167.60.207.63:8091/bombs-away');
         var self = this;
         stompClient = Stomp.over(socket);        
         stompClient.connect({}, function (frame) {
@@ -77,7 +77,7 @@ class Bootloader extends Phaser.Scene {
     }
 
     unirseAPartida() {
-        var socket = new SockJS('http://localhost:8091/bombs-away');
+        var socket = new SockJS('http://167.60.207.63:8091/bombs-away');
         var self = this;
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
