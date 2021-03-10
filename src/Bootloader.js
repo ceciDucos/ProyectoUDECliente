@@ -21,6 +21,102 @@ class Bootloader extends Phaser.Scene {
         this.createServer.setInteractive().on('pointerdown', this.crearPartidaEnEspera, this);
         this.joinServer.setInteractive().on('pointerdown', this.unirseAPartida, this);
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
+
+
+        this.h1 = this.add.dom(640, 200, 'h1', null, 'Bombs-Away');
+
+        this.h1.setClassName('chrome');
+        this.tweens.add({
+            targets: [ this.h1 ],
+            y: 120,
+            duration: 1000,
+            ease: 'Sine.easeInOut',
+            loop: -1,
+            yoyo: true
+        });
+        var element = this.add.dom(640, 720).createFromCache('nameform');
+
+        element.addListener('click');
+
+        element.on('click', function (event) {
+
+            if (event.target.name === 'createButton')
+            {
+                var playerNameInput = this.getChildByName('nameField');
+                var gameIdInput = this.getChildByName('gameIdField');
+                
+                console.log(this.scene.gameId);
+
+                //  Have they entered anything?
+                if (playerNameInput.value !== '' && gameIdInput.value !== '')
+                {
+                    this.scene.gameId = gameIdInput.value;
+                    this.scene.playerName = playerNameInput.value;
+                    //  Turn off the click events
+                    this.removeListener('click');
+
+                    //  Hide the login element
+                    this.setVisible(false);
+                    this.scene.h1.setVisible(false);
+
+                    this.scene.crearPartidaEnEspera();
+                    var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
+                }
+                else
+                {
+                    //  Flash the prompt
+                    this.scene.tweens.add({
+                        targets: text,
+                        alpha: 0.2,
+                        duration: 250,
+                        ease: 'Power3',
+                        yoyo: true
+                    });
+                            }
+            }
+            else if (event.target.name === 'joinButton')
+            {
+                var playerNameInput = this.getChildByName('nameField');
+                var gameIdInput = this.getChildByName('gameIdField');
+                console.log(gameIdInput);
+
+                //  Have they entered anything?
+                if (playerNameInput.value !== '')
+                {
+                    this.scene.gameId = gameIdInput.value;
+                    this.scene.playerName = playerNameInput.value;
+                    //  Turn off the click events
+                    this.removeListener('click');
+
+                    //  Hide the login element
+                    this.setVisible(false);
+                    this.scene.h1.setVisible(false);
+
+                    this.scene.unirseAPartida();
+                }
+                else
+                {
+                    //  Flash the prompt
+                    this.scene.tweens.add({
+                        targets: text,
+                        alpha: 0.2,
+                        duration: 250,
+                        ease: 'Power3',
+                        yoyo: true
+                    });
+                            }
+            }
+
+        });
+    
+        this.tweens.add({
+            targets: element,
+            y: 450,
+            duration: 3000,
+            ease: 'Power3'
+        });
+
+        //element.addListener('click');
     }
     
     update(time, delta) {
@@ -47,8 +143,10 @@ class Bootloader extends Phaser.Scene {
         stompClient = Stomp.over(socket);        
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
-            stompClient.subscribe('/topic/user', function (greeting) {
-                return;
+            stompClient.subscribe('/topic/user', function (greeting) { 
+                if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
+                    self.pasarEscena();
+                }
             });            
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
@@ -63,8 +161,10 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
-                'nombrePartida': 'PartidaPrueba',
-                'nombreJugador': 'Fede',
+                //'nombrePartida': 'PartidaPrueba',
+                //'nombreJugador': 'Fede',
+                'nombrePartida': self.gameId,
+                'nombreJugador': self.playerName,
             }));
         });
         this.team = 1;
@@ -82,7 +182,10 @@ class Bootloader extends Phaser.Scene {
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
-            stompClient.subscribe('/topic/user', function (greeting) {
+            stompClient.subscribe('/topic/user', function (greeting) { 
+                if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
+                    self.pasarEscena();
+                }
             });
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
@@ -97,7 +200,8 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));            
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
-                'nombreJugador': 'Ceci',
+                //'nombreJugador': 'Ceci',
+                'nombreJugador': self.playerName,
             }));
         });
         this.team = 2;

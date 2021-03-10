@@ -13,7 +13,7 @@ const config = {
         width: 1280,
         height: 720,
         mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        autoCenter: Phaser.Scale.CENTER_BOTH, 
     },
     backgroundColor: "#484824",
     pixelArt: false,
@@ -25,6 +25,9 @@ const config = {
                 y: 0
             }
         }
+    },       
+    dom: {
+        createContainer: true
     },
     scene: [Preloader, Bootloader, SetBase, SetTurrets, Field]
 };

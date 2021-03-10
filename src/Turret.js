@@ -2,7 +2,7 @@ import Bullet from "./Bullet.js";
 
 export default class Turret extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
-        super(scene, x, y, 'turret');
+        super(scene, x, y, 'base', 'artilleria/animacionArtilleria/artilleriaMover-1.png');
         this.nextTic = 0;
         this.selected = false;
         this.angle = 0;
@@ -20,7 +20,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
     }
 
     static preload(scene) {
-        scene.load.image('turret', 'assets/images/bullet.png'); //Cambiar la imagen por la de la torreta
+        //scene.load.image('turret', 'assets/images/bullet.png'); //Cambiar la imagen por la de la torreta
     }
 
     update(time, delta) {
@@ -110,7 +110,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             if (bullet) {
                 bullet.fireTurret(this.x, this.y, angle);
             }
-            this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
+            //this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
         }
     }
 

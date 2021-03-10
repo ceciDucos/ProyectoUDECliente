@@ -2,7 +2,14 @@ aparecen idbalas random como 38
 le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
 hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
 averiguar si todos los llamados de websocket son async
+controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
 
+sonidos:
+	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\protracker\sd-ingame1.mod
+	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\kyobi\wavs\menuClick.wav
+	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\kyobi\wavs\title.wav
+	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\SoundEffects\explosion.mp3
+	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\SoundEffects\shotgun.wav
 
 pronto---que las torretas solo disparen a aviones enemigos
 pronto---colocar torretas en tu propio campo y no siempre en el campo del jugador 1

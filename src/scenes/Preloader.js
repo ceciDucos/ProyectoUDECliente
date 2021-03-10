@@ -13,16 +13,25 @@ export default class Preloader extends Phaser.Scene
         //this.load.multiatlas('equipo1avion2', 'assets/images/airplanes/player1/equipo1avion2.json', 'assets/images/airplanes/player1');
         //this.load.multiatlas('equipo1avion3', 'assets/images/airplanes/player1/equipo1avion3.json', 'assets/images/airplanes/player1');
         //this.load.multiatlas('equipo1avion4', 'assets/images/airplanes/player1/equipo1avion4.json', 'assets/images/airplanes/player1');        
-        this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');        
+        this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');
+        this.load.image('bullet', 'assets/images/bala.png'); 
+        this.load.multiatlas('others', 'assets/images/others/bomba-bala-sobreVolarLateral.json', 'assets/images/others');
+        this.load.html('nameform', 'assets/images/text/nameform.html');
+        this.load.css('textStyle', 'assets/images/text/80stypography.css');
+
     }
 
     create ()
     {
+        //animaciones del mapa
+
         this.frameNames = this.anims.generateFrameNames('mapa', {
             start: 1, end: 5, zeroPad: 1,
             prefix: 'mapa-', suffix: '.png'
         });
         this.anims.create({ key: 'move', frames: this.frameNames, frameRate: 2, repeat: -1 });
+
+        //animaciones de los elementos de la base
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
@@ -60,6 +69,14 @@ export default class Preloader extends Phaser.Scene
         });
         this.anims.create({ key: 'artilleriaEplotar', frames: this.frameNames, frameRate: 12, repeat: 0 });
 
+        //animaciones de bomba
+        
+        this.frameNames = this.anims.generateFrameNames('others', {
+            start: 1, end: 7, zeroPad: 1,
+            prefix: 'bomba-', suffix: '.png'
+        });
+        this.anims.create({ key: 'bomba', frames: this.frameNames, frameRate: 6, repeat: 0 });
+
         
 
         
@@ -68,7 +85,7 @@ export default class Preloader extends Phaser.Scene
 
 
 
-
+        //animaciones equipo1avion1
 
         this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
             start: 1, end: 2, zeroPad: 1,

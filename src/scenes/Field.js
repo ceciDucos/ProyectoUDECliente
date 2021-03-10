@@ -186,7 +186,7 @@ class Field extends Phaser.Scene {
             texture = 'airplaneplayer1';
             enemyTexture = 'airplaneplayer2';
         }
-        else {            
+        else {                
             texture = 'airplaneplayer2';
             enemyTexture = 'airplaneplayer1';
         }
@@ -205,7 +205,6 @@ class Field extends Phaser.Scene {
             }
             else {
                 this.airplanes[i] = new Airplane({ scene: this, x: this.data.teamHangarX, y: this.data.teamHangarY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
-                //this.airplanes[i].setInteractive();
                 this.enemies[i] = new Airplane({ scene: this, x: this.data.enemyHangarX, y: this.data.enemyHangarY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
             this.airplanes[i].setInteractive();
@@ -227,7 +226,7 @@ class Field extends Phaser.Scene {
 
         this.input.setTopOnly(true);
         this.input.on('gameobjectdown', function (pointer, gameObject) {
-            let turretsChildren = this.scene.turrets.getChildren();
+            let turretsChildren = this.scene.teamTurrets.getChildren();            
             for (let i = 0; i < turretsChildren.length; i++) {
                 turretsChildren[i].selected = false;                
             }

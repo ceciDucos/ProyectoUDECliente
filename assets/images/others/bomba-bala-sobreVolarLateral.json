@@ -1,0 +1,881 @@
+{
+	"textures": [
+		{
+			"image": "bomba-bala-sobreVolarLateral.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 996,
+				"h": 213
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 135
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 175,
+						"h": 135
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 60,
+						"w": 174,
+						"h": 74
+					},
+					"frame": {
+						"x": 1,
+						"y": 138,
+						"w": 174,
+						"h": 74
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 84,
+						"w": 36,
+						"h": 65
+					},
+					"frame": {
+						"x": 177,
+						"y": 138,
+						"w": 36,
+						"h": 65
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 34,
+						"w": 36,
+						"h": 65
+					},
+					"frame": {
+						"x": 177,
+						"y": 138,
+						"w": 36,
+						"h": 65
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 66,
+						"w": 36,
+						"h": 65
+					},
+					"frame": {
+						"x": 177,
+						"y": 138,
+						"w": 36,
+						"h": 65
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 24,
+						"w": 36,
+						"h": 65
+					},
+					"frame": {
+						"x": 177,
+						"y": 138,
+						"w": 36,
+						"h": 65
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 174,
+						"h": 134
+					},
+					"frame": {
+						"x": 178,
+						"y": 1,
+						"w": 174,
+						"h": 134
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 85,
+						"w": 175,
+						"h": 75
+					},
+					"frame": {
+						"x": 215,
+						"y": 137,
+						"w": 175,
+						"h": 75
+					}
+				},
+				{
+					"filename": "bomba-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 24,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 177,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "bomba-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 24,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 177,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "bomba.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 24,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 177,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 182,
+						"y": 205,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 30,
+						"w": 175,
+						"h": 130
+					},
+					"frame": {
+						"x": 354,
+						"y": 1,
+						"w": 175,
+						"h": 130
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 79
+					},
+					"frame": {
+						"x": 392,
+						"y": 133,
+						"w": 175,
+						"h": 79
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 174,
+						"h": 129
+					},
+					"frame": {
+						"x": 531,
+						"y": 1,
+						"w": 174,
+						"h": 129
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 174,
+						"h": 79
+					},
+					"frame": {
+						"x": 569,
+						"y": 132,
+						"w": 174,
+						"h": 79
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 64
+					},
+					"frame": {
+						"x": 707,
+						"y": 1,
+						"w": 36,
+						"h": 64
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 54
+					},
+					"frame": {
+						"x": 707,
+						"y": 67,
+						"w": 36,
+						"h": 54
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 116,
+						"w": 175,
+						"h": 44
+					},
+					"frame": {
+						"x": 745,
+						"y": 1,
+						"w": 175,
+						"h": 44
+					}
+				},
+				{
+					"filename": "bala.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 11
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 11
+					},
+					"frame": {
+						"x": 922,
+						"y": 1,
+						"w": 64,
+						"h": 11
+					}
+				},
+				{
+					"filename": "bomba-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 51,
+						"h": 51
+					},
+					"frame": {
+						"x": 922,
+						"y": 14,
+						"w": 51,
+						"h": 51
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 41
+					},
+					"frame": {
+						"x": 745,
+						"y": 47,
+						"w": 175,
+						"h": 41
+					}
+				},
+				{
+					"filename": "bomba-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 19,
+						"w": 13,
+						"h": 13
+					},
+					"frame": {
+						"x": 975,
+						"y": 14,
+						"w": 13,
+						"h": 13
+					}
+				},
+				{
+					"filename": "bomba-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 43,
+						"h": 43
+					},
+					"frame": {
+						"x": 922,
+						"y": 67,
+						"w": 43,
+						"h": 43
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 147,
+						"w": 175,
+						"h": 13
+					},
+					"frame": {
+						"x": 745,
+						"y": 90,
+						"w": 175,
+						"h": 13
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 91,
+						"w": 174,
+						"h": 43
+					},
+					"frame": {
+						"x": 745,
+						"y": 105,
+						"w": 174,
+						"h": 43
+					}
+				},
+				{
+					"filename": "bomba-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 14,
+						"w": 23,
+						"h": 23
+					},
+					"frame": {
+						"x": 967,
+						"y": 67,
+						"w": 23,
+						"h": 23
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 174,
+						"h": 41
+					},
+					"frame": {
+						"x": 745,
+						"y": 150,
+						"w": 174,
+						"h": 41
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 147,
+						"w": 36,
+						"h": 15
+					},
+					"frame": {
+						"x": 745,
+						"y": 193,
+						"w": 36,
+						"h": 15
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 118,
+						"w": 36,
+						"h": 15
+					},
+					"frame": {
+						"x": 745,
+						"y": 193,
+						"w": 36,
+						"h": 15
+					}
+				},
+				{
+					"filename": "pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 174,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 121,
+						"w": 174,
+						"h": 13
+					},
+					"frame": {
+						"x": 783,
+						"y": 193,
+						"w": 174,
+						"h": 13
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 35
+					},
+					"frame": {
+						"x": 959,
+						"y": 112,
+						"w": 36,
+						"h": 35
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 36,
+						"h": 31
+					},
+					"frame": {
+						"x": 959,
+						"y": 149,
+						"w": 36,
+						"h": 31
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 20
+					},
+					"frame": {
+						"x": 959,
+						"y": 182,
+						"w": 36,
+						"h": 20
+					}
+				},
+				{
+					"filename": "pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 36,
+						"h": 11
+					},
+					"frame": {
+						"x": 921,
+						"y": 112,
+						"w": 36,
+						"h": 11
+					}
+				},
+				{
+					"filename": "bomba-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 51,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 9,
+						"w": 33,
+						"h": 33
+					},
+					"frame": {
+						"x": 921,
+						"y": 125,
+						"w": 33,
+						"h": 33
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:8ef921c935efcdb008c5d09784f5c17e:1f1fa45dc2866b0fb5e6546fd0d9ee01:e9d18c598b65a29beee3fa3126b7e209$"
+	}
+}
