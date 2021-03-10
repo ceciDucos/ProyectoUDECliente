@@ -179,7 +179,7 @@ export default class Preloader extends Phaser.Scene
     });
     this.anims.create({ key: 'equipo1avion1AumentarAltura', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
-//vistaLateralanimacionAumentarAlturaConPocaVida --- SEGUIR DESDE ACA
+//vistaLateralanimacionAumentarAlturaConPocaVida ---  SEGUIR DESDE ACA
 
 //vistaLateralanimacionDisminuirAltura
     this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
