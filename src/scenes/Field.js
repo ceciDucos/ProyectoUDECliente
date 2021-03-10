@@ -180,7 +180,7 @@ class Field extends Phaser.Scene {
         let frame2;
         let texture;
         let enemyTexture;
-        let HealthBarX = 1100;
+        let HealthBarX = 1150;
         let HealthBarY = 450;
         if (this.team === 1) {
             texture = 'airplaneplayer1';
