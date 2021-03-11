@@ -9,6 +9,7 @@ export default class Preloader extends Phaser.Scene
     {        
         this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
         this.load.multiatlas('base', 'assets/images/base/base.json', 'assets/images/base');
+        
         this.load.multiatlas('equipo1avion1', 'assets/images/airplanes/player1/equipo1avion1.json', 'assets/images/airplanes/player1');
         this.load.multiatlas('equipo1avion2', 'assets/images/airplanes/player1/equipo1avion2.json', 'assets/images/airplanes/player1');
         this.load.multiatlas('equipo1avion3', 'assets/images/airplanes/player1/equipo1avion3.json', 'assets/images/airplanes/player1');
@@ -17,7 +18,8 @@ export default class Preloader extends Phaser.Scene
         this.load.multiatlas('equipo2avion1', 'assets/images/airplanes/player2/equipo2avion1.json', 'assets/images/airplanes/player2');
         this.load.multiatlas('equipo2avion2', 'assets/images/airplanes/player2/equipo2avion2.json', 'assets/images/airplanes/player2');
         this.load.multiatlas('equipo2avion3', 'assets/images/airplanes/player2/equipo2avion3.json', 'assets/images/airplanes/player2');
-        this.load.multiatlas('equipo2avion4', 'assets/images/airplanes/player2/equipo2avion4.json', 'assets/images/airplanes/player2');   
+        this.load.multiatlas('equipo2avion4', 'assets/images/airplanes/player2/equipo2avion4.json', 'assets/images/airplanes/player2');
+
         this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');
         this.load.image('bullet', 'assets/images/bala.png'); 
         this.load.multiatlas('others', 'assets/images/others/bomba-bala-sobreVolarLateral.json', 'assets/images/others');
@@ -1108,7 +1110,7 @@ this.anims.create({ key: 'equipo1avion4VueloAltoLateralDoblarDerecha', frames: t
 
 //vistaLateralanimacionesVueloAltoanimacionLateralDoblarDerechaConPocaVida
 this.frameNames = this.anims.generateFrameNames('equipo1avion4', {
-    start: 1, end: 6, zeroPad: 1,
+    start: 2, end: 6, zeroPad: 1,
     prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo1avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo1avion4VueloAltoLateralDoblarDerechaConPocaVida', frames: this.frameNames, frameRate: 24, repeat: 0 });
@@ -1228,7 +1230,7 @@ this.frameNames = this.anims.generateFrameNames('equipo1avion4', {
     prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo1avion4VueloBajoLateralVolarConPocaVida-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo1avion4VolarBajoLateralVolarConPocaVida', frames: this.frameNames, frameRate: 24, repeat: -1 });
-/*
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                                        animaciones equipo2avion1                                                        ////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1252,7 +1254,7 @@ this.anims.create({ key: 'equipo2avion1AterrizaConPocaVida', frames: this.frameN
 
 //animacionDespegar
 this.frameNames = this.anims.generateFrameNames('equipo2avion1', {
-    start: 1, end: 13, zeroPad: 1,
+    start: 2, end: 13, zeroPad: 1,
     prefix: 'animacionDespegar/equipo2avion1Despegar-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion1Despegar', frames: this.frameNames, frameRate: 12, repeat: 0 });
@@ -1302,7 +1304,7 @@ this.anims.create({ key: 'equipo2avion1Explotar', frames: this.frameNames, frame
 //animacionVolar
 this.frameNames = this.anims.generateFrameNames('equipo2avion1', {
     start: 1, end: 2, zeroPad: 1,
-    prefix: 'animacionVolar/equipo2avion4-', suffix: '.png'
+    prefix: 'animacionVolar/equipo2avion1-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion1Volar', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
@@ -1393,8 +1395,8 @@ this.anims.create({ key: 'equipo2avion1VueloAltoLateralDoblarDerecha', frames: t
 
 //vistaLateralanimacionesVueloAltoanimacionLateralDoblarDerechaConPocaVida
 this.frameNames = this.anims.generateFrameNames('equipo2avion1', {
-    start: 1, end: 6, zeroPad: 1,
-    prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerecha/equipo2avion1VueloAltoLateralDoblarDerecha-', suffix: '.png'
+    start: 2, end: 6, zeroPad: 1,
+    prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion1VueloAltoLateralDoblarDerechaConPoca Vida-1-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion1VueloAltoLateralDoblarDerechaConPocaVida', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
@@ -1678,8 +1680,8 @@ this.anims.create({ key: 'equipo2avion2VueloAltoLateralDoblarDerecha', frames: t
 
 //vistaLateralanimacionesVueloAltoanimacionLateralDoblarDerechaConPocaVida
 this.frameNames = this.anims.generateFrameNames('equipo2avion2', {
-    start: 1, end: 6, zeroPad: 1,
-    prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerecha/equipo2avion2VueloAltoLateralDoblarDerecha-', suffix: '.png'
+    start: 2, end: 6, zeroPad: 1,
+    prefix: 'vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion2VueloAltoLateralDoblarDerechaConPoca Vida-1-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion2VueloAltoLateralDoblarDerechaConPocaVida', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
@@ -1798,7 +1800,7 @@ this.frameNames = this.anims.generateFrameNames('equipo2avion2', {
     prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion2VueloBajoLateralVolarConPocaVida-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion2VolarBajoLateralVolarConPocaVida', frames: this.frameNames, frameRate: 24, repeat: -1 });
-
+/*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                                        animaciones equipo2avion3                                                        ////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1808,7 +1810,7 @@ this.anims.create({ key: 'equipo2avion2VolarBajoLateralVolarConPocaVida', frames
 
 //animacionAterrizar
 this.frameNames = this.anims.generateFrameNames('equipo2avion3 ', {
-    start: 1, end: 14, zeroPad: 1,
+    start: 1, end: 12, zeroPad: 1,
     prefix: 'animacionAterrizar/equipo2avion3Aterriza-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion3Aterriza', frames: this.frameNames, frameRate: 24, repeat: 0 });
@@ -2368,10 +2370,10 @@ this.frameNames = this.anims.generateFrameNames('equipo2avion4 ', {
     prefix: 'vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo2avion4VolarBajoLateralVolarConPocaVida', frames: this.frameNames, frameRate: 24, repeat: -1 });
-
+*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-*/
+
         this.scene.start('Bootloader');
         /*this.loading.once('pointerdown', () => {
             this.scene.start('Bootloader');
