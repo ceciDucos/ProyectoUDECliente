@@ -234,10 +234,14 @@ class Field extends Phaser.Scene {
                 frame2 = 'equipo2avion' + (i - 3);
             }
             if (this.team === 1) {
+                texture = 'equipo1avion' + i;
+                enemyTexture = 'equipo2avion' + i;
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
                 this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
             else {
+                texture = 'equipo2avion' + i;
+                enemyTexture = 'equipo1avion' + i;
                 this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
                 this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
