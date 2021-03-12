@@ -3,6 +3,7 @@ le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoL
 hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
 averiguar si todos los llamados de websocket son async
 controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
+//revisar en placeBase si poniendo varias veces la base no se llena de 1s el mapGrid y limita la colocacion de torretas
 
 sonidos:
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\protracker\sd-ingame1.mod

@@ -8,10 +8,38 @@ class Field extends Phaser.Scene {
     }
 
     init(data) {
-        this.data = data;
-        this.team = data.team;
         this.gameId = data.gameId;
-        this.enemyTeam = data.enemyTeam;/*
+        this.team = data.team;
+        this.enemyTeam = data.enemyTeam;
+        this.teamBaseX = data.teamBaseX;
+        this.teamBaseY = data.teamBaseY;
+        this.mapGrid = data.mapGrid;
+        this.teamControlTowerX = data.teamControlTowerX;
+        this.teamControlTowerY = data.teamControlTowerY;
+        this.teamFuelX = data.teamFuelX;
+        this.teamFuelY = data.teamFuelY;
+        this.teamHangarX = data.teamHangarX;
+        this.teamHangarY = data.teamHangarY;
+        this.enemyBaseX = data.enemyBaseX;
+        this.enemyBaseY = data.enemyBaseY;
+        this.enemyControlTowerX = data.enemyControlTowerX;
+        this.enemyControlTowerY = data.enemyControlTowerY;
+        this.enemyFuelX = data.enemyFuelX;
+        this.enemyFuelY = data.enemyFuelY;
+        this.enemyHangarX = data.enemyHangarX;
+        this.enemyHangarY = data.enemyHangarY;
+        this.teamTurretsInfo = data.teamTurrets;
+        this.enemyTurretsInfo = data.enemyTurrets;
+        this.scene.stop('SetTurrets');
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         this.teamBaseX = data.teamBaseX;
         this.teamBaseY = data.teamBaseY;
         this.enemyBaseX = data.enemyBaseX;
@@ -47,42 +75,42 @@ class Field extends Phaser.Scene {
         this.enemyControlTowerDestroyed = false;
 
         if (this.team === 1) {
-            this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable();
-            this.teamHangar = this.add.sprite(this.data.teamHangarX - 2, this.data.teamHangarY - 2, 'base',
+            this.base = this.physics.add.image(this.teamBaseX, this.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable();
+            this.teamHangar = this.add.sprite(this.teamHangarX - 2, this.teamHangarY - 2, 'base',
                 'hangar/equipo1/animacionHangar/animacionHangar-1.png');
-            this.teamFuel = this.add.sprite(this.data.teamFuelX - 8, this.data.teamFuelY - 9, 'base',
+            this.teamFuel = this.add.sprite(this.teamFuelX - 8, this.teamFuelY - 9, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');
-            this.teamControlTower = this.add.sprite(this.data.teamControlTowerX, this.data.teamControlTowerY, 'base',
+            this.teamControlTower = this.add.sprite(this.teamControlTowerX, this.teamControlTowerY, 'base',
                 'torre/equipo1/animacionTorre/animacionTorre-1.png');
 
-            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable().setVisible(false);
-            this.enemyHangar = this.add.sprite(this.data.enemyHangarX - 3, this.data.enemyHangarY + 2, 'base',
+            this.enemyBase = this.physics.add.image(this.enemyBaseX, this.enemyBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable().setVisible(false);
+            this.enemyHangar = this.add.sprite(this.enemyHangarX - 3, this.enemyHangarY + 2, 'base',
                 'hangar/equipo2/animacionHangar/animacionHangar-2.png');
             this.enemyHangar.setVisible(false);
-            this.enemyFuel = this.add.sprite(this.data.enemyFuelX - 7, this.data.enemyFuelY - 6, 'base',
+            this.enemyFuel = this.add.sprite(this.enemyFuelX - 7, this.enemyFuelY - 6, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');
             this.enemyFuel.setVisible(false);
-            this.enemyControlTower = this.add.sprite(this.data.enemyControlTowerX - 10, this.data.enemyControlTowerY, 'base',
+            this.enemyControlTower = this.add.sprite(this.enemyControlTowerX - 10, this.enemyControlTowerY, 'base',
                 'torre/equipo2/animacionTorre/animacionTorre-2.png');
             this.enemyControlTower.setVisible(false);
         }
         else {
-            this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable();
-            this.teamHangar = this.add.sprite(this.data.teamHangarX - 3, this.data.teamHangarY + 2, 'base',
+            this.base = this.physics.add.image(this.teamBaseX, this.teamBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable();
+            this.teamHangar = this.add.sprite(this.teamHangarX - 3, this.teamHangarY + 2, 'base',
                 'hangar/equipo2/animacionHangar/animacionHangar-2.png');
-            this.teamFuel = this.add.sprite(this.data.teamFuelX - 7, this.data.teamFuelY - 6, 'base',
+            this.teamFuel = this.add.sprite(this.teamFuelX - 7, this.teamFuelY - 6, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');
-            this.teamControlTower = this.add.sprite(this.data.teamControlTowerX - 10, this.data.teamControlTowerY, 'base',
+            this.teamControlTower = this.add.sprite(this.teamControlTowerX - 10, this.teamControlTowerY, 'base',
                 'torre/equipo2/animacionTorre/animacionTorre-2.png');
 
-            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable().setVisible(false);
-            this.enemyHangar = this.add.sprite(this.data.enemyHangarX - 2, this.data.enemyHangarY - 2, 'base',
+            this.enemyBase = this.physics.add.image(this.enemyBaseX, this.enemyBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable().setVisible(false);
+            this.enemyHangar = this.add.sprite(this.enemyHangarX - 2, this.enemyHangarY - 2, 'base',
                 'hangar/equipo1/animacionHangar/animacionHangar-1.png');         
             this.enemyHangar.setVisible(false);     
-            this.enemyFuel = this.add.sprite(this.data.enemyFuelX - 8, this.data.enemyFuelY - 9, 'base',
+            this.enemyFuel = this.add.sprite(this.enemyFuelX - 8, this.enemyFuelY - 9, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');                
             this.enemyFuel.setVisible(false);
-            this.enemyControlTower = this.add.sprite(this.data.enemyControlTowerX, this.data.enemyControlTowerY, 'base',
+            this.enemyControlTower = this.add.sprite(this.enemyControlTowerX, this.enemyControlTowerY, 'base',
                 'torre/equipo1/animacionTorre/animacionTorre-1.png');
             this.enemyControlTower.setVisible(false);
                 
@@ -133,8 +161,8 @@ class Field extends Phaser.Scene {
         for (let i = 0; i < turretsChildren.length; i++) {
             this.assignTurretKeys(turretsChildren[i]);                
         }*/
-        this.placeTurrets(this.teamTurrets, this.data.teamTurrets);
-        this.placeTurrets(this.enemyTurrets, this.data.enemyTurrets);
+        this.placeTurrets(this.teamTurrets, this.teamTurretsInfo);
+        this.placeTurrets(this.enemyTurrets, this.enemyTurretsInfo);
         /*for(let i = 0; i < 11; i++) {
             let turret = this.teamTurrets.get();
             if (turret) {
@@ -206,12 +234,12 @@ class Field extends Phaser.Scene {
                 frame2 = 'equipo2avion' + (i - 3);
             }
             if (this.team === 1) {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.data.teamHangarX, y: this.data.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
-                this.enemies[i] = new Airplane({ scene: this, x: this.data.enemyHangarX, y: this.data.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
             else {
-                this.airplanes[i] = new Airplane({ scene: this, x: this.data.teamHangarX, y: this.data.teamHangarY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
-                this.enemies[i] = new Airplane({ scene: this, x: this.data.enemyHangarX, y: this.data.enemyHangarY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
+                this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame2, team: this.team, planeNumber: (i)});
+                this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame, team: this.enemyTeam, planeNumber: (i)});
             }
             this.airplanes[i].setInteractive();
             this.airplanes[i].hpBar = new HealthBar(this, HealthBarX, HealthBarY, 0);
@@ -660,15 +688,15 @@ class Field extends Phaser.Scene {
         console.log('llego el gameover');     
         if (!data.jugadorUnoGano && !data.jugadorDosGano) {
             console.log('entro al empate');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
         }
         else if (data.jugadorUnoGano) {
             console.log('entro al ganador1');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
         }
         else {
             console.log('entro al ganador2');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
         }
         return;
     }

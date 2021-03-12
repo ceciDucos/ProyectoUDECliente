@@ -5,7 +5,27 @@ class SetTurrets extends Phaser.Scene {
     }
 
     init(data) {
-        this.data = data;
+        this.gameId = data.gameId;
+        this.team = data.team;
+        this.enemyTeam = data.enemyTeam;
+        this.teamBaseX = data.teamBaseX;
+        this.teamBaseY = data.teamBaseY;
+        this.mapGrid = data.mapGrid;
+        this.teamControlTowerX = data.teamControlTowerX;
+        this.teamControlTowerY = data.teamControlTowerY;
+        this.teamFuelX = data.teamFuelX;
+        this.teamFuelY = data.teamFuelY;
+        this.teamHangarX = data.teamHangarX;
+        this.teamHangarY = data.teamHangarY;
+        this.enemyBaseX = data.enemyBaseX;
+        this.enemyBaseY = data.enemyBaseY;
+        this.enemyControlTowerX = data.enemyControlTowerX;
+        this.enemyControlTowerY = data.enemyControlTowerY;
+        this.enemyFuelX = data.enemyFuelX;
+        this.enemyFuelY = data.enemyFuelY;
+        this.enemyHangarX = data.enemyHangarX;
+        this.enemyHangarY = data.enemyHangarY;
+        this.scene.stop('SetBase');
     }
 
     preload() {        
@@ -28,9 +48,9 @@ class SetTurrets extends Phaser.Scene {
         this.drawGrid1(graphics);
 
         
-        this.base = this.add.sprite(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png');
+        this.base = this.add.sprite(this.teamBaseX, this.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png');
         //this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
-        if (this.data.team === 2) {
+        if (this.team === 2) {
             this.base.setAngle(180);
         }
 
@@ -46,15 +66,20 @@ class SetTurrets extends Phaser.Scene {
     }
 
     pasarEscena(data) {
-        if (this.data.team === data[0][0].idJugador) {
-            this.data.teamTurrets = data[0];
-            this.data.enemyTurrets = data[1];
+        if (this.team === data[0][0].idJugador) {
+            this.teamTurrets = data[0];
+            this.enemyTurrets = data[1];
         }
         else {
-            this.data.teamTurrets = data[1];
-            this.data.enemyTurrets = data[0];
+            this.teamTurrets = data[1];
+            this.enemyTurrets = data[0];
         }
-        this.scene.start('Field', this.data);
+        //this.scene.start('Field', this.data);
+        this.scene.start('Field', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+            mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX,
+            teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY,
+            enemyControlTowerX: this.enemyControlTowerX, enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY,
+            enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY, teamTurrets: this.teamTurrets, enemyTurrets: this.enemyTurrets});
         this.bootloaderScene.fieldScene = this.scene.get('Field');
         
         //this.scene.boo.fieldScene = this.scene.get('SetBase');
@@ -62,7 +87,7 @@ class SetTurrets extends Phaser.Scene {
 
     drawGrid1(graphics) {
         graphics.lineStyle(1, 0x004200, 0.8);
-        if (this.data.team === 1) {
+        if (this.team === 1) {
             for (let i = 0; i < 13; i++) {
                 graphics.moveTo(0, i * 30);
                 graphics.lineTo(1080, i * 30);
@@ -104,16 +129,16 @@ class SetTurrets extends Phaser.Scene {
 
     canPlace(i, j) {
         let available = false;
-        if (this.data.team === 1) {   
+        if (this.team === 1) {   
             if (j >= 1 && j <= 25 && i >= 1 && i <= 10) {
-                if (this.data.mapGrid[i][j] !== 1) {
+                if (this.mapGrid[i][j] !== 1) {
                     available = true;
                 }
             }
         }
         else {  
             if (j >= 1 && j <= 25 && i >= 13 && i <= 22) {
-                if (this.data.mapGrid[i][j] !== 1) {
+                if (this.mapGrid[i][j] !== 1) {
                     available = true;
                 }
             }
@@ -133,11 +158,11 @@ class SetTurrets extends Phaser.Scene {
             this.turretId = this.turretCount;
             this.turretsX[this.turretId] =  j * 40 + 40 / 2;
             this.turretsY[this.turretId] = i * 30 + 30 / 2;  
-            this.data.mapGrid[i][j] = 1;
+            this.mapGrid[i][j] = 1;
             //console.log('x en setBase: ' + this.data['teamBaseX'] + 'y en setBase: ' + this.data['teamBaseY']);
             this.turret = this.add.image(this.turretsX[this.turretId], this.turretsY[this.turretId], 'turret');
             this.turret.setScale(0.15);
-            this.bootloaderScene.colocarTorreta(this.data.gameId, this.data.team, this.turretId, 
+            this.bootloaderScene.colocarTorreta(this.gameId, this.team, this.turretId, 
                 this.turretsX[this.turretId], this.turretsY[this.turretId], 0, false);
             this.turretCount++;
             //this.pasarEscena();

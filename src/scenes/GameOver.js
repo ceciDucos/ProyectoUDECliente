@@ -4,7 +4,12 @@ class GameOver extends Phaser.Scene {
     }
 
     init(data) {
-        this.data = data;
+        this.team = data.team;
+        this.messageTeam1 = data.messageTeam1;
+        this.messageTeam2 = data.messageTeam2;
+        console.log('llega al init de gameover');
+        
+        this.scene.stop('Field');
     }
 
     preload() {
@@ -12,15 +17,16 @@ class GameOver extends Phaser.Scene {
     }
 
     create() {
-        if (this.data.team === 1) {
-            this.message = this.add.text(200, 300, this.data.messageTeam1, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });    
+        console.log('llega al create de gameover');
+        if (this.team === 1) {
+            this.message = this.add.text(200, 300, this.messageTeam1, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });    
         }
         else {
-            this.message = this.add.text(200, 300, this.data.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.message = this.add.text(200, 300, this.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
         }
         this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });        
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
-
+        console.log('sale del create de gameover');
         
 
     }
@@ -28,8 +34,13 @@ class GameOver extends Phaser.Scene {
     update(time, delta) {
     }
 
-    pasarEscena(data) {
-        this.entrarjuego.removeInteractive();        
+    pasarEscena() {
+        console.log('pasa de escena de gameover');
+        //this.scene.stop('Field');
+        this.entrarjuego.removeInteractive(); 
+        //this.scene.restart('Field');
+        this.scene.restart('Bootloader');
+        this.scene.bringToTop('Bootloader');
         this.scene.start('Bootloader');
     }
 }
