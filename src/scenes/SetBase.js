@@ -139,7 +139,7 @@ class SetBase extends Phaser.Scene {
                 this.base.destroy();
             }
             //this.base = this.add.sprite(this.['teamBaseX'],  this.['teamBaseY'], 'baseexample');
-            this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png');
+            this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo1/baseEquipo1.png');
             
             if (this.team === 2) {
                 this.base.setAngle(180);

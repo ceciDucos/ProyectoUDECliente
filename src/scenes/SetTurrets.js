@@ -31,7 +31,7 @@ class SetTurrets extends Phaser.Scene {
     preload() {        
         //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
         //this.load.image('turret', 'assets/images/bomba-sprite1.png');
-        this.load.image('turret', 'assets/images/artilleriaMover-1.png');
+        //this.load.image('turret', 'assets/images/artilleriaMover-1.png');
         //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
         //this.load.image('base', 'assets/images/baseExample.png');
     }
@@ -48,7 +48,7 @@ class SetTurrets extends Phaser.Scene {
         this.drawGrid1(graphics);
 
         
-        this.base = this.add.sprite(this.teamBaseX, this.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png');
+        this.base = this.add.sprite(this.teamBaseX, this.teamBaseY, 'base', 'equipo1/baseEquipo1.png');
         //this.base = this.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base');
         if (this.team === 2) {
             this.base.setAngle(180);
@@ -160,7 +160,7 @@ class SetTurrets extends Phaser.Scene {
             this.turretsY[this.turretId] = i * 30 + 30 / 2;  
             this.mapGrid[i][j] = 1;
             //console.log('x en setBase: ' + this.data['teamBaseX'] + 'y en setBase: ' + this.data['teamBaseY']);
-            this.turret = this.add.image(this.turretsX[this.turretId], this.turretsY[this.turretId], 'turret');
+            this.turret = this.add.image(this.turretsX[this.turretId], this.turretsY[this.turretId], 'base', 'animacionArtilleria/artilleriaMover-1.png');
             this.turret.setScale(0.15);
             this.bootloaderScene.colocarTorreta(this.gameId, this.team, this.turretId, 
                 this.turretsX[this.turretId], this.turretsY[this.turretId], 0, false);

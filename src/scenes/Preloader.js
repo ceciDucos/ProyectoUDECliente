@@ -164,7 +164,7 @@ this.anims.create({ key: 'equipo1avion1Explotar', frames: this.frameNames, frame
 //animacionVolar
 this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
     start: 1, end: 2, zeroPad: 1,
-    prefix: 'animacionVolar/equipo1avion1Volar-', suffix: '.png'
+    prefix: 'animacionVolar/equipo1avion1-', suffix: '.png'
 });
 this.anims.create({ key: 'equipo1avion1Volar', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
