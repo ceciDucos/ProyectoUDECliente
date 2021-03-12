@@ -160,7 +160,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             //stompClient.subscribe('/topic/avion-enemigo-visible', (greeting) => self.fieldScene.visibleEnemyAirplane(JSON.parse(greeting["body"])));
-            //stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 //'nombrePartida': 'PartidaPrueba',
@@ -201,7 +201,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             //stompClient.subscribe('/topic/avion-enemigo-visible', (greeting) => self.fieldScene.visibleEnemyAirplane(JSON.parse(greeting["body"])));
-            //stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"]))); 
+            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"]))); 
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 //'nombreJugador': 'Ceci',
@@ -237,7 +237,7 @@ class Bootloader extends Phaser.Scene {
         stompClient.send("/app/disparo-bala", {}, JSON.stringify({
             'nombrePartida': gameId,
             'idJugador': team,
-            'idAvion': planeNumber,
+            'idElemento': planeNumber,
             'idBala': idBullet,
             'altitud': estadoAvion,
             'ejeX': x,
@@ -251,7 +251,7 @@ class Bootloader extends Phaser.Scene {
         stompClient.send("/app/primer-disparo", {}, JSON.stringify({
             'nombrePartida': gameId,
             'idJugador': team,
-            'idAvion': planeNumber,
+            'idElemento': planeNumber,
             'idBala': idBullet,
             'altitud': estadoAvion,
             'ejeX': x,

@@ -557,10 +557,10 @@ class Field extends Phaser.Scene {
     updateBullet(data) {       
         if (data.idJugador !== this.team) {
             if (data.visible) {
-                let bullet = this.enemies[data.idAvion].bullets.get();
+                let bullet = this.enemies[data.idElemento].bullets.get();
                 if (bullet) {
-                    if (this.enemies[data.idAvion].bulletQuantity <= data.idBala) {
-                        this.enemies[data.idAvion].bulletQuantity = data.idBala + 1;
+                    if (this.enemies[data.idElemento].bulletQuantity <= data.idBala) {
+                        this.enemies[data.idElemento].bulletQuantity = data.idBala + 1;
                     }
                     
                     /*if (bullet.idBullet === '') {
@@ -570,7 +570,7 @@ class Field extends Phaser.Scene {
                         this.enemies[data.idAvion].bulletQuantity = data.idBullet;
                     }*/
                     bullet.idBullet = data.idBala;
-                    bullet.planeNumber = data.idAvion;
+                    bullet.planeNumber = data.idElemento;
                     bullet.estadoAvion = data.altitud;
                     bullet.enemyBullet = true;
                     bullet.fire(this, data.ejeX, data.ejeY, data.angulo);
@@ -578,14 +578,17 @@ class Field extends Phaser.Scene {
             }
             else {
                 // Indicar a que bala en especifico se necesita hacer desaparecer
-                let bullet = this.enemies[data.idAvion].bullets.getMatching('idBullet', data.idBala)[0];
+                console.log('bullets');
+                console.log(this.enemies);
+                console.log(data);
+                let bullet = this.enemies[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
                 bullet.setActive(false);
                 bullet.setVisible(false);
                 bullet.body.stop();
             }
         }
         else if (!data.visible){
-            let bullet = this.airplanes[data.idAvion].bullets.getMatching('idBullet', data.idBala)[0];
+            let bullet = this.airplanes[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
             bullet.setActive(false);
             bullet.setVisible(false);
             bullet.body.stop();
@@ -675,22 +678,26 @@ class Field extends Phaser.Scene {
         }
     }
 
-    visibleEnemyAirplane(data) {
+    /*visibleEnemyAirplane(data) {
         if (data.idJugador !== this.team) {
             this.enemies[data.idAvion].visibleEnemyAirplane(data.visible);
         }
-    }
+    }*/
 
     visibleEnemyElements(data) {
-        if (data.idJugador !== this.team) {
-            this.enemyBase.visible = data.visibilidadBase;
-            this.enemyHangar = data.visibilidadBase;
-            this.enemyControlTower = data.visibilidadBase;
-            this.enemyFuel = data.visibilidadBase;
+        if (data.idJugador === this.team) {
+            console.log('datos visibles');
+            console.log(data);
+            this.enemyBase.setVisible(data.visibilidadBase);
+            this.enemyHangar.setVisible(data.visibilidadBase);
+            this.enemyControlTower.setVisible(data.visibilidadBase);
+            this.enemyFuel.setVisible(data.visibilidadBase);
             let turrets = this.enemyTurrets.getChildren();
             for (let i = 0; i < turrets.length; i++) {
-                console.log(data.visibilidadArtilleria);
                 turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
+            }
+            for (let i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
             }
         }
     }
