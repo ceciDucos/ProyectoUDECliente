@@ -22,7 +22,7 @@ export default class Preloader extends Phaser.Scene
 
         this.load.image('vistaLateral', 'assets/images/airplanes/marco.png');
         this.load.image('bullet', 'assets/images/bala.png'); 
-        this.load.multiatlas('others', 'assets/images/others/bomba-bala-sobreVolarLateral.json', 'assets/images/others');
+        this.load.multiatlas('others', 'assets/images/others/others.json', 'assets/images/others');
         this.load.html('nameform', 'assets/images/text/nameform.html');
         this.load.css('textStyle', 'assets/images/text/80stypography.css');
 
@@ -42,37 +42,37 @@ export default class Preloader extends Phaser.Scene
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'hangar/equipo1/animacionHangarExplota/animacionHangarExplota-', suffix: '.png'
+            prefix: 'equipo1/animacionHangarExplota/animacionHangarExplota-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo1animacionHangarExplota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'hangar/equipo2/animacionHangarExplota/animacionHangarExplota-', suffix: '.png'
+            prefix: 'equipo2/animacionHangarExplota/animacionHangarExplota-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo2animacionHangarExplota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'tanque/animacionTanqueExplota/animacionTanqueExplota-', suffix: '.png'
+            prefix: 'animacionTanqueExplota/animacionTanqueExplota-', suffix: '.png'
         });
         this.anims.create({ key: 'animacionTanqueExplota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'torre/equipo1/animacionTorreExplota/animacionTorreExplota-', suffix: '.png'
+            prefix: 'equipo1/animacionTorreExplota/animacionTorreExplota-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo1animacionTorreExplota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'torre/equipo2/animacionTorreExplota/animacionTorreExplota-', suffix: '.png'
+            prefix: 'equipo2/animacionTorreExplota/animacionTorreExplota-', suffix: '.png'
         });
         this.anims.create({ key: 'equipo2animacionTorreExplota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         this.frameNames = this.anims.generateFrameNames('base', {
             start: 1, end: 10, zeroPad: 1,
-            prefix: 'artilleria/animacionArtilleriaExplota/artilleriaEplotar-', suffix: '.png'
+            prefix: 'animacionArtilleriaExplota/artilleriaEplotar-', suffix: '.png'
         });
         this.anims.create({ key: 'artilleriaEplotar', frames: this.frameNames, frameRate: 12, repeat: 0 });
 
