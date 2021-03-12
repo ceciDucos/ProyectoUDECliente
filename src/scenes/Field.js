@@ -55,13 +55,16 @@ class Field extends Phaser.Scene {
             this.teamControlTower = this.add.sprite(this.data.teamControlTowerX, this.data.teamControlTowerY, 'base',
                 'torre/equipo1/animacionTorre/animacionTorre-1.png');
 
-            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable();
+            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable().setVisible(false);
             this.enemyHangar = this.add.sprite(this.data.enemyHangarX - 3, this.data.enemyHangarY + 2, 'base',
                 'hangar/equipo2/animacionHangar/animacionHangar-2.png');
+            this.enemyHangar.setVisible(false);
             this.enemyFuel = this.add.sprite(this.data.enemyFuelX - 7, this.data.enemyFuelY - 6, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');
+            this.enemyFuel.setVisible(false);
             this.enemyControlTower = this.add.sprite(this.data.enemyControlTowerX - 10, this.data.enemyControlTowerY, 'base',
                 'torre/equipo2/animacionTorre/animacionTorre-2.png');
+            this.enemyControlTower.setVisible(false);
         }
         else {
             this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable();
@@ -72,13 +75,16 @@ class Field extends Phaser.Scene {
             this.teamControlTower = this.add.sprite(this.data.teamControlTowerX - 10, this.data.teamControlTowerY, 'base',
                 'torre/equipo2/animacionTorre/animacionTorre-2.png');
 
-            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable();
+            this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable().setVisible(false);
             this.enemyHangar = this.add.sprite(this.data.enemyHangarX - 2, this.data.enemyHangarY - 2, 'base',
-                'hangar/equipo1/animacionHangar/animacionHangar-1.png');                
+                'hangar/equipo1/animacionHangar/animacionHangar-1.png');         
+            this.enemyHangar.setVisible(false);     
             this.enemyFuel = this.add.sprite(this.data.enemyFuelX - 8, this.data.enemyFuelY - 9, 'base',
                 'tanque/amnimacionTanque/animacionTanque-1.png');                
+            this.enemyFuel.setVisible(false);
             this.enemyControlTower = this.add.sprite(this.data.enemyControlTowerX, this.data.enemyControlTowerY, 'base',
                 'torre/equipo1/animacionTorre/animacionTorre-1.png');
+            this.enemyControlTower.setVisible(false);
                 
         }
 
@@ -453,10 +459,17 @@ class Field extends Phaser.Scene {
         for(let i = 0; i < turretsInfo.length; i++) {
             let turret = turrets.get();
             if (turret) {
-                turret.setActive(true);
-                turret.setVisible(true);
-                turret.id = i;
                 turret.team = turretsInfo[i].idJugador;
+                if (turret.team !== this.team) {
+                    turret.setVisible(false);
+                }
+                else {
+                    turret.setVisible(true);
+                }
+                turret.setActive(true);
+                //turret.setVisible(true);
+                turret.id = i;
+                
                 turret.x = turretsInfo[i].ejeX;
                 turret.y = turretsInfo[i].ejeY;
                 turret.setScale(0.15);
@@ -619,6 +632,45 @@ class Field extends Phaser.Scene {
             console.log(turret);
             turret.destroyTurret(data);
         }
+    }
+
+    visibleEnemyAirplane(data) {
+        if (data.idJugador !== this.team) {
+            console.log('entro a avion enemigo visible');
+            console.log(data);
+            this.enemies[data.idAvion].visibleEnemyAirplane(data.visible);
+        }
+    }
+
+    visibleEnemyElements(data) {
+        if (data.idJugador !== this.team) {
+            this.enemyBase.visible = data.visibilidadBase;
+            this.enemyHangar = data.visibilidadBase;
+            this.enemyControlTower = data.visibilidadBase;
+            this.enemyFuel = data.visibilidadBase;
+            let turrets = this.enemyTurrets.getChildren();
+            for (let i = 0; i < turrets.length; i++) {
+                console.log(data.visibilidadArtilleria);
+                turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
+            }
+        }
+    }
+
+    endGame(data) {
+        console.log('llego el gameover');     
+        if (!data.jugadorUnoGano && !data.jugadorDosGano) {
+            console.log('entro al empate');
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+        }
+        else if (data.jugadorUnoGano) {
+            console.log('entro al ganador1');
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
+        }
+        else {
+            console.log('entro al ganador2');
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+        }
+        return;
     }
 }
 

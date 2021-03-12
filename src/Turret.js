@@ -32,7 +32,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             if (this.selected) { //Descomentar y continuar los movimientos de las torretas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (this.inputKeys.up.isDown && !this.enemiesInBase()) {
                     this.scene.physics.velocityFromAngle(this.angle, 10, this.body.velocity);
-                    this.scene.bootloaderScene.moverTorreta(this.scene.data.gameId, this.scene.data.team, this.id, 
+                    this.scene.bootloaderScene.moverTorreta(this.scene.getData(gameId), this.scene.getData(team), this.id, 
                         this.x, this.y, this.angle, this.destroy);
                 }
                 else {
@@ -43,12 +43,12 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 }
                 if (this.inputKeys.left.isDown && !this.enemiesInBase()) {
                     this.setAngularVelocity(-150);
-                    this.scene.bootloaderScene.moverTorreta(this.scene.data.gameId, this.scene.data.team, this.id, 
+                    this.scene.bootloaderScene.moverTorreta(this.scene.dgetData(gameId), this.scene.getData(team), this.id, 
                         this.x, this.y, this.angle, this.destroy);
                 }
                 else if (this.inputKeys.right.isDown && !this.enemiesInBase()) {
                     this.setAngularVelocity(150);
-                    this.scene.bootloaderScene.moverTorreta(this.scene.data.gameId, this.scene.data.team, this.id, 
+                    this.scene.bootloaderScene.moverTorreta(this.scene.getData(gameId), this.scene.getData(team), this.id, 
                         this.x, this.y, this.angle, this.destroy);
                 }
                 else
@@ -128,5 +128,9 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             this.visible = false;
             this.active = false;
         });
+    }
+
+    visibleEnemyTurret(visible) {
+        this.visible = visible;
     }
 }

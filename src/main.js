@@ -3,6 +3,7 @@ import SetBase from './scenes/SetBase.js';
 import Bootloader from './Bootloader.js';
 import SetTurrets from './scenes/SetTurrets.js';
 import Preloader from './scenes/Preloader.js';
+import GameOver from './scenes/GameOver.js';
 
 const config = {
     title: "Bombs Away",
@@ -20,7 +21,7 @@ const config = {
     physics: {
         default: "arcade",
         "arcade": {
-            debug: false,
+            debug: true,
             gravity: {
                 y: 0
             }
@@ -29,7 +30,7 @@ const config = {
     dom: {
         createContainer: true
     },
-    scene: [Preloader, Bootloader, SetBase, SetTurrets, Field]
+    scene: [Preloader, Bootloader, SetBase, SetTurrets, Field, GameOver]
 };
 
 new Phaser.Game(config);
