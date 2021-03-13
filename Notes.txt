@@ -4,6 +4,9 @@ hay una falla que algunos de los aviones destruiodos reaparecen un rato despues 
 averiguar si todos los llamados de websocket son async
 controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
 //revisar en placeBase si poniendo varias veces la base no se llena de 1s el mapGrid y limita la colocacion de torretas
+la base se muestra cuando hay un avion cerca, pero el avion no se muestra cuando esta cerca de la base
+
+
 
 sonidos:
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\protracker\sd-ingame1.mod

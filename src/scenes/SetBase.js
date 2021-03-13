@@ -16,6 +16,8 @@ class SetBase extends Phaser.Scene {
     }
 
     create() {
+        console.log('volvio a entrar al setbase');        
+        this.scene.bringToTop('SetBase'); 
         this.bootloaderScene = this.scene.get('Bootloader');
         this.physics.world.setFPS(30); 
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');

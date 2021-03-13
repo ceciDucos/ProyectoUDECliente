@@ -30,6 +30,7 @@ const config = {
     dom: {
         createContainer: true
     },
+    title: 'Bombs Away!',
     scene: [Preloader, Bootloader, SetBase, SetTurrets, Field, GameOver]
 };
 

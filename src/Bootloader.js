@@ -48,7 +48,7 @@ class Bootloader extends Phaser.Scene {
                 console.log(this.scene.gameId);
 
                 //  Have they entered anything?
-                if (playerNameInput.value !== '' && gameIdInput.value !== '')
+                if (playerNameInput.value !== 'a' && gameIdInput.value !== 'a')
                 {
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
@@ -81,7 +81,7 @@ class Bootloader extends Phaser.Scene {
                 console.log(gameIdInput);
 
                 //  Have they entered anything?
-                if (playerNameInput.value !== '')
+                if (playerNameInput.value !== 'a')
                 {
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
@@ -124,6 +124,7 @@ class Bootloader extends Phaser.Scene {
     }
 
     pasarEscena() {
+        console.log('volvio a entrar al juego');
         /*this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
         this.fieldScene = this.scene.get('Field');*/
@@ -132,7 +133,7 @@ class Bootloader extends Phaser.Scene {
         this.entrarjuego.removeInteractive();
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
-        this.scene.launch('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
+        this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
         this.setBaseScene = this.scene.get('SetBase');
     }
 

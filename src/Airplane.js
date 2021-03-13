@@ -491,7 +491,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         return animName;
     }
 
-    moveEnemyAirplane(data) {   //hacer un if grande en el update de avion para lo que este afuera del if de selected no corra animaciones (o nada) del avion enemigo
+    moveEnemyAirplane(data) {   //hacer un if grande en el update de avion para lo que este afuera del if de selected no corra animaciones (o nada) del avion enemigo        
         let animName;    
         this.x = data.ejeX;
         this.y = data.ejeY;

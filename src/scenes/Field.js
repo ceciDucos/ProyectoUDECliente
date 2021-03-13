@@ -31,6 +31,7 @@ class Field extends Phaser.Scene {
         this.teamTurretsInfo = data.teamTurrets;
         this.enemyTurretsInfo = data.enemyTurrets;
         this.scene.stop('SetTurrets');
+        //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
         
         
         
@@ -61,7 +62,9 @@ class Field extends Phaser.Scene {
         Turret.preload(this);
     }
 
-    create() {
+    create() {              
+        
+        //this.scene.bringToTop('Field'); 
         this.physics.world.setFPS(30);
         this.bootloaderScene = this.scene.get('Bootloader');
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
@@ -527,6 +530,7 @@ class Field extends Phaser.Scene {
     moveEnemyAirplane(data) {
         //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
         if (data.idJugador !== this.team) {
+            console.log('mueve avion');
             this.enemies[data.idAvion].moveEnemyAirplane(data);
         }
     }
@@ -691,23 +695,25 @@ class Field extends Phaser.Scene {
     }
 
     endGame(data) {
-        this.registry.destroy();
-        this.events.off();
+        //this.registry.destroy();
+        //this.events.off();        
         console.log('llego el gameover');   
-        this.physics.pause();  
+        //this.physics.pause();  
         if (!data.jugadorUnoGano && !data.jugadorDosGano) {
             console.log('entro al empate');
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
         }
         else if (data.jugadorUnoGano) {
             console.log('entro al ganador1');
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
         }
         else {
             console.log('entro al ganador2');
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
         }
         //this.scene.stop();
+        //this.scene.bringToTop('GameOver');
+        //this.scene.pause('Field');
         return;
     }
 }

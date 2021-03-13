@@ -36,7 +36,8 @@ class SetTurrets extends Phaser.Scene {
         //this.load.image('base', 'assets/images/baseExample.png');
     }
 
-    create() {
+    create() {              
+        this.scene.bringToTop('SetTurrets'); 
         this.bootloaderScene = this.scene.get('Bootloader');
         this.turretsX = [];
         this.turretsY = [];

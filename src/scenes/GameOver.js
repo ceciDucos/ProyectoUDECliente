@@ -33,15 +33,17 @@ class GameOver extends Phaser.Scene {
     }
 
     pasarEscena() {
+        this.sys.game.destroy(true);
+        /*
         console.log('pasa de escena de gameover');
         //this.scene.stop('Field');
         this.entrarjuego.removeInteractive(); 
         //this.scene.restart('Field');
         this.scene.stop('Bootloader');
-        this.scene.stop('Field');
+        //this.scene.stop('Field');
         this.scene.start('Bootloader');
         this.scene.bringToTop('Bootloader'); 
-        //this.scene.start('Bootloader');
+        //this.scene.start('Bootloader');*/
     }
 }
 
