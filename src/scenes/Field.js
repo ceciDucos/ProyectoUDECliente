@@ -286,6 +286,7 @@ class Field extends Phaser.Scene {
             gameObject.selected = true;
         });
         this.selectAirplaneKeys();
+        this.gameReady = true;
     }
 
     update(time, delta) {
@@ -685,19 +686,21 @@ class Field extends Phaser.Scene {
     }*/
 
     visibleEnemyElements(data) {
-        if (data.idJugador === this.team) {
-            console.log('datos visibles');
-            console.log(data);
-            this.enemyBase.setVisible(data.visibilidadBase);
-            this.enemyHangar.setVisible(data.visibilidadBase);
-            this.enemyControlTower.setVisible(data.visibilidadBase);
-            this.enemyFuel.setVisible(data.visibilidadBase);
-            let turrets = this.enemyTurrets.getChildren();
-            for (let i = 0; i < turrets.length; i++) {
-                turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
-            }
-            for (let i = 0; i < this.enemies.length; i++) {
-                this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
+        if (this.gameReady === true) {
+            if (data.idJugador === this.team) {
+                console.log('datos visibles');
+                console.log(data);
+                this.enemyBase.setVisible(data.visibilidadBase);
+                this.enemyHangar.setVisible(data.visibilidadBase);
+                this.enemyControlTower.setVisible(data.visibilidadBase);
+                this.enemyFuel.setVisible(data.visibilidadBase);
+                let turrets = this.enemyTurrets.getChildren();
+                for (let i = 0; i < turrets.length; i++) {
+                    turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
+                }
+                for (let i = 0; i < this.enemies.length; i++) {
+                    this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
+                }
             }
         }
     }
