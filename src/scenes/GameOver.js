@@ -8,8 +8,6 @@ class GameOver extends Phaser.Scene {
         this.messageTeam1 = data.messageTeam1;
         this.messageTeam2 = data.messageTeam2;
         console.log('llega al init de gameover');
-        
-        this.scene.stop('Field');
     }
 
     preload() {
@@ -39,9 +37,11 @@ class GameOver extends Phaser.Scene {
         //this.scene.stop('Field');
         this.entrarjuego.removeInteractive(); 
         //this.scene.restart('Field');
-        this.scene.restart('Bootloader');
-        this.scene.bringToTop('Bootloader');
+        this.scene.stop('Bootloader');
+        this.scene.stop('Field');
         this.scene.start('Bootloader');
+        this.scene.bringToTop('Bootloader'); 
+        //this.scene.start('Bootloader');
     }
 }
 

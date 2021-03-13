@@ -691,7 +691,10 @@ class Field extends Phaser.Scene {
     }
 
     endGame(data) {
-        console.log('llego el gameover');     
+        this.registry.destroy();
+        this.events.off();
+        console.log('llego el gameover');   
+        this.physics.pause();  
         if (!data.jugadorUnoGano && !data.jugadorDosGano) {
             console.log('entro al empate');
             this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
@@ -704,6 +707,7 @@ class Field extends Phaser.Scene {
             console.log('entro al ganador2');
             this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
         }
+        //this.scene.stop();
         return;
     }
 }
