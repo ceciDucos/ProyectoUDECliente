@@ -11,7 +11,8 @@ class GameOver extends Phaser.Scene {
     }
 
     preload() {
-
+        //this.load.multiatlas('menu', 'assets/images/menu/menu.json', 'assets/images/menu');
+        
     }
 
     create() {
@@ -26,12 +27,15 @@ class GameOver extends Phaser.Scene {
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
         console.log('sale del create de gameover');
         
+        //this.frameNames = this.anims.generateFrameNames('menu', {start: 1, end: 1, zeroPad: 1, prefix: 'derrota/derrota-1'});
+        //this.anims.create({ key: 'derrota-1', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
     }
 
     update(time, delta) {
+        //this.scene.anims.play('derrota-1', true);
     }
-
+    /*
     pasarEscena() {
         console.log('pasa de escena de gameover');
         //this.scene.stop('Field');
@@ -42,7 +46,8 @@ class GameOver extends Phaser.Scene {
         this.scene.start('Bootloader');
         this.scene.bringToTop('Bootloader'); 
         //this.scene.start('Bootloader');
-    }
+        
+    }*/
 }
 
 export default GameOver;
