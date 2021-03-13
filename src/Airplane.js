@@ -143,10 +143,10 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }                        
                         this.active = true;
                         if (this.life < 30) {
-                            this.anims.play(this.prefix + 'Despegar',true);
+                            this.anims.play(this.prefix + 'DespegarConPocaVida',true);
                         }
                         else {
-                            this.anims.play(this.prefix + 'DespegarConPocaVida', true);
+                            this.anims.play(this.prefix + 'Despegar', true);
                         }
                         /*this.on("animationcomplete", ()=>{        //si da problemas la animacion de volar volver a descomentar
                             this.anims.play(this.prefix + 'Volar', true);
@@ -278,10 +278,20 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 else {
                     this.scene.lateral.on("animationcomplete", ()=>{  
                         if (this.estado === 1) {
-                            this.scene.lateral.anims.play(this.prefix + 'VolarBajoLateralVolar');
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VolarBajoLateralVolarConPocaVida');
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VolarBajoLateralVolar');
+                            }
                         }
                         else if (this.estado === 2){
-                            this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralVolar');
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralVolarConPocaVida');
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralVolar');
+                            }
                         }
                     });
                 }
@@ -309,21 +319,41 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     });
                     if (this.estado === 1) {
                         if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierda', true);
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierdaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierda', true);
+                            }
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierda', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierdaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarIzquierda', true);
+                                }
                             });
                         }
                     }
                     else {                        
                         if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierda', true);
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierdaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierda', true);
+                            }
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierda', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierdaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarIzquierda', true);
+                                }
                             });
                         }
                     }
@@ -350,21 +380,42 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     });
                     if (this.estado === 1) {
                         if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerecha', true);
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerechaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerecha', true);
+                            }
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerecha', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerechaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralDoblarDerecha', true);
+                                }
                             });
                         }
                     }
                     else {                        
-                        if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerecha', true);
+                        if (this.isLateralInfiniteAnimation()) { 
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerechaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerecha', true);
+                            }                        
+                            
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerecha', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerechaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLateralDoblarDerecha', true);
+                                }  
                             });
                         }
                     }
@@ -390,26 +441,46 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     }
                 }
                 if (this.inputKeys.dropBomb.isDown && this.hasBomb) {
-                    if (this.estado === 1) {
+                    /*if (this.estado === 1) {
                         if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBomba', true);
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBombaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBomba', true);
+                            }
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBomba', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBombaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBomba', true);
+                                }
                             });
                         }
                     }
                     else {                        
                         if (this.isLateralInfiniteAnimation()) {                        
-                            this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+                            if (this.life < 30) {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBombaConPocaVida', true);
+                            }
+                            else {
+                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+                            }
                         }
                         else {
                             this.scene.lateral.on("animationcomplete", ()=>{  
-                                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+                                if (this.life < 30) {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBombaConPocaVida', true);
+                                }
+                                else {
+                                    this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+                                }
                             });
                         }
-                    }
+                    }*/
                     this.dropBomb();
                 }
             }
@@ -432,7 +503,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.body.setAngularVelocity(0);
         }        
     }
-
+    
     isLateralInfiniteAnimation () {
         let animPrefix = '';
         if (this.scene.team === 1) {
@@ -531,7 +602,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             }
             else if (this.angle < data.angulo) {
                 this.on("animationcomplete", ()=>{                         
-                    if (this.anims.currentAnim.key === this.prefix + 'Volar') {
+                    if (this.anims.currentAnim.key === this.prefix + 'Volar') { 
                         if (this.life < 30) {
                             this.anims.play(this.prefix + 'DoblarDerechaConPocaVida', true);
                         }
@@ -582,6 +653,23 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.bomb.active = true;
         this.bomb.visible = true;  
         this.bomb.anims.play('bomba',true);
+        //this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+        if (this.estado === 1) {                     
+            if (this.life < 30) {
+                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBombaConPocaVida', true);
+            }
+            else {
+                this.scene.lateral.anims.play(this.prefix + 'VueloBajoLateralLanzarBomba', true);
+            }
+        }
+        else {                                               
+            if (this.life < 30) {
+                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBombaConPocaVida', true);
+            }
+            else {
+                this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
+            }
+        }
         if (this.team === this.scene.team) {
             this.scene.time.addEvent({
                 delay: 1000,
