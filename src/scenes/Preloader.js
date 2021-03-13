@@ -24,8 +24,9 @@ export default class Preloader extends Phaser.Scene
         this.load.image('bullet', 'assets/images/bala.png'); 
         this.load.multiatlas('others', 'assets/images/others/others.json', 'assets/images/others');
         this.load.html('nameform', 'assets/images/text/nameform.html');
-        this.load.css('textStyle', 'assets/images/text/80stypography.css');
-
+        //this.load.css('textStyle', 'assets/images/text/80stypography.css');
+        
+        this.load.audio('musicaPrincipal', ['assets/audio/cancionMenuPrincipal.ogg']);
     }
 
     create ()
