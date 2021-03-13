@@ -139,11 +139,17 @@ class SetBase extends Phaser.Scene {
                 this.base.destroy();
             }
             //this.base = this.add.sprite(this.['teamBaseX'],  this.['teamBaseY'], 'baseexample');
-            this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo1/baseEquipo1.png');
-            
             if (this.team === 2) {
-                this.base.setAngle(180);
+                this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo2/baseEquipo2.png');
             }
+            else{
+                this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo1/baseEquipo1.png');
+            }
+            
+            
+            /*if (this.team === 2) {
+                this.base.setAngle(180);
+            }*/
 
 
             this.bootloaderScene.colocarBase(this.gameId, this.team, this.teamBaseX, this.teamBaseY, 
