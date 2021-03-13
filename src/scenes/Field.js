@@ -216,23 +216,7 @@ class Field extends Phaser.Scene {
         let enemyTexture;
         let HealthBarX = 1150;
         let HealthBarY = 450;
-        /*if (this.team === 1) {
-            texture = 'airplaneplayer1';
-            enemyTexture = 'airplaneplayer2';
-        }
-        else {                
-            texture = 'airplaneplayer2';
-            enemyTexture = 'airplaneplayer1';
-        }*/
         for (let i = 0; i < this.airplanesQuantity; i++) {
-            /*if (i < 4) {
-                frame = 'equipo1avion' + (i + 1);
-                frame2 = 'equipo2avion' + (i + 1);
-            }
-            else {
-                frame = 'equipo1avion' + (i - 3);
-                frame2 = 'equipo2avion' + (i - 3);
-            }*/
             let number;
             if (i < 4) {
                 number = i + 1;
@@ -246,20 +230,23 @@ class Field extends Phaser.Scene {
                 enemyTexture = 'equipo2avion' + number;
                 frame = 'animacionVolar/' + texture + '-1.png'
                 frame2 = 'animacionVolar/' + enemyTexture + '-1.png'
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
+                //this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
+                //this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
             else {                
                 texture = 'equipo2avion' + number;
                 enemyTexture = 'equipo1avion' + number;
                 frame = 'animacionVolar/' + texture + '-1.png'
                 frame2 = 'animacionVolar/' + enemyTexture + '-1.png'
-                this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
-                this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
+                //this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
+                //this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             }
+            this.airplanes[i] = new Airplane({ scene: this, x: this.teamHangarX, y: this.teamHangarY, texture: texture, frame: frame, team: this.team, planeNumber: (i)});
+            this.enemies[i] = new Airplane({ scene: this, x: this.enemyHangarX, y: this.enemyHangarY, texture: enemyTexture, frame: frame2, team: this.enemyTeam, planeNumber: (i)});
             this.airplanes[i].setInteractive();
             this.airplanes[i].hpBar = new HealthBar(this, HealthBarX, HealthBarY, 0);
             this.airplanes[i].fuelBar = new HealthBar(this, HealthBarX, HealthBarY + 20, 1);
+            this.airplanes[i].icon = this.add.image(HealthBarX - 25, HealthBarY + 18, 'others', 'vivo/' + texture + 'Vida.png');
             HealthBarY += 60;
         }        
 
@@ -267,8 +254,6 @@ class Field extends Phaser.Scene {
         
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        //Place turret by clicking on the player´s side of the map
-        //this.input.on('pointerdown', this.placeTurret, this);     /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         for (let i = 0; i < this.airplanesQuantity; i++) {
             this.assignAirplaneKeys(this.airplanes[i]);
