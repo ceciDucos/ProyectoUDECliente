@@ -25,7 +25,6 @@ class SetTurrets extends Phaser.Scene {
         this.enemyFuelY = data.enemyFuelY;
         this.enemyHangarX = data.enemyHangarX;
         this.enemyHangarY = data.enemyHangarY;
-        this.scene.stop('SetBase');
     }
 
     preload() {        

@@ -13,7 +13,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             maxSize: 10,
             runChildUpdate: true
         });
-        this.destroy = false;
+        this.destroyed = false;
         this.scene.assignTurretKeys(this);        
         scene.physics.add.existing(this);
         //this.lastFired = 0;
@@ -24,7 +24,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(time, delta) {
-        if (!this.destroy) {            
+        if (!this.destroyed) {            
             if (time > this.nextTic) {
                 this.fire(time);
                 this.nextTic = time + 1000;
@@ -33,7 +33,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 if (this.inputKeys.up.isDown && !this.enemiesInBase()) {
                     this.scene.physics.velocityFromAngle(this.angle, 10, this.body.velocity);
                     this.scene.bootloaderScene.moverTorreta(this.scene.gameId, this.scene.team, this.id, 
-                        this.x, this.y, this.angle, this.destroy);
+                        this.x, this.y, this.angle, this.destroyed);
                 }
                 else {
                     this.setAcceleration(0);
@@ -44,12 +44,12 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 if (this.inputKeys.left.isDown && !this.enemiesInBase()) {
                     this.setAngularVelocity(-150);
                     this.scene.bootloaderScene.moverTorreta(this.scene.gameId, this.scene.team, this.id, 
-                        this.x, this.y, this.angle, this.destroy);
+                        this.x, this.y, this.angle, this.destroyed);
                 }
                 else if (this.inputKeys.right.isDown && !this.enemiesInBase()) {
                     this.setAngularVelocity(150);
                     this.scene.bootloaderScene.moverTorreta(this.scene.gameId, this.scene.team, this.id, 
-                        this.x, this.y, this.angle, this.destroy);
+                        this.x, this.y, this.angle, this.destroyed);
                 }
                 else
                 {
@@ -118,11 +118,11 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         this.x = data.ejeX;
         this.y = data.ejeY;
         this.angle = data.angulo;
-        this.destroy = data.destruida;
+        this.destroyed = data.destruida;
     }
 
     destroyTurret(data) {        
-        this.destroy = data.destruida;
+        this.destroyed = data.destruida;
         this.anims.play('artilleriaEplotar',true);
         this.on("animationcomplete", ()=>{
             this.visible = false;

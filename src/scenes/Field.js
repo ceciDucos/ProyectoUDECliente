@@ -30,8 +30,6 @@ class Field extends Phaser.Scene {
         this.enemyHangarY = data.enemyHangarY;
         this.teamTurretsInfo = data.teamTurrets;
         this.enemyTurretsInfo = data.enemyTurrets;
-        this.scene.stop('SetTurrets');
-        //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
         
         
         
@@ -57,14 +55,12 @@ class Field extends Phaser.Scene {
         //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
         //this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/baseEquipo1-1.png');
-        //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
+        //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png'); 
         Airplane.preload(this);
         Turret.preload(this);
     }
 
-    create() {              
-        
-        //this.scene.bringToTop('Field'); 
+    create() {
         this.physics.world.setFPS(30);
         this.bootloaderScene = this.scene.get('Bootloader');
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
@@ -120,93 +116,17 @@ class Field extends Phaser.Scene {
         }
 
 
+        this.teamTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
+        this.enemyTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
 
-
-        //this.base = this.add.sprite(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable();
-        //this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo1.png').setImmovable();
-        //this.base = this.physics.add.image(this.data.teamBaseX, this.data.teamBaseY, 'base').setImmovable();
-        //this.enemyBase = this.add.sprite(this.data.teamBaseX, this.data.teamBaseY, 'base', 'terreno/equipo1/baseEquipo2.png').setImmovable();
-        //this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base', 'terreno/equipo2/baseEquipo2.png').setImmovable();
-        //this.enemyBase = this.physics.add.image(this.data.enemyBaseX, this.data.enemyBaseY, 'base').setImmovable();
-        /*if (this.team === 2) {
-            this.base.setAngle(180);
-        }
-        else {
-            this.enemyBase.setAngle(180);
-        }*/
-        //this.base.setScale(2);
-
-        //const map = this.make.tile({key:'map'});
-        //const tileset = map.addTilesetImage('mapa', 'tiles', 1080, 720,0,0);
-        //const layer1 = map.createStaticLayer('Tile layer 1')
-        //this.add.image(540, 360, 'map');
-        
-        //this.cameras.main.setSize(1080, 720);
-        //this.camera0 = this.cameras.main;
-        //this.camera1 = this.cameras.add(0, 0, 200, 720);
-
-
-        /*this.map = new Array(360);        /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
-        for (let i = 0; i < this.map.length; i++) {
-            this.map[i] = new Array(1280).fill(0); // Creating an array of size 4 and filled of 1
-        }
-        var graphics = this.add.graphics();
-        this.drawGrid1(graphics);*/
-
-
-        //this.teamTurrets = new Turrets({scene:this,x:team1BaseX,y:team1BaseY,texture:'equipo1avion1',frame:'kek-1',team:team});
-
-        this.teamTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
-        this.enemyTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true }); /////////////descomentar!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        /*let turretsChildren = this.teamTurrets.getChildren(); // trata de buscar los hijos pero aun no tiene las teclas asignadas entonces falla //ahora se puso en el constructor
-        console.log('paso');
-        for (let i = 0; i < turretsChildren.length; i++) {
-            this.assignTurretKeys(turretsChildren[i]);                
-        }*/
         this.placeTurrets(this.teamTurrets, this.teamTurretsInfo);
+        
         this.placeTurrets(this.enemyTurrets, this.enemyTurretsInfo);
-        /*for(let i = 0; i < 11; i++) {
-            let turret = this.teamTurrets.get();
-            if (turret) {
-                turret.setActive(true);
-                turret.setVisible(true);
-                turret.x = this.data.teamTurrets[i].ejeX;
-                turret.y = this.data.teamTurrets[i].ejeY;
-                turret.setScale(0.15);
-                turret.body.setSize(120,100);
-                //turret.setCircle(70,10,13);
-                turret.setCollideWorldBounds(true);
-                let bounds;
-                if(this.team === 1) {    //Valores para limites de movimiento de torreta para team 1 y 2
-                    bounds = new Phaser.Geom.Rectangle(40, 30, 1000, 320);
-                }
-                else {
-                    bounds = new Phaser.Geom.Rectangle(40, 370, 1000, 320);
-                }        
-                turret.body.setBoundsRectangle(bounds);
-                turret.setPushable(false);
-                //turret.body.immovable = true;
-                //turret.body.setImmovable(true);
-                //this.add.graphics()   //Sirve para mostrar en pantalla los limites
-                //.lineStyle(5, 0x00ffff, 0.5)
-                //.strokeRectShape(turret.body.customBoundsRectangle);
-            }
-        }*/
         this.physics.add.collider(this.teamTurrets);
         this.physics.add.collider(this.teamTurrets, this.base);
-        //this.physics.add.collider(this.base);
-        /*if(scene.team === 1) {    //Valores para limites de movimiento de torreta para team 1 y 2
-            bounds = new Phaser.Geom.Rectangle(540, 180, 1000, 300);
-        }
-        else {
-            bounds = new Phaser.Geom.Rectangle(540, 540, 1000, 300);
-        }        
-        this.body.setBoundsRectangle(bounds)*/
 
 
-        this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada        
-        //this.loadLateralPanel();        
+        this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada     
         this.lateral = this.add.sprite(1181, 195, 'vistaLateral');
         this.lateral.setDepth(3);
 
@@ -275,6 +195,7 @@ class Field extends Phaser.Scene {
         });
         this.selectAirplaneKeys();
         this.gameReady = true;
+        console.log('termino field');
     }
 
     update(time, delta) {
@@ -520,9 +441,9 @@ class Field extends Phaser.Scene {
                 turret.setPushable(false);
                 //turret.body.immovable = true;
                 //turret.body.setImmovable(true);
-                /*this.add.graphics()   //Sirve para mostrar en pantalla los limites
-                .lineStyle(5, 0x00ffff, 0.5)
-                .strokeRectShape(turret.body.customBoundsRectangle);*/
+                //this.add.graphics()   //Sirve para mostrar en pantalla los limites
+                //.lineStyle(5, 0x00ffff, 0.5)
+                //.strokeRectShape(turret.body.customBoundsRectangle);
             }
         }
     }
@@ -688,6 +609,9 @@ class Field extends Phaser.Scene {
                     turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
                 }
                 for (let i = 0; i < this.enemies.length; i++) {
+                    console.log('equipo: ' + this.enemies[i].team);
+                    console.log(this.team);
+                    console.log('lleva avion: ' + data.visibilidadAviones[i])
                     this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
                 }
             }
@@ -695,25 +619,51 @@ class Field extends Phaser.Scene {
     }
 
     endGame(data) {
-        //this.registry.destroy();
-        //this.events.off();        
+        this.registry.destroy();
+        this.events.off();        
         console.log('llego el gameover');   
-        //this.physics.pause();  
+        this.physics.pause();  
         if (!data.jugadorUnoGano && !data.jugadorDosGano) {
             console.log('entro al empate');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+            this.scene.transition({
+                target: 'GameOver',
+                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
+                moveAbove: true,
+                duration: 1000,
+                remove: false,
+                sleep: false,                
+            })
+            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
         }
         else if (data.jugadorUnoGano) {
             console.log('entro al ganador1');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
+            this.scene.transition({
+                target: 'GameOver',
+                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
+                moveAbove: true,
+                duration: 0,
+                remove: true,
+                sleep: false,                
+            })
+            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
+            console.log('paso el ganador1');
         }
         else {
             console.log('entro al ganador2');
-            this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+            this.scene.transition({
+                target: 'GameOver',
+                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
+                moveAbove: true,
+                duration: 1000,
+                remove: false,
+                sleep: false,                
+            })
+            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
         }
         //this.scene.stop();
         //this.scene.bringToTop('GameOver');
         //this.scene.pause('Field');
+        //this.game.scene.destroy();
         return;
     }
 }
