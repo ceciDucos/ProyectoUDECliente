@@ -33,7 +33,6 @@ export default class Preloader extends Phaser.Scene
 
     create ()
     {
-        this.sound.play('musicaPrincipal'); 
         
         //animaciones del mapa
 
