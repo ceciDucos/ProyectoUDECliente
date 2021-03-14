@@ -39,7 +39,10 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.setActive(true);
         this.setVisible(true);
         this.typeOfBullet = 1;
-
+        console.log('disparo torreta real');
+        console.log(x);
+        console.log(y);
+        console.log(angle);
         this.setPosition(x, y);
         this.setRotation(angle);
 
@@ -48,13 +51,17 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
         this.lifespan = 300;
         if (!this.enemyBullet) {
-            this.scene.bootloaderScene.dispararBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+            this.scene.bootloaderScene.dispararBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, x, y, angle, this.visible);
         } 
     }
 
     update(time, delta) {
         if (!this.enemyBullet && time > this.lastUpdated && this.typeOfBullet === 0) {
             this.scene.bootloaderScene.moverBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+            this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+        } 
+        if (!this.enemyBullet && time > this.lastUpdated && this.typeOfBullet === 1) {
+            this.scene.bootloaderScene.moverBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
             this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
         }        
         if (this.typeOfBullet === 0) {
