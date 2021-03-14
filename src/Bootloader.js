@@ -7,6 +7,9 @@ class Bootloader extends Phaser.Scene {
     }
 
     create() {
+
+        this.fondo = this.add.sprite(640, 360, 'fondoPrincipal');
+
         this.team;
         this.gameId;
         this.enemyTeam;
@@ -15,15 +18,15 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseX;
         this.enemyBaseY;
         this.stompClient = null;
-        this.createServer = this.add.text(10, 10, 'Crear partida', { fill: '#0f0' });
-        this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });        
-        this.entrarjuego = this.add.text(400, 10, 'Entrar al juego', { fill: '#0f0' });
-        this.createServer.setInteractive().on('pointerdown', this.crearPartidaEnEspera, this);
-        this.joinServer.setInteractive().on('pointerdown', this.unirseAPartida, this);
-        this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
+        //this.createServer = this.add.text(10, 10, 'Crear partida', { fill: '#0f0' });
+        //this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });        
+        //this.entrarjuego = this.add.text(400, 10, 'Entrar al juego', { fill: '#0f0' });
+        //this.createServer.setInteractive().on('pointerdown', this.crearPartidaEnEspera, this);
+        //this.joinServer.setInteractive().on('pointerdown', this.unirseAPartida, this);
+        //this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
 
 
-        this.h1 = this.add.dom(640, 200, 'h1', null, 'Bombs-Away');
+        /*this.h1 = this.add.dom(640, 200, 'h1', null, 'Bombs-Away');
 
         this.h1.setClassName('chrome');
         this.tweens.add({
@@ -33,7 +36,7 @@ class Bootloader extends Phaser.Scene {
             ease: 'Sine.easeInOut',
             loop: -1,
             yoyo: true
-        });
+        });*/
         var element = this.add.dom(640, 720).createFromCache('nameform');
 
         element.addListener('click');
@@ -127,9 +130,9 @@ class Bootloader extends Phaser.Scene {
         /*this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
         this.fieldScene = this.scene.get('Field');*/
-        this.createServer.removeInteractive();
-        this.joinServer.removeInteractive();
-        this.entrarjuego.removeInteractive();
+        //this.createServer.removeInteractive();
+        //this.joinServer.removeInteractive();
+        //this.entrarjuego.removeInteractive();
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
         this.scene.launch('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
