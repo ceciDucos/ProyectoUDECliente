@@ -61,7 +61,13 @@ class SetTurrets extends Phaser.Scene {
 
         this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
         this.input.on('pointerdown', this.placeTurret, this);   //Hay que ver como hacer el loop de las 11 torretas con el evento del puntero para luego pasar a la escena Field. No hacerlo en el placeTurret porque es un solo evento de click
-
+        if(this.team === 1)
+        {
+            this.colocarArtilleria =  this.add.image(540, 540, 'menu', 'mensajeColocarArtilleria/colocarArtilleria-1.png');
+        }
+        else{
+            this.colocarArtilleria =  this.add.image(540, 180, 'menu', 'mensajeColocarArtilleria/colocarArtilleria-1.png');
+        }
     }
 
     update(time, delta) {

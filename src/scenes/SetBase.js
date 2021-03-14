@@ -16,6 +16,7 @@ class SetBase extends Phaser.Scene {
     }
 
     create() {
+
         console.log('volvio a entrar al setbase');        
         this.scene.bringToTop('SetBase'); 
         this.bootloaderScene = this.scene.get('Bootloader');
@@ -35,6 +36,14 @@ class SetBase extends Phaser.Scene {
         
         
         this.input.on('pointerdown', this.placeBase, this);
+        if(this.team === 1)
+        {
+            this.colocarBase =  this.add.image(540, 540, 'menu', 'mensajeColocarBase/colocarBase-1.png');
+        }
+        else{
+            this.colocarBase =  this.add.image(540, 180, 'menu', 'mensajeColocarBase/colocarBase-1.png');
+        }
+        
         
         //this.input.on('pointerdown', (pointer) => {console.log('x: ' + pointer.x + ', y: ' + pointer.y)});
 

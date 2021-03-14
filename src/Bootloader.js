@@ -3,7 +3,7 @@ class Bootloader extends Phaser.Scene {
         super('Bootloader');
     }
 
-    preload() {      
+    preload() {
     }
 
     create() {
@@ -19,7 +19,7 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseY;
         this.stompClient = null;
         //this.createServer = this.add.text(10, 10, 'Crear partida', { fill: '#0f0' });
-        //this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });        
+        //this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });
         //this.entrarjuego = this.add.text(400, 10, 'Entrar al juego', { fill: '#0f0' });
         //this.createServer.setInteractive().on('pointerdown', this.crearPartidaEnEspera, this);
         //this.joinServer.setInteractive().on('pointerdown', this.unirseAPartida, this);
@@ -37,7 +37,7 @@ class Bootloader extends Phaser.Scene {
             loop: -1,
             yoyo: true
         });*/
-        
+
         //this.musica = this.sound.add('musicaPrincipal');
         //this.musica.play();
         var element = this.add.dom(640, 720).createFromCache('nameform');
@@ -50,7 +50,7 @@ class Bootloader extends Phaser.Scene {
             {
                 var playerNameInput = this.getChildByName('nameField');
                 var gameIdInput = this.getChildByName('gameIdField');
-                
+
                 console.log(this.scene.gameId);
 
                 //  Have they entered anything?
@@ -66,7 +66,8 @@ class Bootloader extends Phaser.Scene {
                     //this.scene.h1.setVisible(false);
 
                     this.scene.crearPartidaEnEspera();
-                    var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
+                    //var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
+                    this.scene.waitingForOtherPlayer =  this.scene.add.image(640, 360, 'menu', 'mensajeAguardarContrincante/aguardarContrincante.png');
                 }
                 else
                 {
@@ -114,7 +115,7 @@ class Bootloader extends Phaser.Scene {
             }
 
         });
-    
+
         this.tweens.add({
             targets: element,
             y: 450,
@@ -124,9 +125,9 @@ class Bootloader extends Phaser.Scene {
 
         //element.addListener('click');
     }
-    
+
     update(time, delta) {
-        
+
     }
 
     pasarEscena() {
@@ -148,14 +149,14 @@ class Bootloader extends Phaser.Scene {
         //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
         var socket = new SockJS('http://127.0.0.1:8091/bombs-away');
         var self = this;
-        stompClient = Stomp.over(socket);        
+        stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
-            stompClient.subscribe('/topic/user', function (greeting) { 
+            stompClient.subscribe('/topic/user', function (greeting) {
                 if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
                     self.pasarEscena();
                 }
-            });            
+            });
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
@@ -191,7 +192,7 @@ class Bootloader extends Phaser.Scene {
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
-            stompClient.subscribe('/topic/user', function (greeting) { 
+            stompClient.subscribe('/topic/user', function (greeting) {
                 if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
                     self.pasarEscena();
                 }
@@ -207,7 +208,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/destruir-artilleria', (greeting) => self.fieldScene.destroyTurret(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
-            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"]))); 
+            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 //'nombreJugador': 'Ceci',
@@ -223,21 +224,21 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseY = 50;*/
     }
 
-    moverAvion(gameId, team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {       
+    moverAvion(gameId, team, x, y, angle, planeNumber, estado, vida, combustible, tieneBomba, visible) {
         stompClient.send("/app/mover-avion", {}, JSON.stringify({
             'nombrePartida': 'PartidaPrueba',
             'idJugador': team,
             'idAvion': planeNumber,
             'ejeX': x,
             'ejeY': y,
-            'angulo': angle,            
-            'estado': estado,           
-            'vida': vida,           
-            'combustible': combustible,           
-            'tieneBomba': tieneBomba,           
+            'angulo': angle,
+            'estado': estado,
+            'vida': vida,
+            'combustible': combustible,
+            'tieneBomba': tieneBomba,
             'visible': visible,
-        })); 
-    }    
+        }));
+    }
 
     moverBala(gameId, team, planeNumber, idBullet, estadoAvion, x, y, angle, visible) {
         stompClient.send("/app/disparo-bala", {}, JSON.stringify({
@@ -316,7 +317,7 @@ class Bootloader extends Phaser.Scene {
         }));
     }
 
-    
+
 }
 
 export default Bootloader;
