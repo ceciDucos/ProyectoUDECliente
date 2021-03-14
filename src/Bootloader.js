@@ -140,11 +140,9 @@ class Bootloader extends Phaser.Scene {
 
         this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
         this.hojaAyuda.setVisible(false);
-        this.hojaAyuda.setDepth(2);
 
-        this.btnCerrarAyuda = this.add.image(710, 480, 'menu', 'botonVolver-1.png');
+        this.btnCerrarAyuda = this.add.image(820, 580, 'menu', 'botonVolver-1.png');
         this.btnCerrarAyuda.setVisible(false);
-        this.btnCerrarAyuda.setDepth(2);
         
         this.help.setInteractive().on('pointerdown', ()=>{
             if(this.menuaAyudaAbierto === false)
@@ -152,7 +150,17 @@ class Bootloader extends Phaser.Scene {
                 element.setVisible(false);
                 this.hojaAyuda.setVisible(true);
                 this.btnCerrarAyuda.setVisible(true);
-                this.menuaAyudaAbierto === true;    
+                this.menuaAyudaAbierto = true;    
+            }
+            });
+
+        this.btnCerrarAyuda.setInteractive().on('pointerdown', ()=>{
+            if(this.menuaAyudaAbierto === true)
+            {
+                this.hojaAyuda.setVisible(false);
+                this.btnCerrarAyuda.setVisible(false);
+                this.menuaAyudaAbierto = false;
+                element.setVisible(true);        
             }
             });
 
