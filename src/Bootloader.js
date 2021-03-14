@@ -65,7 +65,8 @@ class Bootloader extends Phaser.Scene {
                     //this.scene.h1.setVisible(false);
 
                     this.scene.crearPartidaEnEspera();
-                    var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
+                    //var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
+                    this.scene.waitingForOtherPlayer =  this.scene.add.image(640, 360, 'menu', 'mensajeAguardarContrincante/aguardarContrincante.png');
                 }
                 else
                 {
@@ -138,9 +139,7 @@ class Bootloader extends Phaser.Scene {
         //this.entrarjuego.removeInteractive();
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
-
-        //this.sound.stop(); 
-
+        
         this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
         this.setBaseScene = this.scene.get('SetBase');
     }

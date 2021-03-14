@@ -597,7 +597,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                             this.anims.play(this.prefix + 'DoblarDerechaConPocaVida', true);
                         }
                         else {
-                            this.anims.play(this.prefix + '', true);
+                            this.anims.play(this.prefix + 'DoblarDerecha', true);
                         }    
                     }
                     else {

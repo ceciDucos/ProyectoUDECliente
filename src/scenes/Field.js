@@ -61,6 +61,9 @@ class Field extends Phaser.Scene {
     }
 
     create() {
+
+        //this.cempezarPartida =  this.add.image(640, 360, 'menu', 'mensajePartidaEmpezada/partidaEmpezada-1.png');
+
         this.physics.world.setFPS(30);
         this.bootloaderScene = this.scene.get('Bootloader');
         this.map = this.add.sprite(540, 360, 'mapa', 'mapa-1.png');
