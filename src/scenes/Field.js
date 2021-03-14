@@ -692,13 +692,18 @@ class Field extends Phaser.Scene {
         }
     }
 
-    updateTurretBullet(data) {       
+    updateTurretBullet(data) {
+        console.log('entro al update bullet torreta');
+        console.log(data);
         if (data.idJugador !== this.team) {
+            console.log('entro al if de team');
             if (data.visible) {
-                let bullet = this.enemyTurrets[data.idElemento].bullets.get();
+                console.log('es visible');
+                console.log(this.enemyTurrets.getMatching('id', data.idElemento)[0]);
+                let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.get();
                 if (bullet) {
-                    if (this.enemyTurrets[data.idElemento].bulletQuantity <= data.idBala) {
-                        this.enemyTurrets[data.idElemento].bulletQuantity = data.idBala + 1;
+                    if (this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity <= data.idBala) {
+                        this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity = data.idBala + 1;
                     }
                     
                     /*if (bullet.idBullet === '') {
@@ -711,22 +716,28 @@ class Field extends Phaser.Scene {
                     bullet.turretId = data.idElemento;
                     bullet.estadoAvion = data.altitud;
                     bullet.enemyBullet = true;
+                    console.log(data.ejeX);
+                    console.log(data.ejeY);
+                    console.log(data.angulo);
                     bullet.fireTurret(data.ejeX, data.ejeY, data.angulo);
                 }
             }
-            else {
+            else {     
+                console.log('no es visible');
                 // Indicar a que bala en especifico se necesita hacer desaparecer
                 console.log('bullets');
                 console.log(this.enemies);
                 console.log(data);
-                let bullet = this.enemyTurrets[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
+                console.log(this.enemyTurrets);
+                let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
                 bullet.setActive(false);
                 bullet.setVisible(false);
                 bullet.body.stop();
             }
         }
-        else if (!data.visible){
-            let bullet = this.teamTurrets[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
+        else if (!data.visible){            
+            console.log(this.teamTurrets);
+            let bullet = this.teamTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
             bullet.setActive(false);
             bullet.setVisible(false);
             bullet.body.stop();
