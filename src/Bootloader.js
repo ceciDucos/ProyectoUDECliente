@@ -138,7 +138,9 @@ class Bootloader extends Phaser.Scene {
         //this.entrarjuego.removeInteractive();
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
-        //this.sound.stop('musicaPrincipal'); 
+
+        //this.sound.stop(); 
+
         this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
         this.setBaseScene = this.scene.get('SetBase');
     }

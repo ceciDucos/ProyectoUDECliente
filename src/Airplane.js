@@ -46,16 +46,6 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     static preload(scene) {
-        //viejos
-        scene.load.atlas('airplaneplayer1', 'assets/images/airplanes/player1/airplaneplayer1.png', 'assets/images/airplanes/player1/airplaneplayer1_atlas.json');
-        scene.load.atlas('airplaneplayer2', 'assets/images/airplanes/player2/airplaneplayer2.png', 'assets/images/airplanes/player2/airplaneplayer2_atlas.json');
-
-        //nuevos
-
-        //viejos
-        scene.load.animation('equipo1avion1_anim', 'assets/images/airplanes/player1/airplaneplayer1_anim.json');
-        scene.load.animation('equipo2avion1_anim', 'assets/images/airplanes/player2/airplaneplayer2_anim.json');
-
         //scene.load.image('bullet3', 'assets/images/bullet3.png');
         //scene.load.image('bomb', 'assets/images/bomba-sprite1.png');
     }
