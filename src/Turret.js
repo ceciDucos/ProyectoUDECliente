@@ -28,7 +28,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         if (!this.destroyed) {            
             if (time > this.nextTic) {
                 this.fire(time);
-                this.nextTic = time + 1000;
+                this.nextTic = time + 500;
             }
             if (this.selected) { //Descomentar y continuar los movimientos de las torretas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (this.inputKeys.up.isDown && !this.enemiesInBase()) {

@@ -4,8 +4,8 @@
 			"image": "menu.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1632,
-				"h": 1865
+				"w": 2367,
+				"h": 1880
 			},
 			"scale": 1,
 			"frames": [
@@ -31,6 +31,153 @@
 					}
 				},
 				{
+					"filename": "mensajeAguardarContrincante/aguardarContrincante.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1266,
+						"h": 124
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1266,
+						"h": 124
+					},
+					"frame": {
+						"x": 1,
+						"y": 723,
+						"w": 1266,
+						"h": 124
+					}
+				},
+				{
+					"filename": "papelAyuda-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 533,
+						"h": 332
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 533,
+						"h": 332
+					},
+					"frame": {
+						"x": 1269,
+						"y": 723,
+						"w": 533,
+						"h": 332
+					}
+				},
+				{
+					"filename": "derrota/derrota-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 137
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 1083,
+						"h": 129
+					},
+					"frame": {
+						"x": 1283,
+						"y": 1,
+						"w": 1083,
+						"h": 129
+					}
+				},
+				{
+					"filename": "derrota/derrota-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 137
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 1083,
+						"h": 129
+					},
+					"frame": {
+						"x": 1283,
+						"y": 132,
+						"w": 1083,
+						"h": 129
+					}
+				},
+				{
+					"filename": "derrota/derrota-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 137
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 1083,
+						"h": 129
+					},
+					"frame": {
+						"x": 1283,
+						"y": 263,
+						"w": 1083,
+						"h": 129
+					}
+				},
+				{
+					"filename": "derrota/derrota-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 137
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 1083,
+						"h": 129
+					},
+					"frame": {
+						"x": 1283,
+						"y": 394,
+						"w": 1083,
+						"h": 129
+					}
+				},
+				{
+					"filename": "derrota/derrota-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1083,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1083,
+						"h": 127
+					},
+					"frame": {
+						"x": 1283,
+						"y": 525,
+						"w": 1083,
+						"h": 127
+					}
+				},
+				{
 					"filename": "botones/cargar/btn-cargar-hover.png",
 					"rotated": false,
 					"trimmed": false,
@@ -46,7 +193,7 @@
 					},
 					"frame": {
 						"x": 1283,
-						"y": 1,
+						"y": 654,
 						"w": 344,
 						"h": 65
 					}
@@ -66,199 +213,73 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 1283,
-						"y": 68,
+						"x": 1629,
+						"y": 654,
 						"w": 344,
 						"h": 65
 					}
 				},
 				{
-					"filename": "botones/crear/btn-crear-hover.png",
+					"filename": "empate/empate-2.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 1283,
-						"y": 135,
-						"w": 344,
-						"h": 65
+						"x": 1,
+						"y": 849,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
-					"filename": "botones/crear/crearPartidaDown.png",
+					"filename": "empate/empate-3.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 1283,
-						"y": 202,
-						"w": 344,
-						"h": 65
+						"x": 1,
+						"y": 978,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
-					"filename": "botones/unirse/btn-unirse-hover.png",
+					"filename": "empate/empate-4.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 344,
-						"h": 65
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 1283,
-						"y": 269,
-						"w": 344,
-						"h": 65
-					}
-				},
-				{
-					"filename": "botones/unirse/unirserPartidaDown.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 344,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 344,
-						"h": 65
-					},
-					"frame": {
-						"x": 1283,
-						"y": 336,
-						"w": 344,
-						"h": 65
-					}
-				},
-				{
-					"filename": "opcionNo-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 163,
-						"h": 83
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 163,
-						"h": 83
-					},
-					"frame": {
-						"x": 1283,
-						"y": 403,
-						"w": 163,
-						"h": 83
-					}
-				},
-				{
-					"filename": "opcionSi-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 163,
-						"h": 83
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 163,
-						"h": 83
-					},
-					"frame": {
-						"x": 1448,
-						"y": 403,
-						"w": 163,
-						"h": 83
-					}
-				},
-				{
-					"filename": "derrota/derrota-1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 3,
-						"h": 3
-					},
-					"frame": {
-						"x": 1613,
-						"y": 403,
-						"w": 3,
-						"h": 3
-					}
-				},
-				{
-					"filename": "victoria/victoria-1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 3,
-						"h": 3
-					},
-					"frame": {
-						"x": 1618,
-						"y": 403,
-						"w": 3,
-						"h": 3
-					}
-				},
-				{
-					"filename": "botonVolver-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 117,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 117,
-						"h": 50
-					},
-					"frame": {
-						"x": 1283,
-						"y": 488,
-						"w": 117,
-						"h": 50
+						"x": 1086,
+						"y": 1057,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -276,10 +297,31 @@
 						"h": 90
 					},
 					"frame": {
-						"x": 1402,
-						"y": 488,
+						"x": 1086,
+						"y": 849,
 						"w": 105,
 						"h": 90
+					}
+				},
+				{
+					"filename": "opcionNo-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 163,
+						"h": 83
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 163,
+						"h": 83
+					},
+					"frame": {
+						"x": 1086,
+						"y": 941,
+						"w": 163,
+						"h": 83
 					}
 				},
 				{
@@ -297,8 +339,8 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 1283,
-						"y": 540,
+						"x": 1193,
+						"y": 849,
 						"w": 35,
 						"h": 35
 					}
@@ -318,241 +360,283 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 1320,
-						"y": 540,
+						"x": 1193,
+						"y": 886,
 						"w": 35,
 						"h": 35
 					}
 				},
 				{
-					"filename": "papelAyuda-1.png",
+					"filename": "derrota/derrota-1.png",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 533,
-						"h": 332
+						"w": 1083,
+						"h": 137
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 533,
-						"h": 332
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 1193,
+						"y": 923,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "empate/empate-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 1193,
+						"y": 923,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "victoria/victoria-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 1083,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 1193,
+						"y": 923,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "botones/crear/btn-crear-hover.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1804,
+						"y": 721,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "botones/crear/btn-crear.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1975,
+						"y": 654,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "opcionSi-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 163,
+						"h": 83
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 163,
+						"h": 83
+					},
+					"frame": {
+						"x": 2150,
+						"y": 721,
+						"w": 163,
+						"h": 83
+					}
+				},
+				{
+					"filename": "botones/unirse/btn-unirse-hover.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1804,
+						"y": 788,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "botonVolver-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 117,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 117,
+						"h": 50
+					},
+					"frame": {
+						"x": 2150,
+						"y": 806,
+						"w": 117,
+						"h": 50
+					}
+				},
+				{
+					"filename": "botones/unirse/btn-unirse.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1804,
+						"y": 855,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "botones/volver/btn-volver-hover.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1804,
+						"y": 922,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "botones/volver/btn-volver.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 344,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 344,
+						"h": 65
+					},
+					"frame": {
+						"x": 1804,
+						"y": 989,
+						"w": 344,
+						"h": 65
+					}
+				},
+				{
+					"filename": "empate/empate-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1083,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
 						"x": 1,
-						"y": 723,
-						"w": 533,
-						"h": 332
+						"y": 1107,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
-					"filename": "derrota/derrota-2.png",
+					"filename": "empate/empate-6.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 536,
-						"y": 723,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "derrota/derrota-3.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 536,
-						"y": 850,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "derrota/derrota-4.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 536,
-						"y": 977,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "derrota/derrota-5.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 1,
-						"y": 1104,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "derrota/derrota-6.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 817,
-						"y": 1104,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "mensajeAguardarContrincante/aguardarContrincante.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 1,
-						"y": 1231,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "mensajeColocarArtilleria/colocarArtilleria-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 817,
-						"y": 1231,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "mensajeColocarBase/colocarBase-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 1,
-						"y": 1358,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "mensajeFinalizarPartida.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 817,
-						"y": 1358,
-						"w": 814,
-						"h": 125
-					}
-				},
-				{
-					"filename": "mensajePartidaEmpezada/partidaEmpezada-1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 814,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 814,
-						"h": 125
-					},
-					"frame": {
-						"x": 1,
-						"y": 1485,
-						"w": 814,
-						"h": 125
+						"x": 1086,
+						"y": 1186,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -560,20 +644,20 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 817,
-						"y": 1485,
-						"w": 814,
-						"h": 125
+						"x": 1,
+						"y": 1236,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -581,20 +665,20 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 1,
-						"y": 1612,
-						"w": 814,
-						"h": 125
+						"x": 1086,
+						"y": 1315,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -602,20 +686,20 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 817,
-						"y": 1612,
-						"w": 814,
-						"h": 125
+						"x": 1,
+						"y": 1365,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -623,20 +707,20 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 1,
-						"y": 1739,
-						"w": 814,
-						"h": 125
+						"x": 1086,
+						"y": 1444,
+						"w": 1083,
+						"h": 127
 					}
 				},
 				{
@@ -644,20 +728,104 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 814,
-						"h": 125
+						"w": 1083,
+						"h": 127
 					},
 					"frame": {
-						"x": 817,
-						"y": 1739,
-						"w": 814,
-						"h": 125
+						"x": 1,
+						"y": 1494,
+						"w": 1083,
+						"h": 127
+					}
+				},
+				{
+					"filename": "mensajeColocarArtilleria/colocarArtilleria-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1081,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1081,
+						"h": 127
+					},
+					"frame": {
+						"x": 1086,
+						"y": 1573,
+						"w": 1081,
+						"h": 127
+					}
+				},
+				{
+					"filename": "mensajeColocarBase/colocarBase-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1081,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1081,
+						"h": 127
+					},
+					"frame": {
+						"x": 1,
+						"y": 1623,
+						"w": 1081,
+						"h": 127
+					}
+				},
+				{
+					"filename": "mensajeFinalizarPartida.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1081,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1081,
+						"h": 127
+					},
+					"frame": {
+						"x": 1084,
+						"y": 1702,
+						"w": 1081,
+						"h": 127
+					}
+				},
+				{
+					"filename": "mensajePartidaEmpezada/partidaEmpezada-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1081,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1081,
+						"h": 127
+					},
+					"frame": {
+						"x": 1,
+						"y": 1752,
+						"w": 1081,
+						"h": 127
 					}
 				}
 			]
@@ -666,6 +834,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:ab451a212eb665469d276d91922a90e7:bad51724811fc1eccbae5e0e06abd19b:e1b68abd82547da08a80c89591506971$"
+		"smartupdate": "$TexturePacker:SmartUpdate:58f4a06fb3f37f324ad1a535894c4e93:a7b34b3aa80380a45c1de94b6ea605d7:e1b68abd82547da08a80c89591506971$"
 	}
 }

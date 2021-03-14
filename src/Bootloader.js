@@ -9,7 +9,6 @@ class Bootloader extends Phaser.Scene {
     create() {
 
         this.fondo = this.add.sprite(640, 360, 'fondoPrincipal');
-
         this.team;
         this.gameId;
         this.enemyTeam;
@@ -54,7 +53,7 @@ class Bootloader extends Phaser.Scene {
                 console.log(this.scene.gameId);
 
                 //  Have they entered anything?
-                if (playerNameInput.value !== 'a' && gameIdInput.value !== 'a')
+                if (playerNameInput.value !== '' && gameIdInput.value !== '')
                 {
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
@@ -88,7 +87,7 @@ class Bootloader extends Phaser.Scene {
                 console.log(gameIdInput);
 
                 //  Have they entered anything?
-                if (playerNameInput.value !== 'a')
+                if (playerNameInput.value !== '')
                 {
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
@@ -153,7 +152,8 @@ class Bootloader extends Phaser.Scene {
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
             stompClient.subscribe('/topic/user', function (greeting) {
-                if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
+                var data = JSON.parse(greeting["body"]);
+                if (data.accion === 'Bootloader' && data.nombrePartida === self.gameId) {
                     self.pasarEscena();
                 }
             });
@@ -180,7 +180,7 @@ class Bootloader extends Phaser.Scene {
             }));
         });
         this.team = 1;
-        this.gameId = 'PartidaPrueba';
+        //this.gameId = 'PartidaPrueba';
         this.enemyTeam = 2;
         //this.teamBaseX = 540;
         //this.teamBaseY = 50;
@@ -195,7 +195,9 @@ class Bootloader extends Phaser.Scene {
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
             stompClient.subscribe('/topic/user', function (greeting) {
-                if (JSON.parse(greeting["body"]).accion === 'Bootloader') {
+                var data = JSON.parse(greeting["body"]);
+                if (data.accion === 'Bootloader') {
+                    self.gameId = data.nombrePartida;
                     self.pasarEscena();
                 }
             });
@@ -220,7 +222,7 @@ class Bootloader extends Phaser.Scene {
             }));
         });
         this.team = 2;
-        this.gameId = 'PartidaPrueba';
+        //this.gameId = 'PartidaPrueba';
         this.enemyTeam = 1;
         /*this.teamBaseX = 540;
         this.teamBaseY = 670;
