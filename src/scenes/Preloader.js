@@ -48,7 +48,13 @@ export default class Preloader extends Phaser.Scene
             prefix: 'derrota/derrota-', suffix: '.png'
         });
         this.anims.create({ key: 'derrota', frames: this.frameNames, frameRate: 12, repeat: 0 });
-        
+
+        this.frameNames = this.anims.generateFrameNames('menu', {
+            start: 1, end: 6, zeroPad: 1,
+            prefix: 'empate/empate-', suffix: '.png'
+        });
+        this.anims.create({ key: 'empate', frames: this.frameNames, frameRate: 12, repeat: 0 });
+
         //animaciones del mapa
 
         this.frameNames = this.anims.generateFrameNames('mapa', {

@@ -48,7 +48,6 @@ class GameOver extends Phaser.Scene {
             //this.message = this.add.text(200, 300, this.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
         }
         this.mainMenu = this.add.sprite(540, 510, 'menu', 'botones/volver/btn-volver.png')
-        botones/volver/btn-volver.png
         this.mainMenu.setInteractive().on('pointerdown', this.pasarEscena, this);
         this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);

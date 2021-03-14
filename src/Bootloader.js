@@ -17,6 +17,19 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseX;
         this.enemyBaseY;
         this.stompClient = null;
+        
+        
+        
+
+        /*this.btnCerrarAyuda.setInteractive().on('pointerdown', ()=>{
+            this.help.hojaAyuda.destroy();
+            this.btnCerrarAyuda.destroy();
+            this.menuaAyudaAbierto === false;
+        });*/
+
+
+
+
         //this.createServer = this.add.text(10, 10, 'Crear partida', { fill: '#0f0' });
         //this.joinServer = this.add.text(200, 10, 'Unirse a partida', { fill: '#0f0' });
         //this.entrarjuego = this.add.text(400, 10, 'Entrar al juego', { fill: '#0f0' });
@@ -121,6 +134,27 @@ class Bootloader extends Phaser.Scene {
             duration: 3000,
             ease: 'Power3'
         });
+
+        this.menuaAyudaAbierto = false;        
+        this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');
+
+        this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
+        this.hojaAyuda.setVisible(false);
+        this.hojaAyuda.setDepth(2);
+
+        this.btnCerrarAyuda = this.add.image(710, 480, 'menu', 'botonVolver-1.png');
+        this.btnCerrarAyuda.setVisible(false);
+        this.btnCerrarAyuda.setDepth(2);
+        
+        this.help.setInteractive().on('pointerdown', ()=>{
+            if(this.menuaAyudaAbierto === false)
+            {
+                element.setVisible(false);
+                this.hojaAyuda.setVisible(true);
+                this.btnCerrarAyuda.setVisible(true);
+                this.menuaAyudaAbierto === true;    
+            }
+            });
 
         //element.addListener('click');
     }

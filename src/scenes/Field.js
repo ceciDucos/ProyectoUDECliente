@@ -177,7 +177,9 @@ class Field extends Phaser.Scene {
         }        
 
 
-        
+
+        this.exit = this.add.sprite(1257, 699, 'menu', 'botonSalir-1.png');
+
         this.cursors = this.input.keyboard.createCursorKeys();
 
 
