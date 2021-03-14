@@ -27,9 +27,9 @@ class SetBase extends Phaser.Scene {
         let i = Math.floor(720 / 30);
         let j = Math.floor(1080 / 40);
         this.mapGrid = new Array(i);
-        for (let i = 0; i < this.mapGrid.length; i++) {
+        /*for (let i = 0; i < this.mapGrid.length; i++) {
             this.mapGrid[i] = new Array(j).fill(0);
-        }
+        }*/
         var graphics = this.add.graphics();
         this.drawGrid1(graphics);
         
@@ -110,6 +110,10 @@ class SetBase extends Phaser.Scene {
     placeBase(pointer) { //revisar si poniendo varias veces el mapa no se llena de 1s el mapGrid y limita la colocacion de torretas
         let i = Math.floor(pointer.y / 30);
         let j = Math.floor(pointer.x / 40);
+        //this.mapGrid = new Array(i);
+        for (let i = 0; i < this.mapGrid.length; i++) {
+            this.mapGrid[i] = new Array(j).fill(0);
+        }
         //let canPlace = (this.mapGrid[i][j] === 0);
         if (this.canPlace(i, j)) { 
             this.teamBaseX = j * 40 + 40 / 2;

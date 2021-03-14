@@ -3,7 +3,7 @@ class Bootloader extends Phaser.Scene {
         super('Bootloader');
     }
 
-    preload() {        
+    preload() {      
     }
 
     create() {
@@ -38,7 +38,8 @@ class Bootloader extends Phaser.Scene {
             yoyo: true
         });*/
         
-        this.sound.play('musicaPrincipal'); 
+        //this.musica = this.sound.add('musicaPrincipal');
+        //this.musica.play();
         var element = this.add.dom(640, 720).createFromCache('nameform');
 
         element.addListener('click');
@@ -138,7 +139,7 @@ class Bootloader extends Phaser.Scene {
         //this.entrarjuego.removeInteractive();
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
-        //this.sound.stop(); 
+        //this.musica.pause();
         this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
         this.setBaseScene = this.scene.get('SetBase');
     }
