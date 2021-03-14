@@ -170,6 +170,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 //'nombrePartida': 'PartidaPrueba',
@@ -211,6 +212,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 //'nombreJugador': 'Ceci',
@@ -336,7 +338,53 @@ class Bootloader extends Phaser.Scene {
         }));
     }
     
+    dispararBalaTorreta(gameId, team, turretID, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/primer-disparo-artilleria", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idElemento': turretID,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        }));
+        console.log('envio primer disparo torreta');
+        console.log(gameId);
+        console.log(team);
+        console.log(turretID);
+        console.log(idBullet);
+        console.log(estadoAvion);
+        console.log(x);
+        console.log(y);
+        console.log(angle);
+        console.log(visible);
+    }
 
+    moverBalaTorreta(gameId, team, turretID, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/disparo-bala-artilleria", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idElemento': turretID,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        }));        
+        console.log('mueve bala torreta');
+        console.log(gameId);
+        console.log(team);
+        console.log(turretID);
+        console.log(idBullet);
+        console.log(estadoAvion);
+        console.log(x);
+        console.log(y);
+        console.log(angle);
+        console.log(visible);
+    }
 
 }
 

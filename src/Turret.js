@@ -13,7 +13,8 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
             maxSize: 10,
             runChildUpdate: true
         });
-        this.destroyed = false;
+        this.destroyed = false;        
+        this.bulletQuantity = 0;
         this.scene.assignTurretKeys(this);        
         scene.physics.add.existing(this);
         //this.lastFired = 0;
@@ -102,15 +103,34 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         return false;
     }
 
-    fire() {          
-        let enemy = this.getEnemy(this.x, this.y, 100);
-        if (enemy) {
-            let angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y);
-            var bullet = this.bullets.get();
-            if (bullet) {
-                bullet.fireTurret(this.x, this.y, angle);
+    fire() {
+        if (this.team === this.scene.team) {
+            let enemy = this.getEnemy(this.x, this.y, 100);
+            if (enemy) {
+                let angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y);
+
+                let bullet = this.bullets.get();
+                //console.log(bullet.idBullet);
+                if (bullet) {                       
+                    if (bullet.idBullet == '') {
+                        bullet.idBullet = this.bulletQuantity;
+                    }
+                    this.bulletQuantity++;
+                    /*console.log('disparo');
+                    console.log('avion : ' + bullet.planeNumber + ', idBullet: ' + bullet.idBullet); */
+                    bullet.turretId = this.id;
+                    bullet.estadoAvion = enemy.estado;
+                    bullet.fireTurret(this.x, this.y, angle);
+
+                    //this.lastFired = time + 200;
+                }
+
+                /*var bullet = this.bullets.get();
+                if (bullet) {
+                    bullet.fireTurret(this.x, this.y, angle);
+                }*/
+                //this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
             }
-            //this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
         }
     }
 

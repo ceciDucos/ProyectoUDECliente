@@ -4,6 +4,7 @@ hay una falla que algunos de los aviones destruiodos reaparecen un rato despues 
 controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
 la base se muestra cuando hay un avion cerca, pero el avion no se muestra cuando esta cerca de la base
 ver si no tenemos problemas por poner en la foto del menu principal la "E" de apto para todo publico sin tener la aprobacion
+si el enemigo tira una bomba, se reproduce la animacion en mi lateral
 
 
 sonidos:

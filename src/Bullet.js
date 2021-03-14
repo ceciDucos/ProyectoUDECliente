@@ -12,6 +12,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.lastUpdated = 0;
         this.planeNumber = '';
         this.estadoAvion = '';
+        this.turretId = '';
         //console.log('velocidad' + Phaser.Math.GetSpeed(600, 1));
     }
 
@@ -46,6 +47,9 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.dy = Math.sin(angle);
 
         this.lifespan = 300;
+        if (!this.enemyBullet) {
+            this.scene.bootloaderScene.dispararBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+        } 
     }
 
     update(time, delta) {
@@ -76,6 +80,9 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
             if (this.lifespan <= 0) {
                 this.setActive(false);
                 this.setVisible(false);
+                if (!this.enemyBullet) {
+                    this.scene.bootloaderScene.moverBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
+                }
                 this.body.stop();
             }
         }
