@@ -18,10 +18,34 @@ class GameOver extends Phaser.Scene {
     create() {
         console.log('llega al create de gameover');
         if (this.team === 1) {
-            this.message = this.add.text(200, 300, this.messageTeam1, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            if (this.messageTeam1 === 'Ganador') {
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'victoria/victoria-1.png');  
+                this.gameResult.anims.play('victoria');
+            }
+            else if (this.messageTeam1 === 'Perdedor'){
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'derrota/derrota-1.png');
+                this.gameResult.anims.play('derrota');
+            }
+            else {
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'empate/empate-1.png');
+                this.gameResult.anims.play('empate');
+            }
+            //this.message = this.add.text(200, 300, this.messageTeam1, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
         }
         else {
-            this.message = this.add.text(200, 300, this.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            if (this.messageTeam2 === 'Ganador') {
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'victoria/victoria-1.png');
+                this.gameResult.anims.play('victoria');
+            }
+            else  if (this.messageTeam2 === 'Perdedor'){
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'derrota/derrota-1.png');
+                this.gameResult.anims.play('derrota');
+            }
+            else {
+                this.gameResult = this.add.sprite(540, 360, 'menu', 'empate/empate-1.png');
+                this.gameResult.anims.play('empate');
+            }
+            //this.message = this.add.text(200, 300, this.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
         }
         this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
@@ -43,7 +67,7 @@ class GameOver extends Phaser.Scene {
         this.scene.restart('SetTurret');
         this.scene.restart('Field');
         this.scene.start('Bootloader');        
-        this.scene.restart('GameOver');
+        //this.scene.restart('GameOver');
     }
 }
 

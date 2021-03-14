@@ -781,4 +781,13 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     visibleEnemyAirplane(visible) {
         this.visible = visible;
     }
+
+    manageFuel(fuel) {
+        this.fuelBar.decrease(fuel);
+        this.fuel = fuel;
+    }
+
+    manageEnemyFuel(fuel) {       
+        this.fuel = fuel;
+    }
 }

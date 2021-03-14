@@ -34,6 +34,20 @@ export default class Preloader extends Phaser.Scene
 
     create ()
     {
+
+        //Menu
+
+        this.frameNames = this.anims.generateFrameNames('menu', {
+            start: 1, end: 6, zeroPad: 1,
+            prefix: 'victoria/victoria-', suffix: '.png'
+        });
+        this.anims.create({ key: 'victoria', frames: this.frameNames, frameRate: 12, repeat: 0 });
+
+        this.frameNames = this.anims.generateFrameNames('menu', {
+            start: 1, end: 6, zeroPad: 1,
+            prefix: 'derrota/derrota-', suffix: '.png'
+        });
+        this.anims.create({ key: 'derrota', frames: this.frameNames, frameRate: 12, repeat: 0 });
         
         //animaciones del mapa
 

@@ -197,6 +197,14 @@ class Field extends Phaser.Scene {
             gameObject.selected = true;
         });
         this.selectAirplaneKeys();
+        this.gameStartedImage = this.add.image(540, 360, 'menu', 'mensajePartidaEmpezada/partidaEmpezada-1.png')
+        this.time.addEvent({
+            delay: 2000,
+            loop: false,
+            callback: () => {
+                this.gameStartedImage.setVisible(false);
+            }
+        });
         this.gameReady = true;
         console.log('termino field');
     }
@@ -626,48 +634,65 @@ class Field extends Phaser.Scene {
         this.events.off();        
         console.log('llego el gameover');   
         this.physics.pause();  
+        this.scene.pause();
+        //this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
         if (!data.jugadorUnoGano && !data.jugadorDosGano) {
             console.log('entro al empate');
-            this.scene.transition({
-                target: 'GameOver',
-                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
-                moveAbove: true,
-                duration: 1000,
-                remove: false,
-                sleep: false,                
-            })
-            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
-        }
-        else if (data.jugadorUnoGano) {
-            console.log('entro al ganador1');
-            this.scene.transition({
+            /*this.scene.transition({
                 target: 'GameOver',
                 data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
                 moveAbove: true,
                 duration: 0,
-                remove: true,
+                remove: false,
                 sleep: false,                
-            })
-            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
+            })*/
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+        }
+        else if (data.jugadorUnoGano) {
+            console.log('entro al ganador1');
+            /*this.scene.transition({
+                target: 'GameOver',
+                data: { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' },
+                moveAbove: true,
+                duration: 0,
+                remove: false,
+                sleep: false,                
+            })*/
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
             console.log('paso el ganador1');
         }
         else {
             console.log('entro al ganador2');
-            this.scene.transition({
+            /*this.scene.transition({
                 target: 'GameOver',
-                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
+                data: { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' },
                 moveAbove: true,
-                duration: 1000,
+                duration: 0,
                 remove: false,
                 sleep: false,                
-            })
-            //this.scene.start('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+            })*/
+            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
         }
         //this.scene.stop();
         //this.scene.bringToTop('GameOver');
         //this.scene.pause('Field');
         //this.game.scene.destroy();
         return;
+    }
+
+    manageFuel(data) {
+        if (data.nombrePartida === this.gameId) {            
+            if (data.idJugador === this.team) {
+                for (let i = 0; i < data.listCombustible.length; i++) {
+                    this.airplanes[i].manageFuel(data.listCombustible[i]);
+                }
+            }
+            else {
+                for (let i = 0; i < data.listCombustible.length; i++) {
+                    this.enemies[i].manageFuel(data.listCombustible[i]);
+                }
+            }
+        }
     }
 }
 
