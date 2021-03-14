@@ -16,12 +16,15 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         }        
         this.bomb = scene.add.sprite(x, y, 'others', 'bomba-1.png');
         //this.bomb = scene.add.sprite(x, y, 'bomb');
-        this.bomb.visible = false;
         this.hasBomb = true;
-        this.bomb.setScale(0.15);
+        //this.bomb.setScale(0.15);
+        this.bomb.setScale(0.25);
+        this.bomb.setDepth(1);
+        this.bomb.setVisible(false);
+        //this.bomb.setActive(false);
 
         this.setScale(0.2);
-        this.setDepth(1);   //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion
+        this.setDepth(2);   //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion
         this.visible = false; //inicializar en false para aparecer oculto en el hangar
         this.active = false; //inicializar en false para aparecer oculto en el hangar
         this.team = team;
@@ -42,6 +45,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.lastFired = 0;
         this.lastChargeFuel = 0;
         this.lastUpdated = 0;
+        this.nextInputAvailable = true;
         //this.setInteractive().on('pointerdown', this.selectAirplaneByClick, this);        
     }
 
@@ -74,7 +78,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         }
         if (this.estado === 1) { //codigo copiado mas abajo en la tecla de ascender, se deberia pasar tambien a la tecla de descender y borrar estos if else y dejar solo velocidad en 0 para estado 0
             this.setScale(0.2);
-            this.setDepth(1); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
+            this.setDepth(2); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
             this.on("animationcomplete", ()=>{
                 if (this.life < 30) {
                     this.anims.play(this.prefix + 'VolarConPocaVida', true);
@@ -90,13 +94,13 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             }*/
             //this.anims.play(animName, true);
             this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity);
-            this.fuel = this.fuel - 0.011;
-            this.fuelBar.decrease(this.fuel);
+            //this.fuel = this.fuel - 0.011;
+            //this.fuelBar.decrease(this.fuel);
             //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
         }
         else if (this.estado === 2) {
             this.setScale(0.3);
-            this.setDepth(2);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
+            this.setDepth(3);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
             //this.anims.play('equipo1avion1Volar',true);
             //this.anims.play(animName, true);            
             this.on("animationcomplete", ()=>{ 
@@ -113,19 +117,20 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 });
             }*/
             this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
-            this.fuel = this.fuel - 0.011;
-            this.fuelBar.decrease(this.fuel);
+            //this.fuel = this.fuel - 0.011;
+            //this.fuelBar.decrease(this.fuel);
             //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
         }
         else {           
             this.setVelocity(0, 0);
         } 
         if (this.airplaneInFuelRange() && time > this.lastChargeFuel && !this.scene.teamFuelDestroyed) {
-            this.fuel = 100;                        
+            this.fuel = 100;
+            this.scene.bootloaderScene.refuel(this.scene.gameId, this.scene.team, this.x, this.y, this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
             this.lastChargeFuel = time + 1000;
         }      
         if (this.selected) {            
-            if (this.inputKeys.ascend.isDown && time > this.lastEstadoChanged) {
+            if (this.inputKeys.ascend.isDown && time > this.lastEstadoChanged && this.nextInputAvailable) {
                 if (this.estado < 2) {
                     if (this.estado === 0) {
                         if (this.team === this.scene.team) {
@@ -138,6 +143,10 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         else {
                             this.anims.play(this.prefix + 'Despegar', true);
                         }
+                        this.nextInputAvailable = false;
+                        this.on("animationcomplete", ()=>{
+                            this.nextInputAvailable = true;
+                        });                        
                         /*this.on("animationcomplete", ()=>{        //si da problemas la animacion de volar volver a descomentar
                             this.anims.play(this.prefix + 'Volar', true);
                         });*/
@@ -148,10 +157,10 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                             this.scene.lateral.anims.play(this.prefix + 'LateralDespegar', true);
                         }
                         this.setScale(0.2);
-                        this.setDepth(1); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
+                        this.setDepth(2); //ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
                         //this.anims.delayedPlay(1000,'equipo1avion1Volar');
                         this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity);
-                        this.fuel = this.fuel - 0.02;
+                        //this.fuel = this.fuel - 0.02;
                     }
                     else{
                         //this.setScale(0.3);
@@ -162,11 +171,11 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                             this.scene.lateral.anims.play(this.prefix + 'AumentarAltura', true);
                         } 
                         
-                        this.setDepth(2);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
+                        this.setDepth(3);//ver si no es mejor jugar con una animacion de aviones mas grandes y mas chicas y ponerle un evento de delay hasta que crezca la animacion            
                         //this.anims.play('equipo1avion1Volar');
                         //this.anims.play(animName, true);
                         this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
-                        this.fuel = this.fuel - 0.02;
+                        //this.fuel = this.fuel - 0.02;
                         //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
                     }
                     this.estado++;
@@ -174,7 +183,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     //this.hasBomb = true;
                 }
             }
-            if (this.inputKeys.descend.isDown && time > this.lastEstadoChanged) {
+            if (this.inputKeys.descend.isDown && time > this.lastEstadoChanged && this.nextInputAvailable) {
                 if (this.estado === 2) {
                     this.estado--;
                     this.lastEstadoChanged = time + 180;
@@ -197,6 +206,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         else {
                             this.anims.play(this.prefix + 'Aterriza', true); //ver orden con el siguiente if por si el rival corre la animacion de aterrizaje
                         }
+                        this.nextInputAvailable = false;
                         this.once("animationcomplete", ()=>{ 
                             //console.log('pausa y reset');
                             this.anims.pause();
@@ -224,10 +234,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                             this.body.setAngularVelocity(0);
                             this.visible = false;
                             this.active = false;
+                            this.nextInputAvailable = true;
                             this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
                         });
                         this.estado--;
-                        this.fuel = 100;
+                        this.fuel = 100;                        
+                        this.scene.bootloaderScene.refuel(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
                         this.hasBomb = true;
                         this.fuelBar.decrease(this.fuel);
                         /*this.estado--;
@@ -287,7 +299,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 }
                 if (this.inputKeys.left.isDown) {
                     this.body.setAngularVelocity(-40);
-                    this.on("animationcomplete", ()=>{                         
+                    this.on("animationcomplete", ()=>{
                         if (this.anims.currentAnim.key === this.prefix + 'Volar') {
                             if (this.life < 30) {
                                 this.anims.play(this.prefix + 'DoblarIzquierdaConPocaVida', true);
@@ -620,12 +632,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.angle = data.angulo;
         if (this.estado > data.estado) {
             this.setScale(0.2);       
-            this.setDepth(1);
+            this.setDepth(2);
             //this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }
         else if(this.estado !== 0 && this.estado < data.estado) {
             this.setScale(0.3);
-            this.setDepth(2);
+            this.setDepth(3);
             //this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }   
         this.estado = data.estado;
@@ -637,11 +649,11 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     dropBomb() {
+        //this.bomb.setActive(true);
+        this.bomb.setVisible(true);
         this.bomb.x = this.x;
         this.bomb.y = this.y;
         this.hasBomb = false;
-        this.bomb.active = true;
-        this.bomb.visible = true;  
         this.bomb.anims.play('bomba',true);
         //this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
         if (this.estado === 1) {                     
@@ -674,8 +686,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             delay: 1000,
             loop: false,
             callback: () => {
-                this.bomb.visible = false;
-                this.bomb.active = false;
+                this.bomb.setVisible(false);
+                //this.bomb.setActive(false);
             }
         });
     }
@@ -690,8 +702,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             delay: 1000,
             loop: false,
             callback: () => {
-                this.bomb.visible = false;
-                this.bomb.active = false;
+                this.bomb.setVisible(false);
+                //this.bomb.setActive(false);
             }
         });
     }
@@ -784,10 +796,6 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
 
     manageFuel(fuel) {
         this.fuelBar.decrease(fuel);
-        this.fuel = fuel;
-    }
-
-    manageEnemyFuel(fuel) {       
         this.fuel = fuel;
     }
 }

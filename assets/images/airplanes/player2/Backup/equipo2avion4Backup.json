@@ -1,0 +1,6131 @@
+{
+	"textures": [
+		{
+			"image": "equipo2avion4.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 4044,
+				"h": 4554
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "vistaLateral/animacionAumentarAltura/equipo2avion4AumentarAltura-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAltura/equipo2avion4AumentarAltura-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAltura/equipo2avion4AumentarAltura-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionAumentarAlturaConPocaVida/equipo2avion4AumentarAlturaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion4DisminuirAltura-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion4DisminuirAltura-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 22,
+						"w": 102,
+						"h": 130
+					},
+					"frame": {
+						"x": 1,
+						"y": 4423,
+						"w": 102,
+						"h": 130
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 23,
+						"w": 100,
+						"h": 128
+					},
+					"frame": {
+						"x": 105,
+						"y": 4423,
+						"w": 100,
+						"h": 128
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion4DisminuirAltura-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 203,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 203,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 405,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 405,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionDisminuirAlturaConPocaVida/equipo2avion4DisminuirAlturaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 607,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionEnHangar/equipo2avion4EnHangar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 607,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 809,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 809,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1011,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1011,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1213,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1213,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1415,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1415,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizar/equipo2avion4LateralAterrizar-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1617,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1617,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1819,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1819,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2021,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2021,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2223,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2223,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2425,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2425,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralAterrizarConPocaVida/equipo2avion4LateralAterrizarConPocaVida-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2627,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2627,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2829,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2829,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-15.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3031,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3031,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-17.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-18.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3233,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3233,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3435,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3435,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3637,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3637,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegar/equipo2avion4LateralDespegar-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3839,
+						"y": 1,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3839,
+						"y": 403,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 805,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-15.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-17.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-18.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionLateralDespegarConPocaVida/equipo2avion4LateralDespegarPocaVida-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerecha/equipo2avion4VueloAltoLateralDoblarDerecha-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerecha/equipo2avion4VueloAltoLateralDoblarDerecha-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerecha/equipo2avion4VueloAltoLateralDoblarDerecha-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 1207,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloAltoLateralDoblarDerechaConPoca Vida-1-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierda/equipo2avion4VueloAltoLateralDoblarIzquierda-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierda/equipo2avion4VueloAltoLateralDoblarIzquierda-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierda/equipo2avion4VueloAltoLateralDoblarIzquierda-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloAltoLateralDoblarIzquierdaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 1609,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-15.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-17.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralExplotar/equipo2avion4VueloAltoLateraExplotar-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 2011,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBomba/equipo2avion4VueloAltoLanzarBomba-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloAltoLanzarBombaConPocaVida-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolar/equipo2avion4VueloAltoLateralVolar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolar/equipo2avion4VueloAltoLateralVolar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolar/equipo2avion4VueloAltoLateralVolar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 2413,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloAlto/animacionLateralVolarConPocaVida/equipo2avion4VueloAltoLateralVolarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerecha/equipo2avion4VueloBajoLateralDoblarDerecha-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerecha/equipo2avion4VueloBajoLateralDoblarDerecha-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerecha/equipo2avion4VueloBajoLateralDoblarDerecha-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarDerechaConPoca Vida/equipo2avion4VueloBajoLateralDoblarDerechaConPoca Vida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierda/equipo2avion4VueloBajoLateralDoblarIzquierda-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierda/equipo2avion4VueloBajoLateralDoblarIzquierda-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierda/equipo2avion4VueloBajoLateralDoblarIzquierda-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 2815,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralDoblarIzquierdaConPocaVida/equipo2avion4VueloBajoLateralDoblarIzquierdaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-15.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-17.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralExplotar/equipo2avion4VueloBajoLateralExplotar-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 3217,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBomba/equipo2avion4VueloBajoLateralLanzarBomba-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2227,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2429,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2631,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2833,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3035,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3237,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3439,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3641,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 3843,
+						"y": 3619,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralLanzarBombaConPocaVida/equipo2avion4VueloBajoLateralLanzarBombaConPocaVida-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 207,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolar/equipo2avion4VolarBajoLateralVolar-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 409,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolar/equipo2avion4VolarBajoLateralVolar-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 611,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolar/equipo2avion4VolarBajoLateralVolar-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 813,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1015,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1217,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1419,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1621,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 1823,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "vistaLateral/animacionesVueloBajo/animacionLateralVolarConPocaVida/equipo2avion4VueloBajoLateralVolarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 400
+					},
+					"frame": {
+						"x": 2025,
+						"y": 4021,
+						"w": 200,
+						"h": 400
+					}
+				},
+				{
+					"filename": "animacionDoblarDerecha/equipo2avion4DoblarDerecha-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 139,
+						"h": 163
+					},
+					"frame": {
+						"x": 2227,
+						"y": 4021,
+						"w": 139,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 139,
+						"h": 163
+					},
+					"frame": {
+						"x": 2368,
+						"y": 4021,
+						"w": 139,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 139,
+						"h": 163
+					},
+					"frame": {
+						"x": 2509,
+						"y": 4021,
+						"w": 139,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 139,
+						"h": 163
+					},
+					"frame": {
+						"x": 2650,
+						"y": 4021,
+						"w": 139,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 139,
+						"h": 163
+					},
+					"frame": {
+						"x": 2791,
+						"y": 4021,
+						"w": 139,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerecha/equipo2avion4DoblarDerecha-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 137,
+						"h": 163
+					},
+					"frame": {
+						"x": 2932,
+						"y": 4021,
+						"w": 137,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 137,
+						"h": 163
+					},
+					"frame": {
+						"x": 3071,
+						"y": 4021,
+						"w": 137,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 137,
+						"h": 163
+					},
+					"frame": {
+						"x": 3210,
+						"y": 4021,
+						"w": 137,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarDerechaConPocaVida/equipo2avion4DoblarDerechaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 137,
+						"h": 163
+					},
+					"frame": {
+						"x": 3349,
+						"y": 4021,
+						"w": 137,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierda/equipo2avion4DoblarIzquierda-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 3488,
+						"y": 4021,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3626,
+						"y": 4021,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3752,
+						"y": 4021,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3878,
+						"y": 4021,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 44,
+						"y": 55,
+						"w": 34,
+						"h": 53
+					},
+					"frame": {
+						"x": 4004,
+						"y": 4021,
+						"w": 34,
+						"h": 53
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 66,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 4004,
+						"y": 4076,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 66,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 4004,
+						"y": 4120,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 66,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 4004,
+						"y": 4164,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 4038,
+						"y": 4076,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 4040,
+						"y": 4021,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 4040,
+						"y": 4026,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 3
+					},
+					"frame": {
+						"x": 4040,
+						"y": 4031,
+						"w": 3,
+						"h": 3
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierda/equipo2avion4DoblarIzquierda-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2227,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2365,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2503,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2641,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2779,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 2917,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 3055,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionDoblarIzquierdaConPocaVida/equipo2avion4DoblarIzquierdaConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 136,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 136,
+						"h": 163
+					},
+					"frame": {
+						"x": 3193,
+						"y": 4186,
+						"w": 136,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3331,
+						"y": 4186,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolar/equipo2avion4-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3457,
+						"y": 4186,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolar/equipo2avion4-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3583,
+						"y": 4188,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3709,
+						"y": 4188,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 3835,
+						"y": 4208,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 21,
+						"w": 82,
+						"h": 127
+					},
+					"frame": {
+						"x": 3961,
+						"y": 4208,
+						"w": 82,
+						"h": 127
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 30,
+						"w": 72,
+						"h": 105
+					},
+					"frame": {
+						"x": 3961,
+						"y": 4337,
+						"w": 72,
+						"h": 105
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 2227,
+						"y": 4351,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 2353,
+						"y": 4351,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 2479,
+						"y": 4351,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionVolarConPocaVida/equipo2avion4VolarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 124,
+						"h": 165
+					},
+					"frame": {
+						"x": 2605,
+						"y": 4351,
+						"w": 124,
+						"h": 165
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 124,
+						"h": 163
+					},
+					"frame": {
+						"x": 2731,
+						"y": 4351,
+						"w": 124,
+						"h": 163
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 17,
+						"w": 108,
+						"h": 140
+					},
+					"frame": {
+						"x": 2857,
+						"y": 4351,
+						"w": 108,
+						"h": 140
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 17,
+						"w": 107,
+						"h": 140
+					},
+					"frame": {
+						"x": 2967,
+						"y": 4351,
+						"w": 107,
+						"h": 140
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 17,
+						"w": 107,
+						"h": 140
+					},
+					"frame": {
+						"x": 3076,
+						"y": 4351,
+						"w": 107,
+						"h": 140
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 17,
+						"w": 107,
+						"h": 140
+					},
+					"frame": {
+						"x": 3185,
+						"y": 4351,
+						"w": 107,
+						"h": 140
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 51,
+						"y": 71,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 3294,
+						"y": 4351,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 22,
+						"w": 99,
+						"h": 130
+					},
+					"frame": {
+						"x": 3320,
+						"y": 4353,
+						"w": 99,
+						"h": 130
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 19,
+						"w": 91,
+						"h": 133
+					},
+					"frame": {
+						"x": 3421,
+						"y": 4353,
+						"w": 91,
+						"h": 133
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 51,
+						"y": 71,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 3294,
+						"y": 4485,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 51,
+						"y": 71,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 3294,
+						"y": 4385,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 51,
+						"y": 71,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 3294,
+						"y": 4419,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 54,
+						"y": 76,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 3294,
+						"y": 4453,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 54,
+						"y": 76,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 3320,
+						"y": 4485,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 54,
+						"y": 76,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 3338,
+						"y": 4485,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 35,
+						"y": 39,
+						"w": 60,
+						"h": 93
+					},
+					"frame": {
+						"x": 3514,
+						"y": 4353,
+						"w": 60,
+						"h": 93
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 22,
+						"w": 99,
+						"h": 130
+					},
+					"frame": {
+						"x": 3576,
+						"y": 4355,
+						"w": 99,
+						"h": 130
+					}
+				},
+				{
+					"filename": "animacionAterrizarConPocaVida/equipo2avion4AterrizarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 42,
+						"w": 54,
+						"h": 79
+					},
+					"frame": {
+						"x": 3514,
+						"y": 4448,
+						"w": 54,
+						"h": 79
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 22,
+						"w": 99,
+						"h": 130
+					},
+					"frame": {
+						"x": 3677,
+						"y": 4355,
+						"w": 99,
+						"h": 130
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 23,
+						"w": 98,
+						"h": 128
+					},
+					"frame": {
+						"x": 3778,
+						"y": 4375,
+						"w": 98,
+						"h": 128
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 35,
+						"w": 79,
+						"h": 103
+					},
+					"frame": {
+						"x": 3878,
+						"y": 4375,
+						"w": 79,
+						"h": 103
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 35,
+						"w": 79,
+						"h": 103
+					},
+					"frame": {
+						"x": 3959,
+						"y": 4444,
+						"w": 79,
+						"h": 103
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 52,
+						"w": 53,
+						"h": 70
+					},
+					"frame": {
+						"x": 3878,
+						"y": 4480,
+						"w": 53,
+						"h": 70
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 23,
+						"w": 98,
+						"h": 128
+					},
+					"frame": {
+						"x": 207,
+						"y": 4423,
+						"w": 98,
+						"h": 128
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 92,
+						"h": 117
+					},
+					"frame": {
+						"x": 307,
+						"y": 4423,
+						"w": 92,
+						"h": 117
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 89,
+						"h": 117
+					},
+					"frame": {
+						"x": 401,
+						"y": 4423,
+						"w": 89,
+						"h": 117
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 89,
+						"h": 117
+					},
+					"frame": {
+						"x": 492,
+						"y": 4423,
+						"w": 89,
+						"h": 117
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 89,
+						"h": 117
+					},
+					"frame": {
+						"x": 583,
+						"y": 4423,
+						"w": 89,
+						"h": 117
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 35,
+						"w": 79,
+						"h": 103
+					},
+					"frame": {
+						"x": 674,
+						"y": 4423,
+						"w": 79,
+						"h": 103
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 41,
+						"w": 71,
+						"h": 91
+					},
+					"frame": {
+						"x": 755,
+						"y": 4423,
+						"w": 71,
+						"h": 91
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 41,
+						"w": 69,
+						"h": 91
+					},
+					"frame": {
+						"x": 828,
+						"y": 4423,
+						"w": 69,
+						"h": 91
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 41,
+						"w": 69,
+						"h": 91
+					},
+					"frame": {
+						"x": 899,
+						"y": 4423,
+						"w": 69,
+						"h": 91
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 46,
+						"w": 65,
+						"h": 81
+					},
+					"frame": {
+						"x": 970,
+						"y": 4423,
+						"w": 65,
+						"h": 81
+					}
+				},
+				{
+					"filename": "animacionAterrizar/equipo2avion4Aterriza-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 46,
+						"w": 62,
+						"h": 81
+					},
+					"frame": {
+						"x": 1037,
+						"y": 4423,
+						"w": 62,
+						"h": 81
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 46,
+						"w": 62,
+						"h": 81
+					},
+					"frame": {
+						"x": 1101,
+						"y": 4423,
+						"w": 62,
+						"h": 81
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 46,
+						"w": 62,
+						"h": 81
+					},
+					"frame": {
+						"x": 1165,
+						"y": 4423,
+						"w": 62,
+						"h": 81
+					}
+				},
+				{
+					"filename": "animacionDespegar/equipo2avion4Despegar-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 52,
+						"w": 53,
+						"h": 70
+					},
+					"frame": {
+						"x": 1229,
+						"y": 4423,
+						"w": 53,
+						"h": 70
+					}
+				},
+				{
+					"filename": "animacionDespegarConPocaVida/equipo2avion4DespegarConPocaVida-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 52,
+						"w": 53,
+						"h": 70
+					},
+					"frame": {
+						"x": 1284,
+						"y": 4423,
+						"w": 53,
+						"h": 70
+					}
+				},
+				{
+					"filename": "animacionExplotar/equipo2avion4Explotar-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 52,
+						"w": 53,
+						"h": 70
+					},
+					"frame": {
+						"x": 1339,
+						"y": 4423,
+						"w": 53,
+						"h": 70
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b9f23a925ad704493313b27bcbcd7d15:15be3793866edf2936af0d495d3b7b2f:023cbd4ea437a5d81b886adbec0d9f40$"
+	}
+}

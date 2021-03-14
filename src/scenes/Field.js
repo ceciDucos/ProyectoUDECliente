@@ -683,13 +683,8 @@ class Field extends Phaser.Scene {
     manageFuel(data) {
         if (data.nombrePartida === this.gameId) {            
             if (data.idJugador === this.team) {
-                for (let i = 0; i < data.listCombustible.length; i++) {
-                    this.airplanes[i].manageFuel(data.listCombustible[i]);
-                }
-            }
-            else {
-                for (let i = 0; i < data.listCombustible.length; i++) {
-                    this.enemies[i].manageFuel(data.listCombustible[i]);
+                for (let i = 0; i < data.listCombustibles.length; i++) {
+                    this.airplanes[i].manageFuel(data.listCombustibles[i]);
                 }
             }
         }

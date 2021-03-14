@@ -47,6 +47,8 @@ class GameOver extends Phaser.Scene {
             }
             //this.message = this.add.text(200, 300, this.messageTeam2, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
         }
+        this.mainMenu = this.add.sprite(540, 510, 'menu', 'botones/cargar/btn-cargar.png')
+        this.mainMenu.setInteractive().on('pointerdown', this.pasarEscena, this);
         this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
         this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
         console.log('sale del create de gameover');
@@ -67,6 +69,7 @@ class GameOver extends Phaser.Scene {
         this.scene.restart('SetTurret');
         this.scene.restart('Field');
         this.scene.start('Bootloader');        
+        this.scene.bringToTop('Bootloader');
         //this.scene.restart('GameOver');
     }
 }
