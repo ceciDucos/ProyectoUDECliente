@@ -26,11 +26,15 @@ export default class Preloader extends Phaser.Scene
         this.load.html('nameform', 'assets/images/text/nameform.html');
         //this.load.css('textStyle', 'assets/images/text/80stypography.css');
         
+        this.load.image('fondoPrincipal', 'assets/images/menu/fondo-menu.png');
         this.load.audio('musicaPrincipal', ['assets/audio/cancionMenuPrincipal.ogg']);
+
     }
 
     create ()
     {
+        this.sound.play('musicaPrincipal'); 
+        
         //animaciones del mapa
 
         this.frameNames = this.anims.generateFrameNames('mapa', {

@@ -7,6 +7,9 @@ class Bootloader extends Phaser.Scene {
     }
 
     create() {
+
+        this.fondo = this.add.sprite(640, 360, 'fondoPrincipal');
+
         this.team;
         this.gameId;
         this.enemyTeam;
@@ -23,7 +26,7 @@ class Bootloader extends Phaser.Scene {
         //this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
 
 
-        this.h1 = this.add.dom(640, 200, 'h1', null, 'Bombs-Away');
+        /*this.h1 = this.add.dom(640, 200, 'h1', null, 'Bombs-Away');
 
         this.h1.setClassName('chrome');
         this.tweens.add({
@@ -33,7 +36,7 @@ class Bootloader extends Phaser.Scene {
             ease: 'Sine.easeInOut',
             loop: -1,
             yoyo: true
-        });
+        });*/
         var element = this.add.dom(640, 720).createFromCache('nameform');
 
         element.addListener('click');
