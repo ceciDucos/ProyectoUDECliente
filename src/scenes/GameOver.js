@@ -49,8 +49,8 @@ class GameOver extends Phaser.Scene {
         }
         this.mainMenu = this.add.sprite(540, 510, 'menu', 'botones/volver/btn-volver.png')
         this.mainMenu.setInteractive().on('pointerdown', this.pasarEscena, this);
-        this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
-        this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
+        //this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
+        //this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
         console.log('sale del create de gameover');
 
         //this.frameNames = this.anims.generateFrameNames('menu', {start: 1, end: 1, zeroPad: 1, prefix: 'derrota/derrota-1'});
