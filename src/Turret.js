@@ -20,8 +20,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         //this.lastFired = 0;
     }
 
-    static preload(scene) {
-        //scene.load.image('turret', 'assets/images/bullet.png'); //Cambiar la imagen por la de la torreta
+    static preload() {
     }
 
     update(time, delta) {
@@ -120,7 +119,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                     console.log('avion : ' + bullet.planeNumber + ', idBullet: ' + bullet.idBullet); */
                     bullet.turretId = this.id;
                     bullet.estadoAvion = enemy.estado;
-                    bullet.fireTurret(this.x, this.y, angle);
+                    bullet.fireTurret(this.x, this.y, angle, 1);
 
                     //this.lastFired = time + 200;
                 }

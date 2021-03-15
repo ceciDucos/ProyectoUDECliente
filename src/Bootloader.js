@@ -64,8 +64,6 @@ class Bootloader extends Phaser.Scene {
                 var playerNameInput = this.getChildByName('nameField');
                 var gameIdInput = this.getChildByName('gameIdField');
 
-                console.log(this.scene.gameId);
-
                 //  Have they entered anything?
                 if (playerNameInput.value !== '' && gameIdInput.value !== '')
                 {
@@ -241,8 +239,6 @@ class Bootloader extends Phaser.Scene {
                 var data = JSON.parse(greeting["body"]);
                 if (data.accion === 'Bootloader') {
                     if (!self.gameStarted) {
-                        console.log('antes de pasar escena');
-                        console.log(this);
                         self.gameId = data.nombrePartida;
                         self.gameStarted = true;
                         self.pasarEscena();    

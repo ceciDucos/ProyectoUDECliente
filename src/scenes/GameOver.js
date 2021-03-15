@@ -7,7 +7,6 @@ class GameOver extends Phaser.Scene {
         this.team = data.team;
         this.messageTeam1 = data.messageTeam1;
         this.messageTeam2 = data.messageTeam2;
-        console.log('llega al init de gameover');
     }
 
     preload() {
@@ -16,7 +15,6 @@ class GameOver extends Phaser.Scene {
     }
 
     create() {
-        console.log('llega al create de gameover');
         if (this.team === 1) {
             if (this.messageTeam1 === 'Ganador') {
                 this.gameResult = this.add.sprite(540, 360, 'menu', 'victoria/victoria-1.png');  
@@ -51,7 +49,6 @@ class GameOver extends Phaser.Scene {
         this.mainMenu.setInteractive().on('pointerdown', this.pasarEscena, this);
         //this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
         //this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
-        console.log('sale del create de gameover');
 
         //this.frameNames = this.anims.generateFrameNames('menu', {start: 1, end: 1, zeroPad: 1, prefix: 'derrota/derrota-1'});
         //this.anims.create({ key: 'derrota-1', frames: this.frameNames, frameRate: 24, repeat: 0 });

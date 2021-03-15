@@ -1,6 +1,7 @@
 import Airplane from "../Airplane.js";
 import Turret from "../Turret.js"
 import HealthBar from "../HealthBar.js"
+import ControlTower from "../ControlTower.js"
 
 class Field extends Phaser.Scene {
     constructor() {
@@ -82,8 +83,12 @@ class Field extends Phaser.Scene {
                 'equipo1/animacionHangar/animacionHangar-1.png');
             this.teamFuel = this.add.sprite(this.teamFuelX - 8, this.teamFuelY - 9, 'base',
                 'amnimacionTanque/animacionTanque-1.png');
-            this.teamControlTower = this.add.sprite(this.teamControlTowerX, this.teamControlTowerY, 'base',
-                'equipo1/animacionTorre/animacionTorre-1.png');
+            this.teamControlTower = new ControlTower(this, this.teamControlTowerX, this.teamControlTowerY, this.team);
+            this.teamControlTower.setVisible(true);
+            this.teamControlTower.setActive(true);
+            this.teamControlTower.setDepth(2);
+            //this.teamControlTower = this.add.sprite(this.teamControlTowerX, this.teamControlTowerY, 'base',
+            //    'equipo1/animacionTorre/animacionTorre-1.png');
 
             this.enemyBase = this.physics.add.image(this.enemyBaseX, this.enemyBaseY, 'base', 'equipo2/baseEquipo2.png').setImmovable().setVisible(false);
             this.enemyHangar = this.add.sprite(this.enemyHangarX - 3, this.enemyHangarY + 2, 'base',
@@ -92,8 +97,9 @@ class Field extends Phaser.Scene {
             this.enemyFuel = this.add.sprite(this.enemyFuelX - 7, this.enemyFuelY - 6, 'base',
                 'amnimacionTanque/animacionTanque-1.png');
             this.enemyFuel.setVisible(false);
-            this.enemyControlTower = this.add.sprite(this.enemyControlTowerX - 10, this.enemyControlTowerY, 'base',
-                'equipo2/animacionTorre/animacionTorre-2.png');
+            this.enemyControlTower = new ControlTower(this, this.enemyControlTowerX, this.enemyControlTowerY, this.enemyTeam);
+            //this.enemyControlTower = this.add.sprite(this.enemyControlTowerX - 10, this.enemyControlTowerY, 'base',
+            //    'equipo2/animacionTorre/animacionTorre-2.png');
             this.enemyControlTower.setVisible(false);
         }
         else {
@@ -102,8 +108,12 @@ class Field extends Phaser.Scene {
                 'equipo2/animacionHangar/animacionHangar-2.png');
             this.teamFuel = this.add.sprite(this.teamFuelX - 7, this.teamFuelY - 6, 'base',
                 'amnimacionTanque/animacionTanque-1.png');
-            this.teamControlTower = this.add.sprite(this.teamControlTowerX - 10, this.teamControlTowerY, 'base',
-                'equipo2/animacionTorre/animacionTorre-2.png');
+            this.teamControlTower = new ControlTower(this, this.teamControlTowerX, this.teamControlTowerY, this.team);
+            this.teamControlTower.setVisible(true);
+            this.teamControlTower.setActive(true);
+            this.teamControlTower.setDepth(2);
+            //this.teamControlTower = this.add.sprite(this.teamControlTowerX - 10, this.teamControlTowerY, 'base',
+            //    'equipo2/animacionTorre/animacionTorre-2.png');
 
             this.enemyBase = this.physics.add.image(this.enemyBaseX, this.enemyBaseY, 'base', 'equipo1/baseEquipo1.png').setImmovable().setVisible(false);
             this.enemyHangar = this.add.sprite(this.enemyHangarX - 2, this.enemyHangarY - 2, 'base',
@@ -112,8 +122,9 @@ class Field extends Phaser.Scene {
             this.enemyFuel = this.add.sprite(this.enemyFuelX - 8, this.enemyFuelY - 9, 'base',
                 'amnimacionTanque/animacionTanque-1.png');                
             this.enemyFuel.setVisible(false);
-            this.enemyControlTower = this.add.sprite(this.enemyControlTowerX, this.enemyControlTowerY, 'base',
-                'equipo1/animacionTorre/animacionTorre-1.png');
+            this.enemyControlTower = new ControlTower(this, this.enemyControlTowerX, this.enemyControlTowerY, this.enemyTeam);
+            //this.enemyControlTower = this.add.sprite(this.enemyControlTowerX, this.enemyControlTowerY, 'base',
+            //    'equipo1/animacionTorre/animacionTorre-1.png');
             this.enemyControlTower.setVisible(false);
                 
         }
@@ -208,7 +219,6 @@ class Field extends Phaser.Scene {
             }
         });
         this.gameReady = true;
-        console.log('termino field');
 
         this.saveGame = this.add.text(1150, 700, 'Guardar', { fill: '#0f0' });
         this.saveGame.setInteractive().on('pointerdown', this.saveGameInServer, this);
@@ -219,6 +229,7 @@ class Field extends Phaser.Scene {
         for (let i = 0; i < this.airplanesQuantity; i++) {
             this.airplanes[i].update(time, delta, this);
         }
+        this.teamControlTower.update(time, delta);
     }
 
     assignAirplaneKeys(airplane) {
@@ -468,7 +479,6 @@ class Field extends Phaser.Scene {
         if (data.nombrePartida === this.gameId) {
             //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
             if (data.idJugador !== this.team) {
-                console.log('mueve avion');
                 this.enemies[data.idAvion].moveEnemyAirplane(data);
             }
         }
@@ -510,9 +520,6 @@ class Field extends Phaser.Scene {
                 }
                 else {
                     // Indicar a que bala en especifico se necesita hacer desaparecer
-                    console.log('bullets');
-                    console.log(this.enemies);
-                    console.log(data);
                     let bullet = this.enemies[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
                     bullet.setActive(false);
                     bullet.setVisible(false);
@@ -564,7 +571,8 @@ class Field extends Phaser.Scene {
                     this.teamFuelDestroyed = true;
                 }
                 if (!this.teamControlTowerDestroyed && data.torretaDestruida) {
-                    this.teamControlTower.anims.play(animName + 'animacionTorreExplota',true);
+                    this.teamControlTower.destroyControlTower(animName);
+                    //this.teamControlTower.anims.play(animName + 'animacionTorreExplota',true);
                     this.teamControlTowerDestroyed = true;
                 }
             }
@@ -590,7 +598,8 @@ class Field extends Phaser.Scene {
                     this.enemyFuelDestroyed = true;
                 }
                 if (!this.enemyControlTowerDestroyed && data.torretaDestruida) {
-                    this.enemyControlTower.anims.play(animName + 'animacionTorreExplota',true);
+                    this.enemyControlTower.destroyControlTower(animName);
+                    //this.enemyControlTower.anims.play(animName + 'animacionTorreExplota',true);
                     this.enemyControlTowerDestroyed = true;
                 }
             }
@@ -629,8 +638,6 @@ class Field extends Phaser.Scene {
         if (data.nombrePartida === this.gameId) {
             if (this.gameReady === true) {
                 if (data.idJugador === this.team) {
-                    console.log('datos visibles');
-                    console.log(data);
                     this.enemyBase.setVisible(data.visibilidadBase);
                     this.enemyHangar.setVisible(data.visibilidadBase);
                     this.enemyControlTower.setVisible(data.visibilidadBase);
@@ -640,9 +647,6 @@ class Field extends Phaser.Scene {
                         turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
                     }
                     for (let i = 0; i < this.enemies.length; i++) {
-                        console.log('equipo: ' + this.enemies[i].team);
-                        console.log(this.team);
-                        console.log('lleva avion: ' + data.visibilidadAviones[i])
                         this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
                     }
                 }
@@ -653,8 +657,7 @@ class Field extends Phaser.Scene {
     endGame(data) {
         //this.cursors.destroy();        
         if (data.nombrePartida === this.gameId) {
-            for (let i = 0; i < this.airplanesQuantity; i++) {
-                console.log(this.airplanes[i].inputKeys);
+            /*for (let i = 0; i < this.airplanesQuantity; i++) {
                 this.airplanes[i].inputKeys.ascend.destroy();
                 this.airplanes[i].inputKeys.descend.destroy();
                 this.airplanes[i].inputKeys.down.destroy();
@@ -663,16 +666,13 @@ class Field extends Phaser.Scene {
                 this.airplanes[i].inputKeys.left.destroy();
                 this.airplanes[i].inputKeys.right.destroy();
                 this.airplanes[i].inputKeys.up.destroy();
-            }
+            }*/
             this.registry.destroy();
-            this.events.off();        
-            console.log('llego el gameover');
-            console.log(data);
+            this.events.off();
             this.physics.pause();  
             this.scene.pause();
             //this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
             if (!data.jugadorUnoGano && !data.jugadorDosGano) {
-                console.log('entro al empate');
                 /*this.scene.transition({
                     target: 'GameOver',
                     data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
@@ -684,7 +684,6 @@ class Field extends Phaser.Scene {
                 this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
             }
             else if (data.jugadorUnoGano) {
-                console.log('entro al ganador1');
                 /*this.scene.transition({
                     target: 'GameOver',
                     data: { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' },
@@ -693,11 +692,9 @@ class Field extends Phaser.Scene {
                     remove: false,
                     sleep: false,                
                 })*/
-                this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
-                console.log('paso el ganador1');
+                this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });
             }
             else {
-                console.log('entro al ganador2');
                 /*this.scene.transition({
                     target: 'GameOver',
                     data: { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' },
@@ -728,13 +725,8 @@ class Field extends Phaser.Scene {
 
     updateTurretBullet(data) {
         if (data.nombrePartida === this.gameId) {
-            console.log('entro al update bullet torreta');
-            console.log(data);
             if (data.idJugador !== this.team) {
-                console.log('entro al if de team');
                 if (data.visible) {
-                    console.log('es visible');
-                    console.log(this.enemyTurrets.getMatching('id', data.idElemento)[0]);
                     let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.get();
                     if (bullet) {
                         if (this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity <= data.idBala) {
@@ -751,28 +743,59 @@ class Field extends Phaser.Scene {
                         bullet.turretId = data.idElemento;
                         bullet.estadoAvion = data.altitud;
                         bullet.enemyBullet = true;
-                        console.log(data.ejeX);
-                        console.log(data.ejeY);
-                        console.log(data.angulo);
-                        bullet.fireTurret(data.ejeX, data.ejeY, data.angulo);
+                        bullet.fireTurret(data.ejeX, data.ejeY, data.angulo, 1);
                     }
                 }
-                else {     
-                    console.log('no es visible');
+                else {
                     // Indicar a que bala en especifico se necesita hacer desaparecer
-                    console.log('bullets');
-                    console.log(this.enemies);
-                    console.log(data);
-                    console.log(this.enemyTurrets);
                     let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
                     bullet.setActive(false);
                     bullet.setVisible(false);
                     bullet.body.stop();
                 }
             }
-            else if (!data.visible){            
-                console.log(this.teamTurrets);
+            else if (!data.visible){
                 let bullet = this.teamTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
+                bullet.setActive(false);
+                bullet.setVisible(false);
+                bullet.body.stop();
+            }
+        }
+    }
+
+    updateControlTowerBullet(data) {
+        if (data.nombrePartida === this.gameId) {
+            if (data.idJugador !== this.team) {
+                if (data.visible) {
+                    let bullet = this.enemyControlTower.bullets.get();                    
+                    if (bullet) {
+                        if (this.enemyControlTower.bulletQuantity <= data.idBala) {
+                            this.enemyControlTower.bulletQuantity = data.idBala + 1;
+                        }
+                        
+                        /*if (bullet.idBullet === '') {
+                            this.enemies[data.idAvion].bulletQuantity++;
+                        }
+                        else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
+                            this.enemies[data.idAvion].bulletQuantity = data.idBullet;
+                        }*/
+                        bullet.idBullet = data.idBala;
+                        bullet.turretId = data.idElemento;
+                        bullet.estadoAvion = data.altitud;
+                        bullet.enemyBullet = true;
+                        bullet.fireTurret(data.ejeX, data.ejeY, data.angulo, 2);
+                    }
+                }
+                else {
+                    // Indicar a que bala en especifico se necesita hacer desaparecer
+                    let bullet = this.enemyControlTower.bullets.getMatching('idBullet', data.idBala)[0];
+                    bullet.setActive(false);
+                    bullet.setVisible(false);
+                    bullet.body.stop();
+                }
+            }
+            else if (!data.visible){            
+                let bullet = this.teamControlTower.bullets.getMatching('idBullet', data.idBala)[0];
                 bullet.setActive(false);
                 bullet.setVisible(false);
                 bullet.body.stop();
