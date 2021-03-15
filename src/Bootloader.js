@@ -58,7 +58,7 @@ class Bootloader extends Phaser.Scene {
         this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
         this.btnCerrarAyuda = this.add.image(820, 580, 'menu', 'botonVolver-1.png');
         this.showOptions();        
-
+        this.mensajeError = this.add.text(480, 690, '', { fontFamily: 'fantasy', fill: '#FF2D00' });
         
 
         //this.element.addListener('click');
@@ -81,6 +81,7 @@ class Bootloader extends Phaser.Scene {
                 //  Have they entered anything?
                 if (playerNameInput.value !== '' && gameIdInput.value !== '')
                 {
+                    this.scene.mensajeError.setText('');
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
                     //  Turn off the click events
@@ -105,6 +106,8 @@ class Bootloader extends Phaser.Scene {
                         ease: 'Power3',
                         yoyo: true
                     });
+                    this.scene.mensajeError.x=480;
+                    this.scene.mensajeError.setText('Los campos de Jugador y Partida son obligatorios');                    
                 }
             }
             else if (event.target.name === 'joinButton')
@@ -115,6 +118,7 @@ class Bootloader extends Phaser.Scene {
                 //  Have they entered anything?
                 if (playerNameInput.value !== '')
                 {
+                    this.scene.mensajeError.setText('');
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
                     //  Turn off the click events
@@ -137,6 +141,35 @@ class Bootloader extends Phaser.Scene {
                         ease: 'Power3',
                         yoyo: true
                     });
+                    this.scene.mensajeError.x=550;
+                    this.scene.mensajeError.setText('El campo Jugador es obligatorio');  
+                }
+            }
+            else if (event.target.name === 'loadButton')
+            {
+                var playerNameInput = this.getChildByName('nameField');
+                var gameIdInput = this.getChildByName('gameIdField');
+
+                //  Have they entered anything?
+                if (playerNameInput.value !== '' && gameIdInput.value !== '')
+                {
+                    this.scene.mensajeError.setText('');
+                    this.scene.gameId = gameIdInput.value;
+                    this.scene.playerName = playerNameInput.value;
+                    //CODIGO PARA CARGAR PARTIDA
+                }
+                else
+                {
+                    //  Flash the prompt
+                    this.scene.tweens.add({
+                        targets: this,
+                        alpha: 0.2,
+                        duration: 250,
+                        ease: 'Power3',
+                        yoyo: true
+                    });
+                    this.scene.mensajeError.x=480;
+                    this.scene.mensajeError.setText('Los campos de Jugador y Partida son obligatorios');  
                 }
             }
 
