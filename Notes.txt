@@ -1,12 +1,24 @@
-aparecen idbalas random como 38
-le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
-hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
-controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
-la base se muestra cuando hay un avion cerca, pero el avion no se muestra cuando esta cerca de la base
-ver si no tenemos problemas por poner en la foto del menu principal la "E" de apto para todo publico sin tener la aprobacion
-si el enemigo tira una bomba, se reproduce la animacion en mi lateral
+Back:
+	ver de limitar los cambios de altura gastando más combustible
+	aparecen idbalas random como 38
+	hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos. (dificil de reproducir)
+	devolución de crear partida esta mal (topic.user)
 
+Front:
+	teclado wasd deja de funcionar al reiniciar la partida
+	mejorar el fin de partida
+	dar mensaje de partida no existe al unirse
 
+****************************************************************************************************************************************************
+Pronto:
+	le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
+	controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
+	la base se muestra cuando hay un avion cerca, pero el avion no se muestra cuando esta cerca de la base
+	ver si no tenemos problemas por poner en la foto del menu principal la "E" de apto para todo publico sin tener la aprobacion
+	si el enemigo tira una bomba, se reproduce la animacion en mi lateral
+	que las torretas solo disparen a aviones enemigos
+	colocar torretas en tu propio campo y no siempre en el campo del jugador 1
+****************************************************************************************************************************************************
 sonidos:
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\protracker\sd-ingame1.mod
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\kyobi\wavs\menuClick.wav
@@ -14,8 +26,7 @@ sonidos:
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\SoundEffects\explosion.mp3
 	C:\Users\fedep\OneDrive\Documentos\UDE\PhaserExamples\phaser3-examples\public\assets\audio\SoundEffects\shotgun.wav
 
-pronto---que las torretas solo disparen a aviones enemigos
-pronto---colocar torretas en tu propio campo y no siempre en el campo del jugador 1
+
 
 rango del hangar
 + 35x
