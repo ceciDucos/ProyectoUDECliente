@@ -179,14 +179,14 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         //chequear si el combustible llego a 0 ver como coordinar con el server la destruccion del avion;
                     }
                     this.estado++;
-                    this.lastEstadoChanged = time + 180;
+                    this.lastEstadoChanged = time + 500;
                     //this.hasBomb = true;
                 }
             }
             if (this.inputKeys.descend.isDown && time > this.lastEstadoChanged && this.nextInputAvailable) {
                 if (this.estado === 2) {
                     this.estado--;
-                    this.lastEstadoChanged = time + 180;
+                    this.lastEstadoChanged = time + 500;
                     if (this.life < 30) {
                         this.scene.lateral.anims.play(this.prefix + 'DisminuirAlturaConPocaVida', true); 
                     }

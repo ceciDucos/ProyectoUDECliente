@@ -209,6 +209,9 @@ class Field extends Phaser.Scene {
         });
         this.gameReady = true;
         console.log('termino field');
+
+        this.saveGame = this.add.text(1150, 700, 'Guardar', { fill: '#0f0' });
+        this.saveGame.setInteractive().on('pointerdown', this.saveGameInServer, this);
     }
 
     update(time, delta) {
@@ -462,143 +465,157 @@ class Field extends Phaser.Scene {
     }
 
     moveEnemyAirplane(data) {
-        //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
-        if (data.idJugador !== this.team) {
-            console.log('mueve avion');
-            this.enemies[data.idAvion].moveEnemyAirplane(data);
+        if (data.nombrePartida === this.gameId) {
+            //if (this.bootloaderScene.gameId === data.nombrePartida) {}   //Chequear si corresponde, dependiendo de como se comporten las multiples partidas en el server
+            if (data.idJugador !== this.team) {
+                console.log('mueve avion');
+                this.enemies[data.idAvion].moveEnemyAirplane(data);
+            }
         }
     }
 
     blowUpAirplanes(data) {
-        if (data.idJugador !== this.team) {
-            this.enemies[data.idAvion].blowUpAirplane(data);
-        }
-        else {
-            this.airplanes[data.idAvion].blowUpAirplane(data);
+        if (data.nombrePartida === this.gameId) {
+            if (data.idJugador !== this.team) {
+                this.enemies[data.idAvion].blowUpAirplane(data);
+            }
+            else {
+                this.airplanes[data.idAvion].blowUpAirplane(data);
+            }
         }
     }
 
-    updateBullet(data) {       
-        if (data.idJugador !== this.team) {
-            if (data.visible) {
-                let bullet = this.enemies[data.idElemento].bullets.get();
-                if (bullet) {
-                    if (this.enemies[data.idElemento].bulletQuantity <= data.idBala) {
-                        this.enemies[data.idElemento].bulletQuantity = data.idBala + 1;
+    updateBullet(data) {  
+        if (data.nombrePartida === this.gameId) {     
+            if (data.idJugador !== this.team) {
+                if (data.visible) {
+                    let bullet = this.enemies[data.idElemento].bullets.get();
+                    if (bullet) {
+                        if (this.enemies[data.idElemento].bulletQuantity <= data.idBala) {
+                            this.enemies[data.idElemento].bulletQuantity = data.idBala + 1;
+                        }
+                        
+                        /*if (bullet.idBullet === '') {
+                            this.enemies[data.idAvion].bulletQuantity++;
+                        }
+                        else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
+                            this.enemies[data.idAvion].bulletQuantity = data.idBullet;
+                        }*/
+                        bullet.idBullet = data.idBala;
+                        bullet.planeNumber = data.idElemento;
+                        bullet.estadoAvion = data.altitud;
+                        bullet.enemyBullet = true;
+                        bullet.fire(this, data.ejeX, data.ejeY, data.angulo);
                     }
-                    
-                    /*if (bullet.idBullet === '') {
-                        this.enemies[data.idAvion].bulletQuantity++;
-                    }
-                    else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
-                        this.enemies[data.idAvion].bulletQuantity = data.idBullet;
-                    }*/
-                    bullet.idBullet = data.idBala;
-                    bullet.planeNumber = data.idElemento;
-                    bullet.estadoAvion = data.altitud;
-                    bullet.enemyBullet = true;
-                    bullet.fire(this, data.ejeX, data.ejeY, data.angulo);
+                }
+                else {
+                    // Indicar a que bala en especifico se necesita hacer desaparecer
+                    console.log('bullets');
+                    console.log(this.enemies);
+                    console.log(data);
+                    let bullet = this.enemies[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
+                    bullet.setActive(false);
+                    bullet.setVisible(false);
+                    bullet.body.stop();
                 }
             }
-            else {
-                // Indicar a que bala en especifico se necesita hacer desaparecer
-                console.log('bullets');
-                console.log(this.enemies);
-                console.log(data);
-                let bullet = this.enemies[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
+            else if (!data.visible){
+                let bullet = this.airplanes[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
                 bullet.setActive(false);
                 bullet.setVisible(false);
                 bullet.body.stop();
             }
         }
-        else if (!data.visible){
-            let bullet = this.airplanes[data.idElemento].bullets.getMatching('idBullet', data.idBala)[0];
-            bullet.setActive(false);
-            bullet.setVisible(false);
-            bullet.body.stop();
-        }
     }
 
     updateAirplaneLife(data) {
-        if (data.idJugador === this.team) {
-            this.airplanes[data.idAvion].updateLife(data);            
+        if (data.nombrePartida === this.gameId) {
+            if (data.idJugador === this.team) {
+                this.airplanes[data.idAvion].updateLife(data);            
+            }
+            else {
+                this.enemies[data.idAvion].updateLife(data);
+            }
         }
-        else {
-            this.enemies[data.idAvion].updateLife(data);
-        }        
     }
 
     destroyBaseElement(data) {
-        let animName;
-        if (data.idJugador === this.team) { 
-            if (this.team === 1) {
-                animName = 'equipo1';
-            }
-            else {
-                animName = 'equipo2';
-            }                         
-            if (!this.teamHangarDestroyed && data.hangarDestruido) { 
-                /*if (this.team === 1) {
-                    animName = 'equipo1animacionHangarExplota';
+        if (data.nombrePartida === this.gameId) {
+            let animName;
+            if (data.idJugador === this.team) { 
+                if (this.team === 1) {
+                    animName = 'equipo1';
                 }
                 else {
-                    animName = 'equipo2animacionHangarExplota';
-                }*/
-                this.teamHangar.anims.play(animName + 'animacionHangarExplota',true);
-                this.teamHangarDestroyed = true;
+                    animName = 'equipo2';
+                }                         
+                if (!this.teamHangarDestroyed && data.hangarDestruido) { 
+                    /*if (this.team === 1) {
+                        animName = 'equipo1animacionHangarExplota';
+                    }
+                    else {
+                        animName = 'equipo2animacionHangarExplota';
+                    }*/
+                    this.teamHangar.anims.play(animName + 'animacionHangarExplota',true);
+                    this.teamHangarDestroyed = true;
+                }
+                if (!this.teamFuelDestroyed && data.tanqueCombustibleDestruido) {
+                    this.teamFuel.anims.play('animacionTanqueExplota',true);
+                    this.teamFuelDestroyed = true;
+                }
+                if (!this.teamControlTowerDestroyed && data.torretaDestruida) {
+                    this.teamControlTower.anims.play(animName + 'animacionTorreExplota',true);
+                    this.teamControlTowerDestroyed = true;
+                }
             }
-            if (!this.teamFuelDestroyed && data.tanqueCombustibleDestruido) {
-                this.teamFuel.anims.play('animacionTanqueExplota',true);
-                this.teamFuelDestroyed = true;
-            }
-            if (!this.teamControlTowerDestroyed && data.torretaDestruida) {
-                this.teamControlTower.anims.play(animName + 'animacionTorreExplota',true);
-                this.teamControlTowerDestroyed = true;
-            }
-        }
-        else {               
-            if (this.enemyTeam === 1) {
-                animName = 'equipo1';
-            }
-            else {
-                animName = 'equipo2';
-            }   
-            if (!this.enemyHangarDestroyed && data.hangarDestruido) {
-                /*if (this.enemyTeam === 1) {
-                    animName = 'equipo1animacionHangarExplota';
+            else {               
+                if (this.enemyTeam === 1) {
+                    animName = 'equipo1';
                 }
                 else {
-                    animName = 'equipo2animacionHangarExplota';
-                }*/
-                this.enemyHangar.anims.play(animName + 'animacionHangarExplota',true);
-                this.enemyHangarDestroyed = true;
-            }            
-            if (!this.enemyFuelDestroyed && data.tanqueCombustibleDestruido) {
-                this.enemyFuel.anims.play('animacionTanqueExplota',true);
-                this.enemyFuelDestroyed = true;
-            }
-            if (!this.enemyControlTowerDestroyed && data.torretaDestruida) {
-                this.enemyControlTower.anims.play(animName + 'animacionTorreExplota',true);
-                this.enemyControlTowerDestroyed = true;
+                    animName = 'equipo2';
+                }   
+                if (!this.enemyHangarDestroyed && data.hangarDestruido) {
+                    /*if (this.enemyTeam === 1) {
+                        animName = 'equipo1animacionHangarExplota';
+                    }
+                    else {
+                        animName = 'equipo2animacionHangarExplota';
+                    }*/
+                    this.enemyHangar.anims.play(animName + 'animacionHangarExplota',true);
+                    this.enemyHangarDestroyed = true;
+                }            
+                if (!this.enemyFuelDestroyed && data.tanqueCombustibleDestruido) {
+                    this.enemyFuel.anims.play('animacionTanqueExplota',true);
+                    this.enemyFuelDestroyed = true;
+                }
+                if (!this.enemyControlTowerDestroyed && data.torretaDestruida) {
+                    this.enemyControlTower.anims.play(animName + 'animacionTorreExplota',true);
+                    this.enemyControlTowerDestroyed = true;
+                }
             }
         }
     }    
 
     moveTurret(data) {
-        if (data.idJugador !== this.team) {
-            let turret = this.enemyTurrets.getMatching('id', data.idArtilleria)[0];
-            turret.moveTurret(data);
+        if (data.nombrePartida === this.gameId) {
+            if (data.idJugador !== this.team) {
+                let turret = this.enemyTurrets.getMatching('id', data.idArtilleria)[0];
+                turret.moveTurret(data);
+            }
         }
     }
 
-    destroyTurret(data) {
-        if (data.idJugador === this.team) {
-            let turret = this.teamTurrets.getMatching('id', data.idArtilleria)[0];
-            turret.destroyTurret(data);
-        }
-        else {
-            let turret = this.enemyTurrets.getMatching('id', data.idArtilleria)[0];
-            turret.destroyTurret(data);
+    destroyTurret(data) {        
+        if (data.nombrePartida === this.gameId) {
+            if (data.idJugador === this.team) {
+                let turret = this.teamTurrets.getMatching('id', data.idArtilleria)[0];
+                turret.destroyTurret(data);
+            }
+            else {
+                let turret = this.enemyTurrets.getMatching('id', data.idArtilleria)[0];
+                turret.destroyTurret(data);
+            }
         }
     }
 
@@ -608,78 +625,95 @@ class Field extends Phaser.Scene {
         }
     }*/
 
-    visibleEnemyElements(data) {
-        if (this.gameReady === true) {
-            if (data.idJugador === this.team) {
-                console.log('datos visibles');
-                console.log(data);
-                this.enemyBase.setVisible(data.visibilidadBase);
-                this.enemyHangar.setVisible(data.visibilidadBase);
-                this.enemyControlTower.setVisible(data.visibilidadBase);
-                this.enemyFuel.setVisible(data.visibilidadBase);
-                let turrets = this.enemyTurrets.getChildren();
-                for (let i = 0; i < turrets.length; i++) {
-                    turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
-                }
-                for (let i = 0; i < this.enemies.length; i++) {
-                    console.log('equipo: ' + this.enemies[i].team);
-                    console.log(this.team);
-                    console.log('lleva avion: ' + data.visibilidadAviones[i])
-                    this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
+    visibleEnemyElements(data) {        
+        if (data.nombrePartida === this.gameId) {
+            if (this.gameReady === true) {
+                if (data.idJugador === this.team) {
+                    console.log('datos visibles');
+                    console.log(data);
+                    this.enemyBase.setVisible(data.visibilidadBase);
+                    this.enemyHangar.setVisible(data.visibilidadBase);
+                    this.enemyControlTower.setVisible(data.visibilidadBase);
+                    this.enemyFuel.setVisible(data.visibilidadBase);
+                    let turrets = this.enemyTurrets.getChildren();
+                    for (let i = 0; i < turrets.length; i++) {
+                        turrets[i].visibleEnemyTurret(data.visibilidadArtilleria[i]);
+                    }
+                    for (let i = 0; i < this.enemies.length; i++) {
+                        console.log('equipo: ' + this.enemies[i].team);
+                        console.log(this.team);
+                        console.log('lleva avion: ' + data.visibilidadAviones[i])
+                        this.enemies[i].visibleEnemyAirplane(data.visibilidadAviones[i]);
+                    }
                 }
             }
         }
     }
 
     endGame(data) {
-        this.registry.destroy();
-        this.events.off();        
-        console.log('llego el gameover');   
-        this.physics.pause();  
-        this.scene.pause();
-        //this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
-        if (!data.jugadorUnoGano && !data.jugadorDosGano) {
-            console.log('entro al empate');
-            /*this.scene.transition({
-                target: 'GameOver',
-                data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
-                moveAbove: true,
-                duration: 0,
-                remove: false,
-                sleep: false,                
-            })*/
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+        //this.cursors.destroy();        
+        if (data.nombrePartida === this.gameId) {
+            for (let i = 0; i < this.airplanesQuantity; i++) {
+                console.log(this.airplanes[i].inputKeys);
+                this.airplanes[i].inputKeys.ascend.destroy();
+                this.airplanes[i].inputKeys.descend.destroy();
+                this.airplanes[i].inputKeys.down.destroy();
+                this.airplanes[i].inputKeys.dropBomb.destroy();
+                this.airplanes[i].inputKeys.fire.destroy();
+                this.airplanes[i].inputKeys.left.destroy();
+                this.airplanes[i].inputKeys.right.destroy();
+                this.airplanes[i].inputKeys.up.destroy();
+            }
+            this.registry.destroy();
+            this.events.off();        
+            console.log('llego el gameover');
+            console.log(data);
+            this.physics.pause();  
+            this.scene.pause();
+            //this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+            if (!data.jugadorUnoGano && !data.jugadorDosGano) {
+                console.log('entro al empate');
+                /*this.scene.transition({
+                    target: 'GameOver',
+                    data: { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' },
+                    moveAbove: true,
+                    duration: 0,
+                    remove: false,
+                    sleep: false,                
+                })*/
+                this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Emapte', messageTeam2: 'Empate' });
+            }
+            else if (data.jugadorUnoGano) {
+                console.log('entro al ganador1');
+                /*this.scene.transition({
+                    target: 'GameOver',
+                    data: { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' },
+                    moveAbove: true,
+                    duration: 0,
+                    remove: false,
+                    sleep: false,                
+                })*/
+                this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
+                console.log('paso el ganador1');
+            }
+            else {
+                console.log('entro al ganador2');
+                /*this.scene.transition({
+                    target: 'GameOver',
+                    data: { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' },
+                    moveAbove: true,
+                    duration: 0,
+                    remove: false,
+                    sleep: false,                
+                })*/
+                this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
+            }
+            //this.scene.stop();
+            //this.scene.bringToTop('GameOver');
+            //this.scene.pause('Field');
+            //this.game.scene.destroy();
+            return;
         }
-        else if (data.jugadorUnoGano) {
-            console.log('entro al ganador1');
-            /*this.scene.transition({
-                target: 'GameOver',
-                data: { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' },
-                moveAbove: true,
-                duration: 0,
-                remove: false,
-                sleep: false,                
-            })*/
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Ganador', messageTeam2: 'Perdedor' });            
-            console.log('paso el ganador1');
-        }
-        else {
-            console.log('entro al ganador2');
-            /*this.scene.transition({
-                target: 'GameOver',
-                data: { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' },
-                moveAbove: true,
-                duration: 0,
-                remove: false,
-                sleep: false,                
-            })*/
-            this.scene.launch('GameOver', { team: this.team, messageTeam1: 'Perdedor', messageTeam2: 'Ganador' });
-        }
-        //this.scene.stop();
-        //this.scene.bringToTop('GameOver');
-        //this.scene.pause('Field');
-        //this.game.scene.destroy();
-        return;
     }
 
     manageFuel(data) {
@@ -693,55 +727,61 @@ class Field extends Phaser.Scene {
     }
 
     updateTurretBullet(data) {
-        console.log('entro al update bullet torreta');
-        console.log(data);
-        if (data.idJugador !== this.team) {
-            console.log('entro al if de team');
-            if (data.visible) {
-                console.log('es visible');
-                console.log(this.enemyTurrets.getMatching('id', data.idElemento)[0]);
-                let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.get();
-                if (bullet) {
-                    if (this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity <= data.idBala) {
-                        this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity = data.idBala + 1;
+        if (data.nombrePartida === this.gameId) {
+            console.log('entro al update bullet torreta');
+            console.log(data);
+            if (data.idJugador !== this.team) {
+                console.log('entro al if de team');
+                if (data.visible) {
+                    console.log('es visible');
+                    console.log(this.enemyTurrets.getMatching('id', data.idElemento)[0]);
+                    let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.get();
+                    if (bullet) {
+                        if (this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity <= data.idBala) {
+                            this.enemyTurrets.getMatching('id', data.idElemento)[0].bulletQuantity = data.idBala + 1;
+                        }
+                        
+                        /*if (bullet.idBullet === '') {
+                            this.enemies[data.idAvion].bulletQuantity++;
+                        }
+                        else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
+                            this.enemies[data.idAvion].bulletQuantity = data.idBullet;
+                        }*/
+                        bullet.idBullet = data.idBala;
+                        bullet.turretId = data.idElemento;
+                        bullet.estadoAvion = data.altitud;
+                        bullet.enemyBullet = true;
+                        console.log(data.ejeX);
+                        console.log(data.ejeY);
+                        console.log(data.angulo);
+                        bullet.fireTurret(data.ejeX, data.ejeY, data.angulo);
                     }
-                    
-                    /*if (bullet.idBullet === '') {
-                        this.enemies[data.idAvion].bulletQuantity++;
-                    }
-                    else if (this.enemies[data.idAvion].bulletQuantity < data.idBullet) {
-                        this.enemies[data.idAvion].bulletQuantity = data.idBullet;
-                    }*/
-                    bullet.idBullet = data.idBala;
-                    bullet.turretId = data.idElemento;
-                    bullet.estadoAvion = data.altitud;
-                    bullet.enemyBullet = true;
-                    console.log(data.ejeX);
-                    console.log(data.ejeY);
-                    console.log(data.angulo);
-                    bullet.fireTurret(data.ejeX, data.ejeY, data.angulo);
+                }
+                else {     
+                    console.log('no es visible');
+                    // Indicar a que bala en especifico se necesita hacer desaparecer
+                    console.log('bullets');
+                    console.log(this.enemies);
+                    console.log(data);
+                    console.log(this.enemyTurrets);
+                    let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
+                    bullet.setActive(false);
+                    bullet.setVisible(false);
+                    bullet.body.stop();
                 }
             }
-            else {     
-                console.log('no es visible');
-                // Indicar a que bala en especifico se necesita hacer desaparecer
-                console.log('bullets');
-                console.log(this.enemies);
-                console.log(data);
-                console.log(this.enemyTurrets);
-                let bullet = this.enemyTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
+            else if (!data.visible){            
+                console.log(this.teamTurrets);
+                let bullet = this.teamTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
                 bullet.setActive(false);
                 bullet.setVisible(false);
                 bullet.body.stop();
             }
         }
-        else if (!data.visible){            
-            console.log(this.teamTurrets);
-            let bullet = this.teamTurrets.getMatching('id', data.idElemento)[0].bullets.getMatching('idBullet', data.idBala)[0];
-            bullet.setActive(false);
-            bullet.setVisible(false);
-            bullet.body.stop();
-        }
+    }
+
+    saveGameInServer() {
+        this.bootloaderScene.guardarPartida(this.gameId);
     }
 }
 
