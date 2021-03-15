@@ -627,7 +627,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 this.anims.play(this.prefix + 'Volar', true);
             }            
             if (this.hasBomb !== data.tieneBomba) { //cuidado capaz no sirve dentro de el if visible
-                this.dropBomb();
+                this.dropEnemyBomb(data);
             }
         }
         this.angle = data.angulo;
@@ -695,17 +695,25 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     dropEnemyBomb(data) {
+        console.log("llegó a dropenemybomb");
+        this.bomb.setActive(true);
+        console.log("active: " + this.bomb.active);
+        this.bomb.setVisible(true);
+        console.log("visible: " + this.bomb.visible);
         this.bomb.x = data.ejeX;
         this.bomb.y = data.ejeY;
         this.hasBomb = false;
-        this.bomb.active = true;
-        this.bomb.visible = true;
+        this.bomb.anims.play('bomba',true);
+        console.log("corrio animacion");
         this.scene.time.addEvent({
             delay: 1000,
             loop: false,
             callback: () => {
+                console.log("llegó al callback");
                 this.bomb.setVisible(false);
-                //this.bomb.setActive(false);
+                console.log("activeSalida: " + this.bomb.active);
+                this.bomb.setActive(false);
+                console.log("visibleSalida: " + this.bomb.visible);
             }
         });
     }
