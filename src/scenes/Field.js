@@ -55,7 +55,7 @@ class Field extends Phaser.Scene {
         //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');
         //this.load.multiatlas('animacionLateralVolar', 'assets/images/maps/animacionLateralVolar.json', 'assets/images/maps');        
         //this.load.image('base', 'assets/images/baseEquipo1-1.png');
-        //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png'); 
+        //this.load.image('base', 'assets/images/baseEquipo1-1sinborde.png');
         Airplane.preload(this);
         Turret.preload(this);
     }
@@ -173,16 +173,53 @@ class Field extends Phaser.Scene {
             this.airplanes[i].hpBar = new HealthBar(this, HealthBarX, HealthBarY, 0);
             this.airplanes[i].fuelBar = new HealthBar(this, HealthBarX, HealthBarY + 20, 1);
             this.airplanes[i].icon = this.add.image(HealthBarX - 25, HealthBarY + 18, 'others', 'vivo/' + texture + 'Vida.png');
+            this.airplanes[i].bombIcon = this.add.image(HealthBarX + 15, HealthBarY + 45, 'bombIcon');
             HealthBarY += 60;
         }        
 
+        //Botón para salir del juego
+        this.menuAbandonarAbierto = false;
 
+        this.abandonar = this.add.sprite(1257, 699, 'menu', 'botonSalir-1.png');
+        this.mensajeAbandonar = this.add.sprite(540, 360, 'menu', 'mensajeFinalizarPartida.png').setVisible(false);
+        this.abandonarSi = this.add.sprite(440, 520, 'menu', 'opcionSi-1.png').setVisible(false);
+        this.abandonarNo = this.add.sprite(640, 520, 'menu', 'opcionNo-1.png').setVisible(false);
 
-        this.exit = this.add.sprite(1257, 699, 'menu', 'botonSalir-1.png');
+        this.abandonar.setInteractive().on('pointerdown', ()=>{
+            if(this.menuAbandonarAbierto === false)
+            {
+                this.mensajeAbandonar.setVisible(true);
+                this.abandonarSi.setVisible(true);
+                this.abandonarNo.setVisible(true);
+                this.menuAbandonarAbierto = true;   
+            }
+            });
 
+        this.abandonarSi.setInteractive().on('pointerdown', ()=>{
+            if(this.menuAbandonarAbierto === true)
+            {
+                this.mensajeAbandonar.setVisible(false);
+                this.abandonarSi.setVisible(false);
+                this.abandonarNo.setVisible(false);
+                this.menuAbandonarAbierto = false; 
+                //AGREGAR CÓDIGO PARA ABANDONAR PARTIDA  
+                //¿explotar los 4 aviones del que se va?
+            }
+            });
+
+        this.abandonarNo.setInteractive().on('pointerdown', ()=>{
+            if(this.menuAbandonarAbierto === true)
+            {
+                this.mensajeAbandonar.setVisible(false);
+                this.abandonarSi.setVisible(false);
+                this.abandonarNo.setVisible(false);
+                this.menuAbandonarAbierto = false;   
+            }
+            });
+        
+        
+        
         this.cursors = this.input.keyboard.createCursorKeys();
-
-
         for (let i = 0; i < this.airplanesQuantity; i++) {
             this.assignAirplaneKeys(this.airplanes[i]);
         }

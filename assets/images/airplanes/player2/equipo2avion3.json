@@ -91,7 +91,7 @@
 					}
 				},
 				{
-					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion3DisminuirAltura-1.png","rotated": false,"trimmed": false,"sourceSize": {
+					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion3DisminuirAltura-3.png","rotated": false,"trimmed": false,"sourceSize": {
 						"w": 200,	"h": 400
 					},"spriteSourceSize": {
 						"x": 0,	"y": 0,	"w": 200,	"h": 400
@@ -127,7 +127,7 @@
 					}
 				},
 				{
-					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion3DisminuirAltura-3.png","rotated": false,"trimmed": false,"sourceSize": {
+					"filename": "vistaLateral/animacionDisminuirAltura/equipo2avion3DisminuirAltura-1.png","rotated": false,"trimmed": false,"sourceSize": {
 						"w": 200,	"h": 400
 					},"spriteSourceSize": {
 						"x": 0,	"y": 0,	"w": 200,	"h": 400

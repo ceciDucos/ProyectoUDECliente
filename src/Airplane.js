@@ -241,6 +241,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.fuel = 100;                        
                         this.scene.bootloaderScene.refuel(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
                         this.hasBomb = true;
+                        this.bombIcon.setVisible(true);
                         this.fuelBar.decrease(this.fuel);
                         /*this.estado--;
                         this.x = this.scene.teamBaseX + 35;
@@ -297,7 +298,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }
                     });
                 }
-                if (this.inputKeys.left.isDown) {
+                if (this.inputKeys.left.isDown && this.estado != 3) {
                     this.body.setAngularVelocity(-40);
                     this.on("animationcomplete", ()=>{
                         if (this.anims.currentAnim.key === this.prefix + 'Volar') {
@@ -360,7 +361,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }
                     }
                                   
-                } else if (this.inputKeys.right.isDown) {
+                } else if (this.inputKeys.right.isDown  && this.estado != 3) {
                     this.body.setAngularVelocity(40);
                     this.on("animationcomplete", ()=>{                         
                         if (this.anims.currentAnim.key === this.prefix + 'Volar') {
@@ -654,6 +655,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.bomb.x = this.x;
         this.bomb.y = this.y;
         this.hasBomb = false;
+        this.bombIcon.setVisible(false);
         this.bomb.anims.play('bomba',true);
         //this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
         if (this.estado === 1) {                     
