@@ -29,7 +29,9 @@ export default class Preloader extends Phaser.Scene
         this.load.multiatlas('menu', 'assets/images/menu/menu.json', 'assets/images/menu');
         this.load.image('fondoPrincipal', 'assets/images/menu/fondo-menu.png');
         this.load.audio('musicaPrincipal', ['assets/audio/cancionMenuPrincipal.ogg']);
+        
 
+        this.load.image('bombIcon', 'assets/images/others/bombaDisponible-1.png');
     }
 
     create ()

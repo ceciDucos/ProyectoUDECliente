@@ -241,6 +241,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.fuel = 100;                        
                         this.scene.bootloaderScene.refuel(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
                         this.hasBomb = true;
+                        this.bombIcon.setVisible(true);
                         this.fuelBar.decrease(this.fuel);
                         /*this.estado--;
                         this.x = this.scene.teamBaseX + 35;
@@ -297,7 +298,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }
                     });
                 }
-                if (this.inputKeys.left.isDown) {
+                if (this.inputKeys.left.isDown && this.estado != 3) {
                     this.body.setAngularVelocity(-40);
                     this.on("animationcomplete", ()=>{
                         if (this.anims.currentAnim.key === this.prefix + 'Volar') {
@@ -360,7 +361,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         }
                     }
                                   
-                } else if (this.inputKeys.right.isDown) {
+                } else if (this.inputKeys.right.isDown  && this.estado != 3) {
                     this.body.setAngularVelocity(40);
                     this.on("animationcomplete", ()=>{                         
                         if (this.anims.currentAnim.key === this.prefix + 'Volar') {
@@ -626,7 +627,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 this.anims.play(this.prefix + 'Volar', true);
             }            
             if (this.hasBomb !== data.tieneBomba) { //cuidado capaz no sirve dentro de el if visible
-                this.dropBomb();
+                this.dropEnemyBomb(data);
             }
         }
         this.angle = data.angulo;
@@ -654,6 +655,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.bomb.x = this.x;
         this.bomb.y = this.y;
         this.hasBomb = false;
+        this.bombIcon.setVisible(false);
         this.bomb.anims.play('bomba',true);
         //this.scene.lateral.anims.play(this.prefix + 'VueloAltoLanzarBomba', true);
         if (this.estado === 1) {                     
@@ -693,17 +695,25 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     dropEnemyBomb(data) {
+        console.log("llegó a dropenemybomb");
+        this.bomb.setActive(true);
+        console.log("active: " + this.bomb.active);
+        this.bomb.setVisible(true);
+        console.log("visible: " + this.bomb.visible);
         this.bomb.x = data.ejeX;
         this.bomb.y = data.ejeY;
         this.hasBomb = false;
-        this.bomb.active = true;
-        this.bomb.visible = true;
+        this.bomb.anims.play('bomba',true);
+        console.log("corrio animacion");
         this.scene.time.addEvent({
             delay: 1000,
             loop: false,
             callback: () => {
+                console.log("llegó al callback");
                 this.bomb.setVisible(false);
-                //this.bomb.setActive(false);
+                console.log("activeSalida: " + this.bomb.active);
+                this.bomb.setActive(false);
+                console.log("visibleSalida: " + this.bomb.visible);
             }
         });
     }
