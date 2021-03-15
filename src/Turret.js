@@ -142,9 +142,17 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
 
     destroyTurret(data) {        
         this.destroyed = data.destruida;
-        this.anims.play('artilleriaEplotar',true);
+        this.anims.play('artilleriaEplotar', true);
+        /*this.time.addEvent({
+            delay: 1000,
+            loop: false,
+            callback: () => {
+                this.visible = false;
+                this.active = false;;
+            }
+        });*/
         this.on("animationcomplete", ()=>{
-            this.visible = false;
+            //this.visible = false;
             this.active = false;
         });
     }

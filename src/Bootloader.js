@@ -53,11 +53,25 @@ class Bootloader extends Phaser.Scene {
 
         //this.musica = this.sound.add('musicaPrincipal');
         //this.musica.play();
-        var element = this.add.dom(640, 720).createFromCache('nameform');
+        this.element = this.add.dom(640, 720).createFromCache('nameform');
+        this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');
+        this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
+        this.btnCerrarAyuda = this.add.image(820, 580, 'menu', 'botonVolver-1.png');
+        this.showOptions();        
 
-        element.addListener('click');
+        
 
-        element.on('click', function (event) {
+        //this.element.addListener('click');
+    }
+
+    update(time, delta) {
+
+    }
+
+    showOptions() {
+        this.element.addListener('click');
+
+        this.element.on('click', function (event) {
 
             if (event.target.name === 'createButton')
             {
@@ -75,6 +89,7 @@ class Bootloader extends Phaser.Scene {
                     //  Hide the login element
                     this.setVisible(false);
                     //this.scene.h1.setVisible(false);
+                    this.scene.help.setVisible(false);
 
                     this.scene.crearPartidaEnEspera();
                     //var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
@@ -84,13 +99,13 @@ class Bootloader extends Phaser.Scene {
                 {
                     //  Flash the prompt
                     this.scene.tweens.add({
-                        targets: text,
+                        targets: this,
                         alpha: 0.2,
                         duration: 250,
                         ease: 'Power3',
                         yoyo: true
                     });
-                            }
+                }
             }
             else if (event.target.name === 'joinButton')
             {
@@ -108,6 +123,7 @@ class Bootloader extends Phaser.Scene {
                     //  Hide the login element
                     this.setVisible(false);
                     //this.scene.h1.setVisible(false);
+                    this.scene.help.setVisible(false);
 
                     this.scene.unirseAPartida();
                 }
@@ -115,40 +131,38 @@ class Bootloader extends Phaser.Scene {
                 {
                     //  Flash the prompt
                     this.scene.tweens.add({
-                        targets: text,
+                        targets: this,
                         alpha: 0.2,
                         duration: 250,
                         ease: 'Power3',
                         yoyo: true
                     });
-                            }
+                }
             }
 
         });
 
         this.tweens.add({
-            targets: element,
+            targets: this.element,
             y: 450,
             duration: 3000,
             ease: 'Power3'
         });
 
-        this.menuaAyudaAbierto = false;        
-        this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');
+        this.menuaAyudaAbierto = false;    
 
-        this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
         this.hojaAyuda.setVisible(false);
 
-        this.btnCerrarAyuda = this.add.image(820, 580, 'menu', 'botonVolver-1.png');
         this.btnCerrarAyuda.setVisible(false);
         
         this.help.setInteractive().on('pointerdown', ()=>{
             if(this.menuaAyudaAbierto === false)
             {
-                element.setVisible(false);
+                this.element.setVisible(false);
                 this.hojaAyuda.setVisible(true);
                 this.btnCerrarAyuda.setVisible(true);
-                this.menuaAyudaAbierto = true;    
+                this.menuaAyudaAbierto = true; 
+                this.help.setVisible(false);
             }
             });
 
@@ -158,15 +172,10 @@ class Bootloader extends Phaser.Scene {
                 this.hojaAyuda.setVisible(false);
                 this.btnCerrarAyuda.setVisible(false);
                 this.menuaAyudaAbierto = false;
-                element.setVisible(true);        
+                this.element.setVisible(true);
+                this.help.setVisible(true);     
             }
-            });
-
-        //element.addListener('click');
-    }
-
-    update(time, delta) {
-
+        });
     }
 
     pasarEscena() {
@@ -179,13 +188,13 @@ class Bootloader extends Phaser.Scene {
         /*this.scene.launch('SetBase', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});*/
         //this.musica.pause();
-        this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam });
+        this.scene.start('SetBase', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, turretQuantity: this.turretQuantity });
         this.setBaseScene = this.scene.get('SetBase');
     }
 
     crearPartidaEnEspera() {
         //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
-        var socket = new SockJS('http://127.0.0.1:8091/bombs-away');
+        var socket = new SockJS('http://bombs-away.servegame.com:8091/bombs-away');
         var self = this;
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
@@ -193,6 +202,8 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/user', function (greeting) {
                 var data = JSON.parse(greeting["body"]);
                 if (data.accion === 'Bootloader' && data.nombrePartida === self.gameId) {
+                    self.turretQuantity = data.maxArtilleria;
+                    self.waitingForOtherPlayer.setVisible(false);
                     self.pasarEscena();
                 }
             });
@@ -230,19 +241,27 @@ class Bootloader extends Phaser.Scene {
     }
 
     unirseAPartida() {
-        var socket = new SockJS('http://127.0.0.1:8091/bombs-away');
+        var socket = new SockJS('http://bombs-away.servegame.com:8091/bombs-away');
         var self = this;
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             //me subscribo al canal de datos
             stompClient.subscribe('/topic/user', function (greeting) {
                 var data = JSON.parse(greeting["body"]);
+                console.log(data);
+                console.log(data.nombrePartida);
                 if (data.accion === 'Bootloader') {
                     if (!self.gameStarted) {
                         self.gameId = data.nombrePartida;
+                        self.turretQuantity = data.maxArtilleria;
                         self.gameStarted = true;
-                        self.pasarEscena();    
+                        self.pasarEscena();
                     }
+                }
+                else if (data.nombrePartida !== null) {
+                    self.element.setVisible(true);
+                    self.help.setVisible(true);
+                    self.showOptions();
                 }
             });
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));

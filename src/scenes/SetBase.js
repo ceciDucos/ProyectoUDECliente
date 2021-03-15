@@ -7,6 +7,7 @@ class SetBase extends Phaser.Scene {
         this.gameId = data.gameId;
         this.team = data.team;
         this.enemyTeam = data.enemyTeam;
+        this.turretQuantity = data.turretQuantity;
     }
 
     preload() {        
@@ -65,11 +66,12 @@ class SetBase extends Phaser.Scene {
             this.enemyHangarY = data[i]. hangarEjeY;
             /*this.scene.start('SetTurrets', { team: this.data.team, gameId: this.data.gameId, enemyTeam: this.data.enemyTeam, 
                 teamBaseX: this.data.teamBaseX, teamBaseY: this.data.teamBaseY, enemyBaseX: this.data.enemyBaseX, enemyBaseY: this.data.enemyBaseY, mapGrid: this.mapGrid});*/
-            this.scene.start('SetTurrets', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
-                mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX,
-                teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY,
-                enemyControlTowerX: this.enemyControlTowerX, enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY,
-                enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY});
+            this.scene.start('SetTurrets', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, turretQuantity: this.turretQuantity, 
+                teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY, mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, 
+                teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX, teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, 
+                teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY, enemyControlTowerX: this.enemyControlTowerX, 
+                enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY, enemyHangarX: this.enemyHangarX,
+                enemyHangarY: this.enemyHangarY});
             this.bootloaderScene.setTurretsScene = this.scene.get('SetTurrets');
             //console.log(this.data);
             //this.bootloaderScene.fieldScene = this.scene.get('Field');
