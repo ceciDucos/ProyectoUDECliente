@@ -47,6 +47,7 @@ class GameOver extends Phaser.Scene {
         }
         this.mainMenu = this.add.sprite(540, 510, 'menu', 'botones/volver/btn-volver.png')
         this.mainMenu.setInteractive().on('pointerdown', this.pasarEscena, this);
+        stompClient.disconnect();
         //this.entrarjuego = this.add.text(400, 10, 'Menu principal', { fill: '#0f0' });
         //this.entrarjuego.setInteractive().on('pointerdown', this.pasarEscena, this);
 

@@ -8,6 +8,7 @@ class SetTurrets extends Phaser.Scene {
         this.gameId = data.gameId;
         this.team = data.team;
         this.enemyTeam = data.enemyTeam;
+        this.turretQuantity = data.turretQuantity;
         this.teamBaseX = data.teamBaseX;
         this.teamBaseY = data.teamBaseY;
         this.mapGrid = data.mapGrid;
@@ -59,7 +60,7 @@ class SetTurrets extends Phaser.Scene {
             this.base.setAngle(180);
         }*/
 
-        this.turrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
+        this.turrets = this.add.group({ classType: Turret, maxSize: this.turretQuantity, runChildUpdate: true });
         this.input.on('pointerdown', this.placeTurret, this);   //Hay que ver como hacer el loop de las 11 torretas con el evento del puntero para luego pasar a la escena Field. No hacerlo en el placeTurret porque es un solo evento de click
         if(this.team === 1)
         {
@@ -71,9 +72,9 @@ class SetTurrets extends Phaser.Scene {
     }
 
     update(time, delta) {
-        /*if (this.turretCount === 11) {
-            this.pasarEscena();
-        }*/
+        if (this.turretCount === 11) {
+            this.input.off('pointerdown', this.placeTurret, this);
+        }
     }
 
     pasarEscena(data) {

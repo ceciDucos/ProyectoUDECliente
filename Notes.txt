@@ -1,10 +1,10 @@
-aparecen idbalas random como 38
-le falta la "l" a "lateral" en el atlas de animacion de "equipo1avion1VueloAltoLateraExplotar"
 hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos.
 controlar que los elementos de la base no esten destruidos cuando recargo balas, combustible o aterrizo
 la base se muestra cuando hay un avion cerca, pero el avion no se muestra cuando esta cerca de la base
-ver si no tenemos problemas por poner en la foto del menu principal la "E" de apto para todo publico sin tener la aprobacion
+
 si el enemigo tira una bomba, se reproduce la animacion en mi lateral
+manejar la cantidad de torretas
+controlar que el unirse a partida no se rompa si no hay ninguna partida creada
 
 
 sonidos:
@@ -16,6 +16,7 @@ sonidos:
 
 pronto---que las torretas solo disparen a aviones enemigos
 pronto---colocar torretas en tu propio campo y no siempre en el campo del jugador 1
+pronto---ver si no tenemos problemas por poner en la foto del menu principal la "E" de apto para todo publico sin tener la aprobacion
 
 rango del hangar
 + 35x
