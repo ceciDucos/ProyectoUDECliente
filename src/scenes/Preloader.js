@@ -32,6 +32,9 @@ export default class Preloader extends Phaser.Scene
         
 
         this.load.image('bombIcon', 'assets/images/others/bombaDisponible-1.png');
+
+        this.load.image('botonGuardar', 'assets/images/menu/botonGuardar-1.png');
+        this.load.image('mensajeGuardar', 'assets/images/menu/mensajePartidaGuardada.png');
     }
 
     create ()

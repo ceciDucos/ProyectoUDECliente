@@ -152,7 +152,7 @@ class Field extends Phaser.Scene {
         let texture;
         let enemyTexture;
         let HealthBarX = 1150;
-        let HealthBarY = 450;
+        let HealthBarY = 425;
         for (let i = 0; i < this.airplanesQuantity; i++) {
             let number;
             if (i < 4) {
@@ -213,8 +213,9 @@ class Field extends Phaser.Scene {
                 this.abandonarSi.setVisible(false);
                 this.abandonarNo.setVisible(false);
                 this.menuAbandonarAbierto = false; 
-                //AGREGAR CÓDIGO PARA ABANDONAR PARTIDA  
-                //¿explotar los 4 aviones del que se va?
+                //
+                //      AGREGAR CÓDIGO PARA ABANDONAR PARTIDA  
+                //      ¿explotar los 4 aviones del que se va?
             }
             });
 
@@ -229,7 +230,31 @@ class Field extends Phaser.Scene {
             });
         
         
-        
+        //Botón para guardar el juego
+        this.guardar = this.add.sprite(1200, 699, 'botonGuardar');
+        this.mensajeGuardar = this.add.sprite(540, 360, 'mensajeGuardar').setVisible(false);
+        this.guardar.setInteractive().on('pointerdown', ()=>{
+            if(this.menuAbandonarAbierto === false)
+            {
+                this.menuAbandonarAbierto = true;
+                this.mensajeGuardar.setVisible(true);
+                //
+                this.saveGameInServer();
+                //
+                this.time.addEvent({
+                    delay: 2000,
+                    loop: false,
+                    callback: () => {
+                        this.mensajeGuardar.setVisible(false);
+                        this.menuAbandonarAbierto = false;
+                    }
+                });
+                
+            }
+            });
+
+        // fin boton guardar el juego
+
         this.cursors = this.input.keyboard.createCursorKeys();
         for (let i = 0; i < this.airplanesQuantity; i++) {
             this.assignAirplaneKeys(this.airplanes[i]);
@@ -257,8 +282,6 @@ class Field extends Phaser.Scene {
         });
         this.gameReady = true;
 
-        this.saveGame = this.add.text(1150, 700, 'Guardar', { fill: '#0f0' });
-        this.saveGame.setInteractive().on('pointerdown', this.saveGameInServer, this);
     }
 
     update(time, delta) {
