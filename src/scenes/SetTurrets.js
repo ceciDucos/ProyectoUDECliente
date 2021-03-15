@@ -77,23 +77,25 @@ class SetTurrets extends Phaser.Scene {
     }
 
     pasarEscena(data) {
-        if (this.team === data[0][0].idJugador) {
-            this.teamTurrets = data[0];
-            this.enemyTurrets = data[1];
+        if (data[0][0].nombrePartida === this.gameId) {
+            if (this.team === data[0][0].idJugador) {
+                this.teamTurrets = data[0];
+                this.enemyTurrets = data[1];
+            }
+            else {
+                this.teamTurrets = data[1];
+                this.enemyTurrets = data[0];
+            }
+            //this.scene.start('Field', this.data);
+            this.scene.start('Field', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
+                mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX,
+                teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY,
+                enemyControlTowerX: this.enemyControlTowerX, enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY,
+                enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY, teamTurrets: this.teamTurrets, enemyTurrets: this.enemyTurrets});
+            this.bootloaderScene.fieldScene = this.scene.get('Field');
+            
+            //this.scene.boo.fieldScene = this.scene.get('SetBase');
         }
-        else {
-            this.teamTurrets = data[1];
-            this.enemyTurrets = data[0];
-        }
-        //this.scene.start('Field', this.data);
-        this.scene.start('Field', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
-            mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX,
-            teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY,
-            enemyControlTowerX: this.enemyControlTowerX, enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY,
-            enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY, teamTurrets: this.teamTurrets, enemyTurrets: this.enemyTurrets});
-        this.bootloaderScene.fieldScene = this.scene.get('Field');
-        
-        //this.scene.boo.fieldScene = this.scene.get('SetBase');
     }
 
     drawGrid1(graphics) {

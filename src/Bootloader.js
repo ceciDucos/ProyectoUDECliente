@@ -17,6 +17,7 @@ class Bootloader extends Phaser.Scene {
         this.enemyBaseX;
         this.enemyBaseY;
         this.stompClient = null;
+        this.gameStarted = false;
         
         
         
@@ -97,7 +98,6 @@ class Bootloader extends Phaser.Scene {
             {
                 var playerNameInput = this.getChildByName('nameField');
                 var gameIdInput = this.getChildByName('gameIdField');
-                console.log(gameIdInput);
 
                 //  Have they entered anything?
                 if (playerNameInput.value !== '')
@@ -172,7 +172,6 @@ class Bootloader extends Phaser.Scene {
     }
 
     pasarEscena() {
-        console.log('volvio a entrar al juego');
         /*this.scene.launch('Field', { team: this.team, gameId: this.gameId, enemyTeam: this.enemyTeam, teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY,
             enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY});
         this.fieldScene = this.scene.get('Field');*/
@@ -213,6 +212,7 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-torre', (greeting) => self.fieldScene.updateControlTowerBullet(JSON.parse(greeting["body"])));
             //solicito la creacion de una nueva partida
             stompClient.send("/app/nueva-partida", {}, JSON.stringify({
                 //'nombrePartida': 'PartidaPrueba',
@@ -224,6 +224,7 @@ class Bootloader extends Phaser.Scene {
         this.team = 1;
         //this.gameId = 'PartidaPrueba';
         this.enemyTeam = 2;
+        this.gameStarted = true;
         //this.teamBaseX = 540;
         //this.teamBaseY = 50;
         //this.enemyBaseX = 540;
@@ -239,8 +240,13 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/user', function (greeting) {
                 var data = JSON.parse(greeting["body"]);
                 if (data.accion === 'Bootloader') {
-                    self.gameId = data.nombrePartida;
-                    self.pasarEscena();
+                    if (!self.gameStarted) {
+                        console.log('antes de pasar escena');
+                        console.log(this);
+                        self.gameId = data.nombrePartida;
+                        self.gameStarted = true;
+                        self.pasarEscena();    
+                    }
                 }
             });
             //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
@@ -257,6 +263,8 @@ class Bootloader extends Phaser.Scene {
             stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
             stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-torre', (greeting) => self.fieldScene.updateControlTowerBullet(JSON.parse(greeting["body"])));
+            
             //solicito unirme a una partida
             stompClient.send("/app/unirse-a-partida", {}, JSON.stringify({
                 //'nombreJugador': 'Ceci',
@@ -394,16 +402,6 @@ class Bootloader extends Phaser.Scene {
             'angulo': angle,
             'visible': visible,
         }));
-        console.log('envio primer disparo torreta');
-        console.log(gameId);
-        console.log(team);
-        console.log(turretID);
-        console.log(idBullet);
-        console.log(estadoAvion);
-        console.log(x);
-        console.log(y);
-        console.log(angle);
-        console.log(visible);
     }
 
     moverBalaTorreta(gameId, team, turretID, idBullet, estadoAvion, x, y, angle, visible) {
@@ -417,17 +415,39 @@ class Bootloader extends Phaser.Scene {
             'ejeY': y,
             'angulo': angle,
             'visible': visible,
-        }));        
-        console.log('mueve bala torreta');
-        console.log(gameId);
-        console.log(team);
-        console.log(turretID);
-        console.log(idBullet);
-        console.log(estadoAvion);
-        console.log(x);
-        console.log(y);
-        console.log(angle);
-        console.log(visible);
+        }));
+    }
+
+    dispararBalaControlTower(gameId, team, turretID, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/primer-disparo-torre", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idElemento': turretID,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        }));
+    }
+
+    moverBalaControlTower(gameId, team, turretID, idBullet, estadoAvion, x, y, angle, visible) {
+        stompClient.send("/app/disparo-bala-torre", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+            'idElemento': turretID,
+            'idBala': idBullet,
+            'altitud': estadoAvion,
+            'ejeX': x,
+            'ejeY': y,
+            'angulo': angle,
+            'visible': visible,
+        }));
+    }
+
+    guardarPartida(gameId) {
+        stompClient.send("/app/guardar-partida", {}, gameId);
     }
 
 }

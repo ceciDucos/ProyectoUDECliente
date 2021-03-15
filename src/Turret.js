@@ -105,7 +105,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
 
     fire() {
         if (this.team === this.scene.team) {
-            let enemy = this.getEnemy(this.x, this.y, 100);
+            let enemy = this.getEnemy(this.x, this.y, 127);
             if (enemy) {
                 let angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y);
 
