@@ -29,7 +29,6 @@ export default class Preloader extends Phaser.Scene
         this.load.multiatlas('menu', 'assets/images/menu/menu.json', 'assets/images/menu');
         this.load.image('fondoPrincipal', 'assets/images/menu/fondo-menu.png');
         this.load.audio('musicaPrincipal', ['assets/audio/cancionMenuPrincipal.ogg']);
-        
 
         this.load.image('bombIcon', 'assets/images/others/bombaDisponible-1.png');
 
@@ -2402,8 +2401,37 @@ this.frameNames = this.anims.generateFrameNames('equipo2avion4', {
 this.anims.create({ key: 'equipo2avion4VolarBajoLateralVolarConPocaVida', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///                                                   Animaciones laterales de sobrevuelo                                                    ///
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Pasar por arriba de una artillería en vuelo bajo
+this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+    start: 1, end: 8, zeroPad: 1,
+    prefix: 'pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-', suffix: '.png'
+});
+this.anims.create({ key: 'sobrevuelaArtilleriaBajo', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
+//Pasar por arriba de una artillería en vuelo alto
+this.frameNames = this.anims.generateFrameNames('equipo1avion1', {
+    start: 1, end: 8, zeroPad: 1,
+    prefix: 'pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-', suffix: '.png'
+});
+this.anims.create({ key: 'sobrevuelaArtilleriaAlto', frames: this.frameNames, frameRate: 24, repeat: 0 });
 
+//Pasar por arriba de la base en vuelo bajo
+this.frameNames = this.anims.generateFrameNames('others', {
+    start: 1, end: 8, zeroPad: 1,
+    prefix: 'pasarSobreBaseVueloBajo/animacionSobreBaseVueloBajo-', suffix: '.png'
+});
+this.anims.create({ key: 'sobrevuelaBaseBajo', frames: this.frameNames, frameRate: 24, repeat: 0 });
+
+//Pasar por arriba de la base en vuelo alto
+this.frameNames = this.anims.generateFrameNames('others', {
+    start: 1, end: 8, zeroPad: 1,
+    prefix: 'pasarSobreBaseVueloAlto/animacionSobreBaseVueloAlto-', suffix: '.png'
+});
+this.anims.create({ key: 'sobrevuelaBaseAlto', frames: this.frameNames, frameRate: 24, repeat: 0 });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         this.scene.start('Bootloader');
         /*this.loading.once('pointerdown', () => {
             this.scene.start('Bootloader');
