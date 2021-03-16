@@ -51,8 +51,9 @@ class Bootloader extends Phaser.Scene {
             yoyo: true
         });*/
 
-        //this.musica = this.sound.add('musicaPrincipal');
-        //this.musica.play();
+        this.musica = this.sound.add('musicaPrincipal');
+        this.musica.play();
+    
         this.element = this.add.dom(640, 720).createFromCache('nameform');
         this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');
         this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
@@ -95,16 +96,21 @@ class Bootloader extends Phaser.Scene {
                     this.scene.crearPartidaEnEspera();
                     //var text = this.scene.add.text(640, 360, 'Esperando por un rival', { color: 'white', fontSize: '20px '});
                     this.scene.waitingForOtherPlayer =  this.scene.add.image(640, 360, 'menu', 'mensajeAguardarContrincante/aguardarContrincante.png');
+                    this.scene.musica.stop();
+                    
                 }
                 else
                 {
+                    this.removeListener('click');
                     //  Flash the prompt
                     this.scene.tweens.add({
                         targets: this,
                         alpha: 0.2,
                         duration: 250,
                         ease: 'Power3',
-                        yoyo: true
+                        yoyo: true,
+                        onComplete: ()=>{this.scene.element.addListener('click');}
+                        
                     });
                     this.scene.mensajeError.x=480;
                     this.scene.mensajeError.setText('Los campos de Jugador y Partida son obligatorios');                    
@@ -129,17 +135,20 @@ class Bootloader extends Phaser.Scene {
                     //this.scene.h1.setVisible(false);
                     this.scene.help.setVisible(false);
 
+                    this.scene.musica.stop();
                     this.scene.unirseAPartida();
                 }
                 else
                 {
+                    this.removeListener('click');
                     //  Flash the prompt
                     this.scene.tweens.add({
                         targets: this,
                         alpha: 0.2,
                         duration: 250,
                         ease: 'Power3',
-                        yoyo: true
+                        yoyo: true,
+                        onComplete: ()=>{this.scene.element.addListener('click');}
                     });
                     this.scene.mensajeError.x=550;
                     this.scene.mensajeError.setText('El campo Jugador es obligatorio');  
@@ -157,16 +166,19 @@ class Bootloader extends Phaser.Scene {
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
                     //CODIGO PARA CARGAR PARTIDA
+                    this.scene.musica.stop();
                 }
                 else
                 {
+                    this.removeListener('click');
                     //  Flash the prompt
                     this.scene.tweens.add({
                         targets: this,
                         alpha: 0.2,
                         duration: 250,
                         ease: 'Power3',
-                        yoyo: true
+                        yoyo: true,
+                        onComplete: ()=>{this.scene.element.addListener('click');}
                     });
                     this.scene.mensajeError.x=480;
                     this.scene.mensajeError.setText('Los campos de Jugador y Partida son obligatorios');  

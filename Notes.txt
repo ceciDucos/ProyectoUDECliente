@@ -4,6 +4,7 @@ Back:
 	hay una falla que algunos de los aviones destruiodos reaparecen un rato despues de ser destruidos. (dificil de reproducir)
 	devolución de crear partida esta mal (topic.user)
 	nos llega las muertes de los aviones más de una vez
+	Las balas mias que disparo las ve el enemigo
 
 Front:
 	teclado wasd deja de funcionar al reiniciar la partida
