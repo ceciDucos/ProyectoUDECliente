@@ -52,7 +52,7 @@ class Bootloader extends Phaser.Scene {
         });*/
 
         this.musica = this.sound.add('musicaPrincipal');
-        this.musica.play();
+        //this.musica.play();
     
         this.element = this.add.dom(640, 720).createFromCache('nameform');
         this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');

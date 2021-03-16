@@ -88,19 +88,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     this.anims.play(this.prefix + 'Volar', true);
                 }                
             });
-            if (time > this.lastCheckOverItem) {
-                let overItem = false;
-                let i = 0;
-                let turretsChildren = this.scene.teamTurrets.getChildren();
-                while (!overItem && i < this.scene.turretQuantity) {
-                    if (this.x < turretsChildren[i].x + 10 && this.x > turretsChildren[i].x - 10 && this.y < turretsChildren[i].y + 10 && this.y > turretsChildren[i].y - 10) {
-                        this.scene.subLateral.anims.play('sobrevuelaArtilleriaBajo', true);
-                        overItem = true;
-                    }
-                    i++;
-                }
-                this.lastCheckOverItem = time + 1000;
-            }
+            
             /*if (this.selected && this.estado !== 3) {                
                 this.scene.lateral.on("animationcomplete", ()=>{  
                     this.scene.lateral.anims.play('equipo1avion1VolarBajoLateralVolar');
@@ -125,6 +113,8 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     this.anims.play(this.prefix + 'Volar', true);
                 }
             });
+
+            
             /*if (this.selected && this.estado !== 3) { 
                 this.scene.lateral.on("animationcomplete", ()=>{  
                     this.scene.lateral.anims.play('equipo1avion1VueloAltoLateralVolar');
@@ -293,6 +283,75 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                     });                
                 }
                 else {
+                    let baseTime = 0;
+                    if (this.estado === 1) {
+                        if (time > this.lastCheckOverItem && this.team === this.scene.team) {
+                            let overItem = false;
+                            let i = 0;
+                            let turretsChildren = this.scene.teamTurrets.getChildren();
+                            let turretsChildren2 = this.scene.enemyTurrets.getChildren();
+                            while (!overItem && i < this.scene.turretQuantity) {
+                                if ((this.x < turretsChildren[i].x + 20 && this.x > turretsChildren[i].x - 20 && this.y < turretsChildren[i].y + 20 && 
+                                    this.y > turretsChildren[i].y - 20) || (this.x < turretsChildren2[i].x + 20 && this.x > turretsChildren2[i].x - 20 && 
+                                    this.y < turretsChildren2[i].y + 20 && this.y > turretsChildren2[i].y - 20)) {
+                                    this.scene.subLateral.anims.play('sobrevuelaArtilleriaBajo', true);
+                                    overItem = true;
+                                }
+                                i++;
+                            }
+                            if (this.x < this.scene.teamBaseX + 70 && this.x > this.scene.teamBaseX - 70 && this.y < this.scene.teamBaseY + 60 && 
+                                this.y > this.scene.teamBaseY - 60 && !overItem) {
+                                    if (this.scene.lateral.anims.currentAnim !== null && this.scene.lateral.anims.currentAnim.key !== this.prefix + 'LateralDespegar' && 
+                                        this.scene.lateral.anims.currentAnim.key !==this.prefix + 'LateralDespegarConPocaVida' && 
+                                        this.scene.lateral.anims.currentAnim.key !== this.prefix + 'LateralAterrizar' && 
+                                        this.scene.lateral.anims.currentAnim.key !==this.prefix + 'LateralAterrizarConPocaVida')
+                                            this.scene.subLateral.anims.play('sobrevuelaBaseBajo', true);
+                                            overItem = true;
+                                            baseTime = 1500;
+                            }
+                            if (this.x < this.scene.enemyBaseX + 70 && this.x > this.scene.enemyBaseX - 70 && this.y < this.scene.enemyBaseY + 60 && 
+                                this.y > this.scene.enemyBaseY - 60 && !overItem) {
+                                    this.scene.subLateral.anims.play('sobrevuelaBaseBajo', true);
+                                    overItem = true;
+                                    baseTime = 1500;
+                            }
+                            this.lastCheckOverItem = time + 500 + baseTime;
+                        }
+                    }
+                    else {
+                        if (time > this.lastCheckOverItem && this.team === this.scene.team) {
+                            let overItem = false;
+                            let i = 0;
+                            let turretsChildren = this.scene.teamTurrets.getChildren();
+                            let turretsChildren2 = this.scene.enemyTurrets.getChildren();
+                            while (!overItem && i < this.scene.turretQuantity) {
+                                if ((this.x < turretsChildren[i].x + 20 && this.x > turretsChildren[i].x - 20 && this.y < turretsChildren[i].y + 20 && 
+                                    this.y > turretsChildren[i].y - 20) || (this.x < turretsChildren2[i].x + 20 && this.x > turretsChildren2[i].x - 20 && 
+                                    this.y < turretsChildren2[i].y + 20 && this.y > turretsChildren2[i].y - 20)) {
+                                        this.scene.subLateral.anims.play('sobrevuelaArtilleriaAlto', true);
+                                        overItem = true;
+                                }
+                                i++;
+                            }
+                            if (this.x < this.scene.teamBaseX + 70 && this.x > this.scene.teamBaseX - 70 && this.y < this.scene.teamBaseY + 60 && 
+                                this.y > this.scene.teamBaseY - 60 && !overItem) {
+                                    if (this.scene.lateral.anims.currentAnim !== null && this.scene.lateral.anims.currentAnim.key !== this.prefix + 'LateralDespegar' && 
+                                        this.scene.lateral.anims.currentAnim.key !==this.prefix + 'LateralDespegarConPocaVida' && 
+                                        this.scene.lateral.anims.currentAnim.key !== this.prefix + 'LateralAterrizar' && 
+                                        this.scene.lateral.anims.currentAnim.key !==this.prefix + 'LateralAterrizarConPocaVida')
+                                            this.scene.subLateral.anims.play('sobrevuelaBaseAlto', true);
+                                            overItem = true;
+                                            baseTime = 1500;
+                            }
+                            if (this.x < this.scene.enemyBaseX + 70 && this.x > this.scene.enemyBaseX - 70 && this.y < this.scene.enemyBaseY + 60 && 
+                                this.y > this.scene.enemyBaseY - 60 && !overItem) {
+                                    this.scene.subLateral.anims.play('sobrevuelaBaseAlto', true);
+                                    overItem = true;
+                                    baseTime = 1500;
+                            }
+                            this.lastCheckOverItem = time + 500 + baseTime;
+                        }
+                    }
                     this.scene.lateral.on("animationcomplete", ()=>{  
                         if (this.estado === 1) {
                             if (this.life < 30) {
