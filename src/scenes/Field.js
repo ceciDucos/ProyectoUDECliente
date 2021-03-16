@@ -144,7 +144,7 @@ class Field extends Phaser.Scene {
         this.airplanesQuantity = 4; //limitar a 8 el parametro de entrada     
         this.lateral = this.add.sprite(1181, 195, 'vistaLateral');
         this.lateral.setDepth(3);
-        this.subLateral = this.add.sprite(1181, 300, 'others', 'pasarSobreTorretaVueloAlto/animacionSobreTorretaVueloAlto-8.png');
+        this.subLateral = this.add.sprite(1181, 300, 'others', 'pasarSobreTorretaVueloBajo/animacionSobreTorretaVueloBajo-8.png');
         this.subLateral.setDepth(4);
         
 
