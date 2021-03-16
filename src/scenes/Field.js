@@ -12,6 +12,7 @@ class Field extends Phaser.Scene {
         this.gameId = data.gameId;
         this.team = data.team;
         this.enemyTeam = data.enemyTeam;
+        this.turretQuantity = data.turretQuantity;
         this.teamBaseX = data.teamBaseX;
         this.teamBaseY = data.teamBaseY;
         this.mapGrid = data.mapGrid;
@@ -130,8 +131,8 @@ class Field extends Phaser.Scene {
         }
 
 
-        this.teamTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
-        this.enemyTurrets = this.add.group({ classType: Turret, maxSize: 11, runChildUpdate: true });
+        this.teamTurrets = this.add.group({ classType: Turret, maxSize: this.turretQuantity, runChildUpdate: true });
+        this.enemyTurrets = this.add.group({ classType: Turret, maxSize: this.turretQuantity, runChildUpdate: true });
 
         this.placeTurrets(this.teamTurrets, this.teamTurretsInfo);
         

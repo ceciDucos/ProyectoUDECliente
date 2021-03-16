@@ -62,7 +62,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         if (this.estado !== 0 && this.estado !== 3) {
             if (this.team === this.scene.team && time > this.lastUpdated) {
                 this.scene.bootloaderScene.moverAvion(this.scene.gameId, this.scene.team,this.x,this.y,this.angle, this.planeNumber, this.estado, this.life, this.fuel, this.hasBomb, this.visible);
-                this.lastUpdated = time + 20; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+                this.lastUpdated = time + 40; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
             }
 
             /*let planeMatches = false;
@@ -566,7 +566,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     moveEnemyAirplane(data) {   //hacer un if grande en el update de avion para lo que este afuera del if de selected no corra animaciones (o nada) del avion enemigo        
-        let animName;    
+        let animName;
         this.x = data.ejeX;
         this.y = data.ejeY;
         animName = this.selectAnimation(data.idJugador);
