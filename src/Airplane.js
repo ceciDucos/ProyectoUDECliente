@@ -45,6 +45,7 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         this.lastFired = 0;
         this.lastChargeFuel = 0;
         this.lastUpdated = 0;
+        this.lastCheckOverItem = 0;
         this.nextInputAvailable = true;
         //this.setInteractive().on('pointerdown', this.selectAirplaneByClick, this);        
     }
@@ -86,7 +87,20 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                 else {
                     this.anims.play(this.prefix + 'Volar', true);
                 }                
-            });      
+            });
+            if (time > this.lastCheckOverItem) {
+                let overItem = false;
+                let i = 0;
+                let turretsChildren = this.scene.teamTurrets.getChildren();
+                while (!overItem && i < this.scene.turretQuantity) {
+                    if (this.x < turretsChildren[i].x + 10 && this.x > turretsChildren[i].x - 10 && this.y < turretsChildren[i].y + 10 && this.y > turretsChildren[i].y - 10) {
+                        this.scene.subLateral.anims.play('sobrevuelaArtilleriaBajo', true);
+                        overItem = true;
+                    }
+                    i++;
+                }
+                this.lastCheckOverItem = time + 1000;
+            }
             /*if (this.selected && this.estado !== 3) {                
                 this.scene.lateral.on("animationcomplete", ()=>{  
                     this.scene.lateral.anims.play('equipo1avion1VolarBajoLateralVolar');
@@ -565,34 +579,14 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         return animName;
     }
 
-    moveEnemyAirplane(data) {   //hacer un if grande en el update de avion para lo que este afuera del if de selected no corra animaciones (o nada) del avion enemigo        
-        let animName;
+    moveEnemyAirplane(data) {   //hacer un if grande en el update de avion para lo que este afuera del if de selected no corra animaciones (o nada) del avion enemigo
         this.x = data.ejeX;
         this.y = data.ejeY;
-        animName = this.selectAnimation(data.idJugador);
+        if (this.estado === 0 && data.estado === 1) {       // ver si podemos no enviar info de avion enemigo desde el back cuando no es visible
+            this.anims.play(this.prefix + 'Despegar', true);
+        }
         if (this.visible) { //Todas las animaciones metidas dentro del visible, si no es visible no hace falta correrlas
-            if (this.estado === 0 && data.estado === 1) {       // ver si podemos no enviar info de avion enemigo desde el back cuando no es visible
-                this.anims.play(this.prefix + 'Despegar', true);
-            }
             if (this.angle > data.angulo) {
-                /*this.on("animationcomplete", ()=>{                         
-                    if (this.anims.currentAnim.key === this.prefix + 'Volar') {
-                        if (this.life < 30) {
-                            this.anims.play(this.prefix + 'DoblarIzquierdaConPocaVida', true);
-                        }
-                        else {
-                            this.anims.play(this.prefix + '', true);
-                        }    
-                    }
-                    else {
-                        if (this.life < 30) {
-                            this.anims.play(this.prefix + 'DoblarIzquierdaConPocaVida');
-                        }
-                        else {
-                            this.anims.play(this.prefix + 'DoblarIzquierda');
-                        }
-                    }
-                });*/
                 this.on("animationcomplete", ()=>{ 
                     if (this.life < 30) {
                         this.anims.play(this.prefix + 'DoblarIzquierdaConPocaVida');
@@ -601,11 +595,16 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         this.anims.play(this.prefix + 'DoblarIzquierda');
                     }
                 });
-                //this.anims.play(animName, true); animaciones para doblar
             }
             else if (this.angle < data.angulo) {
-                this.on("animationcomplete", ()=>{                         
-                    if (this.anims.currentAnim.key === this.prefix + 'Volar') { 
+                this.on("animationcomplete", ()=>{  
+                    if (this.life < 30) {
+                        this.anims.play(this.prefix + 'DoblarDerechaConPocaVida');
+                    }
+                    else {
+                        this.anims.play(this.prefix + 'DoblarDerecha');
+                    }                       
+                    /*if (this.anims.currentAnim.key === this.prefix + 'Volar') { 
                         if (this.life < 30) {
                             this.anims.play(this.prefix + 'DoblarDerechaConPocaVida', true);
                         }
@@ -620,11 +619,16 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                         else {
                             this.anims.play(this.prefix + 'DoblarDerecha');
                         }
-                    }
+                    }*/
                 });
             }
-            else {              
-                this.anims.play(this.prefix + 'Volar', true);
+            else {     
+                if (this.life < 30) {
+                    this.anims.play(this.prefix + 'VolarConPocaVida', true);
+                }
+                else {
+                    this.anims.play(this.prefix + 'Volar', true);
+                }
             }            
             if (this.hasBomb !== data.tieneBomba) { //cuidado capaz no sirve dentro de el if visible
                 this.dropEnemyBomb(data);
@@ -695,25 +699,18 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     dropEnemyBomb(data) {
-        console.log("llegó a dropenemybomb");
-        this.bomb.setActive(true);
-        console.log("active: " + this.bomb.active);
+        //this.bomb.setActive(true);
         this.bomb.setVisible(true);
-        console.log("visible: " + this.bomb.visible);
         this.bomb.x = data.ejeX;
         this.bomb.y = data.ejeY;
         this.hasBomb = false;
         this.bomb.anims.play('bomba',true);
-        console.log("corrio animacion");
         this.scene.time.addEvent({
             delay: 1000,
             loop: false,
             callback: () => {
-                console.log("llegó al callback");
                 this.bomb.setVisible(false);
-                console.log("activeSalida: " + this.bomb.active);
-                this.bomb.setActive(false);
-                console.log("visibleSalida: " + this.bomb.visible);
+                //this.bomb.setActive(false);
             }
         });
     }
@@ -756,12 +753,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
             this.life = 0;
             this.fuel = 0;
             this.estado = 3;
+            if (this.team === this.scene.team) {
+                this.icon.setTexture('others', 'muerto/' + this.prefix + 'Muerto.png');
+            }
             this.on("animationcomplete", ()=>{                
                 this.visible = false;
                 this.active = false;
-                if (this.team === this.scene.team) {
-                    this.icon.setTexture('others', 'muerto/' + this.prefix + 'Muerto.png');
-                }
             });
         }
     }
@@ -801,7 +798,19 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
     }
 
     visibleEnemyAirplane(visible) {
-        this.visible = visible;
+        if (this.anims.currentAnim !== null) {
+            if (this.anims.currentAnim.key === this.prefix + 'Explotar') {
+                this.once("animationcomplete", ()=>{ 
+                    this.visible = visible;
+                });
+            }
+            else {
+                this.visible = visible;
+            }
+        }
+        else {
+            this.visible = visible;
+        }
     }
 
     manageFuel(fuel) {

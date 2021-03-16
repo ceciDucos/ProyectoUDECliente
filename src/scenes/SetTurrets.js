@@ -92,7 +92,8 @@ class SetTurrets extends Phaser.Scene {
                 mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX,
                 teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, teamHangarY: this.teamHangarY, enemyBaseX: this.enemyBaseX, enemyBaseY: this.enemyBaseY,
                 enemyControlTowerX: this.enemyControlTowerX, enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY,
-                enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY, teamTurrets: this.teamTurrets, enemyTurrets: this.enemyTurrets});
+                enemyHangarX: this.enemyHangarX, enemyHangarY: this.enemyHangarY, teamTurrets: this.teamTurrets, enemyTurrets: this.enemyTurrets,
+                turretQuantity: this.turretQuantity});
             this.bootloaderScene.fieldScene = this.scene.get('Field');
             
             //this.scene.boo.fieldScene = this.scene.get('SetBase');

@@ -510,6 +510,13 @@ class Bootloader extends Phaser.Scene {
         stompClient.send("/app/guardar-partida", {}, gameId);
     }
 
+    abandonarPartida(gameId, team) {
+        stompClient.send("/app/abandonar-partida", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugador': team,
+        }));
+    }
+
 }
 
 export default Bootloader;
