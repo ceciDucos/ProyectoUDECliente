@@ -55,14 +55,8 @@ class GameOver extends Phaser.Scene {
         this.scene.restart('Bootloader');
         this.scene.restart('SetBase');
         this.scene.restart('SetTurret');
-        this.scene.restart('Field');       
-        this.scene.start('Field');           
+        this.scene.restart('Field');           
         this.scene.stop('Field');
-        console.log('estado de escena Field: ');
-        console.log(this.scene.isSleeping('Field'));
-        console.log(this.scene.isPaused('Field'));
-        console.log(this.scene.isActive('Field'));
-        console.log(this.scene.isVisible('Field'));
         this.scene.start('Bootloader');        
         this.scene.bringToTop('Bootloader');
     }

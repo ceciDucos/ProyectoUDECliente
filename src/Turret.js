@@ -7,7 +7,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         this.selected = false;
         this.angle = 0;
         this.id = 0;
-        this.setInteractive(); //Para ser seleccionables con el click
+        this.setInteractive();
         this.bullets = scene.physics.add.group({
             classType: Bullet,
             maxSize: 10,
@@ -17,7 +17,6 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
         this.bulletQuantity = 0;
         this.scene.assignTurretKeys(this);        
         scene.physics.add.existing(this);
-        //this.lastFired = 0;
     }
 
     static preload() {
@@ -29,7 +28,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 this.fire(time);
                 this.nextTic = time + 500;
             }
-            if (this.selected) { //Descomentar y continuar los movimientos de las torretas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (this.selected) {
                 if (this.inputKeys.up.isDown && !this.enemiesInBase()) {
                     this.scene.physics.velocityFromAngle(this.angle, 10, this.body.velocity);
                     this.scene.bootloaderScene.moverTorreta(this.scene.gameId, this.scene.team, this.id, 
@@ -38,8 +37,6 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 else {
                     this.setAcceleration(0);
                     this.setVelocity(0);
-                    
-                    //this.scene.physics.velocityFromAngle(this.angle, 0, this.body.velocity);
                 }
                 if (this.inputKeys.left.isDown && !this.enemiesInBase()) {
                     this.setAngularVelocity(-150);
@@ -88,12 +85,11 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
 
     getEnemy(x, y, distance) {
         if (this.team === this.scene.team) { 
-            var enemyUnits = this.scene.enemies; //Cambiar despues por los aviones enemigos
+            var enemyUnits = this.scene.enemies;
         }
         else { 
-            var enemyUnits = this.scene.airplanes; //Cambiar despues por los aviones enemigos
+            var enemyUnits = this.scene.airplanes;
         }
-        //var enemyUnits = enemies.getChildren(); //Hay que ver como se puede conseguir los enemigos aca para arrancar a dispararles!!!!!!!!!!! (hice chanchada poniendo la scene dentro de la turret)
         for (var i = 0; i < enemyUnits.length; i++) {
             if (enemyUnits[i].active && Phaser.Math.Distance.Between(x, y, enemyUnits[i].x, enemyUnits[i].y) <= distance && enemyUnits[i].estado === 1){
                 return enemyUnits[i];
@@ -109,26 +105,15 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
                 let angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y);
 
                 let bullet = this.bullets.get();
-                //console.log(bullet.idBullet);
                 if (bullet) {                       
                     if (bullet.idBullet == '') {
                         bullet.idBullet = this.bulletQuantity;
                     }
                     this.bulletQuantity++;
-                    /*console.log('disparo');
-                    console.log('avion : ' + bullet.planeNumber + ', idBullet: ' + bullet.idBullet); */
                     bullet.turretId = this.id;
                     bullet.estadoAvion = enemy.estado;
                     bullet.fireTurret(this.x, this.y, angle, 1);
-
-                    //this.lastFired = time + 200;
                 }
-
-                /*var bullet = this.bullets.get();
-                if (bullet) {
-                    bullet.fireTurret(this.x, this.y, angle);
-                }*/
-                //this.angle = ((angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG) + 270;
             }
         }
     }
@@ -143,16 +128,7 @@ export default class Turret extends Phaser.Physics.Arcade.Sprite {
     destroyTurret(data) {        
         this.destroyed = data.destruida;
         this.anims.play('artilleriaEplotar', true);
-        /*this.time.addEvent({
-            delay: 1000,
-            loop: false,
-            callback: () => {
-                this.visible = false;
-                this.active = false;;
-            }
-        });*/
         this.on("animationcomplete", ()=>{
-            //this.visible = false;
             this.active = false;
         });
     }

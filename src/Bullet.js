@@ -1,6 +1,5 @@
 export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
-        //super(scene, x, y, 'others', 'bala.png');
         super(scene, x, y, 'bullet');        
         this.lifespan = 0;
         this.speed = 1000;
@@ -13,7 +12,6 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.planeNumber = '';
         this.estadoAvion = '';
         this.turretId = '';
-        //console.log('velocidad' + Phaser.Math.GetSpeed(600, 1));
     }
 
     fire(scene, x, y, angle) {
@@ -24,7 +22,6 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
         this.setAngle(angle);
         this.setPosition(x, y);
-        //this.setVelocityY(-20);
         this.body.reset(x, y);
         scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity);
         this.body.velocity.x *= 10;
@@ -61,21 +58,19 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
         if (!this.enemyBullet && time > this.lastUpdated) {
             if (this.typeOfBullet === 0) {
                 this.scene.bootloaderScene.moverBala(this.scene.gameId, this.scene.team, this.planeNumber, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
-                this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+                this.lastUpdated = time + 30;
             }
             else if (this.typeOfBullet === 1) {
                 this.scene.bootloaderScene.moverBalaTorreta(this.scene.gameId, this.scene.team, this.turretId, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
-                this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+                this.lastUpdated = time + 30;
             }
             else {
                 this.scene.bootloaderScene.moverBalaControlTower(this.scene.gameId, this.scene.team, 0, this.idBullet, this.estadoAvion, this.x, this.y, this.angle, this.visible);
-                this.lastUpdated = time + 30; //cuidado con esto y la condicion del if, hace que se actualice cada 200 ticks en lugar del total de updates
+                this.lastUpdated = time + 30;
             }
         }
         
         if (this.typeOfBullet === 0) {
-            //console.log('update de bala');
-            //console.log(this);
             this.lifespan -= delta;
             
             if (this.lifespan <= 0) {

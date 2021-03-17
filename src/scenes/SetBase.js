@@ -10,10 +10,7 @@ class SetBase extends Phaser.Scene {
         this.turretQuantity = data.turretQuantity;
     }
 
-    preload() {        
-        //this.load.multiatlas('mapa', 'assets/images/maps/mapa.json', 'assets/images/maps');        
-        //this.load.image('base', 'assets/images/bomba-sprite1.png');
-        //this.load.image('baseexample', 'assets/images/baseEquipo1-1sinborde.png');
+    preload() {
     }
 
     create() {
@@ -28,9 +25,6 @@ class SetBase extends Phaser.Scene {
         let i = Math.floor(720 / 30);
         let j = Math.floor(1080 / 40);
         this.mapGrid = new Array(i);
-        /*for (let i = 0; i < this.mapGrid.length; i++) {
-            this.mapGrid[i] = new Array(j).fill(0);
-        }*/
         var graphics = this.add.graphics();
         this.drawGrid1(graphics);
         
@@ -43,9 +37,6 @@ class SetBase extends Phaser.Scene {
         else{
             this.colocarBase =  this.add.image(540, 180, 'menu', 'mensajeColocarBase/colocarBase-1.png');
         }
-        
-        
-        //this.input.on('pointerdown', (pointer) => {console.log('x: ' + pointer.x + ', y: ' + pointer.y)});
 
     }
 
@@ -54,7 +45,6 @@ class SetBase extends Phaser.Scene {
 
     pasarEscena(data) {
         if (data[0].nombrePartida === this.gameId) {
-            //this.bootloaderScene = this.scene.get('Bootloader');
             let i = this.enemyTeam - 1;      
             this.enemyBaseX = data[i].baseEjeX;
             this.enemyBaseY = data[i].baseEjeY;
@@ -64,8 +54,6 @@ class SetBase extends Phaser.Scene {
             this.enemyFuelY = data[i].tanqueCombustibleEjeY;
             this.enemyHangarX = data[i].hangarEjeX;
             this.enemyHangarY = data[i]. hangarEjeY;
-            /*this.scene.start('SetTurrets', { team: this.data.team, gameId: this.data.gameId, enemyTeam: this.data.enemyTeam, 
-                teamBaseX: this.data.teamBaseX, teamBaseY: this.data.teamBaseY, enemyBaseX: this.data.enemyBaseX, enemyBaseY: this.data.enemyBaseY, mapGrid: this.mapGrid});*/
             this.scene.start('SetTurrets', { gameId: this.gameId, team: this.team, enemyTeam: this.enemyTeam, turretQuantity: this.turretQuantity, 
                 teamBaseX: this.teamBaseX, teamBaseY: this.teamBaseY, mapGrid: this.mapGrid, teamControlTowerX: this.teamControlTowerX, 
                 teamControlTowerY: this.teamControlTowerY, teamFuelX: this.teamFuelX, teamFuelY: this.teamFuelY, teamHangarX: this.teamHangarX, 
@@ -73,14 +61,11 @@ class SetBase extends Phaser.Scene {
                 enemyControlTowerY: this.enemyControlTowerY, enemyFuelX: this.enemyFuelX, enemyFuelY: this.enemyFuelY, enemyHangarX: this.enemyHangarX,
                 enemyHangarY: this.enemyHangarY});
             this.bootloaderScene.setTurretsScene = this.scene.get('SetTurrets');
-            //console.log(this.data);
-            //this.bootloaderScene.fieldScene = this.scene.get('Field');
-            //this.scene.boo.fieldScene = this.scene.get('SetBase');
         }
     }
 
     drawGrid1(graphics) {
-        graphics.lineStyle(1, 0x004200, 0.8); //0x0000ff
+        graphics.lineStyle(1, 0x004200, 0.8);
         if (this.team === 1) {
             for (let i = 0; i < 13; i++) {
                 graphics.moveTo(0, i * 30);
@@ -119,14 +104,12 @@ class SetBase extends Phaser.Scene {
         }
     }
 
-    placeBase(pointer) { //revisar si poniendo varias veces el mapa no se llena de 1s el mapGrid y limita la colocacion de torretas
+    placeBase(pointer) {
         let i = Math.floor(pointer.y / 30);
         let j = Math.floor(pointer.x / 40);
-        //this.mapGrid = new Array(i);
         for (let i = 0; i < this.mapGrid.length; i++) {
             this.mapGrid[i] = new Array(j).fill(0);
         }
-        //let canPlace = (this.mapGrid[i][j] === 0);
         if (this.canPlace(i, j)) { 
             this.teamBaseX = j * 40 + 40 / 2;
             this.teamBaseY = i * 30 + 30 / 2; 
@@ -156,7 +139,6 @@ class SetBase extends Phaser.Scene {
             if (this.base !== undefined) {
                 this.base.destroy();
             }
-            //this.base = this.add.sprite(this.['teamBaseX'],  this.['teamBaseY'], 'baseexample');
             if (this.team === 2) {
                 this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo2/baseEquipo2.png');
             }
@@ -164,24 +146,9 @@ class SetBase extends Phaser.Scene {
                 this.base = this.add.sprite(this.teamBaseX,  this.teamBaseY, 'base', 'equipo1/baseEquipo1.png');
             }
             
-            
-            /*if (this.team === 2) {
-                this.base.setAngle(180);
-            }*/
-
-
             this.bootloaderScene.colocarBase(this.gameId, this.team, this.teamBaseX, this.teamBaseY, 
                 this.teamControlTowerX, this.teamControlTowerY, this.teamFuelX, this.teamFuelY, 
                 this.teamHangarX, this.teamHangarY);
-
-
-            //this.pasarEscena(); //moverlo a la escucha del websocket
-            
-            /*this.base = this.add.image(this.data['teamBaseX'], this.data['teamBaseY'], 'base');
-            this.base.setScale(2);
-            console.log(this.mapGrid);
-            this.bomb.setActive(true);
-            this.bomb.setVisible(true);*/
         }
     }
 

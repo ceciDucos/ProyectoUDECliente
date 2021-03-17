@@ -17,7 +17,6 @@ export default class HealthBar {
 
     decrease (amount)
     {
-        //this.value -= amount;
         this.value = amount;
         if (this.value < 0)
         {
