@@ -19,6 +19,8 @@ class Bootloader extends Phaser.Scene {
         this.stompClient = null;
         this.gameStarted = false;
         
+        this.input.keyboard.enabled = false;
+        
         
         
 
@@ -53,7 +55,7 @@ class Bootloader extends Phaser.Scene {
 
         this.musica = this.sound.add('musicaPrincipal');
         //this.musica.play();
-    
+        //this.input.keyboard.enableGlobalCapture();
         this.element = this.add.dom(640, 720).createFromCache('nameform');
         this.help = this.add.sprite(1230, 689, 'menu', 'botonAyuda-1.png');
         this.hojaAyuda = this.add.image(640, 460, 'menu', 'papelAyuda-1.png');
@@ -122,8 +124,8 @@ class Bootloader extends Phaser.Scene {
                 var gameIdInput = this.getChildByName('gameIdField');
 
                 //  Have they entered anything?
-                if (playerNameInput.value !== '')
-                {
+                if (playerNameInput.value !== '')                {
+
                     this.scene.mensajeError.setText('');
                     this.scene.gameId = gameIdInput.value;
                     this.scene.playerName = playerNameInput.value;
@@ -136,7 +138,12 @@ class Bootloader extends Phaser.Scene {
                     this.scene.help.setVisible(false);
 
                     this.scene.musica.stop();
-                    this.scene.unirseAPartida();
+                    if (gameIdInput.value !== '') {
+                        this.scene.unirseAPartidaGuardada();
+                    }
+                    else {
+                        this.scene.unirseAPartida();
+                    }
                 }
                 else
                 {
@@ -237,6 +244,48 @@ class Bootloader extends Phaser.Scene {
         this.setBaseScene = this.scene.get('SetBase');
     }
 
+    pasarEscenaPartidaCargada(creoUnio, jugadorCreo, jugadorUno, jugadorDos) {
+        if (creoUnio === jugadorCreo) {
+            this.team === 1;
+            this.enemyTeam === 2;
+        }
+        else {
+            this.team === 2;
+            this.enemyTeam === 1;
+        }
+        this.jugador1teamBaseX = jugador1.baseJugador.baseEjeX;
+        this.jugador1teamBaseY = jugador2.baseJugador.baseEjeY;
+        this.jugador1teamControlTowerX = jugador1.baseJugador.torretaEjeX;
+        this.jugador1teamControlTowerY = jugador1.baseJugador.torretaEjeY;
+        this.jugador1teamFuelX = jugador1.baseJugador.tanqueCombustibleEjeX;
+        this.jugador1teamFuelY = jugador1.baseJugador.tanqueCombustibleEjeY;
+        this.jugador1teamHangarX = jugador1.baseJugador.hangarEjeX;
+        this.jugador1teamHangarY = jugador1.baseJugador.hangarEjeY;
+        this.jugador1enemyBaseX = 
+        this.jugador1enemyBaseY = 
+        this.jugador1enemyControlTowerX = 
+        this.jugador1enemyControlTowerY = 
+        this.jugador1enemyFuelX = 
+        this.jugador1enemyFuelY = 
+        this.jugador1enemyHangarX = 
+        this.jugador1enemyHangarY = 
+        this.jugador1teamTurrets = 
+        this.jugador1enemyTurrets = 
+
+        if (this.team === 1) {
+            this.scene.start('Field', { gameId: data.nombrePartida, team: this.team, enemyTeam: this.enemyTeam, teamBaseX: data.teamBaseX, teamBaseY: data.teamBaseY,
+                mapGrid: data.mapGrid, teamControlTowerX: data.teamControlTowerX, teamControlTowerY: data.teamControlTowerY, teamFuelX: data.teamFuelX,
+                teamFuelY: data.teamFuelY, teamHangarX: data.teamHangarX, teamHangarY: data.teamHangarY, enemyBaseX: data.enemyBaseX, enemyBaseY: data.enemyBaseY,
+                enemyControlTowerX: data.enemyControlTowerX, enemyControlTowerY: data.enemyControlTowerY, enemyFuelX: data.enemyFuelX, enemyFuelY: data.enemyFuelY,
+                enemyHangarX: data.enemyHangarX, enemyHangarY: data.enemyHangarY, teamTurrets: data.teamTurrets, enemyTurrets: data.enemyTurrets,
+                turretQuantity: this.maxArtilleria, savedGame: 1});
+        }
+        else {
+
+        }
+        
+    }
+
     crearPartidaEnEspera() {
         //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
         var socket = new SockJS('http://bombs-away.servegame.com:8091/bombs-away');
@@ -334,6 +383,111 @@ class Bootloader extends Phaser.Scene {
         this.team = 2;
         //this.gameId = 'PartidaPrueba';
         this.enemyTeam = 1;
+        /*this.teamBaseX = 540;
+        this.teamBaseY = 670;
+        this.enemyBaseX = 540;
+        this.enemyBaseY = 50;*/
+    }
+
+    cargarPartidaGuardada() {
+        //establezco la conexion y especifico la funcion a ejecutar una vez finalizada la conexion
+        var socket = new SockJS('http://bombs-away.servegame.com:8091/bombs-away');
+        var self = this;
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            //me subscribo al canal de datos
+            stompClient.subscribe('/topic/recuperar-partida', function (greeting) {
+                var data = JSON.parse(greeting["body"]);
+                if (data.accion === 'Bootloader' && data.nombrePartida === self.gameId && data.unirsePartida === true && data.error === false) {
+                    self.turretQuantity = data.maxArtilleria;
+                    self.waitingForOtherPlayer.setVisible(false);
+                    self.pasarEscenaPartidaCargada(1, data.jugadorCreo, jugadorUno, JugadorDos);
+                }
+                else if (data.error === true) {
+                    data.errorMensaje
+
+                }
+            });
+            //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.destroyBaseElement(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/destruir-artilleria', (greeting) => self.fieldScene.destroyTurret(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-torre', (greeting) => self.fieldScene.updateControlTowerBullet(JSON.parse(greeting["body"])));
+            //solicito la creacion de una nueva partida
+            stompClient.send("/app/cargar-partida", {}, JSON.stringify({
+                'nombrePartida': self.gameId,
+                'nombreJugador': self.playerName,
+            }));
+        });
+        //this.team = 1;
+        //this.gameId = 'PartidaPrueba';
+        //this.enemyTeam = 2;
+        this.gameStarted = true;
+        //this.teamBaseX = 540;
+        //this.teamBaseY = 50;
+        //this.enemyBaseX = 540;
+        //this.enemyBaseY = 670;
+    }
+
+    unirseAPartidaGuardada() {
+        var socket = new SockJS('http://bombs-away.servegame.com:8091/bombs-away');
+        var self = this;
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            //me subscribo al canal de datos
+            stompClient.subscribe('/topic/recuperar-partida', function (greeting) {
+                var data = JSON.parse(greeting["body"]);
+
+                if (data.accion === 'Bootloader' && data.nombrePartida === self.gameId && data.unirsePartida === true && data.error === false) {
+                    if (!self.gameStarted) {
+                        self.turretQuantity = data.maxArtilleria;
+                        self.waitingForOtherPlayer.setVisible(false);
+                        self.pasarEscenaPartidaCargada(2, data.jugadorCreo, jugadorUno, JugadorDos);
+                    }
+                }
+                else if (data.error === true) {
+                    //data.errorMensaje
+                    self.element.setVisible(true);
+                    self.help.setVisible(true);
+                    self.showOptions();
+
+                }
+            });
+            //stompClient.subscribe('/topic/mover-avion', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/aviones-enemigos', (greeting) => self.fieldScene.moveEnemyAirplane(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estallar-aviones', (greeting) => self.fieldScene.blowUpAirplanes(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala', (greeting) => self.fieldScene.updateBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/bajar-vida-avion', (greeting) => self.fieldScene.updateAirplaneLife(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-bases', (greeting) => self.setBaseScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/estado-elementos-base', (greeting) => self.fieldScene.destroyBaseElement(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/actualizar-artilleria', (greeting) => self.setTurretsScene.pasarEscena(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/destruir-artilleria', (greeting) => self.fieldScene.destroyTurret(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/resultado-partida', (greeting) => self.fieldScene.endGame(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/artilleria-movida', (greeting) => self.fieldScene.moveTurret(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/elementos-visibles', (greeting) => self.fieldScene.visibleEnemyElements(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/combustible-avion', (greeting) => self.fieldScene.manageFuel(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-artilleria', (greeting) => self.fieldScene.updateTurretBullet(JSON.parse(greeting["body"])));
+            stompClient.subscribe('/topic/posicion-bala-torre', (greeting) => self.fieldScene.updateControlTowerBullet(JSON.parse(greeting["body"])));
+            
+            //solicito unirme a una partida
+            stompClient.send("/app/unirse-partida-guardada", {}, JSON.stringify({
+                'nombrePartida': self.gameId,
+                'nombreJugador': self.playerName,
+            }));
+        });
+        //this.team = 2;
+        //this.gameId = 'PartidaPrueba';
+        //this.enemyTeam = 1;
         /*this.teamBaseX = 540;
         this.teamBaseY = 670;
         this.enemyBaseX = 540;
@@ -506,14 +660,17 @@ class Bootloader extends Phaser.Scene {
         }));
     }
 
-    guardarPartida(gameId) {
-        stompClient.send("/app/guardar-partida", {}, gameId);
+    guardarPartida(gameId, team) {
+        stompClient.send("/app/guardar-partida", {}, JSON.stringify({
+            'nombrePartida': gameId,
+            'idJugadorGuarda': team,
+        }));
     }
 
     abandonarPartida(gameId, team) {
         stompClient.send("/app/abandonar-partida", {}, JSON.stringify({
             'nombrePartida': gameId,
-            'idJugador': team,
+            'idJugadorAbandona': team,
         }));
     }
 

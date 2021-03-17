@@ -697,12 +697,12 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
         if (this.estado > data.estado) {
             this.setScale(0.2);       
             this.setDepth(2);
-            //this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
+            this.scene.physics.velocityFromAngle(this.angle, 40, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }
         else if(this.estado !== 0 && this.estado < data.estado) {
             this.setScale(0.3);
             this.setDepth(3);
-            //this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
+            this.scene.physics.velocityFromAngle(this.angle, 20, this.body.velocity); //solo para prueba de estabilidad en caso de perdida de paquetes
         }   
         this.estado = data.estado;
         this.life = data.vida;

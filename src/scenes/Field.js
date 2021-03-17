@@ -34,7 +34,10 @@ class Field extends Phaser.Scene {
         this.enemyTurretsInfo = data.enemyTurrets;
         
         
-        
+        this.savedGame = data.savedGame;
+        if (this.savedGame === 1) {
+            //Cargar datos de partida guardada
+        }
         
         
         
@@ -217,6 +220,7 @@ class Field extends Phaser.Scene {
                 this.abandonarSi.setVisible(false);
                 this.abandonarNo.setVisible(false);
                 this.menuAbandonarAbierto = false; 
+                this.bootloaderScene.abandonarPartida(this.gameId, this.team);
                 //
                 //      AGREGAR CÓDIGO PARA ABANDONAR PARTIDA  
                 //      ¿explotar los 4 aviones del que se va?
@@ -230,7 +234,6 @@ class Field extends Phaser.Scene {
                 this.abandonarSi.setVisible(false);
                 this.abandonarNo.setVisible(false);
                 this.menuAbandonarAbierto = false;
-                this.bootloaderScene.abandonarPartida(this.gameId, this.team);
             }
             });
         
@@ -243,11 +246,12 @@ class Field extends Phaser.Scene {
             {
                 this.menuAbandonarAbierto = true;
                 this.mensajeGuardar.setVisible(true);
-                //
-                this.saveGameInServer();
+                //                
+                console.log('manda guardar la partida');
+                this.bootloaderScene.guardarPartida(this.gameId, this.team);
                 //
                 this.time.addEvent({
-                    delay: 2000,
+                    delay: 1500,
                     loop: false,
                     callback: () => {
                         this.mensajeGuardar.setVisible(false);
@@ -285,6 +289,10 @@ class Field extends Phaser.Scene {
                 this.gameStartedImage.setVisible(false);
             }
         });
+
+        if (this.savedGame === 1) {
+            this.loadSavedData();
+        }
         this.gameReady = true;
 
     }
@@ -722,16 +730,6 @@ class Field extends Phaser.Scene {
     endGame(data) {
         //this.cursors.destroy();        
         if (data.nombrePartida === this.gameId) {
-            /*for (let i = 0; i < this.airplanesQuantity; i++) {
-                this.airplanes[i].inputKeys.ascend.destroy();
-                this.airplanes[i].inputKeys.descend.destroy();
-                this.airplanes[i].inputKeys.down.destroy();
-                this.airplanes[i].inputKeys.dropBomb.destroy();
-                this.airplanes[i].inputKeys.fire.destroy();
-                this.airplanes[i].inputKeys.left.destroy();
-                this.airplanes[i].inputKeys.right.destroy();
-                this.airplanes[i].inputKeys.up.destroy();
-            }*/
             this.registry.destroy();
             this.events.off();
             this.physics.pause();  
@@ -868,8 +866,32 @@ class Field extends Phaser.Scene {
         }
     }
 
-    saveGameInServer() {
-        this.bootloaderScene.guardarPartida(this.gameId);
+    loadSavedData () {
+        this.teamHangarDestroyed = this.
+        this.teamFuelDestroyed = this.
+        this.teamControlTowerDestroyed = this.
+        this.enemyHangarDestroyed = this.
+        this.enemyFuelDestroyed = this.
+        this.enemyControlTowerDestroyed = this.
+        this.teamControlTower.destroyed = this.
+        this.enemyControlTower.destroyed = this.
+        let turretsChildren = this.scene.teamTurrets.getChildren();
+        let turretsChildren2 = this.scene.enemyTurrets.getChildren();
+        for (let i = 0; i < turretsChildren.length; i++) {
+            turretsChildren[i].x =
+            turretsChildren[i].y = 
+            turretsChildren[i].angle =
+            turretsChildren[i].id =
+            turretsChildren[i].destroyed =
+            turretsChildren2[i].x =
+            turretsChildren2[i].y = 
+            turretsChildren2[i].angle =
+            turretsChildren2[i].id =
+            turretsChildren2[i].destroyed =
+
+            turretsChildren2[i]
+        }
+
     }
 }
 
