@@ -306,12 +306,15 @@ export default class Airplane extends Phaser.Physics.Arcade.Sprite {
                                         this.scene.lateral.anims.currentAnim.key !== this.prefix + 'LateralAterrizar' && 
                                         this.scene.lateral.anims.currentAnim.key !==this.prefix + 'LateralAterrizarConPocaVida')
                                             this.scene.subLateral.anims.play('sobrevuelaBaseBajo', true);
+
+                                            
                                             overItem = true;
                                             baseTime = 1500;
                             }
                             if (this.x < this.scene.enemyBaseX + 70 && this.x > this.scene.enemyBaseX - 70 && this.y < this.scene.enemyBaseY + 60 && 
                                 this.y > this.scene.enemyBaseY - 60 && !overItem) {
                                     this.scene.subLateral.anims.play('sobrevuelaBaseBajo', true);
+
                                     overItem = true;
                                     baseTime = 1500;
                             }
