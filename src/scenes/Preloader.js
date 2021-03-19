@@ -24,7 +24,6 @@ export default class Preloader extends Phaser.Scene
         this.load.image('bullet', 'assets/images/bala.png'); 
         this.load.multiatlas('others', 'assets/images/others/others.json', 'assets/images/others');
         this.load.html('nameform', 'assets/images/text/nameform.html');
-        //this.load.css('textStyle', 'assets/images/text/80stypography.css');
         
         this.load.multiatlas('menu', 'assets/images/menu/menu.json', 'assets/images/menu');
         this.load.image('fondoPrincipal', 'assets/images/menu/fondo-menu.png');
@@ -2433,8 +2432,5 @@ this.anims.create({ key: 'sobrevuelaBaseAlto', frames: this.frameNames, frameRat
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         this.scene.start('Bootloader');
-        /*this.loading.once('pointerdown', () => {
-            this.scene.start('Bootloader');
-        });*/
     }
 }
